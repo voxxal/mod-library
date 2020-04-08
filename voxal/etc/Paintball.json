@@ -1,0 +1,144 @@
+{
+	"Mod": {
+		"name": "Paintball",
+		"author": "Thunder",
+		"description": "The ultmate aim practice",
+		"titleLeft": "Paintball",
+		"titleRight": "By: Thunder"
+	},
+	"Matchmaking": {
+		"TeamGameProbability": 0
+	},
+	"World": {
+		"LavaDamagePerSecond": 1000000000,
+		"BotName": "MachineLord"
+	},
+	"ObstacleTemplates": {
+		"default": {
+			"health": 1000000
+		},
+		"bumper": {
+			"health": 100000
+		},
+		"volcano": {
+			"buffs": [
+				{
+					"type": "burn",
+					"maxTicks": 15,
+					"collideWith": 65535,
+					"packet": {
+						"damage": 100,
+						"lifeSteal": 0,
+						"noKnockback": true,
+						"noHit": true,
+						"isLava": true
+					},
+					"hitInterval": 5,
+					"stack": "volcano",
+					"maxStacks": 1,
+					"render": {
+						"color": "#ff0088",
+						"alpha": 0.3,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.005,
+						"shine": 0.2,
+						"glow": 0.2
+					}
+				}
+			]
+		}
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "a",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			},
+			null,
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			null,
+			{
+				"btn": "f",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			}
+		],
+		"Options": {
+			"a": [
+				[
+					"thrust"
+				],
+				[
+					"teleport"
+				],
+				[
+					"voidRush"
+				]
+			],
+			"q": [
+				[
+					"fireball"
+				]
+			],
+			"w": [
+				[
+					"fireball"
+				]
+			],
+			"e": {
+				"$delete": true
+			},
+			"r": [
+				[
+					"fireball"
+				]
+			],
+			"f": [
+				[
+					"scourge"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"fireball": {
+			"cooldown": 150,
+			"projectile": {
+				"damage": 100,
+				"lifeSteal": 1,
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.1
+					},
+					{
+						"type": "projectile",
+						"ticks": 5,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"ticks": 5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 20
+					}
+				]
+			}
+		},
+		"scourge": {
+			"detonate": {
+				"damage": 100
+			}
+		}
+	}
+}

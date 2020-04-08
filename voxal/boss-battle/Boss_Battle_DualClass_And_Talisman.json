@@ -1,0 +1,2024 @@
+{
+	"Mod": {
+		"name": "Boss Battle [DualClass And Talisman]",
+		"author": "Thunder",
+		"description": "Mon, 28 Oct 2019 22:36:17 GMT",
+		"titleLeft": "Boss",
+		"titleRight": "Battle"
+	},
+	"Matchmaking": {
+		"MaxBots": 1,
+		"MaxPlayers": 4
+	},
+	"World": {
+		"SecondsToShrink": 9999,
+		"BotName": "V O I D"
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "a",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			},
+			{
+				"btn": "k",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			},
+			null,
+			{
+				"btn": "q",
+				"barSize": 0.75,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "e",
+				"barSize": 0.75,
+				"wheelSize": 0.75
+			},
+			null
+		],
+		"Options": {
+			"a": [
+				[
+					"dual-gun-rouge",
+					"dual-rouge-night",
+					"dual-gun-night"
+				],
+				[
+					"boss",
+					"boss2",
+					"boss3"
+				],
+				[
+					"rouge",
+					"rouge2"
+				],
+				[
+					"knight"
+				],
+				[
+					"gunslinger"
+				]
+			],
+			"q": [
+				[
+					"bossball"
+				],
+				[
+					"throwdag",
+					"boomerang",
+					"3ag"
+				],
+				[
+					"sword",
+					"mace"
+				],
+				[
+					"revolver",
+					"fan"
+				]
+			],
+			"w": [
+				[
+					"gravity",
+					"8ball"
+				],
+				[
+					"thrust"
+				],
+				[
+					"sight"
+				],
+				[
+					"icewall",
+					"harmor"
+				],
+				[
+					"grenade",
+					"link"
+				]
+			],
+			"e": [
+				[
+					"nothing"
+				],
+				[
+					"health"
+				],
+				[
+					"speed"
+				]
+			],
+			"r": {
+				"$delete": true
+			},
+			"f": {
+				"$delete": true
+			},
+			"k": [
+				[
+					"talno"
+				],
+				[
+					"talspeed"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"meteorite": {
+			"$delete": true
+		},
+		"gravity": {
+			"name": "Black Hole",
+			"description": "Place a black hole near you that will drag the others into it",
+			"color": "#000",
+			"projectile": {
+				"radius": 0.2,
+				"speed": 9,
+				"gravity": {
+					"impulsePerTick": 0.000003,
+					"radius": 999,
+					"power": 999,
+					"render": {
+						"color": "#000",
+						"radius": 0.1,
+						"numParticles": 18
+					}
+				},
+				"buffs": {
+					"$delete": true
+				},
+				"color": "#000",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#000",
+						"radius": 0.1,
+						"ticks": 2,
+						"loopTicks": 20,
+						"numParticles": 18,
+						"particleRadius": 0.006666666666666667,
+						"glow": 0.2,
+						"shine": 0.4,
+						"vanish": 0.5,
+						"bloom": 0.04
+					}
+				]
+			}
+		},
+		"link": {
+			"description": "Lasso em",
+			"effects": [
+				{
+					"icon": "fas fa-hat-cowboy-side",
+					"title": "Gunslinger",
+					"text": "Part of the Gunslinger"
+				}
+			],
+			"color": "#800",
+			"icon": "lasso",
+			"projectile": {
+				"link": {
+					"render": {
+						"color": "#800"
+					}
+				},
+				"color": "#d00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "polygon",
+						"color": "#800",
+						"numPoints": 50,
+						"radiusMultiplier": 3.5,
+						"revolutionInterval": 23,
+						"ticks": 1
+					},
+					{
+						"type": "link",
+						"color": "#800",
+						"width": 0.0025,
+						"toWidth": 0.005,
+						"glow": 0.2,
+						"shine": 0.25
+					}
+				]
+			},
+			"name": "Lasso"
+		},
+		"boomerang": {
+			"name": "Dagger",
+			"description": "Hit them with a close range shot",
+			"color": "#690",
+			"icon": "dag",
+			"cooldown": 45,
+			"projectile": {
+				"maxTicks": 10,
+				"damage": 100,
+				"lifeSteal": 0,
+				"partialDamage": {
+					"$delete": true
+				},
+				"behaviours": [
+					{
+						"type": "strafe",
+						"maxSpeed": 0.12
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.3,
+						"minDistanceToTarget": 0.02,
+						"targetType": "self"
+					}
+				],
+				"color": "#ccc",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"ownerColor": true,
+						"radius": 0.02
+					},
+					{
+						"type": "ray",
+						"fade": "#000000",
+						"ticks": 5,
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"flash": true,
+						"numParticles": 3
+					}
+				],
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "thrust",
+						"maxCooldown": 0,
+						"sound": "repeater",
+						"color": "#ccc"
+					}
+				]
+			},
+			"effects": [
+				{
+					"icon": "fas fa-user-ninja",
+					"title": "Rouge",
+					"text": "Part of the Rouge set"
+				}
+			]
+		},
+		"icewall": {
+			"name": "portable Shild",
+			"maxRange": 0.06,
+			"maxTicks": 300,
+			"length": 0.01,
+			"bumpable": true,
+			"glow": 0,
+			"effects": [
+				{
+					"icon": "fas fa-helmet-battle",
+					"title": "Knight",
+					"text": "Part of the Knight Set"
+				}
+			]
+		},
+		"halo": {
+			"name": "Dagger",
+			"effects": [
+				{
+					"icon": "fas fa-hand-paper",
+					"title": "Interruptible",
+					"text": "The halos and speed boost will be cancelled if you are hit, or if you cast another spell."
+				}
+			],
+			"cooldown": 45,
+			"buffs": {
+				"$delete": true
+			},
+			"projectile": {
+				"radius": 0.003,
+				"speed": 0.8,
+				"maxTicks": 15,
+				"damage": 18,
+				"lifeSteal": 0,
+				"behaviours": [
+					{
+						"type": "strafe",
+						"maxSpeed": 1
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.2,
+						"minDistanceToTarget": 0.02,
+						"targetType": "self"
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"ownerColor": true,
+						"radius": 0.02
+					},
+					{
+						"type": "ray",
+						"fade": "#000000",
+						"ticks": 15,
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"flash": true,
+						"numParticles": 3
+					}
+				]
+			}
+		},
+		"thrust": {
+			"name": "Roll",
+			"effects": [
+				{
+					"icon": "fad fa-yin-yang",
+					"title": "DualClass",
+					"text": "Part of Rouge AND Gunslinger"
+				}
+			],
+			"range": 0.05,
+			"cooldown": 240,
+			"color": "#690",
+			"buffs": [
+				{
+					"type": "mass",
+					"radius": 0.01,
+					"density": 1,
+					"maxTicks": 16,
+					"appendCollideWith": 16
+				}
+			]
+		},
+		"8ball": {
+			"id": "8ball",
+			"name": "8 balls",
+			"description": "Fate desides their game",
+			"action": "spray",
+			"color": "#000000",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"throttle": true,
+			"projectile": {
+				"density": 100,
+				"ccd": true,
+				"attractable": false,
+				"swappable": true,
+				"linkable": true,
+				"radius": 0.015,
+				"speed": 0.3,
+				"restitution": 0,
+				"minTicks": 1,
+				"maxTicks": 120,
+				"hitInterval": 120,
+				"collideWith": 65535,
+				"damage": 30,
+				"shieldTakesOwnership": false,
+				"categories": 6,
+				"expireOn": 0,
+				"sound": "meteorite",
+				"color": "#888",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"shine": 0,
+						"smoke": 0.5,
+						"fade": "#333"
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			},
+			"numProjectilesPerTick": 3,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.5
+		},
+		"rouge": {
+			"id": "rouge",
+			"name": "Rouge",
+			"description": "Choose the Rouge Class : Quick, small, but takes more damage",
+			"effects": [
+				{
+					"icon": "fas fa-running",
+					"title": "Fast",
+					"text": "Increase movement speed by 10%."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.2
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.3
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgb(0,255,0,0.75)",
+						"ticks": 10,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				},
+				{
+					"type": "mass",
+					"radius": 0.01,
+					"density": 1,
+					"passive": true,
+					"appendCollideWith": 16
+				}
+			],
+			"icon": "rouge",
+			"color": "#690",
+			"action": "buff"
+		},
+		"boss": {
+			"id": "boss",
+			"name": "Mighty Boss",
+			"description": "Become the Boss",
+			"effects": [
+				{
+					"icon": "fas fa-helmet-battle",
+					"title": "Knight",
+					"text": "Part of the Knight Set"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.7
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 0.8
+				},
+				{
+					"type": "mass",
+					"radius": 0.015,
+					"density": 1,
+					"passive": true,
+					"appendCollideWith": 16
+				},
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.15
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "#000000",
+						"ticks": 1,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.015,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "boss",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"throwdag": {
+			"id": "throwdag",
+			"name": "Throwing Dagger",
+			"description": "Throw a dagger at enemies",
+			"effects": [
+				{
+					"icon": "fas fa-user-ninja",
+					"title": "Rouge",
+					"text": "Part of the Rouge set"
+				}
+			],
+			"action": "projectile",
+			"color": "#690",
+			"icon": "fdag",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 60,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"radius": 0.003,
+				"speed": 0.9,
+				"maxTicks": 90,
+				"damage": 18,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#ccc",
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "thrust",
+						"maxCooldown": 0,
+						"sound": "repeater",
+						"color": "#ccc"
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "ray",
+						"fade": "#000000",
+						"ticks": 15,
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"flash": true,
+						"numParticles": 3
+					}
+				]
+			}
+		},
+		"health": {
+			"id": "health",
+			"name": "health Potion",
+			"description": "Heal yourself for health",
+			"action": "projectile",
+			"color": "#ff3333",
+			"icon": "hpot",
+			"cooldown": 1200,
+			"interruptibleAfterTicks": 0,
+			"throttle": true,
+			"chargeTicks": 120,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 1,
+				"radius": 0.001,
+				"speed": 2,
+				"maxTicks": 210,
+				"damage": 1,
+				"lifeSteal": 100,
+				"collideWith": 1,
+				"expireOn": 1,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 9
+					}
+				],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "rgb(0,0,0,0)",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"smoke": 0.05,
+						"vanish": 0.75
+					},
+					{
+						"type": "ray",
+						"ticks": 1,
+						"vanish": 0.75
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 1,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"speed": {
+			"id": "speed",
+			"name": "Speed Potion",
+			"description": "Drink a speed potion",
+			"untargeted": true,
+			"maxAngleDiffInRevs": 1,
+			"chargeTicks": 60,
+			"cooldown": 1050,
+			"throttle": false,
+			"debuff": true,
+			"buffs": [
+				{
+					"type": "movement",
+					"movementProportion": 1.7,
+					"maxTicks": 300
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"maxTicks": 300,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "#00ff00",
+						"ticks": 60,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				}
+			],
+			"icon": "spot",
+			"color": "#33cc33",
+			"action": "buff"
+		},
+		"bossball": {
+			"id": "bossball",
+			"name": "Helix Launcher",
+			"description": "A strong projectile for a strong boss",
+			"action": "projectile",
+			"color": "#000",
+			"icon": "dna1",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"radius": 0.003,
+				"speed": 0.6,
+				"maxTicks": 90,
+				"damage": 15,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#000",
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.025
+					}
+				],
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#999",
+						"ticks": 30,
+						"radius": 0.01,
+						"particleRadius": 0.005,
+						"smoke": 0.05,
+						"numParticles": 2,
+						"vanish": 1,
+						"loopTicks": 15,
+						"glow": 0.05
+					},
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"nothing": {
+			"id": "nothing",
+			"name": "Boss's escape",
+			"description": "Teleport to a nearby location. Get close, or get away.",
+			"effects": [
+				{
+					"icon": "fas fa-heartbeat",
+					"title": "Weak",
+					"text": "For 0.25 seconds after teleporting, you will only deal 25% damage and cannot deal fatal damage."
+				},
+				{
+					"icon": "fas fa-briefcase-medical",
+					"title": "Cleanse",
+					"text": "Clears all positive and negative effects."
+				}
+			],
+			"range": 9,
+			"maxAngleDiffInRevs": 1,
+			"cooldown": 180,
+			"throttle": false,
+			"debuff": true,
+			"chargeTicks": 0,
+			"movementProportionWhileCharging": 1,
+			"icon": "teleport",
+			"color": "#6666ff",
+			"action": "teleport",
+			"sound": "teleport"
+		},
+		"knight": {
+			"id": "knight",
+			"name": "knight's armor",
+			"description": "Passive ability. Disrupt incoming attacks, reducing their effectiveness.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 0.95
+				}
+			],
+			"icon": "night",
+			"color": "#ddd",
+			"action": "buff"
+		},
+		"rouge2": {
+			"id": "rouge2",
+			"name": "hardcore Rouge",
+			"description": "Choose the Hardcore Rouge Class : Quicker, smaller, but takes much more damage",
+			"effects": [
+				{
+					"icon": "fas fa-running",
+					"title": "Fast",
+					"text": "Increase movement speed by 10%."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.4
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.5
+				},
+				{
+					"type": "mass",
+					"radius": 0.01,
+					"density": 1,
+					"passive": true,
+					"appendCollideWith": 16
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgb(0,150,0,0.75)",
+						"ticks": 10,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "rouge2",
+			"color": "#690",
+			"action": "buff"
+		},
+		"sword": {
+			"id": "sword",
+			"name": "Sword In the stone",
+			"description": "For 1 second, swing your lightsaber to deflect projectiles and knockback enemies!",
+			"effects": [
+				{
+					"icon": "fas fa-helmet-battle",
+					"title": "Knight",
+					"text": "Part of the Knight Set"
+				}
+			],
+			"untargeted": true,
+			"unlink": true,
+			"takesOwnership": true,
+			"blocksTeleporters": false,
+			"shiftMultiplier": 0,
+			"speedMultiplier": 0,
+			"maxSpeed": 0.75,
+			"maxTurnRatePerTickInRevs": 0.1,
+			"damageMultiplier": 0.25,
+			"angleOffsetsInRevs": [
+				0
+			],
+			"width": 0.003,
+			"length": 0.075,
+			"movementProportionWhileChannelling": 1,
+			"interruptibleAfterTicks": 20,
+			"cooldown": 180,
+			"throttle": false,
+			"icon": "sword",
+			"maxTicks": 60,
+			"channelling": true,
+			"categories": 16,
+			"collidesWith": 3,
+			"damageTemplate": {
+				"damage": 20
+			},
+			"hitBuffs": [
+				{
+					"type": "delink"
+				}
+			],
+			"trailTicks": 2,
+			"color": "#ccc",
+			"shine": 0.1,
+			"glow": 0.2,
+			"bloom": 0.03,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"bloom": 0.03
+			},
+			"sound": "saber",
+			"action": "saber"
+		},
+		"sight": {
+			"id": "sight",
+			"name": "Flash Bomb",
+			"description": "Vanish from sight for 2.5 seconds, and also increase movement speed 70%.",
+			"effects": [
+				{
+					"icon": "fas fa-user-ninja",
+					"title": "Rouge",
+					"text": "Part of the Rouge set"
+				}
+			],
+			"untargeted": true,
+			"maxAngleDiffInRevs": 1,
+			"cooldown": 600,
+			"throttle": false,
+			"unlink": true,
+			"debuff": true,
+			"movementProportionWhileChannelling": 1.7,
+			"interruptibleAfterTicks": 15,
+			"buffs": [
+				{
+					"type": "vanish",
+					"maxTicks": 150,
+					"channelling": true,
+					"cancelOnBump": true,
+					"sound": "vanish",
+					"renderStart": {
+						"numParticles": 10,
+						"color": "#111",
+						"ticks": 60,
+						"particleRadius": 1,
+						"glow": 0.2,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"render": {
+						"invisible": true,
+						"color": "#181818",
+						"ticks": 120,
+						"particleRadius": 0.0125,
+						"glow": 0.2,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"renderFinish": {
+						"numParticles": 10,
+						"color": "#111",
+						"ticks": 60,
+						"particleRadius": 0.0125,
+						"glow": 0.2,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					}
+				}
+			],
+			"icon": "hidden",
+			"color": "#00aaff",
+			"action": "buff"
+		},
+		"mace": {
+			"id": "mace",
+			"description": "knockem down with the mace",
+			"action": "projectile",
+			"color": "#ff9a00",
+			"icon": "crownedExplosion",
+			"effects": [
+				{
+					"icon": "fas fa-helmet-battle",
+					"title": "Knight",
+					"text": "Part of the Knight Set"
+				}
+			],
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"chargeTicks": 15,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"ccd": false,
+				"radius": 0.001,
+				"speed": 0.3,
+				"maxTicks": 15,
+				"damage": 0,
+				"collideWith": 0,
+				"expireOn": 0,
+				"expireAfterCursorTicks": 18,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 45
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"detonate": {
+					"damage": 20,
+					"radius": 0.05,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 30
+				},
+				"sound": "supernova",
+				"color": "#ccc",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "ray",
+						"ticks": 30,
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "#ff9a00",
+						"minRadius": 0.049,
+						"remainingTicks": 15,
+						"shrinkTicks": 15,
+						"radius": 0.05
+					}
+				]
+			}
+		},
+		"revolver": {
+			"id": "revolver",
+			"description": "PEWW PWER WPERIEOWRPRU",
+			"action": "projectile",
+			"effects": [
+				{
+					"icon": "fas fa-hat-cowboy-side",
+					"title": "Gunslinger",
+					"text": "Part of the Gunslinger"
+				}
+			],
+			"color": "#cc0",
+			"icon": "rev",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 30,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"radius": 0.003,
+				"speed": 1.5,
+				"maxTicks": 90,
+				"damage": 9,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#ff0",
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "thrust",
+						"maxCooldown": 0,
+						"sound": "repeater",
+						"color": "#ccc"
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"fade": "#111100",
+						"ticks": 2,
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"flash": true,
+						"numParticles": 3
+					}
+				]
+			}
+		},
+		"grenade": {
+			"id": "grenade",
+			"description": "A delayed explosion to kill your enemies",
+			"action": "projectile",
+			"effects": [
+				{
+					"icon": "fas fa-hat-cowboy-side",
+					"title": "Gunslinger",
+					"text": "Part of the Gunslinger"
+				}
+			],
+			"color": "#ff9a00",
+			"icon": "crownedExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"ccd": false,
+				"radius": 0.001,
+				"speed": 0.5,
+				"maxTicks": 999,
+				"damage": 0,
+				"collideWith": 0,
+				"expireOn": 0,
+				"expireAfterCursorTicks": 30,
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "thrust",
+						"maxCooldown": 0,
+						"sound": "repeater",
+						"color": "#ccc"
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0.2,
+						"redirect": false
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 180
+						},
+						"newSpeed": 0,
+						"redirect": false
+					}
+				],
+				"detonate": {
+					"damage": 100,
+					"radius": 0.06,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 30
+				},
+				"sound": "supernova",
+				"color": "#ff9a00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "ray",
+						"ticks": 5,
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "#ff9a00",
+						"minRadius": 0.049,
+						"remainingTicks": 15,
+						"shrinkTicks": 15,
+						"radius": 0.05
+					}
+				]
+			}
+		},
+		"gunslinger": {
+			"id": "gunslinger",
+			"description": "Gun em down",
+			"effects": [
+				{
+					"icon": "fas fa-hat-cowboy-side",
+					"title": "Gunslinger",
+					"text": "Part of the Gunslinger"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.6
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.3
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.1
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgb(140,0,0,0.75)",
+						"ticks": 2,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "slingr",
+			"color": "#800",
+			"action": "buff"
+		},
+		"fan": {
+			"id": "fan",
+			"name": "Fan The Hammer",
+			"description": "Fan em down",
+			"action": "spray",
+			"effects": [
+				{
+					"icon": "fas fa-hat-cowboy-side",
+					"title": "Gunslinger",
+					"text": "Part of the Gunslinger"
+				}
+			],
+			"color": "#cc0",
+			"icon": "fan",
+			"maxAngleDiffInRevs": 0.01,
+			"movementProportionWhileChannelling": 1,
+			"intervalTicks": 5,
+			"lengthTicks": 30,
+			"jitterRatio": 0.2,
+			"cooldown": 120,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"radius": 0.003,
+				"speed": 1.5,
+				"maxTicks": 90,
+				"damage": 6,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#ff0",
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "thrust",
+						"maxCooldown": 0,
+						"sound": "repeater",
+						"color": "#ccc"
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"fade": "#111100",
+						"ticks": 2,
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"flash": true,
+						"numParticles": 3
+					}
+				]
+			}
+		},
+		"boss3": {
+			"id": "boss3",
+			"name": "Lord Boss",
+			"description": "Become the Boss",
+			"effects": [
+				{
+					"icon": "fas fa-helmet-battle",
+					"title": "Knight",
+					"text": "Part of the Knight Set"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.9
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 0
+				},
+				{
+					"type": "mass",
+					"radius": 0.02,
+					"density": 1,
+					"passive": true,
+					"appendCollideWith": 16
+				},
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.9
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "#000000",
+						"ticks": 1,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.015,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "boss",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"spell-k2cjda2t": {
+			"id": "spell-k2cjda2t",
+			"name": "Boss",
+			"description": "Become the Boss",
+			"effects": [
+				{
+					"icon": "fas fa-helmet-battle",
+					"title": "Knight",
+					"text": "Part of the Knight Set"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.7
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 0.8
+				},
+				{
+					"type": "mass",
+					"radius": 0.015,
+					"density": 1,
+					"passive": true,
+					"appendCollideWith": 16
+				},
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.15
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "#000000",
+						"ticks": 1,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.015,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "boss",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"boss2": {
+			"id": "boss2",
+			"name": "Assasin Boss",
+			"description": "Become the Boss",
+			"effects": [
+				{
+					"icon": "fas fa-helmet-battle",
+					"title": "Knight",
+					"text": "Part of the Knight Set"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.5
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 2
+				},
+				{
+					"type": "mass",
+					"radius": 0.015,
+					"density": 1,
+					"passive": true,
+					"appendCollideWith": 16
+				},
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 0.7
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "#666",
+						"ticks": 15,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.015,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "#00ff00",
+						"ticks": 30,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				}
+			],
+			"icon": "boss2",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"harmor": {
+			"id": "harmor",
+			"name": "Heavy armor",
+			"description": "Passive ability. Disrupt incoming attacks, reducing their effectiveness.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 0.8
+				}
+			],
+			"icon": "night",
+			"color": "#ddd",
+			"action": "buff"
+		},
+		"3dag": {
+			"id": "3dag",
+			"name": "Dagger Barrage",
+			"description": "WHY DOESN'T THIS WORK",
+			"effects": [
+				{
+					"icon": "fas fa-user-ninja",
+					"title": "Rouge",
+					"text": "Part of the Rouge set"
+				}
+			],
+			"action": "spray",
+			"color": "#690",
+			"icon": "3dag",
+			"maxAngleDiffInRevs": 0.01,
+			"intervalTicks": 1,
+			"lengthTicks": 3,
+			"cooldown": 180,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"radius": 0.003,
+				"speed": 0.9,
+				"maxTicks": 90,
+				"damage": 18,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#ccc",
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "thrust",
+						"maxCooldown": 0,
+						"sound": "repeater",
+						"color": "#ccc"
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "ray",
+						"fade": "#000000",
+						"ticks": 15,
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"flash": true,
+						"numParticles": 3
+					}
+				]
+			}
+		},
+		"3ag": {
+			"id": "3ag",
+			"name": "Dagger Barrage",
+			"description": "Knife them up with some fun dagger barrage, shoot 3 daggers and hit and kill",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#690",
+			"icon": "3dag",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 180,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 3,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.05,
+			"projectile": {
+				"density": 1,
+				"radius": 0.003,
+				"speed": 0.9,
+				"maxTicks": 135,
+				"damage": 9,
+				"lifeSteal": 0,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#ccc",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "ray",
+						"fade": "#000000",
+						"ticks": 15,
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"flash": true,
+						"numParticles": 3
+					}
+				],
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "thrust",
+						"maxCooldown": 0,
+						"sound": "repeater",
+						"color": "#ccc"
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.3,
+						"maxSpeed": 0.6
+					}
+				]
+			}
+		},
+		"dual-gun-rouge": {
+			"id": "dual-gun-rouge",
+			"name": "Rouge - Gunslinger      DualClass",
+			"description": "Passive ability. Your superior talents allow you to attack with increased effectiveness.",
+			"effects": [
+				{
+					"icon": "fad fa-yin-yang",
+					"title": "DualClass",
+					"text": "Use their weapons, find cool senergies"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.2
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.5
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.2
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgb(140,0,0,0.75)",
+						"ticks": 2,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgb(0,255,0,0.75)",
+						"ticks": 10,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "ying-yang",
+			"color": "#8f0",
+			"action": "buff"
+		},
+		"dual-rouge-night": {
+			"id": "dual-rouge-night",
+			"name": "Rouge - Knight      DualClass",
+			"description": "Passive ability. Your superior talents allow you to attack with increased effectiveness.",
+			"effects": [
+				{
+					"icon": "fad fa-yin-yang",
+					"title": "DualClass",
+					"text": "Use their weapons, find cool senergies"
+				}
+			],
+			"buffs": [
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgb(0,100,0,0.75)",
+						"ticks": 10,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				},
+				{
+					"type": "mass",
+					"radius": 0.01,
+					"density": 1,
+					"passive": true,
+					"appendCollideWith": 16
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"icon": "ying-yang",
+			"color": "#090",
+			"action": "buff"
+		},
+		"dual-gun-night": {
+			"id": "dual-gun-night",
+			"name": "knight - Gunslinger      DualClass",
+			"description": "Knight - Gunslinger",
+			"effects": [
+				{
+					"icon": "fad fa-yin-yang",
+					"title": "DualClass",
+					"text": "Use their weapons, find cool senergies"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.3
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgb(140,0,0,0.75)",
+						"ticks": 2,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgb(0,255,0,0.75)",
+						"ticks": 10,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "ying-yang",
+			"color": "#300",
+			"action": "buff"
+		},
+		"talspeed": {
+			"id": "talspeed",
+			"name": "Speed Talisman",
+			"description": "Talismans buff yourself even more, but always have a downside",
+			"effects": [
+				{
+					"icon": "fad fa-balance-scale",
+					"title": "Balance",
+					"text": "+15% Speed, -10% Damage"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.15
+				},
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 0.9
+				}
+			],
+			"icon": "talspeed",
+			"color": "#6f0",
+			"action": "buff"
+		},
+		"talno": {
+			"id": "talno",
+			"name": "No Talisman",
+			"description": "No Talisman? Thats fine.",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"icon": "no",
+			"color": "#f00",
+			"action": "buff"
+		}
+	},
+	"Layouts": {
+		"wallarena": {
+			"color": "#212332",
+			"background": "#0c0e1e",
+			"obstacles": [
+				{
+					"type": "volcano",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.22,
+					"numPoints": 99,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0.125
+				},
+				{
+					"type": "default",
+					"numObstacles": 4,
+					"layoutRadius": 0.22,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.05
+				}
+			],
+			"numPoints": 15
+		}
+	},
+	"Visuals": {
+		"ShakeDistance": 0,
+		"MyHeroColor": "#cccccc",
+		"NameFontPixels": 13,
+		"HealthBarHeight": 0.003
+	},
+	"Icons": {
+		"dag": {
+			"path": "M43.53 15.75c-15.73 0-28.31 12.583-28.31 28.313 0 14.086 10.092 25.644 23.5 27.906L42.687 68 68.81 41.906l2.626-2.625C69.188 25.86 57.63 15.75 43.53 15.75zm33.72 44.125l-17 17c15.885 39.37 43.45 66.684 78.75 87.406 8.167-8.585 16.65-16.898 25.438-24.936-22.488-35.103-51.535-62.294-87.188-79.47zM322.594 79.03l-51.25 4.314c-79.356 48.134-143.878 108.1-186.72 186.53l-4.31 51.47 44.155-18.656-2.94-34.094-.25-3.063 1.626-2.624c35.94-58.47 79.93-109.41 141.5-141.25l2.406-1.25 2.688.25 34.125 2.906 18.97-44.53zm-62.438 66.376c-10.008 5.886-19.5 12.338-28.562 19.313 46.688 47.93 87.208 108.588 114.72 166.5l11.248 23.717-23.718-11.28c-57.995-27.554-117.918-67.57-165.688-113.907-7.155 9.404-14.028 19.174-20.625 29.28 101.918 94.91 227.05 177.304 347.845 234.69-57.063-120.125-140.038-246.18-235.22-348.314zm-43.03 31.22c-13.37 11.703-25.72 24.58-37.282 38.436 39.36 38.452 88.085 72.83 136.687 98.844-26.054-48.633-60.754-97.847-99.405-137.28z",
+			"credit": "https://game-icons.net/lorc/originals/bolt-saw.html"
+		},
+		"fdag": {
+			"path": "M133.53 10.47c51.747 30.872 96.318 71.166 131.94 119.093C199.33 72.05 115.217 33.942 19.22 21.406c12.584 96.38 50.948 180.807 108.843 247.063-47.45-35.09-87.475-78.907-118.313-129.783v31.219C65.264 272.953 147.488 356.6 249.28 413.812 159.164 375.9 78.843 322.91 10.813 257.375l-.468 38.125C134.828 408.824 300.18 479.697 493.75 494.688c-14.992-193.573-85.27-358.92-198.594-483.407l-41.812.44c64.677 66.753 117.25 145.417 155.28 233.624-57.55-99.84-140.81-180.403-242.937-234.875H133.53zm22.22 149.5c36.29 16.732 71.624 40.59 103.97 68.343l60.717-60.157 34.47 34.438-37.376 23.375c58.01 69.636 105.07 147.97 134.908 230.686-82.466-29.758-160.62-76.55-230.094-134.312l-23.938 36.78-35.062-34.468 60.75-60.72c-27.75-32.335-51.607-67.668-68.344-103.967z",
+			"credit": "https://game-icons.net/1x1/lorc/dna1.html"
+		},
+		"hpot": {
+			"path": "M192 17.65l16 34h96l16-34zm-9 53v51.95h32v22.2c-19.3-9-42.6-8.2-55-8.2-50.5 0-82.1 21.9-99.5 48-17.4 26.1-21.5 55.5-21.5 73 0 52.5 38.6 94.4 83.3 131C167 425.1 219 457.3 249.6 488l6.4 6.3 6.4-6.3c30.6-30.7 82.6-62.9 127.3-99.4 44.7-36.6 83.3-78.5 83.3-131 0-17.5-4.1-46.9-21.5-73s-49-48-99.5-48c-12.4 0-35.7-.8-55 8.2v-22.2h32V70.65zm18 18h110v15.95H201zm32 33.95h46v60.7l15.4-15.3c11.7-11.8 41.6-13.4 57.6-13.4 45.5 0 69.9 18.1 84.5 40 14.6 21.9 18.5 48.5 18.5 63 0 43.5-33.4 81.7-76.7 117-40.7 33.4-89 63.5-122.3 94.7-33.3-31.2-81.6-61.3-122.3-94.7-43.3-35.3-76.7-73.5-76.7-117 0-14.5 3.9-41.1 18.5-63s39-40 84.5-40c16 0 45.9 1.6 57.6 13.4l15.4 15.3zm-41 71c-64 0-80 48-80 80 0 64 80 96 144 144 64-48 144-80 144-144 0-32-16-80-80-80-32 0-48 0-64 48-16-48-32-48-64-48zm125.7 14.6c3.6-.1 5.9.3 5.8.6-16.5 7.3-33.9 24.4-44.6 41.7 0 0-3.2-17.7 9.9-31.9 7.4-8.1 21.1-10.3 28.9-10.4zM192 209.6c-24 21.5-41.3 58.2-47.2 90.4 0 0-19.5-23.7-7.7-53.4 9.8-24.5 50.1-36.5 54.9-37z",
+			"credit": "https://game-icons.net/lorc/originals/bolt-saw.html"
+		},
+		"spot": {
+			"path": "M190.594 21.25l17.375 62.563h98.56l17.376-62.563H190.594zm22.594 81.25l.03.125h-23.124c-23.79 0-22.498 45.594 0 45.594h21v59.06c-67.386 19.787-116.438 81.935-116.438 155.782 0 53.72 25.992 101.45 66.188 131.094h192.562c40.198-29.645 66.78-77.375 66.78-131.094.002-54.742-27.18-103.04-68.748-132.437-.024-.017-.04-.046-.063-.063-55.29-29.194-128.52-4.296-164.53 57.907-31.025 53.588-17.075 119.058 28.56 145.592 31.835 18.51 76.706 9.554 96.94-27.406 4.657-8.508 5.398-21.25 2-33.594-3.4-12.343-10.81-23.887-19.783-30.218-11.484-8.102-34.814-8.012-48 1.344l-10.812-15.25c20.517-14.558 49.846-15.307 69.594-1.375v.03c13.488 9.52 22.6 24.56 27 40.532 4.398 15.973 4.204 33.257-3.594 47.5-25.225 46.078-81.985 58.277-122.72 34.594-55.635-32.35-70.914-109.68-35.343-171.126 19.487-33.662 49.063-57.925 81.75-70.22h50.97V148.22h19.437c25.968 0 24.433-45.595 0-45.595H301.28l.033-.125h-88.125z",
+			"credit": "https://game-icons.net/lorc/originals/crowned-explosion.html"
+		},
+		"night": {
+			"path": "M256 16c-36.446 0-73.264 13.433-139.97 40h279.94C329.263 29.433 292.445 16 256 16zM95.344 72L64 448c56 28 112 31.5 168 31.938V240H112v-48h288v48H280v239.938C336 479.5 392 476 448 448L416.656 72H95.344zm64.875 88a8 8 0 0 1 7.78 8 8 8 0 0 1-16 0 8 8 0 0 1 8.22-8zm48 0a8 8 0 0 1 7.78 8 8 8 0 0 1-16 0 8 8 0 0 1 8.22-8zm48 0a8 8 0 0 1 7.78 8 8 8 0 0 1-16 0 8 8 0 0 1 8.22-8zm48 0a8 8 0 0 1 7.78 8 8 8 0 0 1-16 0 8 8 0 0 1 8.22-8zm48 0a8 8 0 0 1 7.78 8 8 8 0 0 1-16 0 8 8 0 0 1 8.22-8zM248 240v240c2.667.002 5.333 0 8 0s5.333.002 8 0V240h-16zm-120 48h16v16h-16v-16zm32 0h16v16h-16v-16zm32 0h16v16h-16v-16zm112 0h16v16h-16v-16zm32 0h16v16h-16v-16zm32 0h16v16h-16v-16zm-240 32h16v16h-16v-16zm32 0h16v16h-16v-16zm32 0h16v16h-16v-16zm112 0h16v16h-16v-16zm32 0h16v16h-16v-16zm32 0h16v16h-16v-16zm-240 32h16v16h-16v-16zm32 0h16v16h-16v-16zm32 0h16v16h-16v-16zm112 0h16v16h-16v-16zm32 0h16v16h-16v-16zm32 0h16v16h-16v-16z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"boss": {
+			"path": "M448 36c-29.4 44.05-63.2 65.7-126.3 64.8A79.99 75.99 0 0 0 256 68.01a79.99 75.99 0 0 0-65.8 32.79c-63 .9-96.85-20.77-126.2-64.8-30.29 45.43 21.04 110.9 112.2 112.4a79.99 75.99 0 0 0 8.1 29.2C44.84 197.1 16.82 388.1 32 464h80c0-48 16-112 64-144l-16 144c0 16 64 16 64 0 0-32 16-64 32-64s32 32 32 64c0 16 64 16 64 0l-16-144c48 32 64 96 64 144h80c15.2-75.9-12.8-267-152.4-286.4a79.99 75.99 0 0 0 8.2-29.2C426.9 146.9 478.3 81.44 448 36zm-256 87.8c13.5 15.7 27.2 31.3 48 40.2 0 0-22.9 15.7-32 8.7-10.1-7.9-16-48.9-16-48.9zm128 0s-5.9 41-16 48.9c-9.1 7-32-8.7-32-8.7 20.8-8.9 34.5-24.5 48-40.2z",
+			"credit": "https://game-icons.net/lorc/originals/crowned-explosion.html"
+		},
+		"rouge": {
+			"path": "M250.453 18.648c-81.376 0-231.45 155.81-171.668 300.672 7.978 25.267 27.867 50.345 49.205 77.076 24.453 30.633 51.61 63.238 68.668 96.885h20.584c-18.13-39.8-48.558-75.86-74.646-108.542-27.415-34.343-48.813-65.267-48.815-87.95.002-3.61.377-7.333 1.09-11.136l-.12-.027c.287-1.23.598-2.455.924-3.674.913-3.757 2.14-7.578 3.68-11.436 23.075-61.4 94.16-106.3 146.552-135.014l3.594-1.97 3.906 1.345c60.932 20.9 131.302 66.756 155.967 135.77 1.134 3.01 2.114 6.012 2.914 8.998.41 1.413.81 2.832 1.182 4.263l-.156.04c1.1 5.15 1.68 10.232 1.678 15.177v.002c0 22.304-24.448 53.49-55.04 87.512-29.063 32.318-62.31 67.554-79.997 106.644h20.59c16.756-32.134 46.205-64.013 73.303-94.147 23.14-25.733 45.285-49.998 54.867-74.945 52.844-124.03-99.228-305.54-178.262-305.54zm.797 135.32c-38.68 21.5-85.036 52.22-113.623 88.212 9.72 83.004 58.994 146.164 118.31 146.164 59.117 0 108.24-62.733 118.19-145.323-28.928-42.097-78.05-72.91-122.877-89.05zM193 237c.814-.013 1.624-.006 2.438 0 13.02.102 26.043 2.687 39.062 7.438-16.848 40.6-58.98 41.963-78.125 0 12.206-4.835 24.42-7.24 36.625-7.438zm124.906 0c13.02-.102 26.043 2.28 39.063 7.438-19.148 41.963-61.28 40.6-78.126 0 13.02-4.75 26.043-7.336 39.062-7.438zm-112.82 274.97l.135.32h86.844l.13-.32h-87.108z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"rouge2": {
+			"path": "M378.321 58.818c-3.95 6.585-5.374 14.345-2.228 20.761 8.425 5.494 50.968 15.802 47.286 29.773-.784 2.301-1.087 3.54-1.515 5.224-7.4-6.764-22.462-10.05-27.902-9.049-4.832.843-9.721 3.05-14.44 3.248-5.986-.032-11.34-1.516-15.925-4.254 3.24 8.943 14.85 15.537 22.049 14.412 11.318-2.258 23.535 3.723 31.779 6.67-5.055 13.86-22.014 7.334-22.014 7.334l-121.937-28.02L253.44 90.45 236.1 108.17l88.945 29.131-120.023 2.676-29.907-12.486-40.77 23.617 182.99 13.291-56.212 59.426h99.22c19.341-15.746 63.009-51.2 63.645-50.793 12.867 29.973 33.256 19.023 48.815 1.55 4.515-5.069 9.47 12.362 12.021-16.015.64-1 1.217-2.011 1.772-3.03-18.028-7.661-48.58 5.732-31.817-17.992 5.135-7.262 20.776-5.296 36.871 3.97.582-15.262-1.056-42.396-15.484-48.39-14.85-6.169-34.024-5.48-41.316 2.682-9.946-16.88-39.574-19.07-51.307-20.764-3.453-5.429-4.558-10.479-5.223-16.226zm-188.328 59.236l-4.558 4.034 16.138 6.853 10.852-10.887zm276.578 24.354c6.542 4.808 7.01 5.943 11.393 6.1 1.597-1.021 5.12-4.613 1.857-5.37l-11.04-2.203c-1.14-.204-2.02.646-2.21 1.473zM148.167 160.44l-5.95 5.264h22.43l5.952-5.264zm-39.285 13.598l-12 15.357h15.855l5.461-6.414h42.592l-7.937 6.94h15.953l16-15.356zm15.664 15.933L20.251 309.592l23.027-4.516 98.618-115.104zM251.3 234.216L119.878 373.16l-16.697 4.265s-12.898 29.813-18.834 65.059c7.659 4.113 17.39-8.02 17.39-8.02s-1.1 13.09 6.64 9.743c14.097-28.569 29.864-58.248 29.864-58.248l159.721-121.877 20.994 5.584 27.758 7.386-62.557 58.727-11.238-12.15s-34.319 38.069-47.305 66.224c4.13 4.74 20.33-7.64 20.33-7.64s-5.369 9.615 1.932 9.31c17.808-16.694 29.682-29.826 29.682-29.826l132.82-98.543-48.23-28.938z",
+			"credit": "https://game-icons.net/1x1/lorc/dodging.html"
+		},
+		"sword": {
+			"path": "M101.938 19.938c-8.837 0-15.813 6.978-15.813 15.812 0 7.358 4.84 13.427 11.563 15.25l23.134 55.4c-12.618 7.364-23.065 19.85-30.17 37.528L64.22 163.75l11.218 14.938 8.177-6.135c31.722-21.112 72.4-39.987 110.12-49.975l27.327-4.078-2.78-18.5-33.294 4.982c-13.01-4.957-25.152-7.096-36.113-6.607-3.67.164-7.202.62-10.6 1.334l-23.088-55.304c1.6-2.48 2.532-5.436 2.532-8.656 0-8.837-6.945-15.813-15.782-15.813zM178.81 147c-17.714 6.11-35.908 13.923-52.875 22.656l68.407 165.03 14.625-7.842 28.28-38.75L178.812 147zm169.094 111.53l-68.125 3.033-56.967 78-1.25 1.718-1.875 1.033-65.313 35.03-28.47 117.188h345.25l-15-63.686-165.56-54.688 5.874-17.75 89.905 29.688-38.47-129.563z",
+			"credit": "https://game-icons.net/lorc/originals/atomic-slashes.html"
+		},
+		"rev": {
+			"path": "M129.284 156.072a70.653 70.653 0 0 0-6.262-2.29c-1.569-.476-3.18-.932-4.853-1.302a62.484 62.484 0 0 0-5.097-.912 47.967 47.967 0 0 0-5.139-.381h-2.511c-.826 0-1.642.095-2.437.17a35.612 35.612 0 0 0-4.514.741 30.844 30.844 0 0 0-3.867 1.145c-1.176.392-2.194.9-3.094 1.292-.9.392-1.632.858-2.236 1.208l-1.844 1.176 2.12-.445c.678-.116 1.504-.212 2.426-.339.922-.127 1.981-.159 3.179-.116a27.38 27.38 0 0 1 3.613.254 30.643 30.643 0 0 1 3.9.773c.656.18 1.324.35 1.991.594.668.243 1.325.455 1.992.73a39.957 39.957 0 0 1 3.889 1.802c1.26.689 2.5 1.41 3.666 2.193 1.165.785 2.12 1.452 3.073 2.194a35.305 35.305 0 0 1 12.005-8.487zm287.25 39.543a7.417 7.417 0 0 1-7.417 7.417H304.781v-16.953h111.753zM99.5 207.365c-40.783 27.03-77.211 113.057-73.195 170.497h98.54s-17.907-71.384 6.675-94.885c.382-.36.784-.7 1.198-1.06 10.966-19.485 11.178-37.562.37-52.629-9.61-13.425-24.804-20.418-33.588-21.922zm-13.033 137.49a12.715 12.715 0 1 1-12.715-12.714 12.715 12.715 0 0 1 12.715 12.715zm395.857-210.579a2.808 2.808 0 0 1 3.677 2.68v32.17H304.813V143.77h148.096zM124.187 198.91h-.159a74.562 74.562 0 0 1 22.834 20.492c14.325 19.942 12.778 40.423 7.089 56.582 5.382.222 10.066 1.695 12.227 4.418a55.744 55.744 0 0 0 43.866 21.35c23.237 0 45.212-14.643 48.487-41.503a23.618 23.618 0 0 0 18.15-16.582l11.157-38.315V136.48H157.913v7.237h-11.051v25.843c-27.549.053-22.717 29.35-22.717 29.35zm130.338-38.515a8.477 8.477 0 0 1-8.476 8.476h-55.564a8.477 8.477 0 0 1 0-16.953h55.564a8.477 8.477 0 0 1 8.476 8.477zm0 24.37a8.477 8.477 0 0 1-8.476 8.476h-55.564a8.477 8.477 0 0 1 0-16.953h55.564a8.477 8.477 0 0 1 8.476 8.477zm-8.476 32.317h-55.564a8.477 8.477 0 1 1 0-16.953h55.564a8.477 8.477 0 0 1 0 16.953zm-71.076 43.442c0-14.124 8.476-15.321 20.767-14.95.265 1.282.562 2.606.922 3.963.434 1.578.9 3.178 1.483 4.8.583 1.62 1.23 3.178 1.94 4.8a48.062 48.062 0 0 0 2.415 4.556c.424.73.88 1.43 1.356 2.119.477.688.954 1.335 1.442 1.97a35.57 35.57 0 0 0 3.03 3.434 30.78 30.78 0 0 0 3.03 2.67c.954.784 1.929 1.377 2.734 1.928.805.551 1.6.932 2.214 1.25l1.982.943-1.505-1.557c-.455-.509-.985-1.155-1.578-1.876a17.971 17.971 0 0 1-1.76-2.585 27.348 27.348 0 0 1-1.705-3.179 30.632 30.632 0 0 1-1.42-3.719c-.201-.657-.403-1.314-.551-2.002-.148-.69-.329-1.367-.445-2.12a39.935 39.935 0 0 1-.54-4.238 43.98 43.98 0 0 1-.096-4.238c.042-1.378.127-2.787.254-4.122.085-.795.18-1.557.287-2.31h1.165c19.56 0 35.411-4.8 35.411 14.474a35.416 35.416 0 0 1-70.833-.021z",
+			"credit": "https://game-icons.net/lorc/originals/body-swapping.html"
+		},
+		"slingr": {
+			"path": "M199.117 111.268c-2.435.007-4.816.524-7.117 1.675-18.365 9.194-38.59 129.65-50.16 164.987 45.64 13.262 87.106 16.556 115.314 16.425 28.21-.13 68.652-3.635 112.97-16.49C358.53 242.48 338.34 122.123 320 112.943c-21.065-10.53-48.73 31.998-64 32-13.6.002-37.05-33.734-56.883-33.675zM224 160c11.53 40.5 9.107 74.724 0 96-9.107 21.276-32 11.235-32 0 25.333-6.927 26.21-35.5 32-96zm64 0c5.79 60.5 6.667 89.073 32 96 0 11.235-22.893 21.276-32 0s-11.53-55.5 0-96zM46.79 263.127c-17.5.4-24.138 17.83-14.79 40.873 11.088 30.345 58.972 96.774 112 96 24.103-.352 31.438-15.483 112-16 80.562-.517 87.88 15.648 112 16 53.017.774 100.907-65.655 112-96 13.006-32.066-4.934-53.25-40.016-32.84-21.85 11.926-44.06 17.898-65.984 24.48-.02 0-.044.024-.064.024v-.006c-45.8 13.756-87.924 17.486-116.754 17.615-28.83.13-72.027-3.357-119.145-17.548-21.897-6.618-44.09-12.59-66.027-24.565-9.866-5.74-18.374-8.19-25.22-8.033z",
+			"credit": "https://game-icons.net/lorc/originals/wave-strike.html"
+		},
+		"lasso": {
+			"path": "M337.094 16.063c-21.228.17-43.46 2.637-65.906 7.093-34.297 6.81-69.222 18.232-101.97 33.657-9.218-6.683-20.773-10.25-32.593-10.25-13.02 0-25.738 4.318-35.344 12.374-9.605 8.057-15.47 19.56-15.468 31.688.002 5.604 1.268 11.065 3.563 16.125-24.207 19.952-44.59 42.7-59 67.813-15.064 26.25-15.215 53.9-3.72 74.875 11.498 20.973 34.517 34.804 62.47 34.75 28.542-.056 59.887-15.612 93.156-33.875 33.27-18.264 68.27-39.706 101-53.313 31.18-12.96 85.634-17.866 129.97-27.688 22.168-4.91 42-10.9 56.25-21.593 7.125-5.347 12.92-12.15 15.875-20.5 2.954-8.353 2.842-17.892-.188-27.876-11.704-38.574-42.262-63.046-80.78-74.594-19.26-5.774-40.597-8.54-63.094-8.688-1.407-.01-2.804-.01-4.22 0zm.125 18.03c1.328-.01 2.65-.008 3.967 0 21.097.142 40.78 2.735 58.032 7.907 34.502 10.345 58.912 30.144 68.75 62.563 2.173 7.164 1.974 12.31.436 16.656-1.537 4.345-4.607 8.28-9.687 12.093-10.16 7.623-28.176 13.74-49.376 18.437-36.21 8.022-81.14 12.245-116.063 22.688-31.145-26.54-68.817-50.18-108.124-70.875 1.473-4.14 2.28-8.49 2.28-12.938.003-6.907-1.9-13.614-5.31-19.594 29.874-13.7 61.542-24.053 92.593-30.218 21.448-4.258 42.56-6.563 62.5-6.718zm-200.595 30.47c4.395 0 8.808.79 12.875 2.187-6.233 3.344-12.376 6.832-18.375 10.47-5.086-2.306-10.163-4.542-15.22-6.75 5.713-3.65 13.265-5.907 20.72-5.907zm29.22 14.343c2.358 3.726 3.593 7.82 3.593 11.72 0 1.498-.204 3.036-.563 4.56-5.803-2.908-11.64-5.746-17.47-8.53 4.743-2.675 9.56-5.252 14.44-7.75zm-61.25 6.28c2.83 1.222 5.66 2.435 8.5 3.69-2.96 2.033-5.874 4.11-8.75 6.218-.346-1.495-.532-3-.532-4.47 0-1.784.274-3.623.78-5.436zm28.25 12.658c8.508 3.954 17.008 8.064 25.468 12.28-5.81 4.018-13.81 6.564-21.688 6.564-7.877 0-15.88-2.546-21.688-6.563 5.788-4.233 11.76-8.34 17.907-12.28zm42.75 21.094c35.565 18.672 69.578 39.638 98.06 62.593-33.822 14.413-68.17 35.512-100.03 53-32.705 17.955-62.993 31.616-84.563 31.657-22.158.043-38.318-10.252-46.624-25.406-8.307-15.153-8.875-35.608 3.562-57.28 12.935-22.54 31.727-43.46 54.313-62.063.324.29.634.595.968.876 9.606 8.053 22.326 12.374 35.345 12.374 13.02 0 25.74-4.32 35.344-12.375 1.27-1.064 2.49-2.196 3.624-3.374zm144.686 80.156a9 9 0 0 0-5.936 15.937c55.87 47.83 85.364 85.454 96.75 125.157 11.386 39.704 5.165 83.09-13.813 143.657a9.01 9.01 0 1 0 17.19 5.406c19.374-61.833 26.758-109.32 13.936-154.03-12.822-44.713-45.345-85.056-102.375-133.876a9 9 0 0 0-5.75-2.25z",
+			"credit": "https://game-icons.net/lorc/originals/body-swapping.html"
+		},
+		"fan": {
+			"path": "M256 16c-39.764 0-72 32.236-72 72s32.236 72 72 72 72-32.236 72-72-32.236-72-72-72zm0 48c13.255 0 24 10.745 24 24s-10.745 24-24 24-24-10.745-24-24 10.745-24 24-24zm-147.03 36c-24.314.545-47.766 13.4-60.814 36-19.882 34.437-8.093 78.462 26.344 98.344 34.437 19.882 78.493 8.093 98.375-26.344 19.882-34.437 8.062-78.462-26.375-98.344-11.838-6.834-24.796-9.94-37.53-9.656zm290.592 0c-11.606.3-23.3 3.443-34.062 9.656-34.437 19.882-46.257 63.907-26.375 98.344 19.882 34.437 63.938 46.226 98.375 26.344 34.437-19.882 46.226-63.907 26.344-98.344-13.67-23.675-38.748-36.663-64.28-36zM110 148c4.245-.095 8.554.94 12.5 3.22 11.48 6.626 15.41 21.3 8.78 32.78-6.626 11.48-21.3 15.41-32.78 8.78-11.48-6.626-15.41-21.3-8.78-32.78 4.348-7.533 12.176-11.818 20.28-12zm290.844 0c8.51-.22 16.88 4.108 21.437 12 6.63 11.48 2.7 26.154-8.78 32.78-11.48 6.63-26.154 2.7-32.78-8.78-6.63-11.48-2.7-26.154 8.78-32.78 3.587-2.072 7.475-3.12 11.344-3.22zm-143.438 60.03A48 48 0 0 0 208 256a48 48 0 0 0 96 0 48 48 0 0 0-46.594-47.97zM108.562 268c-11.606.3-23.3 3.443-34.062 9.656C40.063 297.538 28.274 341.563 48.156 376c19.882 34.437 63.907 46.226 98.344 26.344 34.437-19.882 46.257-63.907 26.375-98.344-13.67-23.675-38.78-36.663-64.313-36zm291.375 0c-24.312.545-47.764 13.4-60.812 36-19.882 34.437-8.062 78.462 26.375 98.344 34.437 19.882 78.462 8.093 98.344-26.344 19.882-34.437 8.093-78.462-26.344-98.344-11.838-6.834-24.827-9.94-37.563-9.656zm-290.062 48c8.51-.22 16.85 4.108 21.406 12 6.63 11.48 2.7 26.154-8.78 32.78-11.48 6.63-26.154 2.7-32.78-8.78-6.63-11.48-2.7-26.154 8.78-32.78 3.587-2.072 7.506-3.12 11.375-3.22zm291.094 0c4.244-.095 8.584.94 12.53 3.22 11.48 6.626 15.41 21.3 8.78 32.78-6.626 11.48-21.3 15.41-32.78 8.78-11.48-6.626-15.41-21.3-8.78-32.78 4.348-7.533 12.145-11.818 20.25-12zM256 352c-39.764 0-72 32.236-72 72s32.236 72 72 72 72-32.236 72-72-32.236-72-72-72zm0 48c13.255 0 24 10.745 24 24s-10.745 24-24 24-24-10.745-24-24 10.745-24 24-24z",
+			"credit": "https://game-icons.net/lorc/originals/atomic-slashes.html"
+		},
+		"boss2": {
+			"path": "M280.054 19.867c-64.315 0-121.76 28.793-159.643 73.934 27.387.07 87.928 3.05 96.12 25.726-38.414-12.105-79.753-11.26-108.534-9.302a201.013 201.013 0 0 0-13.656 23.314c31.507-8.307 147.998-3.37 154.8 21.268-75.985-18.624-140.59-8.65-162.058-4.895-8.768 22.446-13.584 46.805-13.584 72.272 0 111.736 96.248 269.949 210.324 269.949 57.808 0 109.1-40.63 145.637-95.248-31.403 23.812-98.04 57.308-139.002 34.648 81.592-8.994 139.965-50.978 156.19-63.353 25.207-47.142 39.959-100.432 39.959-145.996 0-111.737-92.477-202.317-206.553-202.317zm-.002 151.692c105.084 0 190.273 27.727 190.273 61.931 0 22.047-4.495 33.48-57.797 44.453-29.39 6.052-95.127-31.181-132.476-31.181-34.864 0-87.12 41.345-115.219 36.017-56.597-10.732-75.053-26.433-75.053-49.289 0-34.204 85.188-61.931 190.272-61.931zm83.885 39.894c-20.14-.12-41.571 3.295-41.475 9.91.182 12.453 17.364 22.298 38.377 21.99 21.013-.306 18.555-16.216 37.717-23.101-.085-5.837-16.85-8.693-34.62-8.799zm-172.682 2.883c-17.77.105-34.534 2.964-34.62 8.8 19.162 6.885 16.704 22.796 37.718 23.102 21.013.307 38.195-9.54 38.377-21.992.096-6.615-21.336-10.03-41.475-9.91zm92.57 82.441c31.032 0 56.188 25.235 56.188 25.235s-28.184-11.104-59.217-11.104c-31.032 0-53.16 11.104-53.16 11.104s25.156-25.235 56.19-25.235zM31.25 411.39c4.344 2.046 7.783-40.336 52.246-61.265-8.111-8.465-12.438-24.638-14.24-35.502-32.733 4.158-55.012 84.887-38.006 96.767zm56.31-41.694c-7.511-.052-17.26-.228-17.445 16.937-.498 46.31-42.805 96.953-40.128 98.215 7.138 3.364 49.598-32.077 61.906-59.44 4.159-9.244 11.516-55.603-4.333-55.712z",
+			"credit": "https://game-icons.net/lorc/originals/atomic-slashes.html"
+		},
+		"3dag": {
+			"path": "M255.844 19.156c-9.972.074-19.945 2.48-29.406 6.844v14.156h58.78V25.938c-9.4-4.524-19.348-6.855-29.374-6.782zM65.03 33.376c-16.145.014-31.578 5.59-44.093 16.343l3.688 13.75 56.78-15.22-3.655-13.656c-4.262-.735-8.505-1.223-12.72-1.22zm381.72 0c-4.21-.005-8.46.484-12.72 1.218l-3.655 13.656 56.78 15.22 3.69-13.75c-12.52-10.765-27.94-16.33-44.095-16.345zM240.72 57.187v99.156c-.49 1.148-.96 2.312-1.44 3.47h32.25c-.21-.51-.41-1.024-.624-1.533V57.188H240.72zM71.97 68.406L42.812 76.22 69 173.905c-.072.532-.118 1.062-.188 1.594l31.126-8.375c-.756-.985-1.517-1.963-2.282-2.938L71.97 68.407zm367.81 0l-25.655 95.78c-.77.983-1.52 1.978-2.28 2.97l31.092 8.313c-.067-.512-.118-1.02-.187-1.532l26.188-97.72-29.157-7.812zM229.5 178.5c-7.172 13.366-21.99 22.273-39.375 25.625v10.844c13.028-1.903 26.05-3.19 39.063-3.907 4.143-10.668 14.568-18.313 26.625-18.313 12.114 0 22.585 7.72 26.687 18.47 13.02.772 26.03 2.067 39.03 3.843v-10.938c-17.397-3.348-32.228-12.252-39.405-25.625H229.5zm-115.313 4.188l-50.78 13.593c-3.46 14.788-15.46 27.258-31.407 35l2.813 10.532c12.1-5.08 24.338-9.69 36.718-13.812 1.183-11.44 9.276-21.616 20.97-24.75 1.888-.506 3.77-.797 5.656-.906 9.736-.563 19.087 3.99 24.75 11.72 12.77-2.685 25.69-4.84 38.78-6.376l-2.78-10.438c-17.686 1.27-34.327-3.484-44.72-14.563zm283.375 0c-10.385 11.072-27.013 15.825-44.687 14.562l-2.813 10.438c13.095 1.537 26.007 3.69 38.782 6.375 5.663-7.728 15.014-12.282 24.75-11.72 1.885.11 3.8.4 5.687.907 11.696 3.134 19.79 13.31 20.97 24.75 12.384 4.122 24.616 8.73 36.72 13.813l2.81-10.532c-15.944-7.742-27.946-20.212-31.405-35l-50.813-13.593zm-141.75 28.75c-5.538 0-9.812 4.275-9.812 9.812 0 5.537 4.273 9.844 9.813 9.844 5.54 0 9.843-4.307 9.843-9.844 0-5.54-4.304-9.813-9.844-9.813zm-155.5 9.5c-.322-.012-.64.008-.968.03-.66.047-1.332.165-2 .345-5.35 1.433-8.403 6.68-6.97 12.03 1.434 5.35 6.682 8.372 12.032 6.938 5.35-1.432 8.402-6.682 6.97-12.03-1.076-4.01-4.293-6.72-8.095-7.22-.316-.04-.645-.08-.968-.093zm311.157.03c-.325.01-.653.022-.97.063-3.802.5-7.02 3.21-8.094 7.22-1.433 5.348 1.587 10.598 6.938 12.03 5.35 1.435 10.598-1.588 12.03-6.936 1.435-5.35-1.586-10.598-6.937-12.03-1.003-.27-1.996-.374-2.968-.345zm-182.908 8.75c-3.42.202-6.833.436-10.25.72-17.21 88.982-4.777 187.617 37.344 262.625 42.076-85.616 55.17-175.81 37.563-262.407-3.418-.29-6.837-.53-10.25-.75-2.75 8.496-9.41 15.323-17.814 18.28V410.25H246.47V248.187c-8.47-2.98-15.2-9.88-17.907-18.468zm-90.062.25c-3.4.615-6.778 1.28-10.156 1.97-.39 8.99-5.07 17.366-12.47 22.437l41.94 156.563-18.033 4.843-41.968-156.56c-8.893-.682-17.094-5.546-21.937-13.064-3.252 1.088-6.488 2.21-9.72 3.375 5.4 88.204 41.413 171.937 104.22 243.75 21.27-83.35 7.772-181.827-31.875-263.31zm234.78 0c-39.657 81.486-53.177 179.96-31.905 263.313 62.81-71.815 98.79-155.544 104.188-243.75-3.22-1.16-6.45-2.286-9.688-3.374-4.846 7.503-13.02 12.376-21.906 13.063L372 415.78l-18.063-4.842 41.97-156.563c-7.412-5.07-12.11-13.438-12.5-22.438-3.37-.688-6.734-1.355-10.126-1.968z",
+			"credit": "https://game-icons.net/lorc/originals/body-swapping.html"
+		},
+		"ying-yang": {
+			"path": "M248,8C111,8,0,119,0,256S111,504,248,504a124,124,0,0,1,0-248A124,124,0,0,0,248,8Zm0,152a32,32,0,1,1,32-32A32,32,0,0,1,248,160Zm0,192a32,32,0,1,0,32,32A32,32,0,0,0,248,352Z",
+			"credit": "https://game-icons.net/lorc/originals/body-swapping.html"
+		},
+		"no": {
+			"path": "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 464c-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216zm94.8-285.3L281.5 256l69.3 69.3c4.7 4.7 4.7 12.3 0 17l-8.5 8.5c-4.7 4.7-12.3 4.7-17 0L256 281.5l-69.3 69.3c-4.7 4.7-12.3 4.7-17 0l-8.5-8.5c-4.7-4.7-4.7-12.3 0-17l69.3-69.3-69.3-69.3c-4.7-4.7-4.7-12.3 0-17l8.5-8.5c4.7-4.7 12.3-4.7 17 0l69.3 69.3 69.3-69.3c4.7-4.7 12.3-4.7 17 0l8.5 8.5c4.6 4.7 4.6 12.3 0 17z",
+			"credit": "https://game-icons.net/lorc/originals/body-swapping.html"
+		},
+		"talspeed": {
+			"path": "M95.92 25.17c-14.73-.32-29.25 5.4-39.24 19.19-19.29 26.68-23.67 60.44-18.07 95.14 5.61 34.7 21.08 70.6 42.55 103.4C118.2 299.5 172.9 347.4 229 359.6v-18.7c-47.8-12.5-98.6-55.7-132.78-107.8-20.32-31.1-34.76-65-39.84-96.5-5.08-31.4-.93-59.81 14.88-81.68 5.96-8.22 12.01-11.48 19.93-11.88 2.65-.13 5.5 0 8.62.48 12.49 1.7 28.49 8.83 45.69 18.02 31.7 16.92 66.8 40.96 101.5 44.66V87.91c-27.2-4.13-61.1-25.2-93-42.25-17.7-9.49-34.9-17.7-51.8-19.99-2.1-.28-4.17-.45-6.28-.5zm320.08 0c-2.1 0-4.2.21-6.3.5-16.8 2.29-34 10.5-51.7 19.99-31.9 17.05-65.8 38.12-93 42.25v18.19c34.7-3.7 69.8-27.65 101.5-44.57 17.2-9.19 33.2-16.32 45.7-18.02 12.5-1.7 20.6.44 28.5 11.41 15.8 21.87 20 50.28 14.9 81.68-5.1 31.5-19.5 65.4-39.8 96.5-34.2 52.1-85 95.3-132.8 107.8v18.7c56.1-12.2 110.8-60.1 147.8-116.7 21.5-32.8 37-68.7 42.6-103.4 5.6-34.7 1.2-68.46-18.1-95.13-10-13.8-24.5-19.51-39.3-19.2zM247 344.2V376.6h18V344.2c-3 .2-6 .4-9 .4s-6-.2-9-.4zm-12.3 50.4l-10.5 7 31.8 21.2 31.8-21.2-10.5-7zM217 418.4v30.4l22.8-15.2zm78 0l-22.8 15.2 22.8 15.2zm-39 26l-31.8 21.2 31.8 21.2 31.8-21.2z",
+			"credit": "https://game-icons.net/lorc/originals/body-swapping.html"
+		}
+	},
+	"Code": "var center = { x: 0.5, y: 0.5 };\n\nvar CloseEnoughDistance = 0.01;\nvar MissRadius = 0.05;\nvar DodgeRadius = 0.15;\nvar SpellCastIntervalMilliseconds = 1000;\nvar SpellCastJitterMilliseconds = 500;\n\nvar TicksPerSecond = 60;\n\nvar DefaultReactionMilliseconds = 600;\nvar ReactionMillisecondsLookup = { // Change the reaction time on certain spells\n    retarget: 200,\n};\n\nvar alreadyChosenSpells = false;\nvar nextSpell = 0;\n\n// See ai.contracts.ts:\n// input is InputContract - contains information about the current state of the world\n// output is OutputContract - an action you want to take in response to the world \nfunction act(input) {\n    // Want the bot to do nothing? Uncomment the line below (remove the //):\n    // return null;\n\n    var state = input.state;\n    var heroId = input.heroId;\n    var hero = state.heroes[heroId];\n    var cooldowns = input.cooldowns;\n    var settings = input.settings;\n\n    var opponent = findOpponent(state.heroes, heroId);\n    if (!(hero && opponent)) {\n        // Either we're dead, or everyone else is, nothing to do\n        return null;\n    }\n    \n    var action = null;\n    if (state.started) {\n        action =\n            recovery(state, hero, cooldowns)\n            || dodge(state, hero, cooldowns)\n            || castSpell(state, hero, opponent, cooldowns, settings)\n            || focus(hero, opponent)\n            || chase(state, hero, cooldowns, opponent)\n            || move(state, hero);\n    } else {\n        action =\n            chooseSpells(settings)\n            || dodge(state, hero, cooldowns)\n            || move(state, hero);\n    }\n\n    if (action) {\n        // Give the bot a reaction time otherwise it is OP\n        var reactionMilliseconds = ReactionMillisecondsLookup[action.spellId] || DefaultReactionMilliseconds;\n        action.delayMilliseconds = reactionMilliseconds;\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction chooseSpells(settings) {\n    if (alreadyChosenSpells) {\n        return null;\n    }\n    alreadyChosenSpells = true;\n\n    var spells = randomSpells(settings);\n\n    // Want to test a particular spell? Uncomment and edit the lines below\n    \n     //class\n     spells[\"a\"] = \"boss\";\n     //1st attack\n     spells[\"q\"] = \"bossball\";\n     //\"master\" attack\n     spells[\"w\"] = \"8ball\";\n     //potion\n     spells[\"e\"] = \"nothing\";\n     \n\n    return { spells };\n}\n\nfunction randomSpells(settings) {\n\tvar keyBindings = {};\n\tvar allOptions = settings.Choices.Options;\n\tfor (var btn in allOptions) { // One of the buttons, e.g. Q or R\n        var options = allOptions[btn];\n\n        var spellIds = [];\n        for (var i = 0; i < options.length; ++i) {\n            var row = options[i];\n            for (var j = 0; j < row.length; ++j) {\n                var spellId = row[j];\n                spellIds.push(spellId);\n            }\n        }\n\n\t\tif (spellIds.length > 1) {\n\t\t\tkeyBindings[btn] = spellIds[Math.floor(Math.random() * spellIds.length)];\n\t\t}\n\t}\n\treturn keyBindings;\n}\n\nfunction findOpponent(heroes, myHeroId) {\n    var myHero = heroes[myHeroId];\n    if (!myHero) {\n        return null;\n    }\n\n    var choice = null;\n    var mostHealth = 0;\n    for (var heroId in heroes) {\n        var hero = heroes[heroId];\n\n        if (!hero.isEnemy) { continue; }\n\n        // Uncomment the line below to only target humans\n        // if (hero.isBot) { continue; }\n\n        if (hero.health > mostHealth) {\n            // Target the enemy with the most health\n            mostHealth = hero.health;\n            choice = hero;\n        }\n    }\n    return choice;\n}\n\nfunction recovery(state, hero, cooldowns) {\n    if (hero.inside || state.radius <= 0) {\n        // No need to recover\n        return null;\n    }\n\n    var spellId = null;\n    if (cooldowns[\"teleport\"] === 0) {\n        spellId = \"teleport\";\n    } else if (cooldowns[\"thrust\"] === 0) {\n        spellId = \"thrust\";\n    } else if (cooldowns[\"swap\"] === 0) {\n        spellId = \"swap\";\n    } else if (cooldowns[\"voidRush\"] === 0) {\n        spellId = \"voidRush\";\n    } else if (cooldowns[\"vanish\"] === 0) {\n        spellId = \"vanish\";\n    } else {\n        spellId = \"move\";\n    }\n\n    if (spellId) {\n        return { spellId, target: center };\n    }\n    return null;\n}\n\nfunction deflect(state, hero, cooldowns, projectile) {\n    var target = vectorMidpoint(hero.pos, projectile.pos);\n    var spellId = null;\n    if (cooldowns[\"shield\"] === 0) {\n        spellId = \"shield\";\n    } else if (cooldowns[\"icewall\"] === 0) {\n        spellId = \"icewall\";\n    } else if (cooldowns[\"saber\"] === 0) {\n        spellId = \"saber\";\n    } else if (cooldowns[\"dualSaber\"] === 0) {\n        spellId = \"dualSaber\";\n    } else if (cooldowns[\"meteor\"] === 0) {\n        spellId = \"meteor\";\n    } else if (cooldowns[\"meteorite\"] === 0) {\n        spellId = \"meteorite\";\n    } else if (cooldowns[\"whirlwind\"] === 0) {\n        spellId = \"whirlwind\";\n    } else if (cooldowns[\"phaseOut\"] === 0) {\n        spellId = \"phaseOut\";\n    } else {\n        spellId = null;\n    }\n\n    if (spellId) {\n        return { spellId, target };\n    } else {\n        return null;\n    }\n}\n\nfunction castSpell(state, hero, opponent, cooldowns, settings) {\n    if (!readyForNextSpell(hero)) {\n        return null;\n    }\n\n    var candidates = [];\n    for (var spellId in cooldowns) {\n        var readyToCast = !cooldowns[spellId];\n        var spell = settings.Spells[spellId];\n\n        if (spell\n            && readyToCast\n            && validAttack(state, hero, opponent, spell)) {\n\n            candidates.push(spellId);\n        }\n    }\n\n    if (candidates.length > 0) {\n        var spellId = candidates[Math.floor(Math.random() * candidates.length)];\n        var action = { spellId, target: jitter(opponent.pos, MissRadius) };\n        if (action.spellId === spellId) {\n            updateNextSpellTime();\n        }\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction validAttack(state, hero, opponent, spell) {\n    var opponentShielded = !!opponent.shieldTicksRemaining;\n\n    var distance = vectorDistance(hero.pos, opponent.pos);\n    if (spell.action === \"projectile\" || spell.action === \"spray\" || spell.action === \"retractor\" || spell.action === \"focus\" || spell.action === \"charge\") {\n        if (spell.projectile.swapWith) { // Swap doesn't work as an attack\n            return false;\n        }\n        if (opponentShielded && !spell.projectile.detonate) { // Detonate spells can penetrate shields, nothing else can\n            return false;\n        }\n        if (spell.id === \"whip\") {\n            // Just keep casting Electroshock even if out of range\n            return true;\n        }\n\n        var range = spell.projectile.speed * spell.projectile.maxTicks / TicksPerSecond + opponent.radius;\n        return distance <= range;\n    } else if (spell.action === \"scourge\") {\n        var range = spell.radius + opponent.radius;\n        return distance <= range;\n    } else if (spell.id === \"blaze\") {\n        return true;\n    } else {\n        return false;\n    }\n}\n\nfunction readyForNextSpell(hero) {\n    return (\n        Date.now() >= nextSpell // Don't cast too fast\n        || !!hero.link // If linked to something, cast as many spells as possible\n    );\n}\n\nfunction updateNextSpellTime() {\n    nextSpell = Date.now() + SpellCastIntervalMilliseconds + Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * SpellCastJitterMilliseconds);\n}\n\nfunction jitter(target, missRadius) {\n    var radius = Math.random() * missRadius;\n    var angle = Math.random() * 2 * Math.PI;\n    return {\n        x: target.x + radius * Math.cos(angle),\n        y: target.y + radius * Math.sin(angle),\n    };\n}\n\nfunction focus(hero, opponent) { // When using a spell (e.g. Acolyte Beam, Spirit Missile) - ensure we are focusing the enemy, otherwise we will miss\n    if (hero.casting) {\n        if (hero.casting.spellId === \"blast\" || hero.casting.spellId === \"retractor\" || hero.casting.spellId === \"rocket\") {\n            // Have to release or it won't fire\n            return { spellId: hero.casting.spellId, release: true, target: opponent.pos };\n        } else if (hero.casting.spellId === \"saber\" || hero.casting.spellId === \"dualSaber\") {\n            // Don't focus the lightsaber, just swish it around\n            return { spellId: \"retarget\", target: vectorPlus(hero.pos, vectorFromAngle(hero.heading + Math.PI / 2)) };\n        } else if (hero.casting.spellId === \"grapple\") {\n            // Throw away to the right (TODO: be smarter about this)\n            return { spellId: hero.casting.spellId, release: true, target: vectorPlus(hero.pos, vectorFromAngle(hero.heading + Math.PI / 2)) };\n        } else if (hero.casting.spellId === \"halo\") {\n            return { spellId: \"move\", target: opponent.pos };\n        } else {\n            return { spellId: \"retarget\", target: opponent.pos };\n        }\n    } else {\n        return null;\n    }\n}\n\nfunction chase(state, hero, cooldowns, opponent) {\n    if (\"whip\" in cooldowns) {\n        // Got to get within range when using Electroshock\n        var target = vectorMidpoint(hero.pos, opponent.pos);\n        return { spellId: \"move\", target };\n    } else {\n        return null;\n    }\n}\n\nfunction move(state, hero) {\n    var centroid = { x: 0, y: 0 };\n    var numOpponents = 0;\n    for (var heroId in state.heroes) {\n        if (heroId === hero.id) {\n            continue; // Ignore self\n        }\n\n        var opponent = state.heroes[heroId];\n        centroid.x += opponent.pos.x;\n        centroid.y += opponent.pos.y;\n\n        ++numOpponents;\n    }\n    centroid.x /= numOpponents;\n    centroid.y /= numOpponents;\n\n    if (!numOpponents) {\n        return;\n    }\n\n    var offset = vectorNegate(vectorDiff(centroid, center)); // Move to the opposite side of the arena\n    var targetDistance = state.radius * 0.33; // Closer to center than edge (for polygonal maps)\n    var target = vectorPlus(center, vectorRelengthen(offset, targetDistance));\n\n    var distanceToTarget = vectorDistance(hero.pos, target);\n    if (distanceToTarget <= CloseEnoughDistance) {\n        // Close enough - don't send any action so the game can sleep while waiting for players\n        return null;\n    }\n\n    return { spellId: \"move\", target };\n}\n\nfunction dodge(state, hero, cooldowns) {\n    for (var projectileId in state.projectiles) {\n        var projectile = state.projectiles[projectileId];\n        if (projectile.ownerId === hero.id) {\n            // This is my own projectile\n            continue;\n        }\n\n        if (projectile.spellId === \"halo\") {\n            // Halo is never coming for us, it orbits around its owner\n            continue;\n        }\n\n        var diff = vectorDiff(hero.pos, projectile.pos);\n        var distancePerTimeStep = vectorDot(projectile.velocity, vectorUnit(diff));\n        if (distancePerTimeStep <= 0) {\n            // Not coming towards us\n            continue;\n        }\n\n        var timeToCollision = vectorLength(diff) / distancePerTimeStep;\n        if (timeToCollision <= 0 || timeToCollision >= 30) {\n            // Not coming towards us or too far away\n            continue;\n        }\n\n        var collisionPoint = vectorPlus(projectile.pos, vectorMultiply(projectile.velocity, timeToCollision));\n        var distanceToCollision = vectorDistance(collisionPoint, hero.pos);\n        var dodgeRadius = Math.max(DodgeRadius, projectile.radius) + hero.radius;\n        if (distanceToCollision > dodgeRadius) {\n            // Won't hit us\n            continue;\n        }\n\n        var deflectAction = deflect(state, hero, cooldowns, projectile);\n        if (deflectAction) {\n            return deflectAction;\n        }\n\n        // Run away from collision point\n        var direction = vectorUnit(vectorNegate(vectorDiff(collisionPoint, hero.pos)));\n        var step = vectorMultiply(direction, dodgeRadius);\n        var target = vectorPlus(hero.pos, step);\n        return { spellId: \"move\", target };\n    }\n    return null;\n}\n\nfunction vectorDiff(to, from) {\n    return { x: to.x - from.x, y: to.y - from.y };\n}\n\nfunction vectorLength(vector) {\n    return Math.sqrt(vector.x * vector.x + vector.y * vector.y);\n}\n\nfunction vectorDistance(from, to) {\n    return vectorLength(vectorDiff(from, to));\n}\n\nfunction vectorUnit(vec) {\n    var length = vectorLength(vec);\n    return length === 0 ? vec : vectorMultiply(vec, 1 / length);\n}\n\nfunction vectorPlus(from, offset) {\n    return { x: from.x + offset.x, y: from.y + offset.y };\n}\n\nfunction vectorMultiply(vec, multiplier) {\n    return { x: vec.x * multiplier, y: vec.y * multiplier };\n}\n\nfunction vectorRelengthen(vec, length) {\n    return vectorMultiply(vectorUnit(vec), length);\n}\n\nfunction vectorNegate(vec) {\n    return vectorMultiply(vec, -1);\n}\n\nfunction vectorDot(a, b) {\n    return (a.x * b.x) + (a.y * b.y);\n}\n\nfunction vectorMidpoint(a, b) {\n    var diff = vectorDiff(b, a);\n    return vectorPlus(a, vectorMultiply(diff, 0.5));\n}\n\nfunction vectorFromAngle(angle) {\n\treturn { x: Math.cos(angle), y: Math.sin(angle) };\n}\n\n// See ai.contracts.ts: Must return a BotContract\nreturn { act };"
+}

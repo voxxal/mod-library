@@ -1,0 +1,828 @@
+{
+	"Mod": {
+		"name": "Acolyte Stars update2",
+		"author": "Thunder",
+		"description": "Fri, 04 Oct 2019 02:33:43 GMT",
+		"titleRight": "Stars"
+	},
+	"Matchmaking": {
+		"MinBots": 10,
+		"MaxBots": 10,
+		"MaxPlayers": 10
+	},
+	"World": {
+		"InitialRadius": 2,
+		"HeroLayoutProportion": 1,
+		"LavaDamagePerSecond": 100,
+		"SecondsToShrink": 120,
+		"BotName": "Bot 1"
+	},
+	"Hero": {
+		"MoveSpeedPerSecond": 0.2,
+		"Radius": 0.02,
+		"MaxHealth": 1000,
+		"InitialStaticSeconds": 5
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1.25,
+				"wheelSize": 0.75
+			}
+		],
+		"Options": {
+			"q": [
+				[
+					"shellyshitgun"
+				],
+				[
+					"bulls3"
+				],
+				[
+					"colty"
+				],
+				[
+					"nita"
+				],
+				[
+					"brock"
+				]
+			],
+			"w": [
+				[
+					"shellyshowgun"
+				],
+				[
+					"vanish"
+				],
+				[
+					"colty2"
+				],
+				[
+					"nita2"
+				],
+				[
+					"brock2"
+				]
+			],
+			"e": {
+				"$delete": true
+			},
+			"r": {
+				"$delete": true
+			},
+			"f": {
+				"$delete": true
+			}
+		}
+	},
+	"Spells": {
+		"vanish": {
+			"name": "The Bull Sneak [SUPER]",
+			"cooldown": 900,
+			"buffs": [
+				{
+					"type": "vanish",
+					"maxTicks": 300,
+					"channelling": true,
+					"cancelOnBump": true,
+					"sound": "vanish",
+					"renderStart": {
+						"numParticles": 10,
+						"color": "#111",
+						"ticks": 60,
+						"particleRadius": 0.0125,
+						"glow": 0.2,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"render": {
+						"invisible": true,
+						"color": "#111",
+						"ticks": 60,
+						"particleRadius": 0.0125,
+						"glow": 0.2,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"renderFinish": {
+						"numParticles": 10,
+						"color": "#111",
+						"ticks": 60,
+						"particleRadius": 0.0125,
+						"glow": 0.2,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					}
+				}
+			],
+			"color": "#000"
+		},
+		"shellyshitgun": {
+			"id": "shellyshitgun",
+			"name": "Shelly's Shotgun",
+			"description": "Oh yeah",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#0000ff",
+			"icon": "shellgun",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 120,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 10,
+			"jitterRatio": 0.2,
+			"projectile": {
+				"density": 1,
+				"radius": 0.002,
+				"speed": 0.3,
+				"maxTicks": 45,
+				"damage": 50,
+				"lifeSteal": 0.5,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#0000ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.01
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 4,
+						"fade": "rgb(0,0,255,0.5)",
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.3,
+						"maxSpeed": 0.6
+					}
+				]
+			}
+		},
+		"bulls3": {
+			"id": "bulls3",
+			"name": "Bull's Three Barrel",
+			"description": "IM THE BOSS",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#000000",
+			"icon": "bullgun",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 180,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 10,
+			"jitterRatio": 0.25,
+			"projectile": {
+				"density": 1,
+				"partialDamage": {
+					"initialMultiplier": 3,
+					"ticks": 20
+				},
+				"radius": 0.003,
+				"speed": 0.5,
+				"maxTicks": 20,
+				"damage": 33,
+				"lifeSteal": 0.5,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#000000",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 4,
+						"fade": "rgb(100,100,100,0.5)",
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.3,
+						"maxSpeed": 0.6
+					}
+				]
+			}
+		},
+		"colty": {
+			"id": "colty",
+			"name": "Colt's Handgun",
+			"description": "Check out my guns!",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#e03174",
+			"icon": "coltm1911",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 60,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"intervalTicks": 3,
+			"lengthTicks": 30,
+			"jitterRatio": 0.05,
+			"projectile": {
+				"density": 1,
+				"radius": 0.002,
+				"speed": 0.3,
+				"maxTicks": 90,
+				"damage": 34,
+				"lifeSteal": 0.5,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#e03174",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.01
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 4,
+						"fade": "rgb(0,0,255,0.5)",
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.3,
+						"maxSpeed": 0.6
+					}
+				]
+			}
+		},
+		"shellyshowgun": {
+			"id": "shellyshowgun",
+			"name": "Shelly's Shotgun [SUPER]",
+			"description": "Oh yeah",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#0000ff",
+			"icon": "shellgun",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 900,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 20,
+			"jitterRatio": 0.3,
+			"projectile": {
+				"density": 3,
+				"radius": 0.003,
+				"speed": 1,
+				"maxTicks": 20,
+				"damage": 100,
+				"lifeSteal": 0.5,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#0000ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 4,
+						"fade": "rgb(0,0,255,0.5)",
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.3,
+						"maxSpeed": 0.6
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind",
+						"movementProportion": 0.1,
+						"maxTicks": 120,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.2,
+							"bloom": 0.03
+						}
+					}
+				]
+			}
+		},
+		"colty2": {
+			"id": "colty2",
+			"name": "Colt's Handgun [SUPER]",
+			"description": "Check out my guns!",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#e03174",
+			"icon": "sanicbullet",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 900,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"intervalTicks": 3,
+			"lengthTicks": 60,
+			"jitterRatio": 0.07,
+			"projectile": {
+				"density": 1,
+				"radius": 0.004,
+				"speed": 0.4,
+				"maxTicks": 90,
+				"damage": 75,
+				"lifeSteal": 0.5,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#e03174",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 16,
+						"fade": "rgb(0,0,255,0.5)",
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.3,
+						"maxSpeed": 0.6
+					}
+				]
+			}
+		},
+		"nita": {
+			"id": "nita",
+			"name": "Nita's Ground Shake",
+			"description": "BEAR!!!!",
+			"action": "projectile",
+			"color": "#69312d",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 120,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"radius": 0.02,
+				"speed": 0.5,
+				"maxTicks": 45,
+				"damage": 250,
+				"lifeSteal": 0.5,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#f008",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05,
+						"vanish": 0.75
+					},
+					{
+						"type": "ray",
+						"ticks": 10,
+						"vanish": 0.75
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 1,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"nita2": {
+			"id": "nita2",
+			"name": "The Bear [SUPER]",
+			"description": "NITA!!!",
+			"action": "projectile",
+			"color": "#69312d",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 1200,
+			"throttle": true,
+			"projectile": {
+				"density": 0,
+				"radius": 0.05,
+				"speed": 0.2,
+				"maxTicks": 900,
+				"damage": 500,
+				"lifeSteal": 2,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#69312d",
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 10,
+						"maxTurnProportion": 1
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.09
+					},
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"brock": {
+			"id": "brock",
+			"name": "Brock's Rocket launcher",
+			"description": "Game On!",
+			"action": "focus",
+			"color": "#3c4e78",
+			"icon": "rocko",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 140,
+			"focusDelaysCooldown": false,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"projectile": {
+				"damage": 0,
+				"lifeSteal": 0.5,
+				"density": 15,
+				"radius": 0.007,
+				"speed": 0.7,
+				"maxTicks": 120,
+				"categories": 2,
+				"shieldTakesOwnership": false,
+				"detonate": {
+					"damage": 250,
+					"lifeSteal": 0.5,
+					"radius": 0.03,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 15
+				},
+				"sound": "retractor",
+				"color": "#67686b",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "swirl",
+						"color": "#67686b",
+						"ticks": 30,
+						"radius": 0.009,
+						"particleRadius": 0.001,
+						"glow": 0.05,
+						"smoke": 0.1,
+						"numParticles": 2,
+						"loopTicks": 15,
+						"vanish": 1
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"glow": 0.2,
+						"color": "#67686b"
+					},
+					{
+						"type": "ray",
+						"ticks": 1,
+						"glow": 0.2,
+						"vanish": 0.25,
+						"color": "#67686b"
+					},
+					{
+						"type": "strike",
+						"ticks": 15,
+						"flash": true,
+						"numParticles": 9,
+						"color": "#67686b"
+					}
+				]
+			}
+		},
+		"brock2": {
+			"id": "brock2",
+			"name": "MEGA MISSILE [SUPER]",
+			"description": "Game On!",
+			"action": "focus",
+			"color": "#3c4e78",
+			"icon": "weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 700,
+			"focusDelaysCooldown": false,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"projectile": {
+				"damage": 0,
+				"lifeSteal": 0.5,
+				"density": 15,
+				"radius": 0.014,
+				"speed": 0.7,
+				"maxTicks": 120,
+				"categories": 2,
+				"shieldTakesOwnership": false,
+				"detonate": {
+					"damage": 600,
+					"lifeSteal": 0.5,
+					"radius": 0.06,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 60
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.03
+					}
+				],
+				"sound": "retractor",
+				"color": "#67686b",
+				"renderers": [
+					{
+						"type": "bloom",
+						"color": "#67686b"
+					},
+					{
+						"type": "swirl",
+						"color": "#67686b",
+						"ticks": 30,
+						"radius": 0.009,
+						"particleRadius": 0.001,
+						"glow": 0.05,
+						"smoke": 0.1,
+						"numParticles": 2,
+						"loopTicks": 15,
+						"vanish": 1
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"glow": 0.2,
+						"color": "#67686b"
+					},
+					{
+						"type": "ray",
+						"ticks": 1,
+						"glow": 0.2,
+						"vanish": 0.25,
+						"color": "#67686b"
+					},
+					{
+						"type": "strike",
+						"ticks": 15,
+						"flash": true,
+						"numParticles": 9,
+						"color": "#67686b"
+					}
+				]
+			}
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"color": "#968923",
+			"numPoints": 4
+		},
+		"cold": {
+			"color": "#968923",
+			"numPoints": 4
+		},
+		"octogon": {
+			"color": "#968923"
+		},
+		"return": {
+			"color": "#968923"
+		},
+		"double": {
+			"color": "#968923",
+			"obstacles": [
+				{
+					"type": "bumper",
+					"numObstacles": 5,
+					"layoutRadius": 0.07,
+					"layoutAngleOffsetInRevs": 0.125,
+					"numPoints": 4,
+					"extent": 0.017,
+					"orientationAngleOffsetInRevs": 0.125
+				},
+				{
+					"numObstacles": 4,
+					"layoutRadius": 0.33,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.007,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"ring": {
+			"color": "#968923"
+		},
+		"exit": {
+			"color": "#968923"
+		},
+		"snowflake": {
+			"color": "#968923"
+		},
+		"inside5": {
+			"color": "#968923"
+		},
+		"single": {
+			"color": "#968923",
+			"obstacles": [
+				{
+					"type": "spinner",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 3,
+					"extent": 0.1,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"pepper": {
+			"color": "#968923"
+		},
+		"mirrors": {
+			"color": "#968923",
+			"obstacles": [
+				{
+					"type": "mirror",
+					"numObstacles": 10,
+					"layoutRadius": 0.22,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.008,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.05
+				}
+			]
+		},
+		"innerStar": {
+			"color": "#968923"
+		},
+		"mirrorhenge": {
+			"color": "#968923"
+		},
+		"triplet": {
+			"color": "#968923"
+		},
+		"square": {
+			"color": "#968923"
+		},
+		"surrounded": {
+			"color": "#968923"
+		},
+		"tripletSwirl": {
+			"color": "#968923"
+		}
+	},
+	"Visuals": {
+		"Background": "#3f8c27",
+		"DefaultWorldColor": "#9eb327",
+		"HealthBarHeight": 0.006,
+		"CameraPanRate": 0.006,
+		"CameraZoomTolerance": 9
+	},
+	"Icons": {
+		"shellgun": {
+			"path": "M472.133 19.812L162.52 197.03l21.996 34.133L483.97 38.183l-11.837-18.37zm-71.897 93.748l-117.627 75.8 16.35 10.41c45.98-32.88 82.61-61.844 100.483-82.544l.793-3.666zm-134.283 86.535l-100.125 64.523 20.48 12.13c34.023-22.565 66.99-44.805 96.788-65.74l-17.143-10.913zm-118.826 6.277l-6.227 4.012c-6.594 19.98-1.4 36.31 7.81 43.852l20.677-13.323-22.26-34.54zm-23.71 42.045c-5.512 5.532-12.928 13.198-22.288 23.64-17.225 19.212-36.353 43.545-43.47 60.405-18.543 43.928-15.34 97.99-18 147.736 2.41 7.08 5.408 9.92 8.197 11.137 2.96 1.292 6.896 1.194 11.74-.824 9.393-3.91 19.696-15.595 22.262-25.282-.174-2.232-.92-12.117-1.237-25.643-.356-15.14-.246-33.002 2.63-46.297 5.15-23.82 13.395-49.19 30.268-69.05 10.193-11.993 27.132-22.48 41.92-30.848 4.68-2.65 8.665-4.724 12.415-6.65-19.88-12.29-36.656-17.7-44.437-38.323zm-57.75 37.793l-37.638 9.64L43.6 320.01c5.432-11.014 13.33-22.587 22.064-33.8zm125.86 8.82l-1.154.532s-6.765 3.116-16.096 8.043c-.25 10.99-5.59 19.736-12.617 25.5-5.492 4.505-12.02 6.843-17.803 6.695-4.355-.112-8.346-1.367-12.013-4.55-1.8 1.62-3.36 3.18-4.606 4.644-2.444 2.876-4.69 5.96-6.77 9.197 6.78 5.595 14.91 8.5 22.928 8.704 10.763.276 21.213-3.827 29.68-10.773 12.754-10.462 20.973-28.17 18.45-47.99z",
+			"credit": "https://game-icons.net/1x1/lorc/fire-wave.html"
+		},
+		"bullgun": {
+			"path": "M424.045 26.605l2.54 11.19 16.15-13.06zm-205.53 312.32a24.07 24.07 0 0 0 1.54-36l6.15-5.17c.72.73 1.41 1.5 2.07 2.31a32.09 32.09 0 0 1-45.62 44.74q2.13-3.69 4.14-7a24.12 24.12 0 0 0 31.72 1.12zm-18.1-19.47l10.32 7.66-15.53-2.3c.58-.81 1.14-1.58 1.69-2.29zm76.89-80.34l-31.33-38.65 15.26-12.34 31.33 38.65zm137.88-111.75l-31.33-38.65 15.27-12.37 31.33 38.64zm-41.83-26.18l25.91 32c-26.82 22.18-62.15 51.42-96.92 80.29l-26.75-33zm-252.76 239.74l10 1.16 32.83-65.86a28.13 28.13 0 0 0 41-38.11l4.52-3.67 26.53-21.52 27.14 33.48c-32.82 27.33-61.6 51.43-77.37 65-26.12 32.63-84.5 163.79-95.81 175.86-13.73-4.68-26.77-40.12-54-55.2 9.14-18.66 85.16-91.14 85.16-91.14zm33.05-113.81c1.5 2.11 5.69 5.81 8.38 5.81h.06c.35 0 1.29.17 2.48-1.65 7.15-11 18-16.41 25.26-12.77l-3.59 7.2c-1.77-.89-5.5.3-9.38 3.63l14.75 18.2a12.13 12.13 0 1 1-18.91.1l-6-7.44a10 10 0 0 1-4.4 1.12h-.23c-8.12 0-14.83-9.36-14.89-9.45zm259.84-158.46l46.5-37.73 11.06 13.68-46.49 37.69zm63.08 1.27l-37.46 30.31-5.73-7.07 37.42-30.34z",
+			"credit": "https://game-icons.net/lorc/originals/deadly-strike.html"
+		},
+		"coltm1911": {
+			"path": "M237.58 213.41a48.65 48.65 0 0 1 2.09-14.63h-17.15a1.45 1.45 0 0 0-1.37 1.37v14.58a15 15 0 0 0 1 6.15c.1 0 .26-.1.38-.1h15.58a59 59 0 0 1-.53-7.37zM145.16 396l-2.07 13.22-106.72-16.69 2.11-13.48 106.06 16.86zm249.29-246.22H86.71c2.08-37 19.18-47 19.18-47h378.27v32.53c-59-2.45-81.32 6.47-89.71 14.47zm89.59.92h.12v27.08h-80v-16.77c4-3.09 20.68-12.82 79.87-10.31zM27.84 361.78l119.12 19s25.79-87.28 36.14-115.79c6.14-16.95 29.91-20.21 41.32-20.21h31.32c16.06 0 29.42-13.69 30.42-30.92l-.2-23.08a7 7 0 0 1 7.2-7h96v-18H83.64c-3.18 4.32-9.37 6.14-21.27 7.24-27.3 2.54-21.28 19.3-21.28 19.3a37.51 37.51 0 0 1 4.56-.29c9.55 0 27.65 2.63 39.74 17.75 14.49 18.08-38.28 94.73-57.55 152zm178.32-161.63a16.16 16.16 0 0 1 16.37-16.37h37.31a16.12 16.12 0 0 1 16.32 16.37v14.58c0 12-9.11 22.05-18.32 22.05h-35.32c-12 0-16.37-9.89-16.37-22.05v-14.58zm-155 151.53a10.23 10.23 0 0 1-1.73-10.49c12.36-30.23 55.41-128.32 70.86-161.48 6.48-13.9 35.77-14.41 52.31-8.65 14.25 5 21.13 14.74 18.4 26.15-5.46 22.81-36.94 120.87-52.6 165.22-1.33 3.78-4.7 6.15-10 7.05a45.81 45.81 0 0 1-7.46.51c-9.91 0-23.26-1.95-33.24-4-19.89-4-32.18-8.82-36.54-14.31zm83-165.32c-14.86 31.91-55 123.3-69 156.95 4.32 2.21 14.25 5.53 28.85 8.26 15.21 2.84 26.29 3.37 30.81 2.88 15.65-44.71 46-139.46 51.14-160.83.26-1.09.87-3.65-5.17-6.64-5.51-2.73-14.08-4.26-22.36-4-8.68.28-13.37 2.4-14.27 3.38zm5.86 18.66a8.3 8.3 0 1 1 8.3 8.3 8.3 8.3 0 0 1-8.31-8.3zm-30.79 124.15a8.3 8.3 0 1 1-8.3-8.3 8.3 8.3 0 0 1 8.28 8.3zM77.99 116l-4.59 15.93a10.15 10.15 0 0 1-2.94-4.2c-.73-2.39-9.62-17.8-19.42-18.59 10.12-4.61 26.94 6.86 26.94 6.86z",
+			"credit": "https://game-icons.net/lorc/originals/deadly-strike.html"
+		},
+		"sanicbullet": {
+			"path": "M346.12-.2l-.233.28h.568c-.112-.093-.222-.188-.334-.28zM52.747 18.77c166.38 72.215 298.08 157.962 373.818 254.734-63.44 81.172-164.48 155.274-291.498 220.543h40.022c79.295-43.115 147.887-89.96 202.66-140.547-39.11 50.436-88.187 97.396-144.996 140.547h30.434c80.09-63.988 144.264-136.234 185.377-216.305l2.19-4.267-2.19-4.268C399.403 173.463 315.916 89.895 211.035 18.77h-33.93c80.457 51.6 148.82 109.986 199.942 174.582C305.687 128.537 210.47 70.408 98.512 18.77H52.746zm286.88 0c79.86 68.252 124.905 149.72 132.544 232.044 7.757 83.595-22.736 168.59-96.772 243.233h25.79c20.766-22.77 37.913-46.547 51.498-70.985-7.558 24.488-17.123 48.273-28.764 70.985h20.875c72.31-148.76 61.655-336.513-17.764-475.277H405.36c20.056 33.13 35.904 69.555 47.333 107.822-20.603-38.094-49.095-74.45-84.986-107.822h-28.082zm-320.34 81.582v18.7c98.913.57 192.13 33.895 275.816 93.31-83.698-43.07-176.986-67.33-275.815-67.747V163.3c126.328.548 243.07 41.285 341.934 111.155C261.996 345.35 146.23 388.97 19.288 389.56v18.678c97.076-.436 187.874-25.23 269.824-67.6-82.075 58.517-172.797 92.57-269.823 93.17V452.5c138.463-.82 264.086-66.947 369.64-172.195l6.66-6.64-6.687-6.618C283.584 162.795 156.815 101.115 19.287 100.35zM200.82 236.287v80.28c48.162 0 91.948-15.602 128.977-40.797-36.904-24.93-81.09-39.485-128.977-39.483zm-164.19.54v79.202h22.33v-79.202H36.63zm41.018 0v79.202h101.645l.002-79.202H77.648zM138.7 512.735l.19.368c.238-.122.474-.246.714-.368h-.903z",
+			"credit": "https://game-icons.net/lorc/originals/burning-dot.html"
+		},
+		"rocko": {
+			"path": "M18.78 25.97c2.6 25.278 9.316 48.72 19.532 69.75l-21.218-6.564L73.53 146.72l-.843-1.782c16.737 17.29 36.797 31.38 59.438 41.593-13.546-18.845-21.597-41.677-22.03-69.28 27.78.35 50.396 8.56 69.25 22.063-.627-1.4-1.284-2.776-1.94-4.157l.72.625-34.438-86.655-2.53 33.844c-30.974-31.598-73.044-52.084-122.376-57zm236.814 31.593L217.22 160.875c-30.663 7.52-54.566 32.236-60.907 63.344l-.188-.22-106.563 39.563 74.313 74.312 93-8.03.375-.033 23.03-2.468-77.31-94.938 13.28-13.28 89.406 109.75 10.875 13.374-17.124 1.844-28.22 3.03c14.52 17.126 30.304 33.143 47.22 47.907 7.62-56.784 52.175-102.042 108.625-110.717-14.72-16.738-30.68-32.346-47.75-46.688l-2.78 26.125-1.844 17.125L321.28 270l-107.874-88.03 13.25-13.25 93.094 75.905 2.22-20.844 7.905-91.936-74.28-74.28zM401.53 301.625c-8.783.408-17.306 1.827-25.436 4.156l13.875 16.908c7.51-2.534 15.37-4.323 23.467-5.282-3.863-5.344-7.814-10.62-11.906-15.78zm-43.78 11.25c-7.323 3.61-14.204 7.994-20.5 13.063l15.75 17.28c5.92-4.876 12.318-9.16 19.125-12.812l-14.375-17.53zm68 22.438c-7.92.117-15.616 1.157-22.97 3.03l14.5 17.688c6.108-1.82 12.447-3.043 18.97-3.686-3.387-5.76-6.865-11.445-10.5-17.03zm-102.03 3.53c-6.713 7.584-12.4 16.116-16.845 25.344l17.313 14.125c4.28-7.958 9.44-15.37 15.375-22.093l-15.844-17.376zm60.467 6.282c-6.67 3.247-12.908 7.267-18.625 11.875l16.282 17.875c5.34-4.382 11.15-8.233 17.312-11.47l-14.97-18.28zm-32 24.938c-5.204 6.153-9.673 12.96-13.25 20.28l17.97 14.688c3.305-6.06 7.202-11.76 11.624-17l-16.342-17.967zm94.094.218v.22c-45.915 0-82.96 36.985-83.06 82.875 39.248 20.8 81.966 35.93 127.06 44.313-8.284-45.328-23.3-88.145-44-127.407zM299.94 382.626c-2.38 8.6-3.743 17.625-3.97 26.938 4.937 3.885 9.96 7.664 15.063 11.343.93-8.58 2.75-16.88 5.44-24.812l-16.533-13.47zm32.156 26.25c-2 7.785-3.073 15.96-3.094 24.375 5.28 3.43 10.632 6.727 16.063 9.938.72-6.992 2.156-13.776 4.218-20.282l-17.186-14.03z",
+			"credit": "https://game-icons.net/lorc/originals/comet-spark.html"
+		},
+		"weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": {
+			"path": "M482.22 44.844l-50.533 46.25-21.937 57.22c-34.637 15.445-47.955 24.442-61.47 74.874l39.564-17.657-1.875 32.095 37.342 14.344 21.75-24.5 17.625 39.56c24.52-42.467 25.663-63.24 4.282-96.78l21.936-57.22-6.687-68.186zM389.093 263.22c-16.33 25.16-38.017 48.57-63.063 68.217-.022.018-.038.045-.06.063-37.302 23.693-83.27 29.138-118.095 15.688 16.236 15.056 37.635 20.705 59.156 19.156-49.41 14.874-102.32 9.118-139.624-14.28 14.142 19.334 34.493 31.22 56.97 36.592-58.93 3.328-117.894-19.792-162.44-84l.002 168.03c65.91 28.65 135.148 19.62 196.218-11.56l-16.97 35.78 88.126-85.03h-.093c2-1.796 3.973-3.6 5.936-5.438l-11.28 43.937 59.812-99.438c19.668-27.56 35.253-57.384 45.406-87.718z",
+			"credit": "https://game-icons.net/lorc/originals/body-swapping.html"
+		}
+	}
+}

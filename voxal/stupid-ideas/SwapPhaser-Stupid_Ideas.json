@@ -1,0 +1,71 @@
+{
+	"Mod": {
+		"name": "SwapPhaser-Stupid Ideas",
+		"author": "DarkThunder",
+		"description": "Wed, 23 Oct 2019 02:24:38 GMT",
+		"titleLeft": "SwapPhaser",
+		"titleRight": "Suggested By Meso"
+	},
+	"Spells": {
+		"swap": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "mass",
+						"cleansable": false,
+						"maxTicks": 10000000000000000,
+						"radius": 0.0125,
+						"density": 1000000,
+						"restrictCollideWith": 0
+					},
+					{
+						"type": "armor",
+						"cleansable": false,
+						"maxTicks": 99999999999,
+						"proportion": -1
+					},
+					{
+						"type": "movement",
+						"cleansable": false,
+						"maxTicks": 999999999999999,
+						"movementProportion": 0
+					},
+					{
+						"type": "glide",
+						"cleansable": false,
+						"maxTicks": 999999999999,
+						"linearDampingMultiplier": 1000
+					},
+					{
+						"type": "vanish",
+						"noTargetingIndicator": true,
+						"noBuffs": true,
+						"cleansable": false,
+						"maxTicks": 999999999999999,
+						"sound": "phaseOut",
+						"renderStart": {
+							"numParticles": 10,
+							"color": "#111",
+							"ticks": 10000000000000000,
+							"particleRadius": 0.0125,
+							"glow": 0.2,
+							"shine": 1,
+							"bloom": 0,
+							"vanish": 1
+						},
+						"renderFinish": {
+							"numParticles": 10,
+							"color": "#111",
+							"ticks": 15,
+							"particleRadius": 0.0125,
+							"glow": 0.2,
+							"shine": 1,
+							"bloom": 0,
+							"vanish": 1
+						}
+					}
+				]
+			}
+		}
+	}
+}

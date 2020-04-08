@@ -1,0 +1,81 @@
+{
+	"Mod": {
+		"name": "Goo Gun - Stupid Ideas",
+		"author": "DarkThunder",
+		"description": "Wed, 23 Oct 2019 01:33:20 GMT",
+		"titleLeft": "Goo Gun",
+		"titleRight": "Requested By: Ace"
+	},
+	"Spells": {
+		"fireball": {
+			"color": "#00ff88",
+			"cooldown": 210,
+			"projectile": {
+				"density": 1,
+				"speed": 0.2,
+				"color": "#00ff88",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"ticks": 15,
+						"fade": "#00ff22"
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				],
+				"buffs": [
+					{
+						"type": "mass",
+						"cleansable": false,
+						"maxTicks": 600,
+						"radius": 0.01,
+						"density": 1
+					},
+					{
+						"type": "movement",
+						"cleansable": false,
+						"maxTicks": 600,
+						"movementProportion": 0.1
+					},
+					{
+						"type": "glide",
+						"cleansable": false,
+						"maxTicks": 600,
+						"linearDampingMultiplier": 1000
+					},
+					{
+						"type": "lavaImmunity",
+						"damageProportion": 0,
+						"maxTicks": 600,
+						"sound": "voidRush-lavaImmunity",
+						"render": {
+							"color": "#00ff88",
+							"ticks": 30,
+							"emissionRadiusFactor": 0,
+							"particleRadius": 0.0125,
+							"decay": true,
+							"glow": 0.2,
+							"shine": 0.5,
+							"bloom": 0.03,
+							"vanish": 1
+						}
+					}
+				]
+			},
+			"name": "Goo Gun"
+		}
+	}
+}
