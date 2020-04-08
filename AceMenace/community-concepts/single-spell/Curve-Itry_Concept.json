@@ -1,0 +1,93 @@
+{
+	"Mod": {
+		"name": "Curve-Itry Concept",
+		"author": "AceMenace",
+		"description": "TheOne's Curve-Itry Spell Concept",
+		"titleLeft": "AceMenace's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "Curve-Itry",
+		"subtitleRight": "Concept"
+	},
+	"Choices": {
+		"Options": {
+			"q": [
+				[
+					"fireball",
+					"flamestrike"
+				],
+				[
+					"triplet",
+					"difire"
+				],
+				[
+					"retractor",
+					"backlash",
+					"curveitry"
+				],
+				[
+					"whip"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"curveitry": {
+			"id": "curveitry",
+			"name": "Curve-Itry",
+			"description": "Fire a magical projectile that will curve towards your cursor as it flies. Takes 0.5 seconds to grow to full damage, so keep a little bit of distance between yourself and the enemy.",
+			"action": "projectile",
+			"color": "#dc1432",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 30,
+				"radius": 0.0025,
+				"speed": 0.45,
+				"maxTicks": 180,
+				"damage": 30,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"partialDamage": {
+					"initialMultiplier": 0.33,
+					"ticks": 30
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.003
+					}
+				],
+				"color": "#dc1432",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 60,
+						"fade": "#000000",
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"fade": "#000000",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 45,
+						"flash": true,
+						"fade": "#000000",
+						"numParticles": 5
+					}
+				]
+			}
+		}
+	}
+}

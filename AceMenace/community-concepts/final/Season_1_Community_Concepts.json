@@ -1,0 +1,921 @@
+{
+	"Mod": {
+		"name": "Season 1 Community Concepts!",
+		"author": "AceMenace",
+		"description": "A compilation of all the modded community spell concepts!",
+		"titleLeft": "Season :",
+		"titleRight": "1",
+		"subtitleLeft": "Community",
+		"subtitleRight": "Concepts!"
+	},
+	"Choices": {
+		"Options": {
+			"q": [
+				[
+					"fireball",
+					"flamestrike"
+				],
+				[
+					"triplet",
+					"difire"
+				],
+				[
+					"retractor",
+					"backlash",
+					"curveitry"
+				],
+				[
+					"whip"
+				]
+			],
+			"w": [
+				[
+					"boost"
+				],
+				[
+					"homing",
+					"boomerang",
+					"drain"
+				],
+				[
+					"gravity",
+					"whirlwind",
+					"vortex"
+				],
+				[
+					"link",
+					"grapple"
+				],
+				[
+					"lightning"
+				]
+			],
+			"e": [
+				[
+					"armor",
+					"horcrux"
+				],
+				[
+					"shield",
+					"icewall",
+					"refresh",
+					"roost"
+				],
+				[
+					"saber",
+					"dualSaber"
+				],
+				[
+					"phaseOut",
+					"blaze"
+				],
+				[
+					"meteor",
+					"meteorite"
+				]
+			],
+			"r": [
+				[
+					"empower"
+				],
+				[
+					"supernova",
+					"rocket"
+				],
+				[
+					"bouncer",
+					"repeater",
+					"weakeningBlow"
+				],
+				[
+					"kamehameha",
+					"blast"
+				]
+			],
+			"f": [
+				[
+					"bump",
+					"scourge",
+					"shockwave"
+				],
+				[
+					"firespray",
+					"iceBomb"
+				],
+				[
+					"mines",
+					"necromancy"
+				],
+				[
+					"halo",
+					"viper"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"fireball": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "viper",
+						"adjustCooldown": -240,
+						"sound": "repeater",
+						"color": "#990000"
+					}
+				]
+			}
+		},
+		"flamestrike": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "viper",
+						"adjustCooldown": -240,
+						"sound": "repeater",
+						"color": "#990000"
+					}
+				]
+			}
+		},
+		"triplet": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "viper",
+						"adjustCooldown": -90,
+						"sound": "repeater",
+						"color": "#990000"
+					},
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0.6666666666666666,
+							"lifeSteal": 0.3,
+							"noHit": true
+						},
+						"maxTicks": 240,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#ff0088",
+							"alpha": 0.049999999999999996,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				]
+			}
+		},
+		"difire": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "viper",
+						"adjustCooldown": -120,
+						"sound": "repeater",
+						"color": "#990000"
+					},
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0.8333333333333334,
+							"lifeSteal": 0.3,
+							"noHit": true
+						},
+						"maxTicks": 240,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#ff0088",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				]
+			}
+		},
+		"retractor": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "viper",
+						"adjustCooldown": -240,
+						"sound": "repeater",
+						"color": "#990000"
+					}
+				]
+			}
+		},
+		"backlash": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "backlash",
+						"adjustCooldown": -45
+					},
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "viper",
+						"adjustCooldown": -240,
+						"sound": "repeater",
+						"color": "#990000"
+					}
+				]
+			}
+		},
+		"whip": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "viper",
+						"adjustCooldown": -240,
+						"sound": "repeater",
+						"color": "#990000"
+					}
+				]
+			}
+		},
+		"refresh": {
+			"id": "refresh",
+			"name": "Refresh",
+			"description": "Heal 18 health over 3 seconds. Quickly refresh and get back into the battle!",
+			"action": "projectile",
+			"sound": "horcrux",
+			"effects": [
+				{
+					"icon": "fal fa-lightbulb",
+					"title": "Concept By",
+					"text": "BetaPi"
+				}
+			],
+			"color": "#00D800",
+			"icon": "burningEye",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"throttle": true,
+			"projectile": {
+				"density": 10,
+				"restitution": 0,
+				"radius": 0.035,
+				"speed": 0,
+				"maxTicks": 180,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 1,
+				"collideWith": 0,
+				"expireOn": 0,
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "strafe",
+						"maxSpeed": 10
+					},
+					{
+						"type": "aura",
+						"radius": 0.015,
+						"tickInterval": 10,
+						"against": 1,
+						"maxHits": 18,
+						"packet": {
+							"damage": 1,
+							"against": 1,
+							"lifeSteal": 2,
+							"noHit": true,
+							"noKnockback": true
+						}
+					}
+				],
+				"sound": "horcrux",
+				"color": "#22ee88",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "projectile",
+						"ticks": 5,
+						"color": "rgba(0,216,0,0.1)",
+						"glow": 0.2
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 1.25,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"curveitry": {
+			"id": "curveitry",
+			"name": "Curve-Itry",
+			"description": "Fire a magical projectile that will curve towards your cursor as it flies. Takes 0.5 seconds to grow to full damage, so keep a little bit of distance between yourself and the enemy.",
+			"action": "projectile",
+			"effects": [
+				{
+					"icon": "fal fa-lightbulb",
+					"title": "Concept By",
+					"text": "TheOne"
+				}
+			],
+			"color": "#dc1432",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 20,
+				"radius": 0.0025,
+				"speed": 0.42,
+				"maxTicks": 180,
+				"damage": 22,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"partialDamage": {
+					"initialMultiplier": 0.5,
+					"ticks": 35
+				},
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "viper",
+						"adjustCooldown": -240,
+						"sound": "repeater",
+						"color": "#990000"
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.003
+					}
+				],
+				"color": "#dc1432",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 60,
+						"fade": "#000000",
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"fade": "#000000",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 45,
+						"flash": true,
+						"fade": "#000000",
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"necromancy": {
+			"id": "necromancy",
+			"description": "Summon 4 weak zombie soliders to hunt down and distract your foes. Each time a zombie hits an enemy, the cooldown of this spell will be reduced by 0.2 seconds.",
+			"action": "spray",
+			"effects": [
+				{
+					"icon": "fal fa-lightbulb",
+					"title": "Concept By",
+					"text": "voXal"
+				}
+			],
+			"color": "#008000",
+			"icon": "bodySwapping",
+			"cooldown": 720,
+			"throttle": true,
+			"maxAngleDiffInRevs": 0.01,
+			"chargeTicks": 60,
+			"numProjectilesPerTick": 4,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 2,
+			"projectile": {
+				"density": 1,
+				"radius": 0.003,
+				"speed": -1,
+				"maxTicks": 460,
+				"damage": 5,
+				"hitInterval": 45,
+				"selfPassthrough": true,
+				"lifeSteal": 0.3,
+				"shieldTakesOwnership": false,
+				"expireOn": 0,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.04,
+						"trigger": {
+							"afterTicks": 60
+						},
+						"newSpeed": 0.1
+					}
+				],
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"against": 4,
+						"spellId": "necromancy",
+						"adjustCooldown": -12
+					}
+				],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#008000",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 20,
+						"radiusMultiplier": 2,
+						"fade": "#009c00",
+						"smoke": 0.01,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 4,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 45,
+						"growth": 1,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"shockwave": {
+			"id": "shockwave",
+			"name": "Shockwave",
+			"description": "Release a melee-ranged explosion that will stun and silence your enemies for 1.5 seconds. If you hit an enemy with this spell, you will gain a 25% speed boost and resist all damage by 10% for the next 3 seconds. If you hit an enemy, you will also be silenced for 0.75 seconds.",
+			"untargeted": true,
+			"effects": [
+				{
+					"icon": "fal fa-lightbulb",
+					"title": "Concept By",
+					"text": "Exotic_Josewr"
+				}
+			],
+			"chargeBuffs": [
+				{
+					"type": "mass",
+					"maxTicks": 45,
+					"channelling": true,
+					"radius": 0.0125,
+					"density": 2.16
+				},
+				{
+					"type": "glide",
+					"maxTicks": 45,
+					"channelling": true,
+					"linearDampingMultiplier": 4
+				}
+			],
+			"movementCancel": true,
+			"detonate": {
+				"damage": 0,
+				"radius": 0.06,
+				"minImpulse": 0.0002,
+				"maxImpulse": 0.0004,
+				"renderTicks": 90,
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"minCooldown": 45
+					},
+					{
+						"type": "movement",
+						"movementProportion": 0.01,
+						"maxTicks": 90,
+						"render": {
+							"color": "#ff4d00",
+							"alpha": 0.25,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.2,
+							"bloom": 0.03
+						}
+					},
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 1,
+						"minCooldown": 90
+					},
+					{
+						"type": "movement",
+						"owner": true,
+						"movementProportion": 1.25,
+						"maxTicks": 180
+					},
+					{
+						"type": "armor",
+						"owner": true,
+						"maxTicks": 180,
+						"proportion": -0.1
+					},
+					{
+						"type": "lavaImmunity",
+						"damageProportion": 1,
+						"maxTicks": 180,
+						"owner": true,
+						"sound": "voidRush-lavaImmunity",
+						"render": {
+							"color": "#ff4d00",
+							"alpha": 1,
+							"ticks": 2,
+							"emissionRadiusFactor": 0,
+							"particleRadius": 0,
+							"shine": 0.2,
+							"glow": 1,
+							"bloom": 0.015,
+							"bloomLow": 0.015,
+							"decay": true
+						}
+					}
+				]
+			},
+			"chargeTicks": 45,
+			"cooldown": 600,
+			"throttle": false,
+			"unlink": true,
+			"interruptibleAfterTicks": 0,
+			"interruptCancel": {
+				"cooldownTicks": 450
+			},
+			"icon": "deadlyStrike",
+			"selfDamage": 0,
+			"minSelfHealth": 1,
+			"trailTicks": 30,
+			"color": "#ff4d00",
+			"sound": "scourge",
+			"action": "scourge"
+		},
+		"viper": {
+			"id": "viper",
+			"name": "Viper",
+			"description": "Stab forward and inflict bleeding to the first enemy hit. Consecutive hits will increase this spell's damage dealt by 10%, stacks up to 5 times. Hitting any Q spell will decrease this spell's cooldown by 4 seconds.",
+			"action": "projectile",
+			"color": "#990000",
+			"effects": [
+				{
+					"icon": "fal fa-lightbulb",
+					"title": "Concept By",
+					"text": "271828 and SklCrshr"
+				}
+			],
+			"icon": "sonicLightning",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"chargeTicks": 4,
+			"throttle": true,
+			"projectile": {
+				"density": 3,
+				"radius": 0.003,
+				"speed": 1,
+				"maxTicks": 9,
+				"damage": 0,
+				"source": "viper",
+				"lifeSteal": 1,
+				"collideWith": 65533,
+				"expireOn": 65519,
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0.6666666666666666,
+							"lifeSteal": 1,
+							"noHit": true
+						},
+						"maxTicks": 600,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#990000",
+							"alpha": 0.25,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				],
+				"sound": "repeater",
+				"color": "#990000",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 20,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 15,
+						"glow": 0.2,
+						"radiusMultiplier": 0.25
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"growth": 1,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"vortex": {
+			"id": "vortex",
+			"description": "Send forth a vortex that will travel to your cursor's location. Deals continuous damage to enemies caught in its area of effect, up to 50 damage per enemy.",
+			"action": "projectile",
+			"color": "#04d6c8",
+			"effects": [
+				{
+					"icon": "fal fa-lightbulb",
+					"title": "Concept By",
+					"text": "AceMenace"
+				}
+			],
+			"icon": "crownedExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 360,
+			"chargeTicks": 8,
+			"movementProportionWhileCharging": 0.5,
+			"throttle": true,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 1,
+				"radius": 0.05,
+				"speed": 0.25,
+				"maxTicks": 300,
+				"damage": 5,
+				"lifesteal": 0.3,
+				"collideWith": 1,
+				"expireOn": 100000,
+				"sensor": true,
+				"noKnockback": true,
+				"swappable": false,
+				"hitInterval": 30,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor"
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true,
+							"afterTicks": 90
+						},
+						"redirect": true,
+						"newSpeed": 0
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.1
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(4,214,200,0.1)",
+						"fade": "rgba(238,130,238,0.03)",
+						"numPoints": 4,
+						"radiusMultiplier": 1,
+						"revolutionInterval": 20,
+						"ticks": 60
+					}
+				]
+			}
+		},
+		"weakeningBlow": {
+			"id": "weakeningBlow",
+			"name": "Weakening Blow",
+			"description": "Fire a fast projectile that will curve towards your enemies. Enemies hit will permanently take 10% increased damage from all sources. Stacks indefinitely.",
+			"action": "projectile",
+			"color": "#00ffff",
+			"icon": "thunderball",
+			"effects": [
+				{
+					"icon": "fal fa-lightbulb",
+					"title": "Concept By",
+					"text": "voXal"
+				}
+			],
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 480,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"radius": 0.003,
+				"speed": 0.55,
+				"maxTicks": 120,
+				"damage": 10,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#00ffff",
+				"buffs": [
+					{
+						"type": "armor",
+						"maxTicks": 60000,
+						"against": 4,
+						"proportion": 0.1,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#00ffff",
+							"alpha": 0.3,
+							"ticks": 1,
+							"emissionRadiusFactor": 0,
+							"particleRadius": 0,
+							"shine": 0.2,
+							"glow": 0.4,
+							"bloom": 0.02,
+							"bloomLow": 0.02
+						}
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.017
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 60,
+						"smoke": 0.015
+					},
+					{
+						"type": "strike",
+						"ticks": 60,
+						"flash": true,
+						"numParticles": 6
+					}
+				]
+			}
+		},
+		"roost": {
+			"id": "roost",
+			"description": "Hold down the button to continuously heal for up to 4 seconds, 10 health per second and up to a maximum of 40 health. Getting struck will not end healing. Cooldown will not begin until you release the button.",
+			"action": "focus",
+			"effects": [
+				{
+					"icon": "fal fa-lightbulb",
+					"title": "Concept By",
+					"text": "SklCrshr"
+				}
+			],
+			"color": "#FF0000",
+			"icon": "burningEye",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": false,
+			"release": {},
+			"focusDelaysCooldown": true,
+			"maxChannellingTicks": 240,
+			"movementProportionWhileChannelling": 0,
+			"projectile": {
+				"density": 100,
+				"restitution": 0,
+				"radius": 0.03,
+				"speed": 0,
+				"maxTicks": 240,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 1,
+				"collideWith": 0,
+				"expireOn": 0,
+				"destructible": {},
+				"horcrux": {},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "expireOnOwnerDeath"
+					},
+					{
+						"type": "expireOnChannellingEnd"
+					},
+					{
+						"type": "strafe",
+						"maxSpeed": 10
+					},
+					{
+						"type": "aura",
+						"radius": 0.015,
+						"tickInterval": 15,
+						"against": 1,
+						"maxHits": 16,
+						"packet": {
+							"damage": 2.5,
+							"against": 1,
+							"lifeSteal": 2,
+							"noHit": true,
+							"noKnockback": true
+						}
+					}
+				],
+				"sound": "horcrux",
+				"color": "#ffff00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.035
+					},
+					{
+						"type": "projectile",
+						"ticks": 5,
+						"color": "rgba(255,0,0,0.1)",
+						"glow": 0.2
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 1.25,
+						"numParticles": 5
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,102 @@
+{
+	"Mod": {
+		"name": "Weakening Blow Concept",
+		"author": "AceMenace",
+		"description": "voXal's Weakening Blow Spell Concept",
+		"titleLeft": "AceMenace's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "Weakening Blow",
+		"subtitleRight": "Concept"
+	},
+	"Choices": {
+		"Options": {
+			"r": [
+				[
+					"empower",
+					"weakeningBlow"
+				],
+				[
+					"supernova",
+					"rocket"
+				],
+				[
+					"bouncer",
+					"repeater"
+				],
+				[
+					"kamehameha",
+					"blast"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"weakeningBlow": {
+			"id": "weakeningBlow",
+			"name": "Weakening Blow",
+			"description": "Fire a fast projectile that will slightly curve towards your enemies. Enemies hit will permanently take 10% increased damage from all sources. Stacks indefinitely.",
+			"action": "projectile",
+			"color": "#00ffff",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 480,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"radius": 0.003,
+				"speed": 0.7,
+				"maxTicks": 120,
+				"damage": 10,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#00ffff",
+				"buffs": [
+					{
+						"type": "armor",
+						"maxTicks": 60000,
+						"against": 4,
+						"proportion": 0.1,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#00ffff",
+							"alpha": 0.3,
+							"ticks": 1,
+							"emissionRadiusFactor": 0,
+							"particleRadius": 0,
+							"shine": 0.2,
+							"glow": 0.4,
+							"bloom": 0.02,
+							"bloomLow": 0.02
+						}
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.01
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 60,
+						"smoke": 0.015
+					},
+					{
+						"type": "strike",
+						"ticks": 60,
+						"flash": true,
+						"numParticles": 6
+					}
+				]
+			}
+		}
+	}
+}

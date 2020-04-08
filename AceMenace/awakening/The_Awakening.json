@@ -1,0 +1,2148 @@
+{
+	"Mod": {
+		"name": "AceMenace's mod",
+		"author": "AceMenace",
+		"description": "Tue, 01 Oct 2019 23:39:51 GMT",
+		"titleLeft": "The",
+		"titleRight": "Awakening"
+	},
+	"Matchmaking": {
+		"MaxBots": 4,
+		"AllowBotTeams": true
+	},
+	"World": {
+		"InitialRadius": 0.85,
+		"LavaDamagePerSecond": 12,
+		"SecondsToShrink": 140,
+		"ProjectileSpeedDecayFactorPerTick": 0.06,
+		"SwatchHealth": 101,
+		"BotName": "Dummy"
+	},
+	"Hero": {
+		"Radius": 0.012,
+		"MaxHealth": 101
+	},
+	"Obstacle": {
+		"Density": 110
+	},
+	"ObstacleTemplates": {
+		"default": {
+			"health": 75
+		},
+		"explosive": {
+			"health": 75,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0, 0, 0, 0.75)",
+					"shadow": true,
+					"flash": true
+				},
+				{
+					"type": "solid",
+					"color": "#000000",
+					"deadColor": "#000000"
+				},
+				{
+					"type": "solid",
+					"color": "#000000",
+					"deadColor": "#000000",
+					"expand": -0.002
+				}
+			],
+			"detonate": {
+				"damage": 5,
+				"minImpulse": 0.0001,
+				"maxImpulse": 0.0003,
+				"radius": 0.045,
+				"renderTicks": 180
+			}
+		},
+		"bumper": {
+			"health": 75,
+			"impulse": 0.0000275
+		},
+		"mirror": {
+			"health": 200,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0, 0, 0, 0.75)",
+					"shadow": true,
+					"flash": false
+				},
+				{
+					"type": "bloom",
+					"color": "#0cf",
+					"bloom": 0.05,
+					"strikeOnly": true
+				},
+				{
+					"type": "solid",
+					"color": "#ffff00"
+				},
+				{
+					"type": "solid",
+					"color": "#00CCFF",
+					"deadColor": "#ecec00",
+					"expand": -0.003
+				}
+			],
+			"selfPassthrough": true
+		},
+		"spinner": {
+			"health": 150
+		},
+		"volcano": {
+			"health": 75,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0,120,0,0.85)",
+					"deadColor": "rgba(0,120,0,0.2)",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(0,120,0,0.84)",
+					"particleRadius": 0.015,
+					"fade": "rgba(0, 0, 0, 0)",
+					"bloom": 0.01,
+					"glow": 0.05,
+					"ticks": 60,
+					"interval": 5,
+					"speed": 0.1
+				}
+			],
+			"buffs": [
+				{
+					"type": "burn",
+					"maxTicks": 15,
+					"collideWith": 65535,
+					"packet": {
+						"damage": 3,
+						"lifeSteal": 0,
+						"noKnockback": true,
+						"noHit": true,
+						"isLava": true
+					},
+					"hitInterval": 5,
+					"stack": "volcano",
+					"maxStacks": 1,
+					"render": {
+						"color": "#2E8B57",
+						"alpha": 0.3,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.005,
+						"shine": 0.2,
+						"glow": 0.2
+					}
+				}
+			]
+		},
+		"slow": {
+			"health": 75,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(255,0,68,0.7)",
+					"deadColor": "rgba(255,0,68,0.1)",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(255,0,68,0.5)",
+					"particleRadius": 0.0025,
+					"bloom": 0.01,
+					"glow": 0.025,
+					"vanish": 1,
+					"ticks": 60,
+					"interval": 3,
+					"speed": 0.1
+				}
+			],
+			"buffs": [
+				{
+					"type": "movement",
+					"stack": "slow",
+					"maxTicks": 15,
+					"movementProportion": 0.75,
+					"render": {
+						"color": "rgba(255,0,68,0.2)",
+						"alpha": 0.3,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.01,
+						"shine": 0.2,
+						"glow": 0.2,
+						"bloom": 0.03
+					}
+				}
+			]
+		},
+		"fast": {
+			"health": 75,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(212,175,55,0.85)",
+					"deadColor": "rgba(212,175,55,0.2)",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(212,175,55,0.85)",
+					"particleRadius": 0.0025,
+					"bloom": 0.01,
+					"glow": 0.025,
+					"vanish": 1,
+					"ticks": 25,
+					"interval": 3,
+					"speed": 0.05
+				}
+			]
+		},
+		"right": {
+			"health": 75
+		},
+		"left": {
+			"health": 75
+		},
+		"outward": {
+			"health": 75
+		},
+		"inward": {
+			"health": 75,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(64, 64, 64, 0.15)",
+					"deadColor": "rgba(64, 64, 64, 0.05)",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(255, 255, 255, 0.25)",
+					"particleRadius": 0.002,
+					"bloom": 0.01,
+					"glow": 0.025,
+					"vanish": 1,
+					"ticks": 90,
+					"interval": 5,
+					"speed": 0,
+					"conveyor": 1
+				}
+			],
+			"conveyor": {
+				"radialSpeed": -0.075
+			}
+		}
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "a",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			},
+			null,
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "e",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "r",
+				"barSize": 1,
+				"wheelSize": 0.75
+			}
+		],
+		"Options": {
+			"a": [
+				[
+					"boost"
+				],
+				[
+					"armor"
+				],
+				[
+					"empower"
+				],
+				[
+					"bump"
+				],
+				[
+					"darc"
+				]
+			],
+			"q": [
+				[
+					"repeater"
+				],
+				[
+					"halo"
+				],
+				[
+					"fireball"
+				],
+				[
+					"grenade"
+				],
+				[
+					"cardTrick"
+				]
+			],
+			"w": [
+				[
+					"decoy"
+				],
+				[
+					"parry"
+				],
+				[
+					"link"
+				],
+				[
+					"empty"
+				],
+				[
+					"trap"
+				]
+			],
+			"e": [
+				[
+					"phaseOut"
+				],
+				[
+					"dualSaber"
+				],
+				[
+					"mist"
+				],
+				[
+					"quickdraw"
+				],
+				[
+					"deck"
+				]
+			],
+			"r": [
+				[
+					"swap"
+				],
+				[
+					"saber"
+				],
+				[
+					"blaze"
+				],
+				[
+					"engage"
+				],
+				[
+					"darkveil"
+				]
+			],
+			"f": {
+				"$delete": true
+			}
+		}
+	},
+	"Spells": {
+		"fireball": {
+			"description": "Throw foward a small projectile that will mark enemies with Spores.",
+			"color": "#2E8B57",
+			"icon": "spores",
+			"cooldown": 30,
+			"projectile": {
+				"density": 15,
+				"radius": 0.00325,
+				"speed": 0.1,
+				"maxTicks": 180,
+				"damage": 0,
+				"lifeSteal": 4,
+				"color": "#2E8B57",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"radiusMultiplier": 1,
+						"smoke": {
+							"isotropicSpeed": 0.04
+						},
+						"vanish": 0.001
+					},
+					{
+						"type": "strike",
+						"ticks": 60,
+						"numParticles": 6
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"maxSpeed": 4,
+						"accelerationPerSecond": 0.3
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 300,
+						"packet": {
+							"damage": 1,
+							"lifeSteal": 4,
+							"noHit": true
+						},
+						"maxTicks": 301,
+						"render": {
+							"color": "#2E8B57",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					},
+					{
+						"type": "movement",
+						"stack": "forgodssakepleasestopstacking",
+						"movementProportion": 0.9,
+						"maxTicks": 301,
+						"against": 12,
+						"render": {
+							"stack": "forgodssakepleasestopstacking",
+							"color": "#2E8B57",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				]
+			},
+			"name": "Spores"
+		},
+		"link": {
+			"description": "Plant life will burst around you, summoning small, organic blobs. Hitting enemies with these blobs will cause an explosion, then it will chain your enemy to you, forcing both of you into close-combat.",
+			"effects": {
+				"$delete": true
+			},
+			"action": "spray",
+			"color": "#2E8B57",
+			"icon": "overgrowth",
+			"cooldown": 600,
+			"projectile": {
+				"maxTicks": 300,
+				"link": {
+					"impulsePerTick": 0.000001,
+					"selfFactor": 1.5,
+					"linkTicks": 120,
+					"redirectDamage": {
+						"$delete": true
+					},
+					"render": {
+						"color": "rgba(46,139,87,0.3)"
+					},
+					"lifeSteal": 1,
+					"lifesteal": 1
+				},
+				"detonate": {
+					"damage": 0.5,
+					"radius": 0.05,
+					"maxImpulse": 0.0003,
+					"renderTicks": 45,
+					"lifesteal": 6
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"maxTurnProportion": -1,
+						"targetType": "enemy"
+					}
+				],
+				"color": "#2E8B57",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(46,139,87,0.3)",
+						"fade": "rgba(46,139,87,0)",
+						"numPoints": 4,
+						"radiusMultiplier": 4,
+						"revolutionInterval": 45,
+						"ticks": 35
+					},
+					{
+						"type": "ray",
+						"ticks": 45,
+						"vanish": 0.1
+					}
+				],
+				"selfPassthrough": true
+			},
+			"name": "Overgrowth",
+			"jitterRatio": 2,
+			"intervalTicks": 1,
+			"lengthTicks": 10
+		},
+		"repeater": {
+			"description": "Throwing knifes, perfect for the silent kill. Hitting an enemy allows you to instantly throw another one.",
+			"color": "#6ea566",
+			"icon": "kunai",
+			"cooldown": 90,
+			"projectile": {
+				"radius": 0.0015,
+				"speed": 0.6,
+				"damage": 15,
+				"partialDamage": {
+					"$delete": true
+				},
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"maxCooldown": 0,
+						"color": "#ff0000"
+					}
+				],
+				"color": "#BDBDBD",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 5,
+						"smoke": 0.1,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"fade": "#6ea566",
+						"ticks": 5,
+						"glow": 0.2,
+						"radiusMultiplier": 0.25
+					},
+					{
+						"type": "strike",
+						"ticks": 35,
+						"color": "#ff0000",
+						"flash": true,
+						"growth": 1,
+						"numParticles": 5
+					}
+				]
+			},
+			"name": "Kunai"
+		},
+		"saber": {
+			"name": "Knight's Blade",
+			"description": "Wield the fabled Dwsro blade, an ancient weapon that is said to be able to cut through the space-time continuum. Hitting an enemy will warp them to a faraway place.",
+			"effects": {
+				"$delete": true
+			},
+			"unlink": false,
+			"takesOwnership": false,
+			"shiftMultiplier": 10,
+			"speedMultiplier": 0,
+			"maxSpeed": 1,
+			"maxTurnRatePerTickInRevs": 0.07,
+			"damageMultiplier": 1,
+			"width": 0.005,
+			"length": 0.065,
+			"movementProportionWhileChannelling": 0.25,
+			"interruptibleAfterTicks": 0,
+			"icon": "knight",
+			"maxTicks": 45,
+			"damageTemplate": {
+				"damage": 20
+			},
+			"trailTicks": 240,
+			"color": "rgba(255,0,68,0.5)",
+			"glow": 4,
+			"bloom": 0.06,
+			"strike": {
+				"ticks": 180,
+				"bloom": 0.06
+			},
+			"debuff": true,
+			"chargeTicks": 30
+		},
+		"dualSaber": {
+			"name": "Swordplay",
+			"description": "Lunge with the Dwsro standard short-blade, dashing foward and slicing through enemies.",
+			"effects": {
+				"$delete": true
+			},
+			"takesOwnership": false,
+			"blocksTeleporters": true,
+			"shiftMultiplier": 0,
+			"speedMultiplier": 0,
+			"maxSpeed": 1,
+			"maxTurnRatePerTickInRevs": -0.1,
+			"damageMultiplier": 1,
+			"angleOffsetsInRevs": [
+				0
+			],
+			"width": 0.005,
+			"length": 0.0575,
+			"movementProportionWhileChannelling": 5,
+			"interruptibleAfterTicks": 15,
+			"cooldown": 180,
+			"icon": "swordplay",
+			"maxTicks": 15,
+			"damageTemplate": {
+				"damage": 20
+			},
+			"trailTicks": 180,
+			"color": "rgba(255,0,68,0.2)",
+			"shine": 0.2,
+			"glow": 0.4,
+			"bloom": 0.04,
+			"strike": {
+				"ticks": 90,
+				"bloom": 0.04
+			},
+			"debuff": true
+		},
+		"phaseOut": {
+			"name": "Ghost",
+			"description": "Warp out of your current dimension, leaving your physical body behind, which you will continue to control. The 'ghost' will not be affected or harmed by any physical object. Warp back into your body after a set amount of time.",
+			"maxChannellingTicks": 1,
+			"buffs": [
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"maxTicks": 90,
+					"sound": "voidRush-lavaImmunity",
+					"renderStart": {
+						"numParticles": 10,
+						"color": "#6ea566",
+						"ticks": 25,
+						"particleRadius": 0.015,
+						"glow": 0.2,
+						"shine": 1,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"renderFinish": {
+						"numParticles": 10,
+						"color": "#6ea566",
+						"ticks": 25,
+						"particleRadius": 0.015,
+						"glow": 0.2,
+						"shine": 1,
+						"bloom": 0,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "mass",
+					"maxTicks": 90,
+					"radius": 0.0125,
+					"density": 1000000,
+					"restrictCollideWith": 0
+				},
+				{
+					"type": "armor",
+					"maxTicks": 90,
+					"proportion": -1
+				}
+			],
+			"icon": "decoy",
+			"color": "#6ea566"
+		},
+		"halo": {
+			"name": "Dagger",
+			"description": "Swing a dagger, dealing high damage.",
+			"effects": {
+				"$delete": true
+			},
+			"color": "#ff0000",
+			"icon": "dagger",
+			"cooldown": 60,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"buffs": {
+				"$delete": true
+			},
+			"projectile": {
+				"maxTicks": 15,
+				"hitInterval": 30,
+				"damage": 15,
+				"lifeSteal": 0.3,
+				"expireAgainstHeroes": 1,
+				"expireAgainstObjects": 1,
+				"behaviours": [
+					{
+						"type": "strafe"
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 10,
+						"maxTurnProportion": 0.15,
+						"minDistanceToTarget": 0.01,
+						"targetType": "self"
+					}
+				],
+				"color": "#BDBDBD",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "ray",
+						"ticks": 20,
+						"fade": "#ff0000",
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 45,
+						"color": "#ff0000",
+						"growth": 1,
+						"flash": true,
+						"numParticles": 6
+					}
+				]
+			}
+		},
+		"blaze": {
+			"name": "Infestation",
+			"description": "Release a cloud of spores, enemies hit will be marked with Spores.",
+			"cooldown": 600,
+			"color": "#2E8B57",
+			"range": 0.08,
+			"speed": 0.12,
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"channelling": true,
+					"maxTicks": 90,
+					"radius": 0.0125,
+					"restrictCollideWith": 4,
+					"appendCollideWith": 16,
+					"sense": 1
+				}
+			],
+			"projectile": {
+				"collideWith": 65534,
+				"expireOn": 3,
+				"radius": 0.002,
+				"speed": 0.5,
+				"maxTicks": 120,
+				"destructible": {
+					"$delete": true
+				},
+				"lifeSteal": 4,
+				"behaviours": [
+					{
+						"type": "homing",
+						"maxTurnProportion": -1,
+						"targetType": "enemy"
+					}
+				],
+				"color": "#6ea566",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"radiusMultiplier": 0.5,
+						"smoke": {
+							"isotropicSpeed": 0.15
+						},
+						"vanish": 0.001
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.02
+					}
+				],
+				"restitution": 0,
+				"categories": 2,
+				"sense": 1,
+				"expireAgainstHeroes": 1,
+				"shieldTakesOwnership": false,
+				"noKnockback": true,
+				"bumpable": true,
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 300,
+						"packet": {
+							"damage": 0.15,
+							"lifeSteal": 4,
+							"noHit": true
+						},
+						"maxTicks": 301,
+						"render": {
+							"color": "#6ea566",
+							"alpha": 0.05,
+							"ticks": 10,
+							"emissionRadiusFactor": 0.5,
+							"particleRadius": 0.001,
+							"shine": 0.4,
+							"glow": 1
+						}
+					},
+					{
+						"type": "movement",
+						"stack": "forgodssakepleasestopstacking",
+						"movementProportion": 0.9,
+						"maxTicks": 301,
+						"against": 12,
+						"render": {
+							"stack": "forgodssakepleasestopstacking",
+							"color": "#2E8B57",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				]
+			}
+		},
+		"swap": {
+			"name": "Backtrack",
+			"description": "Track your position, leaving behind a hologram. You will teleport back to this hologram after a while.",
+			"effects": {
+				"$delete": true
+			},
+			"color": "#6ea566",
+			"cooldown": 180,
+			"projectile": {
+				"radius": 0.02,
+				"speed": 0,
+				"maxTicks": 150,
+				"collideWith": 0,
+				"expireAfterCursorTicks": 100000000000,
+				"renderers": [
+					{
+						"type": "polygon",
+						"color": "rgba(110,165,102,0.05)",
+						"fade": "rgba(110,165,102,0.001)",
+						"numPoints": 4,
+						"radiusMultiplier": 1,
+						"revolutionInterval": 10,
+						"ticks": 10
+					}
+				]
+			}
+		},
+		"armor": {
+			"name": "The Dwsro",
+			"description": "Choose the Dwsrso faction. Masters of the blade and lovers of art, the Dwsro are able to manipulate the battlefields and turn brutal, close-combat into a beautiful dance. Nicknamed the 'Blade Dancers,' carefully chain a combo to get in close and shred through your enemies.",
+			"effects": [
+				{
+					"icon": "fas fa-box-open",
+					"title": "The Dwsro",
+					"text": "Dagger : Parry : Swordplay : Knight's Blade"
+				}
+			],
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				},
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.15
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"render": {
+						"color": "#ff0000",
+						"ticks": 1,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.00005,
+						"glow": 1,
+						"vanish": 0.1,
+						"bloom": 0.01
+					}
+				}
+			],
+			"icon": "dwsro",
+			"color": "#ff0000"
+		},
+		"empower": {
+			"name": "The Ganicor",
+			"description": "Choose the Ganicor faction. The Ganicor are supernatural, humaniod creatures designed to infect and kill. Instead of pure damage, these monsters focus on poison and lifesteal, dragging out battles. Stall until the enemy is forced into close-combat, where a quick combo of skills will finish them off.",
+			"effects": [
+				{
+					"icon": "fas fa-box-open",
+					"title": "The Ganicor",
+					"text": "Spores : Overgrowth : Deadly Mist : Infestation"
+				}
+			],
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.2
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 0.85
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"render": {
+						"color": "#2E8B57",
+						"ticks": 25,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.005,
+						"glow": 0.15,
+						"shine": 0.1,
+						"vanish": 1,
+						"bloom": 0.01
+					}
+				}
+			],
+			"icon": "ganicor",
+			"color": "#2E8B57"
+		},
+		"boost": {
+			"name": "The Fakier",
+			"description": "Choose the Fakier faction. Armed with powerful tools to confuse and deceive your enemies, the Fakier trade health and attack for speed and maneuverability. In the hands of a true master, the Fakier can easily become the most deadly faction and lay waste to the battlefield.",
+			"effects": [
+				{
+					"icon": "fas fa-box-open",
+					"title": "The Fakier",
+					"text": "Kunai : Decoy : Ghost : Hologram"
+				}
+			],
+			"buffs": [
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.2
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.1
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"render": {
+						"color": "rgba(110,165,102,0.4)",
+						"ticks": 90,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.01175,
+						"glow": 0.2,
+						"shine": 0.1,
+						"decay": true,
+						"vanish": 10,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "fakier",
+			"color": "#6ea566"
+		},
+		"bump": {
+			"name": "The Slingr",
+			"description": "Choose the Slingr faction. Old-fashioned maestros of ball and powder, equipped with both high knockback and high damage, sporting skills that allow you to both get in close or to keep your distance. Whether you are pushing or retreating, easily snipe down legions of enemies along the way.",
+			"buffs": [
+				{
+					"type": "bump",
+					"passive": true,
+					"hitInterval": 15,
+					"impulse": 0.000075
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.1
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.05
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"render": {
+						"color": "rgba(212,175,55,0.2)",
+						"ticks": 60,
+						"emissionRadiusFactor": 0.5,
+						"particleRadius": 0.005,
+						"shine": 1,
+						"vanish": 3,
+						"bloom": 0.03
+					}
+				}
+			],
+			"icon": "slingr",
+			"color": "#D4AF37",
+			"effects": [
+				{
+					"icon": "fas fa-box-open",
+					"title": "The Slingr",
+					"text": "Grenade : Fanning : Quickdraw : Engage"
+				}
+			]
+		},
+		"decoy": {
+			"id": "decoy",
+			"name": "Decoy",
+			"description": "Detach yourself from the fabric of the world, and leave behind a decoy. Reappear moments after.",
+			"untargeted": true,
+			"maxAngleDiffInRevs": 1,
+			"cooldown": 240,
+			"throttle": false,
+			"debuff": true,
+			"unlink": true,
+			"maxChannellingTicks": 30,
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"maxTicks": 30,
+					"radius": 0.0125,
+					"density": 1000000,
+					"restrictCollideWith": 0
+				},
+				{
+					"type": "armor",
+					"cleansable": false,
+					"maxTicks": 30,
+					"proportion": -1
+				},
+				{
+					"type": "movement",
+					"cleansable": false,
+					"maxTicks": 30,
+					"movementProportion": 1000
+				},
+				{
+					"type": "glide",
+					"cleansable": false,
+					"maxTicks": 30,
+					"linearDampingMultiplier": 1000
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"maxTicks": 30,
+					"sound": "voidRush-lavaImmunity",
+					"renderStart": {
+						"numParticles": 10,
+						"color": "#6ea566",
+						"ticks": 25,
+						"particleRadius": 0.015,
+						"glow": 0.2,
+						"shine": 1,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"renderFinish": {
+						"numParticles": 10,
+						"color": "#6ea566",
+						"ticks": 25,
+						"particleRadius": 0.015,
+						"glow": 0.2,
+						"shine": 1,
+						"bloom": 0,
+						"vanish": 1
+					}
+				}
+			],
+			"icon": "resonance",
+			"color": "#6ea566",
+			"action": "buff"
+		},
+		"parry": {
+			"id": "parry",
+			"name": "Parry",
+			"description": "Hop backwards and throw a punch fowards, dodge and counter-attack at once",
+			"untargeted": true,
+			"cooldown": 60,
+			"throttle": false,
+			"icon": "fireWave",
+			"color": "#ff0000",
+			"action": "thrust",
+			"sound": "parry",
+			"range": -3,
+			"speed": -3,
+			"damageTemplate": {
+				"damage": 10,
+				"lifeSteal": 0.3
+			},
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"channelling": true,
+					"maxTicks": 60,
+					"radius": 0.005,
+					"restrictCollideWith": 4,
+					"appendCollideWith": 16,
+					"sense": 1
+				}
+			],
+			"projectileInterval": 1,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"collideWith": 17,
+				"expireOn": 65535,
+				"expireOnMirror": true,
+				"sensor": true,
+				"selfPassthrough": true,
+				"radius": 0.01,
+				"speed": 0.15,
+				"maxTicks": 10,
+				"damage": 15,
+				"destructible": {},
+				"lifeSteal": 0.3,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "expireOnOwnerRetreat",
+						"maxDistance": 0.15,
+						"trigger": {
+							"afterTicks": 60
+						}
+					}
+				],
+				"color": "#ff0000",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"radiusMultiplier": 0.5,
+						"smoke": {
+							"isotropicSpeed": 0.1
+						},
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.02
+					}
+				]
+			}
+		},
+		"mist": {
+			"id": "mist",
+			"name": "Deadly Mist",
+			"description": "A mist will emanate from you, marking enemies with Spores and catching enemy projectiles.",
+			"action": "projectile",
+			"color": "#2E8B57",
+			"icon": "mist",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"chargeTicks": 10,
+			"throttle": true,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 1,
+				"radius": 0.15,
+				"speed": 0,
+				"maxTicks": 300,
+				"damage": 0.5,
+				"lifesteal": 4,
+				"collideWith": 1,
+				"expireOn": 100000,
+				"sensor": true,
+				"noKnockback": true,
+				"hitInterval": 20,
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 4,
+						"categories": 2,
+						"against": 12,
+						"radius": 0.6,
+						"accelerationPerTick": 0.1,
+						"maxSpeed": 10
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 300,
+						"packet": {
+							"damage": 0.5,
+							"lifeSteal": 4,
+							"noHit": true
+						},
+						"maxTicks": 301,
+						"render": {
+							"color": "#2E8B57",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					},
+					{
+						"type": "movement",
+						"stack": "forgodssakepleasestopstacking",
+						"movementProportion": 0.9,
+						"maxTicks": 301,
+						"against": 12,
+						"render": {
+							"stack": "forgodssakepleasestopstacking",
+							"color": "#2E8B57",
+							"alpha": 0.05,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				],
+				"color": "#ffff00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.1
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(46,139,87,0.04)",
+						"fade": "rgba(46,139,87,0)",
+						"numPoints": 4,
+						"radiusMultiplier": 1.25,
+						"revolutionInterval": 20,
+						"ticks": 60
+					}
+				]
+			}
+		},
+		"quickdraw": {
+			"id": "quickdraw",
+			"name": "Quickdraw",
+			"description": "Quickly fire a piercing bullet that will ricochet off solid surfaces",
+			"action": "projectile",
+			"color": "#D4AF37",
+			"icon": "quickdraw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 180,
+			"chargeTicks": 8,
+			"throttle": true,
+			"projectile": {
+				"damage": 20,
+				"lifeSteal": 0.5,
+				"density": 1,
+				"restitution": 0,
+				"radius": 0.002,
+				"speed": 2,
+				"maxTicks": 180,
+				"categories": 2,
+				"sense": 1,
+				"collideWith": 65534,
+				"expireOn": 3,
+				"expireAgainstHeroes": 1,
+				"shieldTakesOwnership": false,
+				"noKnockback": true,
+				"bumpable": true,
+				"sound": "backlash",
+				"color": "#c0c0c0",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "polygon",
+						"numPoints": 3,
+						"radiusMultiplier": 3,
+						"revolutionInterval": 45,
+						"ticks": 35
+					},
+					{
+						"type": "ray",
+						"ticks": 15,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"color": "#ff0000",
+						"ticks": 30,
+						"growth": 1.5,
+						"flash": true,
+						"detonate": 0.02
+					}
+				]
+			}
+		},
+		"engage": {
+			"id": "engage",
+			"name": "Engage",
+			"description": "Sprint foward and run into the fray with guns blazing. For a short duration after dashing, your attacks will pack some extra punch.",
+			"range": 0.15,
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"followCursor": true,
+			"throttle": false,
+			"debuff": true,
+			"damageTemplate": {
+				"damage": 0
+			},
+			"speed": 0.425,
+			"icon": "fireDash",
+			"color": "#D4AF37",
+			"action": "thrust",
+			"sound": "thrust",
+			"buffs": [
+				{
+					"type": "mass",
+					"radius": 0.0125,
+					"density": 3,
+					"maxTicks": 15,
+					"appendCollideWith": 16,
+					"render": {
+						"color": "#D4AF37",
+						"ticks": 120,
+						"emissionRadiusFactor": 0.25,
+						"particleRadius": 0.001,
+						"glow": 0.3,
+						"shine": 1,
+						"bloom": 0.02
+					}
+				},
+				{
+					"owner": true,
+					"type": "lifeSteal",
+					"maxTicks": 120,
+					"damageMultiplier": 1.25
+				}
+			]
+		},
+		"empty": {
+			"id": "empty",
+			"name": "Fanning",
+			"description": "Utilize the technique of fanning-the-hammer and spray your enemies with bullets!",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#D4AF37",
+			"icon": "empty",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 240,
+			"throttle": true,
+			"chargeTicks": 11,
+			"channelling": true,
+			"movementProportionWhileChannelling": 0.7,
+			"intervalTicks": 6,
+			"lengthTicks": 48,
+			"jitterRatio": 0.01,
+			"projectile": {
+				"density": 4,
+				"radius": 0.002,
+				"speed": 0.4,
+				"maxTicks": 180,
+				"damage": 4,
+				"lifeSteal": 0.5,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#c0c0c0",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.01
+					},
+					{
+						"type": "projectile",
+						"ticks": 6,
+						"smoke": 0.1,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 2,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 3
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.2,
+						"maxSpeed": 3
+					}
+				]
+			}
+		},
+		"grenade": {
+			"id": "grenade",
+			"name": "Grenade",
+			"description": "Lob a small grenade that will sail over everything in it's path and will only hit your enemies, exploding after coming to a stop. Grenades will bounce off your enemy's bodies. If you hit an enemy with a physical grenade, explosion does not count, all of your skills will be refreshed.",
+			"action": "projectile",
+			"color": "#D4AF37",
+			"icon": "crownedExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"chargeTicks": 6,
+			"throttle": true,
+			"projectile": {
+				"density": 10,
+				"ccd": false,
+				"radius": 0.001,
+				"speed": 0.3,
+				"maxTicks": 63,
+				"damage": 0,
+				"lifeSteal": 0.5,
+				"collideWith": 1,
+				"expireOn": 0,
+				"expireAfterCursorTicks": 18,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 45
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"maxCooldown": 0,
+						"color": "#ff0000"
+					}
+				],
+				"detonate": {
+					"damage": 20,
+					"lifeSteal": 0.5,
+					"radius": 0.025,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0002,
+					"renderTicks": 60
+				},
+				"sound": "supernova",
+				"color": "#008000",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "ray",
+						"ticks": 9,
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "#000000",
+						"minRadius": 0.025,
+						"remainingTicks": 10,
+						"shrinkTicks": 10,
+						"radius": 0.025
+					}
+				]
+			}
+		},
+		"cardTrick": {
+			"id": "cardTrick",
+			"name": "Card Trick",
+			"description": "Toss forward three cards. The cards will penetrate through enemies. Cards deal additional damage the closer you are to your enemy.",
+			"action": "spray",
+			"intervalTicks": 1,
+			"jitterRatio": 0.1,
+			"lengthTicks": 3,
+			"color": "#000000",
+			"icon": "cardtrick",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 180,
+			"throttle": true,
+			"projectile": {
+				"damage": 3,
+				"lifeSteal": 0.3,
+				"density": 1,
+				"restitution": 0,
+				"radius": 0.001,
+				"speed": 0.3,
+				"maxTicks": 60,
+				"categories": 2,
+				"sense": 1,
+				"collideWith": 65534,
+				"expireOn": 3,
+				"expireAgainstHeroes": 1,
+				"shieldTakesOwnership": false,
+				"noKnockback": true,
+				"bumpable": true,
+				"partialDamage": {
+					"initialMultiplier": 2,
+					"ticks": 45
+				},
+				"sound": "backlash",
+				"color": "#ffffff",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "polygon",
+						"fade": "#000000",
+						"numPoints": 4,
+						"radiusMultiplier": 4,
+						"revolutionInterval": 60,
+						"ticks": 10
+					},
+					{
+						"type": "strike",
+						"color": "#fff",
+						"ticks": 25,
+						"growth": 1.5,
+						"flash": true,
+						"speedMultiplier": -0.5,
+						"detonate": 0.02
+					}
+				]
+			}
+		},
+		"trap": {
+			"id": "trap",
+			"name": "Trap Card",
+			"description": "Demonstrate the signature Darc card throwing with a dazzling spiral-shaped toss. The card will explode upon contact, dealing damage and trapping enemies.",
+			"action": "projectile",
+			"color": "#000000",
+			"icon": "trapcard",
+			"sound": "gravity",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"density": 0.0001,
+				"ccd": false,
+				"attractable": false,
+				"radius": 0.012,
+				"speed": 0.35,
+				"maxTicks": 300,
+				"damage": 0,
+				"noHit": true,
+				"collideWith": 5,
+				"gravity": {
+					"impulsePerTick": 0.000017,
+					"ticks": 120,
+					"radius": 0.04,
+					"power": 1,
+					"render": {
+						"type": "swirl",
+						"color": "#ffffff",
+						"fade": "#000000",
+						"radius": 0.02,
+						"ticks": 30,
+						"loopTicks": 30,
+						"numParticles": 1,
+						"particleRadius": 0.0001,
+						"glow": 0.2,
+						"shine": 0.4,
+						"vanish": 0.5,
+						"bloom": 0.04
+					}
+				},
+				"detonate": {
+					"damage": 15,
+					"lifeSteal": 0.3,
+					"radius": 0.04,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 100
+				},
+				"sound": "gravity",
+				"color": "#ffffff",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#ffffff",
+						"fade": "#000000",
+						"radius": 0.02,
+						"ticks": 30,
+						"loopTicks": 30,
+						"numParticles": 1,
+						"particleRadius": 0.0001,
+						"glow": 0.2,
+						"shine": 0.4,
+						"vanish": 0.5,
+						"bloom": 0.04
+					}
+				]
+			}
+		},
+		"darkveil": {
+			"id": "darkveil",
+			"name": "Darc Veil",
+			"description": "Create a large area of smoke. Standing within your smoke will make you invisible.",
+			"action": "projectile",
+			"sound": "horcrux",
+			"color": "#000000",
+			"icon": "darcveil",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"throttle": true,
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"maxTicks": 120,
+					"minHealth": 0
+				}
+			],
+			"projectile": {
+				"density": 3,
+				"restitution": 0,
+				"radius": 0.002,
+				"speed": 0.3,
+				"maxTicks": 300,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 1,
+				"collideWith": 29,
+				"expireOn": 5,
+				"destructible": {},
+				"conveyable": true,
+				"bumpable": true,
+				"horcrux": {},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "updateCollideWith",
+						"trigger": {
+							"afterTicks": 1,
+							"atCursor": true
+						},
+						"collideWith": 65535
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 1,
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1,
+							"atCursor": true
+						},
+						"radius": 0.2,
+						"against": 1,
+						"tickInterval": 60,
+						"maxHits": 100000,
+						"packet": {
+							"damage": 0,
+							"lifeSteal": 1,
+							"minHealth": 0,
+							"noHit": true,
+							"noKnockback": true
+						},
+						"buffs": [
+							{
+								"type": "vanish",
+								"maxTicks": 60,
+								"against": 1,
+								"sound": "vanish",
+								"renderStart": {
+									"numParticles": 5,
+									"color": "#111",
+									"ticks": 20,
+									"particleRadius": 0.012,
+									"glow": 0.2,
+									"shine": 0,
+									"bloom": 0,
+									"vanish": 1
+								},
+								"render": {
+									"invisible": true,
+									"color": "#111",
+									"ticks": 10,
+									"particleRadius": 0.012,
+									"glow": 0.2,
+									"shine": 0,
+									"bloom": 0,
+									"vanish": 1
+								},
+								"renderFinish": {
+									"numParticles": 5,
+									"color": "#111",
+									"ticks": 20,
+									"particleRadius": 0.0125,
+									"glow": 0.2,
+									"shine": 0,
+									"bloom": 0,
+									"vanish": 1
+								}
+							}
+						]
+					}
+				],
+				"sound": "horcrux",
+				"color": "#000000",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.2
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(255,255,255, 0.1)",
+						"radius": 0.0375,
+						"minRadius": 0.03,
+						"shrinkTicks": 13,
+						"grow": true,
+						"fade": true,
+						"repeat": true
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(255,255,255, 0.5)",
+						"numPoints": 5,
+						"radiusMultiplier": 2.5,
+						"revolutionInterval": 60,
+						"ticks": 1,
+						"shine": 0
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"glow": 0.2,
+						"smoke": 0.3
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 1.25,
+						"numParticles": 5
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(255,255,255, 0.5)",
+						"radius": 0.0475,
+						"minRadius": 0.03,
+						"shrinkTicks": 20,
+						"startingTicks": 20
+					}
+				]
+			}
+		},
+		"darc": {
+			"id": "darc",
+			"name": "The Darc",
+			"description": "Choose the Darc faction. Sworn enemies of the Fakier, stories their rivalry are etched into the walls of the Chamber themselves. With more than a few tricks up their slevees, they have the power to put on quite a show, even against the masters of the Fakier. Close-ranged spells and high crowd-control abilities, these simply-dressed magicians have tricks that will truly stun their audience.",
+			"effects": [
+				{
+					"icon": "fas fa-box-open",
+					"title": "The Darc",
+					"text": "Card Trick : Trap Card : Shuffle : Darc Veil"
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.25
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.15
+				}
+			],
+			"icon": "darc",
+			"color": "#000000",
+			"action": "buff"
+		},
+		"deck": {
+			"id": "deck",
+			"name": "Shuffle",
+			"description": "Fan out a deck of cards. The cards will penetrate through enemies. Cards deal additional damage the closer you are to your enemy.",
+			"action": "spray",
+			"intervalTicks": 2,
+			"jitterRatio": 0.4,
+			"lengthTicks": 40,
+			"chargeTicks": 10,
+			"movementProportionWhileChannelling": 0.5,
+			"color": "#000000",
+			"icon": "deck",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"projectile": {
+				"damage": 3,
+				"lifeSteal": 0.3,
+				"density": 1,
+				"restitution": 0,
+				"radius": 0.001,
+				"speed": 0.285,
+				"maxTicks": 60,
+				"categories": 2,
+				"sense": 1,
+				"collideWith": 65534,
+				"expireOn": 3,
+				"expireAgainstHeroes": 1,
+				"shieldTakesOwnership": false,
+				"noKnockback": true,
+				"bumpable": true,
+				"partialDamage": {
+					"initialMultiplier": 2,
+					"ticks": 45
+				},
+				"sound": "backlash",
+				"color": "#ffffff",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "polygon",
+						"fade": "#000000",
+						"numPoints": 4,
+						"radiusMultiplier": 4,
+						"revolutionInterval": 60,
+						"ticks": 10
+					},
+					{
+						"type": "strike",
+						"color": "#fff",
+						"ticks": 25,
+						"growth": 1.5,
+						"flash": true,
+						"speedMultiplier": -0.5,
+						"detonate": 0.02
+					}
+				]
+			}
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"$delete": true
+		},
+		"cold": {
+			"$delete": true
+		},
+		"octogon": {
+			"$delete": true
+		},
+		"return": {
+			"$delete": true
+		},
+		"double": {
+			"$delete": true
+		},
+		"ring": {
+			"$delete": true
+		},
+		"exit": {
+			"$delete": true
+		},
+		"snowflake": {
+			"$delete": true
+		},
+		"inside5": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		},
+		"pepper": {
+			"$delete": true
+		},
+		"mirrors": {
+			"$delete": true
+		},
+		"innerStar": {
+			"$delete": true
+		},
+		"mirrorhenge": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		},
+		"awakeningChamber": {
+			"color": "#3c3c3c",
+			"numPoints": 8,
+			"obstacles": [
+				{
+					"type": "bumper",
+					"numObstacles": 12,
+					"layoutRadius": 0.18,
+					"layoutAngleOffsetInRevs": 0.125,
+					"numPoints": 3,
+					"extent": 0.001,
+					"orientationAngleOffsetInRevs": 0.125
+				},
+				{
+					"numObstacles": 12,
+					"layoutRadius": 0.5,
+					"layoutAngleOffsetInRevs": 0.75,
+					"numPoints": 7,
+					"extent": 0.008,
+					"orientationAngleOffsetInRevs": 0.75
+				},
+				{
+					"pattern": [
+						4,
+						4,
+						4,
+						0,
+						0,
+						0,
+						0,
+						0,
+						4,
+						4
+					],
+					"type": "explosive",
+					"numObstacles": 30,
+					"layoutRadius": 0.38,
+					"layoutAngleOffsetInRevs": 0.245,
+					"numPoints": 4,
+					"extent": 0.003,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"type": "volcano",
+					"layoutRadius": 0.045,
+					"extent": 0.001,
+					"numObstacles": 2,
+					"angularWidthInRevs": 0.25,
+					"layoutAngleOffsetInRevs": 0
+				},
+				{
+					"type": "fast",
+					"layoutRadius": 0.085,
+					"extent": 0.001,
+					"numObstacles": 3,
+					"angularWidthInRevs": 0.25,
+					"layoutAngleOffsetInRevs": 0
+				},
+				{
+					"type": "slow",
+					"layoutRadius": 0.125,
+					"extent": 0.001,
+					"numObstacles": 4,
+					"angularWidthInRevs": 0.25,
+					"layoutAngleOffsetInRevs": 0
+				},
+				{
+					"type": "mirror",
+					"numObstacles": 4,
+					"layoutRadius": 0.01,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.01,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.01
+				},
+				{
+					"type": "inward",
+					"layoutRadius": 0.55,
+					"extent": 0.075,
+					"numObstacles": 12,
+					"layoutAngleOffsetInRevs": 0.21,
+					"angularWidthInRevs": 0.01,
+					"health": 400
+				}
+			]
+		}
+	},
+	"Visuals": {
+		"Background": "#800080",
+		"WorldAnimateWinTicks": 90,
+		"WorldWinGrowth": 0.04,
+		"DefaultGlowRadius": 0.005,
+		"ShakeDistance": 0.04,
+		"ShakeTicks": 4,
+		"HighlightFactor": 0.02,
+		"HighlightTicks": 11,
+		"EaseTicks": 31,
+		"EaseInDistance": 0.6,
+		"ExitTicks": 120,
+		"ChargingRadius": 0.009,
+		"CastingFlashTicks": 25,
+		"Damage": {
+			"ticks": 20
+		},
+		"DefaultFlashTicks": 10,
+		"CameraPanRate": 0.005,
+		"CameraZoomRate": 0.005
+	},
+	"Icons": {
+		"decoy": {
+			"path": "M138.94 22.99c-.566-.014-1.087-.01-1.56.006-.902.028-1.486.074-2.04.1-.56-.027-1.14-.072-2.043-.1-1.172-.037-2.63-.02-4.37.203h-.013l-.012.003c-33.88 4.402-58.95 36.95-58.95 78.18 0 17.88 4.53 35.75 12.616 50.138-11 4.404-20.23 11.382-27.5 20.107-9.996 11.997-16.58 27.015-21.123 43.496-9.085 32.963-10.13 72.213-10.13 107.604v9.345H65.86l10.513 163.524h54.815v.015h255.886v-.014h53.457l10.515-163.524h42.047v-9.345c0-35.39-1.048-74.64-10.133-107.604-4.544-16.48-11.125-31.5-21.122-43.496-7.27-8.725-16.498-15.703-27.5-20.106 8.085-14.386 12.617-32.257 12.617-50.137 0-41.23-25.07-73.778-58.95-78.18l-.013-.002h-.012c-.314-.04-.61-.067-.906-.095v-.007h-.066c-1.315-.12-2.454-.132-3.4-.102-.894.028-1.464.07-2.022.098-.55-.026-1.127-.07-2.022-.098-.944-.03-2.084-.018-3.4.102H140.78c-.657-.06-1.27-.094-1.84-.108zm-3.6 18.813c.236.002.35.01.605.01 1.135 0 2.276.075 3.416.197h238.185c1.14-.122 2.28-.197 3.416-.197.266 0 .383-.008.626-.01.244.002.362.01.627.01 5.338 0 10.785 1.386 15.875 3.783l.072-.153c17.34 8.21 30.108 28.395 30.108 55.94 0 18.664-6.87 38.574-15.952 49.515l-10.142 12.217 15.605 2.934c12.81 2.407 22.07 8.383 29.7 17.54 7.63 9.157 13.387 21.71 17.463 36.5 7.438 26.984 9.096 60.97 9.344 93.293h-40.77l-10.51 163.525H340.165l-.002-.015H176.78v.015H93.9L83.387 313.383H42.62c.247-32.323 1.905-66.31 9.343-93.293 4.076-14.79 9.833-27.343 17.463-36.5 7.63-9.157 16.89-15.133 29.7-17.54l15.606-2.935-10.142-12.217c-9.083-10.94-15.95-30.85-15.95-49.515 0-27.563 12.783-47.753 30.14-55.953l.077.166c5.09-2.397 10.537-3.783 15.875-3.783.258 0 .37-.008.608-.01zM169.977 60.7c3.935 5.41 7.082 11.84 9.17 19.146h158.65c2.09-7.307 5.235-13.735 9.17-19.145h-176.99zm12.013 37.837c.03.94.05 1.888.05 2.846 0 5.412-.594 10.926-1.636 16.3H336.54c-1.04-5.374-1.634-10.888-1.634-16.3 0-.958.02-1.906.05-2.846H181.99zm-7.316 37.836c-2.452 5.657-5.376 10.658-8.586 14.525l-3.834 4.62H354.69l-3.833-4.62c-3.21-3.867-6.134-8.868-8.586-14.525H174.675zm16.576 37.836c3.67 2.61 6.968 5.74 10.002 9.38 2.433 2.92 4.674 6.19 6.732 9.764H308.96c2.06-3.574 4.3-6.844 6.733-9.764 3.034-3.64 6.33-6.77 10-9.38H191.25zm25.004 37.835c.88 2.6 1.7 5.283 2.46 8.045.988 3.58 1.867 7.29 2.66 11.097h74.196c.794-3.806 1.674-7.517 2.66-11.097.762-2.762 1.582-5.446 2.46-8.045h-84.436zm8.225 37.834c.81 6.24 1.447 12.642 1.942 19.143h64.1c.496-6.5 1.134-12.903 1.945-19.144H224.48zm3.006 37.835c.253 6.384.393 12.778.483 19.144h61.007c.09-6.367.23-12.76.482-19.145h-61.974zM186.51 325.55l-1.233 19.145h146.39l-1.23-19.144H186.51zm-2.434 37.837l-1.23 19.144H334.1l-1.23-19.143H184.075zm-2.43 37.836l-1.232 19.142H336.53l-1.23-19.142H181.646zm-2.433 37.834l-1.23 19.144h160.98l-1.23-19.143h-158.52z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"knight": {
+			"path": "M365.1 21.31c-6.3-.03-12.4.5-16.9 1.4-4.3.86-6.9 2.81-6.8 2.25-5.4 9.07-11.1 24.96-12.3 38.47-.7 6.95-.2 13.21 1.3 17.39 1.5 4.17 3.2 6.1 6.5 7.31.3.1.4.18.5.25 0-.11.1-.28.4-.55 1.1-.97 3.2-4.03 5.3-8.1 4.1-8.15 7.5-19.78 16.1-28.18 9.2-8.93 21.6-12.1 30.4-16.15 4.4-2.02 7.7-4.15 9.1-5.64.4-.5.6-.75.8-1.05-6.2-3.54-19.3-6.95-31.7-7.33v-.02c-.9-.03-1.8-.04-2.7-.05zm-27.7 67.07c-.1.18.1.14 0 0zm72.3-44.28c-3.8 3.39-8.2 5.63-12.6 7.65-10.4 4.81-21.4 8.86-25.3 12.69-1.2 1.19-2.6 3.38-4.1 6.13 3.4 3.18 7.5 6.16 12 8.69 10.1 5.62 20.8 7.85 29.1 7.08 8.4-.63 13.6-3.77 16.2-8.32 2.5-4.55 2.3-10.69-1.6-18.1-2.7-5.4-7.4-11.01-13.7-15.82zm-50.3 43.19c0 .17-.1.33-.2.5-2.4 4.82-5 9.59-9.4 13.51-3.4 2.9-8.6 5-13.8 4.8-7.4 10.2-16 20.9-26.7 32.2 21.9 9.6 38 18.5 57.8 31.9 7.1-27.8 16.3-48.5 25.9-67-7.3-1.4-14.8-4.2-22-8.19-4.2-2.3-8.1-4.9-11.6-7.72zm-102 16.91c-24.1 1.1-35.8 11.4-42.4 23.5-6.6 12-6.6 27-4.9 32 .5 1.8.3 1.3 1 1.4.7.2 3 .2 6.2-1.3 6.4-3.1 15.3-11.3 20.8-23.5l4.1-9 8.5 4.9c7.4 4.2 17.9.6 22.8-5.5.5-5.7-1.1-11.5-4.2-15.7-3.2-4.3-7.3-6.7-11.1-6.8h-.8zm22.4 41.2c-8.3 5.9-19 8.3-29.4 5.7-2.8 4.8-6 9.1-9.4 12.8 65.4 23.4 80.5 30.9 129.6 69.3 1.1 30.4 4 73.9 1 96.9-2.4 18.3 17.7 12 18 .2.4-18.3-3.1-37.9.7-54.7.8 15.7 14.8 13.5 15.1.3l.7-43.6 6.8-6.3c-63.8-48.1-79.5-59.2-133.1-80.6zm-8.3 48.8l-52.8 95.6 9.2 18.5-22.5 5.4-29.5 53.4 10 8.2 21.7-3.7 91.5-165.4c-8.1-4.1-16.9-7.8-27.6-12zm43.5 20.7l-84.5 152.8 37.8-6.4 37.6-68.1-1-24 17.8-6.3 17.1-30.9c-9.2-6.9-17.1-12.4-24.8-17.1zm-193.1 131L21.17 402.1v15.6l98.63-13.5 23 48.4-16.2 7.8-17.4-36.6-88.03 12V496H391.4l-5.9-10.8-74-29.3-55.4 21.7-6.6-16.8 62-24.3 60.4 23.9-.8-1.4-82-82.9-85.5 14.5 24.4 20.9-11.8 13.6-39.9-34.2-54.4-45z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"dwsro": {
+			"path": "M263.857 19.672c-1.538-.042-3.12.125-4.658.125-32.844 0-59.585 33.908-59.585 75.92 0 21.273 7.083 40.468 18.096 54.285-68.132 10.566-82.843 105.413-66.646 191.555h23.334l-.765-78.11 18.687-.183.94 95.715 9.004 136.618h109.9l11.477-154.04h.366l.77-78.294 18.687.183-.768 78.11h24.2c18.367-88.46-4.715-178.936-67.086-190.672 11.505-13.88 18.977-33.357 18.977-55.168 0-39.388-23.417-72.022-53.408-75.92-.5-.075-1.01-.11-1.523-.125zm-202.79.21v18.68H77.53v79.45H21.77v50.324h18.68v-31.643h23.34l-6.436 212.66L87.137 400.7l29.252-51.346-6.023-212.66h22.928v31.642h18.68v-50.324H96.21v-79.45h16.466V19.88h-51.61zm339.23 0v18.68h16.465v79.45h-55.764v50.324h18.682v-31.643h23.338l-6.436 212.66 29.785 51.346 29.252-51.346-6.022-212.66h22.927v31.642h18.682v-50.324h-55.764v-79.45h16.463V19.88h-51.61zm-167.95 66.59h53.385v18.688h-17.35v82.82h57.682v51.737h-18.687v-33.05h-24.04l6.237 220.296-30.26 53.113-30.808-53.113 6.664-220.295H210.7v33.05h-18.688V187.98h57.683v-82.82h-17.35V86.47z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"swordplay": {
+			"path": "M107.688 17.094c-4.176.038-7.723 1.706-8.938 4.625-.413.99-.5 2.04-.344 3.093h-.03c-9.677.39-17.714 4.79-19.782 11.625-2.046 6.762 2.318 14.026 10.312 18.656-15.296 33.985-20.856 75.19-19.875 114.5 4.658-4.73 10.484-8.162 17.25-9.406 1.492-.275 2.965-.418 4.44-.47 5.344-.185 10.54 1.055 15.343 3.313-5.568-33.484-4.603-70.263.53-103.186 10.516.146 19.485-4.344 21.688-11.625 1.775-5.865-1.292-12.082-7.343-16.657.475-.52.89-1.107 1.157-1.75 1.767-4.246-2.03-9.48-8.47-11.72-2.01-.7-4.038-1.017-5.936-1zm301.343 0c-1.897-.018-3.956.3-5.967 1-6.438 2.238-10.205 7.473-8.438 11.718.154.37.337.733.563 1.063-6.663 4.624-10.113 11.187-8.25 17.344 2.123 7.017 10.54 11.413 20.562 11.593 5.143 32.96 6.118 69.793.53 103.312 4.288-2.052 8.904-3.272 13.658-3.406.64-.02 1.292-.024 1.937 0 1.474.05 2.978.193 4.47.468 6.646 1.222 12.36 4.557 16.967 9.156.954-39.05-4.525-79.96-19.625-113.78 8.54-4.598 13.307-12.124 11.188-19.127-1.965-6.494-9.318-10.785-18.344-11.53.18-1.083.083-2.167-.342-3.188-1.215-2.92-4.73-4.588-8.907-4.626zM171.095 176.406l-44.03 6.875c3.87 6.632 6.715 14.286 8.25 22.626.597 3.257.96 6.475 1.124 9.656 15.313 2.683 30.237 8.75 43.53 18.532l-8.874-57.688zm173.03 0l-8.874 57.688c13.04-9.597 27.65-15.586 42.656-18.344.156-3.242.515-6.523 1.125-9.844 1.544-8.39 4.406-16.09 8.314-22.75l-43.22-6.75zm-252.687 1.97c-.604.02-1.193.078-1.78.186-4.704.866-9.01 4.48-12.094 11.375-3.086 6.896-4.378 16.688-2.47 27.063l.032.156c1.927 10.305 6.597 18.93 11.906 24.25 5.338 5.347 10.642 7.178 15.345 6.313 4.703-.866 9.008-4.48 12.094-11.376 3.084-6.896 4.376-16.687 2.468-27.063-1.91-10.374-6.6-19.058-11.938-24.405-4.003-4.01-7.993-6.037-11.72-6.438-.62-.066-1.238-.083-1.843-.062zm330.563 0c-.306.01-.627.028-.938.06-3.725.402-7.715 2.43-11.718 6.44-5.337 5.346-9.998 14.03-11.906 24.405-1.91 10.377-.617 20.168 2.468 27.064 3.086 6.895 7.36 10.51 12.063 11.375 4.702.864 10.005-.967 15.342-6.314 5.338-5.346 10.03-14.03 11.938-24.406 1.908-10.375.617-20.167-2.47-27.063-3.084-6.895-7.39-10.51-12.092-11.375-.882-.162-1.77-.22-2.688-.187zm35.594 15.718c1.657 8.185 1.713 17.137.03 26.28-.627 3.415-1.457 6.713-2.5 9.876 11.337 6.967 21.427 16.068 29.47 27.125l8.906-57.688-35.906-5.593zm-400.875.125l-35 5.468 8.905 57.687c7.88-10.83 17.724-19.777 28.78-26.688-1.112-3.296-2.03-6.738-2.686-10.312-1.674-9.097-1.633-18.005 0-26.156zm325.124 47.343C330.998 382.873 208.514 462.268 16.5 437.375c113.218 81.753 233.292 64.953 317.688-4.72.667-.52 1.34-1.035 2-1.56-.033-.01-.062-.025-.094-.033 50.656-42.57 88.153-104.327 103.156-175.187-8.334 7.73-19.34 12.3-30.656 10.22-11.924-2.194-20.852-11.148-25.75-22.095-.356-.794-.68-1.62-1-2.438zm-249.72 1.03c-.193.47-.387.947-.593 1.407-4.897 10.947-13.857 19.9-25.78 22.094-11.923 2.193-23.465-3.012-31.938-11.5 13.17 63.342 44.32 119.488 86.813 161.25 26.506-5.336 54.813-14.98 79.03-27.844-49.324-34.38-85.212-84.014-107.53-145.406zM359.44 435.97c-21.79 19.47-48.244 36.61-75.282 49.655 66.544 15.796 141.17 3.617 213-48.25-50.78 6.584-96.69 5.82-137.72-1.406z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"parry": {
+			"path": "M133.3 20c20.4 39.94 50.2 88.8 47 132 20.4 8.9 40.4 18.5 59.5 28.6 3.1-23.6 2.8-48.5 0-73.8-29.9-35.27-69.1-68.47-106.5-86.8zM27.4 22.65c16.94 24.76 29.56 53.6 27.64 82.45 35.91 11.4 72.26 24.5 107.56 39.3-1.8-29.8-14.3-56.26-26.3-80.38-34-19.23-74.17-32.04-108.9-41.37zm385 22.24c23.1 43.88 38.9 95.21 35.3 116.61-10.1-14.6-28.1-52.3-88.4-68.53 41 41.13 68 115.63 60.8 137.43-14.9-36.5-38.9-55.1-80.5-71 18.7 24.4 31.5 56.4 36.3 87.9 29.3 17.4 55.2 37.4 78.1 57.5 9.6-.8 18.8 7.4 21.9 14.6 2.8 7.1 3.4 15.4 1.6 24.3-2.8 9.1-6.6 17.4-12.5 23.3-5.4 23.8-10.9 42.6-21.2 61.1L385.5 443c-2.3 33.3-63.6 21.5-81.4 10.1-22.9-14.7-61-49.7-56.6-81.1-29.4-3.5-59.1-13.6-82.7-29.2 18.8 40.4 39.1 62.9 76.6 75.2-21.2 8.8-97.5-12.8-141.3-50.7 20.3 59 59.2 74.2 74.7 83.2-21.2 5.1-73.6-6.9-119.06-26.8C161.7 537.2 482.3 475 482.3 475s54.9-329.2-69.9-430.11zm-157 41.93c5.2 34.68 6.5 69.68 1.1 102.88 30 18.6 43.7 26.8 64.2 41-10.5-69.3-35.5-104.8-65.3-143.88zM17.65 112.7C40.39 170 40.22 219.2 47.8 268.9c55.5 14.3 112.7 42.4 161.6 67.5 13.5-41.5 39.3-82.1 61.5-117.2-73.2-45-166.1-80.9-253.25-106.5zm59.1 39.8c24.35 25.8 45.45 54.1 49.75 84.2-10.9 19.5-41.55 24.1-58.75 24.6l-.34-18c13.41-1.3 30.86-.1 40.29-10.5-3.8-22.3-18.02-44.6-42.95-66.9zm103.95 43.9c19.5 19.1 28.8 42.1 32.6 66-10.8 23.7-42.9 29-59.2 27.4l2-17.8c22 2.5 34.1-4 38.5-11.8-3.4-18.6-7.4-34.5-25.7-50.2zm105.4 32.5c-22.7 36-48.2 76.8-60.5 115.8 8.4 4.2 16.5 8.4 24.2 12.4 9.1-41.4 37.3-77.5 61.5-110.6-8-6-16.4-11.9-25.2-17.6zm48 16.5c-26.7 38-58.8 77.1-67.1 118.2l42.3 3c11.5-18.3 27.8-21 47.6-23.1 3.8 9.5 26.5 26.9 34.2 31.4 4.9-2.1 9.5-5 14.6-8.3 7.6 14.7 20.1 26.1 30.6 36.1 3.7-8.8 6.5-18.2 8.7-27.8-7.9-.7-15.8-8.7-18.4-14.6-2.9-7.1-3.4-15.5-1.6-24.3 2.6-8.5 6.3-16.9 11.6-22.4-29.3-25.1-63-49.3-102.5-68.2zm115.2 80.1c-2.7 2.8-5.3 7.4-6.5 13.1-.5 4.7-1.9 17.1 4.8 18.5 6.8-1.5 10.7-10 12.1-16 1.2-5.7.6-10.8-.7-14.2-2.7-5.9-6.4-4.5-9.7-1.4zm-98.9 38.8c-10 .2-21.6 3.4-23.4 11.5 5.2 18.4 27 29.4 40 39.8.2-9.6 1-20.6 6.3-30.7-8.7-6.3-16-13.7-22.9-20.6zm-83.1 17.4c5.6 14.7 14 25.4 24.5 38.5 13.8-3.3 21.3-10.7 27.8-18.5-5.6-6.1-10-11.5-14.1-17.3zm132.4 9.1c-3.3 1.5-6.9 2.8-10.8 3.7-3.1 7.8-3 18.6-3.8 30l37.4-9.6c-7.9-7.1-16.6-14.8-22.8-24.1zm-68.2 24.5c-5.9 6.6-13.8 13.9-25 18.8 12.8 11.4 64 15.7 59.6 5.9-13.6-8-25.3-15.8-34.6-24.7z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"ganicor": {
+			"path": "M245.003 21.882c-166.998.752-303.014 211.052-130.59 381.17 8.035 25.41 42.784 41.465 94.91 57.862 37.832 11.993 50.783-4.965 42.102-27.322-37.478-96.526-122.616-93.237-128.593-102.07C19.647 179.044 185.37 34.12 321.578 99.659c154.92 74.51 93.159 218.387 5.099 279.26-33.979 23.392-54.793 53.902-43.615 84.13 5.99 16.174 34.958 29.057 45.928 26.818 8.658-1.764-36.293-26.3-8.303-55.948 22.237-23.66 89.603-37.464 125.124-103.51 67.453-125.152 28.701-238.4-130.697-296.26-12.156-4.374-24.254-7.519-36.38-9.55a199.684 199.684 0 0 0-33.73-2.716zm11.434 80.2s-28.375 30.73-27.871 62.145c.03 6.434 1.304 12.957 3.231 19.139 10.2 12.01 18.472 25.93 25.648 41.036 7.086-18.501 16.129-34.364 27.367-47.29.711-3.9 1.096-7.74 1.096-11.625-.415-31.398-29.471-63.405-29.471-63.405zm114.657 53.941c-53.459 3.158-88.03 51.295-108.637 93.234-.89 1.912-7.449 2.436-8.6.46-15.21-27.53-24.758-48.212-43.555-63.807-17.79-14.795-40.236-23.601-70.45-23.764 1.305 11.993 7 44.86 30.808 63.08 8.125 6.24 19.924 9.474 31.904 12.245 11.92 2.684 24.163 4.803 33.503 10.348 7.531 4.477 12.334 11.475 14.618 19.614 2.283 8.108 2.224 17.314.475 27.07-2.937 16.945-10.912 35.58-21.557 52.747 0 0 31.488 13.12 37.093 62.636 10.436-25.351 32.407-39.849 32.407-39.849-11.563-16.442-27.99-58.99-31.903-75.712-2.165-9.62-2.847-18.769-1.068-26.997 1.75-8.212 6.079-15.505 13.343-20.383 9.014-6.035 21.022-8.822 32.852-12.2 11.86-3.397 23.394-7.37 31.34-14.1 14.054-12.008 21.05-29.25 24.46-43.718 1.661-7.25 2.521-13.715 2.847-18.31.12-1.127.09-1.72.12-2.594zM157.973 387.005c9.72.266 35.546 20.438 28.251 21.939-31.767 6.533-35.988-13.624-31.287-20.722.588-.887 1.647-1.254 3.036-1.217z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"empty": {
+			"path": "M121.287 18c20.026 4.554 37.905 10.988 53.424 18.826 29.344 14.82 50.536 34.743 61.185 56.785.762-.375 1.524-.716 2.286-1.064 16.01-27.813 44.678-53.513 72.084-67.44L324.252 18zm207.543 0l-5.943 17.959c-2.84 8.581-7.447 22.48-10.336 35.844-1.474 6.817-2.196 13.56-2.324 19.002 8.954 2.6 17.027 5.537 23.914 7.69l6.515 2.034-2.418 81.147c43.855-2.398 89.439-6.668 139.522-12.838-6.076-.836-10.757-4.974-13.76-9.477-3.362 5.042-8.825 9.639-16 9.639-7.175 0-12.638-4.597-16-9.639-3.362 5.042-8.825 9.639-16 9.639-7.175 0-12.638-4.597-16-9.639-3.362 5.042-8.825 9.639-16 9.639-8.485 0-14.587-6.426-17.637-12.418-3.05-5.992-4.552-12.672-5.578-19.18-.942-5.975-1.383-11.792-1.598-16.402H359v-6.412a92.162 92.162 0 0 1 0-2.317V18zM377 25v78h14V25zm32 0v78h14V25zm32 0v78h14V25zm32 0v78h14V25zM52.371 28.453c-3.13-.019-6.297.005-9.5.07-5.249.108-10.71.475-16.152.82-5.876 24.015-4.617 48.104 1.295 72.721 48.867-2.29 92.91 6 130.681 26.471 20.332-1.332 38.212-5.913 59.59-23.488a98.494 98.494 0 0 1 2.074-1.654c-8.162-18.217-26.107-36.532-53.763-50.5-28.66-14.475-67.282-24.156-114.225-24.44zm5.604 20.897c8.177 0 15 6.822 15 15 0 8.177-6.823 15-15 15-8.178 0-15-6.823-15-15 0-8.178 6.822-15 15-15zm240.783 4.168c-12.121 8.949-23.875 20.11-33.348 31.78a91.28 91.28 0 0 1 9.62-.4 97.4 97.4 0 0 1 7.687.399c3.11.284 6.16.706 9.152 1.213.512-6.049 1.739-12.27 3.088-18.51 1.087-5.028 2.471-9.735 3.8-14.482zM57.975 61.35c-1.55 0-3 1.45-3 3s1.45 3 3 3 3-1.45 3-3-1.45-3-3-3zm214.021 41.504c-13.842.202-27.8 4.194-42.281 16.1-27.858 22.9-54.097 27.305-80.018 27.997-25.205.673-50.467-1.378-82.197 6.805-3.925 4.703-5.438 12.194-3.213 23.664 2.446 12.607 9.436 28.598 20.016 45.172 21.16 33.147 56.519 68.736 95.558 90.105l3.918 2.145 5.787 38.676c5.627.414 11.16.741 16.621.978l-6-46.326c-61.83-34.404-107.71-85.402-120.054-136.733 6.733-1.8 11.87-3.182 17.566-3.966 49.06-6.144 91.932 4.671 150.955-41.836 6.793-5.353 14.465-7.532 22.303-7.922a54.42 54.42 0 0 1 2.945-.065c6.886.03 13.831 1.296 20.36 2.871 9.793 2.363 19.385 5.46 27.566 7.526l.432-14.455c-12.858-4.22-26.731-9.05-41.18-10.367a89.855 89.855 0 0 0-6.316-.36 79.045 79.045 0 0 0-2.768-.01zM44.584 119.492a323.97 323.97 0 0 0-22.94.785l-3.644.25v46.264a2915.14 2915.14 0 0 0 27.355 3.385c2.461-40.486 36.809-39.757 69.131-40.85-21.45-6.556-44.743-9.781-69.902-9.834zM377.244 121c.204 3.997.561 8.769 1.322 13.598.866 5.492 2.31 10.812 3.84 13.82 1.531 3.008 1.647 2.582 1.594 2.582-.053 0 .063.426 1.594-2.582 1.53-3.008 2.974-8.328 3.84-13.82.76-4.83 1.118-9.601 1.322-13.598zm32 0c.204 3.997.561 8.769 1.322 13.598.866 5.492 2.31 10.812 3.84 13.82 1.531 3.008 1.647 2.582 1.594 2.582-.053 0 .063.426 1.594-2.582 1.53-3.008 2.974-8.328 3.84-13.82.76-4.83 1.118-9.601 1.322-13.598zm32 0c.204 3.997.561 8.769 1.322 13.598.866 5.492 2.31 10.812 3.84 13.82 1.531 3.008 1.647 2.582 1.594 2.582-.053 0 .063.426 1.594-2.582 1.53-3.008 2.974-8.328 3.84-13.82.76-4.83 1.118-9.601 1.322-13.598zm32 0c.204 3.997.561 8.769 1.322 13.598.866 5.492 2.31 10.812 3.84 13.82 1.531 3.008 1.647 2.582 1.594 2.582-.053 0 .063.426 1.594-2.582 1.53-3.008 2.974-8.328 3.84-13.82.76-4.83 1.118-9.601 1.322-13.598zm-198.832 14.682c-5.918-.1-10.816 1.094-14.617 4.09-61.862 48.743-111.583 40.606-156.283 45.195 16.65 39.858 56.729 81.362 109.289 109.656l4.066 2.19 7.531 58.144c30.008.192 58.766-2.478 90.91-8.21l5.97-200.194c-10.673-2.243-21.309-6.14-31.237-8.535-5.805-1.4-11.026-2.26-15.629-2.336zm56.676 226.316c-55.492 10.883-101.631 13.389-156.37 8.227l11.17 64.12c53.668 3.52 92.439 2.388 143.364-8.107zm-18.791 85.797c-26.058 4.345-49.883 6.217-75.05 6.351l4.183 32.291c12.605 3.098 24.55 3.438 34.966 1.905 19.798-2.914 32.784-13.29 35.286-19.942zm-107.777 5.644l2.662 17.795a116.105 116.105 0 0 0 15.228 8.5l-3.338-25.77c-4.761-.12-9.62-.303-14.552-.525z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"overgrowth": {
+			"path": "M313.3 17.086c-13.082 12.09-26.162 25.898-39.24 42.238-40.78 61.662-59.706 130.838-39.908 213.328-35.99-92.217-15.31-164.737 29.243-228.96-1.796-8.394-4.97-16.178-9.848-23.335-18.883 65.377-89.362 100.41-147.62 146.344-32.994 28.667-51.81 58.787-57.06 89.454-4.766 27.835 1.33 56.803 19.78 87.094 10.802-34.31 26.768-63.865 46.324-84.49l9.24-9.744 5.927 12.048c32.275 65.613 71.142 112.01 114.412 140.842 10.374-18.086 14.635-36.342 19.333-55.845l2.474-10.277 9.895 3.715c22.212 8.34 44.04 18.5 61.678 35.14 18.183-38.612 27.566-85.392 23.783-142.236l-.797-11.978 11.81 2.168c22.627 4.154 45.408 14.432 65.753 30.54 3.233-10.887 3.598-21.046 1.475-30.638-2.42-10.94-8.185-21.423-17.627-31.346-55.215-43.087-121.203-82.3-109.03-174.062zM459.16 223.828c1.99 13.81.06 28.272-5.61 42.79 14.545 14.657 27.26 32.713 36.968 54.05 6.42-42.19-8.148-71.86-31.358-96.84zm-78.387 19.922c3.938 117.992-48.892 196.586-118.076 246.203 41.487-1.66 82.776-11.07 118.708-28.603 38.565-59.352 53.18-120.09 21.737-183.485 41.182 56.464 37.983 108.683 14.457 161.6 29.275-21.75 52.308-50.63 64.94-86.918-18.195-60.55-60.133-96.758-101.767-108.797zm-351.93 23.576c-6.177 20.626-8.39 44.052-5.187 71.22 3.357 28.463 14.477 53.087 31.186 73.73 1.48-15.455 3.942-30.564 7.295-45.065-23.806-33.228-35.06-67.02-33.294-99.884zm91.03 14.627c-25.597 33.54-44.708 89.362-47.594 148.688 25.046 22.66 57.76 39.022 93.898 48.803-34.22-40.04-60.895-91.9-43.45-151.37-9.138 65.866 35.742 116.368 82.06 159.146 8.045 1.097 16.177 1.884 24.355 2.382 21.233-12.672 41.274-27.57 59.058-45.157-65.71-22.84-123.458-76.94-168.325-162.492zm159.564 79.024c-4.064 16.386-8.998 33.45-18.932 50.656 13.564 7.528 27.518 13.412 41.795 17.732 9.843-11.415 18.77-23.84 26.56-37.367-13.084-13.78-30.284-23.143-49.424-31.02z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"spores": {
+			"path": "M171.9 27.96c-3.5 0-7 .32-10.6 1.05-26.1 5.26-42.2 25.9-53.7 54.08-11.61 28.21-17.63 62.81-23.09 91.51-3.97 20.8-8.73 46.2-8.26 68.3.47 22.1 5.79 39.4 20.17 48.6C131.8 314 183.3 313.6 231.7 297c48.3-16.5 92.9-49 114.1-86.2 3.5-6.2 4.7-16.8 2.6-26.5-2.2-9.8-7.4-18.2-13.2-21.7-37-22.2-65.4-60-92.8-89.72-13.8-14.84-27.2-27.6-40.5-35.54-10-5.96-19.7-9.28-30-9.38zM432.1 289.9c-3.5 0-8 .3-12.8 1-9.6 1.4-21 4.3-32.3 8.5-22.6 8.3-44.5 22.3-52.8 37.3-4.2 7.8-1.3 24 5.4 31.9 30.2 35.7 90.8 56.8 135.5 44.7 7.5-2 16.4-12.1 17.3-19.4 2.3-18.5-3.3-42.9-13.6-63.2-10.3-20.2-25.5-35.9-38.9-40-1.5-.4-4.2-.7-7.8-.8zm-168.7 13.8c-8.5 3.9-17.1 7.4-25.9 10.4-16.5 5.6-33.5 9.6-50.4 11.6-.1 1.7-.3 3.3-.4 5-1.3 16.5-2.6 33.4-1.6 47.5 1 14.1 4.4 24.7 10.2 30.3 9.8 9.3 27.4 15.2 44.8 15.4 17.4.2 34.2-5.4 43.1-15 8.8-9.5 10.2-18.8 8-31.6-2.2-12.8-8.9-28.2-16.2-45.1-3.9-9-8-18.6-11.6-28.5zM62.04 345.1c-.7 0-1.39.1-2.07.1-3.62.2-6.92.9-9.73 2.2C37.8 353 25.43 374 21.05 395.8c-2.2 10.9-2.55 21.7-1.02 30.2 1.54 8.5 4.8 13.9 8.54 16.3 1.69 1.1 2.92 1.3 5.55.8 2.64-.4 6.37-2 10.56-4.4 8.39-4.8 18.36-12.8 29.14-18.9 13.54-7.5 28.98-11.6 39.68-16.3 5.4-2.4 9.4-4.8 11.4-6.9 2-2 2.4-2.9 2.1-5.8-1.3-9.9-13.7-25.3-30.14-35.1-11.53-6.8-24.35-10.7-34.85-10.6zm311.06 71.8c-3.9 9-7.1 18.6-8.5 27-1.5 8.5-.8 15.4 1.5 19.3 5 8.4 17 16.1 30.1 19.2 13.2 3.2 26.7 1.7 34.3-3.9 2.7-2 5.3-6.8 6.7-14 1.4-7.2 1.6-16.2 1.1-25-.1-1.6-.2-3.2-.4-4.7-22.2-1.3-44.6-7.6-64.8-17.9zM98.33 428.6c-5.65 2.2-11.06 4.4-15.7 7-5.52 3.1-11.42 7.3-17.56 11.4-1.48 5.5-2.26 12.1-1.71 17.8.7 7.1 3.18 11.8 6.46 13.6 4.62 2.6 13.46 2.3 21.81-1.4 8.34-3.7 15.37-10.5 17.27-16 1.9-5.4.7-14.9-3.5-22.9-1.9-3.7-4.4-7-7.07-9.5z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"fakier": {
+			"path": "M254.07 19.707c-56.303 28.998-106.297 107.317-122.64 168.707 32.445 2.11 58.63 12.963 78.638 30.848l9.334-10.198c-13.336-13.056-30.596-23.9-52.994-34.707 12.68-31.542 32.01-79.29 56.598-82.07 9.62-1.088 19.92 4.722 31.13 21.068 35.08-58.334 68.394 18.705 87.727 61.002-21.94 11.897-39.132 22.82-52.63 36.024l8.68 9.76c19.68-17.732 45.72-29.358 78.55-31.673C358.24 127.335 311.515 50.14 254.07 19.707zM219.617 144.57c-8.894 0-16.103 3.952-16.103 8.826 0 4.875 7.21 8.827 16.103 8.827 8.894 0 16.106-3.95 16.106-8.827 0-4.874-7.212-8.826-16.106-8.826zm68.965 0c-8.894 0-16.105 3.952-16.105 8.826 0 4.875 7.21 8.827 16.105 8.827 8.894 0 16.106-3.95 16.106-8.827 0-4.874-7.212-8.826-16.106-8.826zm-118.894 70.88c-2.19 3.672-4.343 7.497-6.444 11.52-25.587 48.98-43.26 123.643-43.896 223.48 32.776 18.89 64.322 31.324 95.707 36.988-35.5-24.36-60.375-80.893-60.375-146.754 0-45.97 12.12-87.39 31.51-116.506-5.098-3.372-10.583-6.29-16.502-8.727zm168.933.35c-5.852 2.477-11.27 5.412-16.298 8.764 19.24 29.095 31.254 70.354 31.254 116.12 0 65.82-24.844 122.322-60.306 146.707 30.88-5.598 62.44-17.812 95.656-36.947-.638-99.57-18.31-174.163-43.9-223.177-2.088-4.002-4.228-7.81-6.405-11.467zm-97.665 23.61c7.026 22.543 9.128 45.086.98 67.63h-41.552v18.513c10.057-3.24 20.25-5.39 30.502-6.594.066 50.215 1.313 96.574 19.82 145.435l4.193 11.074 4.485-10.962c19.48-47.615 18.045-95.297 17.933-145.024 10.257 1.333 20.463 3.4 30.545 6.07v-18.515h-41.374c-6.888-22.544-5.932-45.087.803-67.63h-26.335z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"kunai": {
+			"path": "M255.844 19.156c-9.972.074-19.945 2.48-29.406 6.844v14.156h58.78V25.938c-9.4-4.524-19.348-6.855-29.374-6.782zM65.03 33.376c-16.145.014-31.578 5.59-44.093 16.343l3.688 13.75 56.78-15.22-3.655-13.656c-4.262-.735-8.505-1.223-12.72-1.22zm381.72 0c-4.21-.005-8.46.484-12.72 1.218l-3.655 13.656 56.78 15.22 3.69-13.75c-12.52-10.765-27.94-16.33-44.095-16.345zM240.72 57.187v99.156c-.49 1.148-.96 2.312-1.44 3.47h32.25c-.21-.51-.41-1.024-.624-1.533V57.188H240.72zM71.97 68.406L42.812 76.22 69 173.905c-.072.532-.118 1.062-.188 1.594l31.126-8.375c-.756-.985-1.517-1.963-2.282-2.938L71.97 68.407zm367.81 0l-25.655 95.78c-.77.983-1.52 1.978-2.28 2.97l31.092 8.313c-.067-.512-.118-1.02-.187-1.532l26.188-97.72-29.157-7.812zM229.5 178.5c-7.172 13.366-21.99 22.273-39.375 25.625v10.844c13.028-1.903 26.05-3.19 39.063-3.907 4.143-10.668 14.568-18.313 26.625-18.313 12.114 0 22.585 7.72 26.687 18.47 13.02.772 26.03 2.067 39.03 3.843v-10.938c-17.397-3.348-32.228-12.252-39.405-25.625H229.5zm-115.313 4.188l-50.78 13.593c-3.46 14.788-15.46 27.258-31.407 35l2.813 10.532c12.1-5.08 24.338-9.69 36.718-13.812 1.183-11.44 9.276-21.616 20.97-24.75 1.888-.506 3.77-.797 5.656-.906 9.736-.563 19.087 3.99 24.75 11.72 12.77-2.685 25.69-4.84 38.78-6.376l-2.78-10.438c-17.686 1.27-34.327-3.484-44.72-14.563zm283.375 0c-10.385 11.072-27.013 15.825-44.687 14.562l-2.813 10.438c13.095 1.537 26.007 3.69 38.782 6.375 5.663-7.728 15.014-12.282 24.75-11.72 1.885.11 3.8.4 5.687.907 11.696 3.134 19.79 13.31 20.97 24.75 12.384 4.122 24.616 8.73 36.72 13.813l2.81-10.532c-15.944-7.742-27.946-20.212-31.405-35l-50.813-13.593zm-141.75 28.75c-5.538 0-9.812 4.275-9.812 9.812 0 5.537 4.273 9.844 9.813 9.844 5.54 0 9.843-4.307 9.843-9.844 0-5.54-4.304-9.813-9.844-9.813zm-155.5 9.5c-.322-.012-.64.008-.968.03-.66.047-1.332.165-2 .345-5.35 1.433-8.403 6.68-6.97 12.03 1.434 5.35 6.682 8.372 12.032 6.938 5.35-1.432 8.402-6.682 6.97-12.03-1.076-4.01-4.293-6.72-8.095-7.22-.316-.04-.645-.08-.968-.093zm311.157.03c-.325.01-.653.022-.97.063-3.802.5-7.02 3.21-8.094 7.22-1.433 5.348 1.587 10.598 6.938 12.03 5.35 1.435 10.598-1.588 12.03-6.936 1.435-5.35-1.586-10.598-6.937-12.03-1.003-.27-1.996-.374-2.968-.345zm-182.908 8.75c-3.42.202-6.833.436-10.25.72-17.21 88.982-4.777 187.617 37.344 262.625 42.076-85.616 55.17-175.81 37.563-262.407-3.418-.29-6.837-.53-10.25-.75-2.75 8.496-9.41 15.323-17.814 18.28V410.25H246.47V248.187c-8.47-2.98-15.2-9.88-17.907-18.468zm-90.062.25c-3.4.615-6.778 1.28-10.156 1.97-.39 8.99-5.07 17.366-12.47 22.437l41.94 156.563-18.033 4.843-41.968-156.56c-8.893-.682-17.094-5.546-21.937-13.064-3.252 1.088-6.488 2.21-9.72 3.375 5.4 88.204 41.413 171.937 104.22 243.75 21.27-83.35 7.772-181.827-31.875-263.31zm234.78 0c-39.657 81.486-53.177 179.96-31.905 263.313 62.81-71.815 98.79-155.544 104.188-243.75-3.22-1.16-6.45-2.286-9.688-3.374-4.846 7.503-13.02 12.376-21.906 13.063L372 415.78l-18.063-4.842 41.97-156.563c-7.412-5.07-12.11-13.438-12.5-22.438-3.37-.688-6.734-1.355-10.126-1.968z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"mist": {
+			"path": "M175.8 27.6c-54.4 0-160.07 32-160.07 32s24.03 7.26 54.98 14.86C52.11 76.55 22.26 91.2 22.26 91.2s34.61 17 52.52 17c17.98 0 52.72-17 52.72-17s-8.3-4.05-18.8-8.19c24.2 4.88 48.6 8.59 67.1 8.59 43.6 0 119.2-20.32 147.9-28.48 13.8 4.98 34.8 11.68 48 11.68 21.2 0 62-17 62-17s-40.8-17-62-17c-15.2 0-40.5 8.8-53.5 13.72C285.8 45.5 216.5 27.6 175.8 27.6zm145.1 57.1c-34.2 0-100.4 17-100.4 17s66.2 17 100.4 17c34.1 0 100.4-17 100.4-17s-66.3-17-100.4-17zm-167.7 57.1c-34.2 0-100.46 17-100.46 17s66.26 17 100.46 17c19.4 0 49.3-5.5 71.5-10.3-15.4 7.4-26.5 13.6-26.5 13.6s9.1 5.1 22.2 11.5c-35.1 3.9-80.9 15.7-80.9 15.7s66.2 17 100.4 17c15.1 0 36.6-3.4 55.9-7.1.9.1 1.9.1 2.8.1 23.9 0 63.4-18.2 85.1-29.1 4.2.3 8.1.5 11.7.5 34.1 0 100.4-17 100.4-17s-66.3-17-100.4-17c-11 0-25.4 1.8-39.7 4.2-19.6-8.4-41.6-16.1-57.1-16.1-14.7 0-35.4 6.9-54.1 14.8-19.1-4.6-64.8-14.8-91.3-14.8zm195.5 81.8c-46.2 0-136.1 32-136.1 32s31.7 11.3 67.2 20.5c-4-.2-7.8-.3-11.4-.3-60.1 0-176.95 25.3-176.95 25.3s116.85 25.4 176.95 25.4c21.1 0 49.2-3.1 76.8-7.2-27.5 9.1-53.1 21.1-53.1 21.1s66.2 31 100.4 31c34.1 0 100.4-31 100.4-31s-56.1-26.3-91.7-30.5c25.8-4.8 44.2-8.8 44.2-8.8s-36.1-7.8-78.5-14.8c48.2-5.9 118-30.7 118-30.7s-89.9-32-136.2-32zm-253.37 3.2c-21.1 0-61.88 25.7-61.88 25.7s40.78 25.6 61.88 25.6c21.17 0 62.07-25.6 62.07-25.6s-40.9-25.7-62.07-25.7zm81.77 119.6c-21.1 0-61.9 25.7-61.9 25.7s15 9.4 31.4 16.8c-4.8-.5-9.3-.7-13.3-.7-34.2 0-100.43 17-100.43 17s37.91 9.7 71.23 14.5c-17.97 4.4-39.56 15-39.56 15s34.61 17 52.56 17c18 0 52.7-17 52.7-17s-15.5-7.6-31.2-12.6c35.2-1.5 95.1-16.9 95.1-16.9s-19.9-5.1-43.6-9.7c21.6-6.2 49-23.4 49-23.4s-40.9-25.7-62-25.7zm238.3 75.4c-21.1 0-61.9 17-61.9 17s16.6 6.9 34 11.9c-35.6 2.2-92 16.7-92 16.7s66.2 17 100.4 17c34.1 0 100.4-17 100.4-17s-33.7-8.6-65.4-13.6c21.1-4.5 46.5-15 46.5-15s-40.9-17-62z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"slingr": {
+			"path": "M199.117 111.268c-2.435.007-4.816.524-7.117 1.675-18.365 9.194-38.59 129.65-50.16 164.987 45.64 13.262 87.106 16.556 115.314 16.425 28.21-.13 68.652-3.635 112.97-16.49C358.53 242.48 338.34 122.123 320 112.943c-21.065-10.53-48.73 31.998-64 32-13.6.002-37.05-33.734-56.883-33.675zM224 160c11.53 40.5 9.107 74.724 0 96-9.107 21.276-32 11.235-32 0 25.333-6.927 26.21-35.5 32-96zm64 0c5.79 60.5 6.667 89.073 32 96 0 11.235-22.893 21.276-32 0s-11.53-55.5 0-96zM46.79 263.127c-17.5.4-24.138 17.83-14.79 40.873 11.088 30.345 58.972 96.774 112 96 24.103-.352 31.438-15.483 112-16 80.562-.517 87.88 15.648 112 16 53.017.774 100.907-65.655 112-96 13.006-32.066-4.934-53.25-40.016-32.84-21.85 11.926-44.06 17.898-65.984 24.48-.02 0-.044.024-.064.024v-.006c-45.8 13.756-87.924 17.486-116.754 17.615-28.83.13-72.027-3.357-119.145-17.548-21.897-6.618-44.09-12.59-66.027-24.565-9.866-5.74-18.374-8.19-25.22-8.033z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"quickdraw": {
+			"path": "M33.385 18.482l179.818 179.82c15.992-12.5 32.854-21.332 49.008-25.884 6.11-1.722 12.21-2.827 18.142-3.232L129.646 18.482h-96.26zM18.1 94.508v22.414l143.933 143.933c2.284-4.853 4.898-9.714 7.87-14.544L18.1 94.51zm0 48.844v21.718l133.513 133.514c.357-6.05 1.454-12.282 3.192-18.527L18.1 143.352zm267.76 44.308c-5.534-.06-11.76.824-18.58 2.746-18.187 5.125-39.366 17.645-58.06 36.338-18.693 18.693-31.214 39.874-36.34 58.06-5.124 18.187-2.865 32.154 4.983 40.003 7.848 7.848 21.816 10.107 40.002 4.982 2.79-.787 5.657-1.767 8.57-2.897-4.446 35.305 2.834 81.353 22.27 137.377 7.042-107.06 40.21-77.135 84.346 18.867-25.618-105.636 50.953-72.313 151.733 8.195-82.658-96.046-104.87-162.764 10.524-134.658-113.18-40.95-130.87-81.878-33.092-84.97-63.505-23.373-114.68-32.166-153.004-27.345 1.2-3.05 2.23-6.05 3.054-8.97 5.124-18.186 2.867-32.155-4.98-40.003-4.906-4.905-12.203-7.627-21.425-7.727zm-15.63 20.928c7.007.084 13.038 2.182 17.358 6.502 7.242 7.242 8.227 19.295 3.96 32.7-32.244 8.713-52.945 29.435-61.653 61.358-13.234 4.11-25.11 3.073-32.274-4.09-13.822-13.824-4.888-45.17 19.956-70.013 17.08-17.08 37.233-26.642 52.653-26.457z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"dagger": {
+			"path": "M256.438 19.375c-47.71 0-95.422 14.41-136.094 43.22 13.022 15.09 26.314 30.127 39.156 44.468 16.038-11.682 32.482-18.857 48.688-22.282l9.875-9.874 6.625-6.625 6.593 6.626 7.72 7.72c78.735 5.644 140.54 95.133 101.406 175.53l118.5 118.5c54.447-90.673 42.59-209.88-35.625-288.094C377.17 42.45 316.806 19.376 256.44 19.376zM66.5 27.063L29.53 64.03c37.95 29.834 80.152 65.906 115 96.845l7.407 6.594-7 7-47.375 47.374L117.25 241.5l34.5-34.5 268.125 268.156 77.344 19.28-21.845-74.78-26.977-26.978.04-.053-117.75-117.75-.032.045L207.25 151.5l37.094-37.094-19.656-19.656-46.47 46.438-6.968 6.937-6.563-7.28C133.5 106.334 96.644 64.837 66.5 27.062zm-1.28 90.062C-1.735 209.41 6.38 339.035 89.593 422.25c52.93 52.93 124.633 75.448 193.562 67.625-131.5.997-246.804-128.563-207.125-263.156l-4.874-4.876 6.594-6.625 3.25-3.25c7.028-18.512 17.076-37.017 30.5-55.22-14.87-12.992-30.55-26.433-46.28-39.625zm120.374 46.03c12.283 0 22.22 9.968 22.22 22.25 0 2.224-.332 4.35-.94 6.376l236.94 236.97-13.19 13.188L194.47 205.813c-2.72 1.185-5.72 1.843-8.876 1.843-12.284 0-22.25-9.964-22.25-22.25 0-12.285 9.966-22.25 22.25-22.25z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"darc": {
+			"path": "M245.594 20.78c-.507.013-1.026.034-1.53.064-2.695.16-5.362.59-7.94 1.28-10.308 2.763-19.663 9.946-25 19.189L46.75 326.03c-5.336 9.244-6.887 20.974-4.125 31.283 2.762 10.308 9.945 19.663 19.188 25L247.53 489.53c9.244 5.338 20.974 6.89 31.282 4.126 10.31-2.762 19.695-9.944 25.032-19.187L468.22 189.75c5.335-9.243 6.855-20.972 4.092-31.28-2.762-10.31-9.944-19.696-19.187-25.032l-185.72-107.22c-6.498-3.75-14.213-5.615-21.81-5.437zm9.844 28.564c3.917-.088 7.89.866 11.53 2.968 10.595 6.117 14.242 19.658 8.126 30.25-2.82 4.883-7.23 8.286-12.188 9.938l-1.625 39.625-18.655-.78 1.625-39.814-33.688 21.314-10-15.78 33.625-21.283c-1.005-5.078-.26-10.506 2.532-15.343 4.013-6.952 11.238-10.926 18.718-11.093zm70.968 88l.188 19.125c-1 3.73.01 12.74 3.312 23.905 3.302 11.164 8.36 24.527 12.875 38.656 9.032 28.26 16.794 60.82.25 87.5-15.642 25.232-42.36 33.737-64.592 26.783-14.434-4.516-26.79-15.427-33.72-30.657l-2.343 57.094-65.563-37.875 48.407-30.656c-16.727 1.395-32.68-4.01-44.157-14.19-17.73-15.725-24.233-43.607-8.22-69.405 16.875-27.184 48.38-36.36 76.626-42.344 14.122-2.99 27.74-5.21 38.78-7.968 11.04-2.758 18.543-7.15 22.72-9.875l15.436-10.093zm-18.28 32.844L253.53 211.03l15.157 8.75-15.843 27.44c-27.918 4.816-52.84-22.152-35.28-50.44.752-1.212 1.554-2.358 2.405-3.468-13.226 5.49-24.335 13.015-31.25 24.157-11.946 19.242-7.024 35.15 4.75 45.593 11.77 10.442 30.965 14.336 49.843 3.437l14-8.094v16.188c0 22.673 12.26 36.352 26.718 40.875 14.46 4.522 31.303.288 43.126-18.783 6.682-10.776 7.695-24.474 5.656-39.437-.696 1.596-1.53 3.144-2.468 4.656-17.294 27.896-52.04 21.52-61.344-5.28l15.875-27.5 15.156 8.75 8.095-67.69zm-55.563 215.406l18.656.75-1.626 39.812 33.687-21.312 10 15.78-33.624 21.313c.995 5.07.255 10.52-2.53 15.344-6.117 10.594-19.688 14.212-30.282 8.095-10.595-6.117-14.21-19.655-8.094z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"trapcard": {
+			"path": "M119.436 36c-16.126 0-29.2 17.237-29.2 38.5v363c0 21.263 13.074 38.5 29.2 38.5h275.298c16.126 0 29.198-17.237 29.198-38.5v-363c0-21.263-13.072-38.5-29.198-38.5zm26.369 10.951l11.002 32.856 34.648.312-27.848 20.617 10.41 33.05-28.212-20.114-28.215 20.113L128 100.736 100.152 80.12l34.649-.312zM363.979 161.84c7.127 9.459 12.739 20.689 16.832 32.04 3.8 10.544 6.197 21.211 6.668 31.02-.163 19.015-3.915 23.274-14.557 36.934l-6.703-11.48c-10.85-13.106-30.779-48.4-47.383-43.672-6.521 6.11-8.996 13.37-10.313 20.802 2.898 8.8 4.477 18.43 4.477 28.516 0 15.293-3.615 29.54-9.996 41.416 22.643 4.537 57.927 19.332 57.973 39.223-.27 3.783-1.835 7.68-4.362 10.42-10.743 12.528-36.958 4.125-45.2 10.072.796 6.947 4.112 14.118 4.355 20.174.136 4.36-1.768 10.58-6.508 13.996-5.67 4.087-12.968 4.551-18.52 3.045C279.94 392.226 272 379.649 256 377c-13.544 3.491-22.412 13.87-34.742 17.346-5.552 1.506-12.85 1.042-18.52-3.045-4.74-3.417-6.644-9.636-6.508-13.996-.058-7.142 4.107-13.794 4.356-20.174-15.741-7.788-33.816 1.97-45.201-10.072-2.527-2.74-4.093-6.637-4.362-10.42 6.146-27.341 35.374-34.684 57.973-39.223C202.615 285.54 199 271.293 199 256c0-11.489 2.047-22.385 5.764-32.135-2.357-7.923-3.441-15.988-9.438-22.441-8.758-.925-14.079 6.897-17.842 12.63-11.683 19.5-18.718 30.606-32.88 46.192-16.604-23.4-19.314-49.29-13.157-70.988 6.065-20.331 19.17-38.798 37.926-47.924 21.216-9.766 39.872-10.03 58.885.203 5.163-13.053 10.4-25.65 18.035-36.209 9.625-13.31 23.8-25.631 43.707-25.295 38.8.656 73.993 51.156 73.979 81.807zm-72.22-63.893c-35.759 2.409-44.771 44.746-55.189 71.29l-9.447-7.087c-18.428-12.31-31.076-13.732-49.875-4.63-12.924 6.288-23.701 20.62-28.553 36.882-3.38 11.329-3.765 23.225-.949 33.645 9.45-13.549 15.806-30.08 28.317-39.178 7.486-7.975 26.27-8.498 35.45 3.897 4.838 7.02 7.437 14.54 9.5 22.234h72.165c.592-1.944 1.067-3.762 2.017-6.033 2.956-7.064 7.765-16.266 18.395-19.504 18.09-3.862 32.494 7.106 43.498 18.514 4.517 4.717 8.492 9.696 12.098 14.517-.69-6.798-2.477-14.651-5.31-22.508-13.127-36.707-37.889-51.031-70.386-32.011 2.556-16.423 16.87-35.72 46.25-26.962-9.094-17.135-30.355-42.471-47.98-43.066zM220.644 233c-2.31 6.965-3.643 14.753-3.643 23 0 15.85 4.892 30.032 12.26 39.855C236.628 305.68 245.988 311 256 311c10.012 0 19.372-5.32 26.74-15.145C290.108 286.032 295 271.85 295 256c0-8.247-1.334-16.035-3.643-23zM232 280h48s-8 14-24 14-24-14-24-14zm-11.14 33.566c-13.86 3.34-50.369 8.9-51.842 21.42 9.621 1.947 20.446.838 28.998 2.235 5.993 1.018 12.82 3.323 17.285 9.517 3.375 4.683 3.577 10.103 3.037 14.21-.543 5.89-3.317 10.557-3.975 16.32 15.955-2.59 28.264-17.532 41.637-18.268 16-.702 29.313 17.402 41.637 18.268-.893-5.59-3.262-11.158-3.975-16.32-.54-4.107-.338-9.527 3.037-14.21 4.465-6.194 11.292-8.5 17.285-9.517 9.742-2.229 19.975.396 28.998-2.235-5.77-13.125-39.813-19.454-51.841-21.42C281.665 323.01 269.45 329 256 329c-13.452 0-25.665-5.991-35.14-15.434zm117.122 64.649l28.213 20.113 28.215-20.113L384 411.264l27.848 20.617-34.649.312-11.004 32.856-11.002-32.856-34.648-.312 27.848-20.617z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"deck": {
+			"path": "M150.156 82.406c-1.843.092-3.663.446-5.344 1.063L41.094 121.53c-4.483 1.645-8.493 5.357-10.5 9.69-2.007 4.33-2.238 9.798-.594 14.28l66.72 181.875c1.643 4.482 5.354 8.524 9.686 10.53 4.332 2.008 9.8 2.24 14.28.595l103.72-38.063c4.483-1.644 8.493-5.355 10.5-9.687l.03-.063c1.982-4.322 2.2-9.757.564-14.218L168.78 94.593c-1.635-4.46-5.318-8.484-9.624-10.5l-.062-.03c-2.166-1.005-4.623-1.556-7.094-1.658-.618-.025-1.23-.03-1.844 0zM189.22 96.03l63.843 174c3.41 9.3 2.975 19.61-1.188 28.595-4.163 8.986-11.734 15.965-21.03 19.375l-27.44 10.063 60 2.78c4.77.223 9.91-1.66 13.44-4.874 3.528-3.217 5.87-8.17 6.092-12.94l9-193.5c.222-4.768-1.628-9.938-4.843-13.468-3.216-3.53-8.168-5.87-12.938-6.093l-84.937-3.94zm121 33.25l-8.626 184.626c-.46 9.893-4.836 19.237-12.156 25.906-7.32 6.67-17.014 10.148-26.907 9.688l-26.06-1.22 69.374 23.095c4.53 1.507 10.012 1.107 14.28-1.03 4.27-2.14 7.838-6.283 9.345-10.814l61.155-183.81c1.507-4.532 1.107-10.013-1.03-14.282-2.14-4.27-6.283-7.87-10.814-9.375l-68.56-22.782zm-205.064 18.345c24.458 24.936 68.02 17.74 80.75 45.53 11.875 25.927-14.51 46.006-37.97 38.407l17 30.782-18.78 6.906-10.937-31.688c-10.39 22.624-43.053 23.746-54.157-.53-13.53-29.577 24.02-54.2 24.093-89.407zm301.438 39.22L347.22 365.437c-3.127 9.397-9.865 17.19-18.72 21.625l-.094.03c-8.834 4.396-19.07 5.116-28.437 2l-20.376-6.78 43.312 37.03c3.63 3.102 8.865 4.78 13.625 4.407 4.76-.374 9.618-2.84 12.72-6.47l125.875-147.31c3.102-3.63 4.78-8.835 4.406-13.595-.372-4.76-2.87-9.648-6.5-12.75l-66.436-56.78z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"darcveil": {
+			"path": "M285.217 21.693c-20.432 0-39.6 6.673-52.758 18.116a52.77 52.77 0 0 0-29.992-9.319c-27.782 0-50.634 21.518-52.762 48.764-17.989 4.957-30.848 21.368-30.848 40.615 0 2.546.23 5.083.684 7.578a42.114 42.114 0 0 0-4.475 18.907c0 23.238 18.907 42.144 42.147 42.144a42.43 42.43 0 0 0 7.226-.62 42.079 42.079 0 0 0 5.127 8.169c-17.365 3.331-27.068 17.163-23.345 36.023-9.295 4.607-16.864 6.201-17.215 18.268-.287 9.866 4.916 19.01 13.23 25.56-8.313 6.551-13.23 15.688-13.23 25.559 0 11.29 10.352 21.682 17.578 28.43-7.416 9.693-7.927 24.998-.26 38.154a42.132 42.132 0 0 0 2.319 3.55l-14.622 49.35 48.41-30.365c7.12-.444 13.244-.91 20.034.135 9.918 0 19.376-4.4 26.556-12.22 1.62.17 3.249.257 4.874.257 25.411 0 46.085-20.675 46.085-46.086 0-2.986-.28-5.93-.84-8.816a45.982 45.982 0 0 0 30.766-28.307 53.207 53.207 0 0 0 22.826-14.262c27.667-.156 51.635-19.979 57.22-46.777 14.92-10.424 24.054-26.876 24.995-45.043 17.787-6.679 29.75-23.623 29.75-43.103 0-24.373-19.02-44.386-42.994-45.985-3.62-21.824-22.627-38.517-45.465-38.517-1.04 0-2.083.036-3.125.107-7.462-23.425-35.047-40.266-67.896-40.266zm0 15.34c28.138 0 52.012 15.151 54.35 34.492l.083.698a51.338 51.73 58.185 0 0-35.54-13.928 51.338 51.73 58.185 0 0-42.788 22.982 51.338 51.73 58.185 0 1 34.71-13.677 51.338 51.73 58.185 0 1 51.622 51.095 51.338 51.73 58.185 0 1-8.836 28.813 51.338 51.73 58.185 0 0 16.912-38.12 51.338 51.73 58.185 0 0-10.193-30.523c3.526-.872 6.907-1.602 10.701-1.674 16.927 0 30.702 13.751 30.746 30.666l-.004 8.78c3.972-.408 7.78-.934 11.63-1.03 16.952 0 30.745 13.793 30.745 30.747 0 14.39-9.782 26.702-23.789 29.94l-6.24 1.444c.14 2.93.32 5.766.361 8.596 0 15.208-7.747 29.054-20.728 37.037l-3.055 1.88-.517 3.55c-3.077 21.17-21.556 37.137-42.985 37.137-1.984-.037-4.382-.182-6.525-.319l-2.48 3.05c-5.593 6.703-15.643 12.085-25.756 14.042-3.61 13.826-12.052 23.304-28.834 27.416l-10.723.72 4.166 9.907a30.548 30.548 0 0 1 2.39 11.908c0 16.952-13.791 30.744-30.744 30.744-3.42-.014-7.57-.86-11.267-1.705-5.517 7.533-9.416 11.997-20.162 13.666-7.755-.104-16.407-1.755-24.881.137l-17.32 10.865 3.67-12.39 2.054-5.739c-2.457-2.702-4.556-4.808-6.406-7.922-5.274-9.049-4.483-19.75 1.725-23.367a7.895 7.895 0 0 0 3.859-5.933c.482-4.382-2.163-6.832-6.549-10.893-3.903-3.613-14.267-13.208-14.267-18.666 0-7.757 6.442-14.938 16.416-18.291l21.625-7.273-21.627-7.268c-9.973-3.353-16.416-10.531-16.416-18.29.073-3.95 13.25-8.191 16.658-11.923-3.117-13.318.236-24.377 16.379-27.766 3.543.017 7.793 1.059 11.572 2.014 3.281-5.129 6.593-9.94 10.791-14.57l-8.787-4.184a26.781 26.781 0 0 1-14.371-17.217l-2.19-8.115c-6.017 2.228-10.79 4.46-17.187 4.582-14.78 0-26.805-12.025-26.805-26.804 0-4.87 1.318-9.636 3.815-13.788l1.666-2.77c-.912-3.486-1.655-6.212-1.692-9.927 0-13.722 10.273-25.176 23.893-26.644l7.183-.776c-.145-3.05-.336-6.076-.39-9.035 0-20.723 16.859-37.582 37.582-37.582 9.41 0 18.415 3.496 25.355 9.846l5.73 5.242 5.173-5.795c10.11-11.329 27.489-18.092 46.492-18.092zM197.918 94.57a32.165 36.96 23.458 0 0-32.527 23.436 32.165 36.96 23.458 0 0 14.793 46.709 32.165 36.96 23.458 0 0 1.879.726 29.767 34.204 23.458 0 1-7.801-39.632 29.767 34.204 23.458 0 1 40.922-19.528 29.767 34.204 23.458 0 1 1.09.553A28.302 24.27 9.276 0 0 203 124.578a28.302 24.27 9.276 0 0-.125 1.795 31.074 24.307 5.708 0 1 30.03-11.076 31.074 24.307 5.708 0 1 26.12 17.086 28.302 24.27 9.276 0 0 .108-.61 28.302 24.27 9.276 0 0-25.278-27.712 28.302 24.27 9.276 0 0-4.812-.262 28.302 24.27 9.276 0 0-8.65 1.4 32.165 36.96 23.458 0 0-10.784-8.295 32.165 36.96 23.458 0 0-11.691-2.334zm49.937 139.287a40.384 34.941 14.833 0 0-37.214 24.973 40.384 34.941 14.833 0 0-.96 6.922 36.66 31.72 18.087 0 1 .098-.344 36.66 31.72 18.087 0 1 44.698-18.77 36.66 31.72 18.087 0 1 25.002 41.536 36.66 31.72 18.087 0 1-7.325 11.525 40.384 34.941 14.833 0 0 16.563-20.191 40.384 34.941 14.833 0 0-30.094-44.115 40.384 34.941 14.833 0 0-10.768-1.536zm-132.992 161.33c-26.266 0-47.56 21.295-47.56 47.56 0 26.267 21.294 47.56 47.56 47.56 26.266 0 47.56-21.293 47.56-47.56 0-6.873-1.46-13.403-4.083-19.304-1.404-3.158-18.367 19.305-33.215 9.205-7.087-4.82-1.849-19.877 1.479-28.734 1.45-3.864 2.539-6.547 2.082-6.685a47.607 47.607 0 0 0-13.823-2.041zm-15.115 16.526c1.147.213-9.03 13.996 1.275 36.846 2.068 4.587-.27 10.01-4.996 12.017-4.725 2.009-10.15-.116-12.117-4.744-1.967-4.633.043-33.362 15.084-43.744.396-.273.635-.397.754-.375z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		},
+		"cardtrick": {
+			"path": "M300.125 22.22c-16.803.392-34.233 9.65-45.53 29.218-27.148-47.017-96.42-34.833-94.626 21.374 1.87 58.528 85.608 92.668 94.624 126.313 8.25-30.797 96.137-70.224 94.375-126.313-1.03-32.814-24.287-51.168-48.845-50.593zm109.53 112.28s-86.616 63.248-85.03 113.78c1.356 43.213 45.503 58.606 73.53 33.564l-24.56 58.875h72.374l-24.595-58.908c28.416 24.42 74.963 10.286 73.563-33.53-1.683-52.735-85.282-113.782-85.282-113.782zm-303.436 2.03c-24.513.018-44.626 19.58-44.626 44.095 0 10.22 3.667 19.87 9.468 27.375-1.847-.232-3.652-.563-5.562-.563-24.526 0-44.656 20.13-44.656 44.657 0 24.525 20.13 44.656 44.656 44.656 10 0 19.224-3.35 26.656-8.97L69.75 341.44h72.375l-22.75-54.47c7.604 6.088 17.202 9.782 27.594 9.782 24.526 0 44.124-20.13 44.124-44.656s-19.6-44.656-44.125-44.656c-2.1 0-4.104.276-6.126.562 5.887-7.535 9.5-17.072 9.5-27.375 0-24.515-19.583-44.077-44.094-44.094h-.03zM254.53 283.5l-85.468 105.125 85.47 105.156 85.5-105.155-85.5-105.125z",
+			"credit": "https://game-icons.net/lorc/originals/crossed-slashes.html"
+		}
+	}
+}

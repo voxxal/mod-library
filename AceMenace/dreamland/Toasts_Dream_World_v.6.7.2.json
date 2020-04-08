@@ -1,0 +1,925 @@
+{
+	"Mod": {
+		"name": "Toast's Dream World'",
+		"author": "toast",
+		"description": "The goal is to completely rework every single spell in-game! Hope you enjoy!!"
+	},
+	"World": {
+		"InitialRadius": 0.65,
+		"SecondsToShrink": 120,
+		"ShrinkPowerMinPlayers": 2.5,
+		"ShrinkPowerMaxPlayers": 2
+	},
+	"Hero": {
+		"MoveSpeedPerSecond": 0.13,
+		"Radius": 0.0115,
+		"MaxHealth": 200
+	},
+	"Spells": {
+		"fireball": {
+			"description": "For when you really need to get someone outta your face. 'Packs a punch?' Well, it is the punch now! Watch in satisfaction as blood spills from your enemies when you punch them!",
+			"color": "#FF5000",
+			"icon": "deadlyStrike",
+			"cooldown": 15,
+			"projectile": {
+				"radius": 0.01,
+				"speed": 1,
+				"maxTicks": 1,
+				"color": "#FF5000",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "projectile",
+						"selfColor": true,
+						"ticks": 30,
+						"smoke": 0.9
+					},
+					{
+						"type": "ray",
+						"selfColor": true,
+						"ticks": 10
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 50
+					}
+				]
+			},
+			"name": "Talk-To-The-Hand"
+		},
+		"firespray": {
+			"name": "Hazy Dreams",
+			"description": "Summon a huge cloud of dreams, which breaks into a barrage of multiple hazy projectiles! Fire close for maximum damage, far for awesome graphics!",
+			"color": "#7a007a",
+			"icon": "fragmentedMeteor",
+			"cooldown": 600,
+			"intervalTicks": 1,
+			"lengthTicks": 5,
+			"projectile": {
+				"density": 0.001,
+				"expireOn": 65519000,
+				"radius": 0.02,
+				"speed": 0.15,
+				"maxTicks": 15000000,
+				"damage": 30,
+				"color": "#7a007a",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "projectile",
+						"ticks": 300,
+						"smoke": 0.15,
+						"vanish": 0.75,
+						"bloom": 0.01
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 85
+					},
+					{
+						"type": "strike",
+						"ticks": 35,
+						"glow": true,
+						"numParticles": 1
+					}
+				]
+			}
+		},
+		"triplet": {
+			"name": "Meltdown",
+			"description": "Overheat and burn! Surround yourself in a ball of flame and touch enemies to melt them down! Leave a short explosive tail behind you to burn anyone trying to sneak up on you! Does not receive any lifesteal.",
+			"icon": "burningEye",
+			"cooldown": 180,
+			"throttle": false,
+			"movementProportionWhileChannelling": 1.5,
+			"lengthTicks": 50,
+			"projectile": {
+				"radius": 0.02,
+				"speed": 0,
+				"lifeSteal": 0,
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 10,
+						"packet": {
+							"damage": 0.1,
+							"lifeSteal": 0,
+							"noHit": true
+						},
+						"maxTicks": 240,
+						"render": {
+							"color": "#ff0088",
+							"alpha": 0.049999999999999996,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.3,
+							"glow": 0.3
+						}
+					}
+				]
+			}
+		},
+		"difire": {
+			"name": "Flowing Fire",
+			"description": "Spray your enemies with a river of fire! Doesn't hurt at first, but has a burning after-taste! Reduced movement speed while spraying.",
+			"color": "#A40000",
+			"icon": "tripleScratches",
+			"cooldown": 600,
+			"movementProportionWhileChannelling": 0.3,
+			"lengthTicks": 50,
+			"projectile": {
+				"density": 0.001,
+				"radius": 0.001,
+				"speed": 0.001,
+				"maxTicks": 100,
+				"color": "#A40000",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.055,
+						"vanish": 1.25
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.55
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"glow": true,
+						"numParticles": 20
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 10,
+						"packet": {
+							"damage": 0.15,
+							"lifeSteal": 0.25,
+							"noHit": true
+						},
+						"maxTicks": 240,
+						"render": {
+							"color": "#A40000",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.007,
+							"shine": 0.3,
+							"glow": 0.3
+						}
+					}
+				]
+			},
+			"chargeTicks": 25
+		},
+		"meteor": {
+			"description": "Fire an enormous missle that slowly moves across the map, pushing aside anything in its way. The missle then leaves a huge trail of smoke behind, maybe a bit too huge though...",
+			"color": "#6d0000",
+			"icon": "meteorImpact",
+			"cooldown": 10000000000,
+			"projectile": {
+				"density": 10000,
+				"radius": 0.05,
+				"speed": 0.025,
+				"maxTicks": 100000000,
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.16
+					},
+					{
+						"type": "projectile",
+						"ticks": 10000,
+						"shine": 1,
+						"smoke": 2,
+						"fade": "#333"
+					},
+					{
+						"type": "strike",
+						"ticks": 150,
+						"glow": true,
+						"growth": 0
+					}
+				]
+			},
+			"name": "Not-So-Tactical Smoke"
+		},
+		"meteorite": {
+			"description": "Spawn small walls and build your own barricade!",
+			"color": "#858585",
+			"icon": "shield",
+			"cooldown": 30,
+			"projectile": {
+				"density": 125,
+				"attractable": true,
+				"radius": 0.01,
+				"speed": 0,
+				"maxTicks": 750,
+				"color": "#858585",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "projectile",
+						"ticks": 100,
+						"shine": 0,
+						"smoke": 0.5,
+						"fade": "#333"
+					},
+					{
+						"type": "strike",
+						"ticks": 100,
+						"glow": true,
+						"growth": 0.1
+					}
+				]
+			},
+			"name": "Barricade"
+		},
+		"whirlwind": {
+			"name": "Violent Storm",
+			"description": "Conjure a violent storm that moves foward while damaging and slowing enemies down. The storm also catches enemy projectiles.",
+			"effects": [
+				{
+					"icon": "fas fa-snowflake",
+					"title": "Slow",
+					"text": "Enemies caught in your Whirlpool will be slowed 35% for 2 seconds."
+				}
+			],
+			"color": "#5700a3",
+			"icon": "frostfire",
+			"cooldown": 600,
+			"chargeTicks": 15,
+			"projectile": {
+				"radius": 0.02,
+				"maxTicks": 240,
+				"damage": 5,
+				"expireOn": 100000,
+				"hitInterval": 0.9,
+				"buffs": [
+					{
+						"type": "movement",
+						"movementProportion": 0.65,
+						"maxTicks": 240,
+						"against": 12,
+						"render": {
+							"color": "#5700a3",
+							"alpha": 0.3,
+							"ticks": 30,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.02,
+							"shine": 0.4,
+							"glow": 0.4,
+							"bloom": 0.05
+						}
+					}
+				],
+				"color": "#5700a3",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.06
+					},
+					{
+						"type": "swirl",
+						"color": "#5700a3",
+						"radius": 0.01,
+						"ticks": 40,
+						"loopTicks": 13,
+						"numParticles": 5,
+						"particleRadius": 0.05,
+						"shine": 0.5,
+						"smoke": 2,
+						"fade": "#100",
+						"vanish": 0.75
+					},
+					{
+						"type": "strike",
+						"ticks": 100,
+						"glow": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"kamehameha": {
+			"name": "Death Chant",
+			"description": "Chant for awhile and then unleash an extremely deadly blast! Flashes bright for effect!",
+			"effects": [
+				{
+					"icon": "fas fa-hand-paper",
+					"title": "Interruptible",
+					"text": "If you take an enemy hit, Death Chant will be interrupted."
+				}
+			],
+			"color": "#000000",
+			"chargeTicks": 45,
+			"cooldown": 555,
+			"strikeCancel": {
+				"maxChannelingTicks": 10
+			},
+			"lengthTicks": 10,
+			"projectile": {
+				"density": 0.01,
+				"speed": 5,
+				"damage": 100,
+				"lifeSteal": 0.5,
+				"renderers": [
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 60,
+						"glow": 0.25,
+						"bloom": 0.2
+					}
+				]
+			}
+		},
+		"lightning": {
+			"name": "Minigun",
+			"description": "Nice 'n classy. Gun 'em down!'",
+			"color": "#8b8b8b",
+			"icon": "bubblingBeam",
+			"cooldown": 0,
+			"projectile": {
+				"density": 0.001,
+				"radius": 0.002,
+				"damage": 8,
+				"color": "#8b8b8b",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.075
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 2,
+						"vanish": 0.3
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 20
+					}
+				]
+			}
+		},
+		"homing": {
+			"description": "Shoot a magical orb of demon blood that gets faster over time. Does little damage, but has insane healing effects. Explodes into a cascade of blood to dazzle your enemies!",
+			"color": "#bf0000",
+			"icon": "atomicSlashes",
+			"cooldown": 500,
+			"projectile": {
+				"density": 1,
+				"speed": 0.06,
+				"maxTicks": 400,
+				"damage": 1,
+				"lifeSteal": 100,
+				"expireOn": 15,
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"maxSpeed": 200,
+						"accelerationPerSecond": 0.3
+					}
+				],
+				"color": "#bf0000",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 50,
+						"smoke": 0.5,
+						"vanish": 0.01
+					},
+					{
+						"type": "ray",
+						"ticks": 50,
+						"vanish": 0.01
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 2,
+						"glow": true,
+						"numParticles": 500
+					}
+				]
+			},
+			"name": "Blood Orb"
+		},
+		"boomerang": {
+			"name": "Tracer",
+			"description": "Leave a bright trail behind you with a powerful ball of magic. Enemies that touch the ball will take huge damage. Circle around your enemies and force them into death! Note that only the ball does damage, not the trail.",
+			"icon": "arcingBolt",
+			"projectile": {
+				"radius": 0.0075,
+				"speed": 0.12,
+				"maxTicks": 550,
+				"damage": 75,
+				"expireOn": 0,
+				"expireAgainstHeroes": 0,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 5,
+						"maxTurnProportion": 1,
+						"minDistanceToTarget": 0.075,
+						"targetType": "self"
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "projectile",
+						"selfColor": true,
+						"ticks": 100,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"selfColor": true,
+						"ticks": 100,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"selfColor": true,
+						"radiusMultiplier": 0.25,
+						"ticks": 600,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ticks": 150,
+						"glow": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"retractor": {
+			"name": "Energy Pulsar",
+			"description": "Fire a small projectile that slows down over time into a stop. Release the button anytime to instantly make it stop. After stopping, the pulsar will explode after a while. Use it to strategically seal off certain places!",
+			"color": "#ff009c",
+			"icon": "boltSaw",
+			"cooldown": 60,
+			"releaseBehaviours": [
+				{
+					"type": "homing",
+					"targetType": "cursor",
+					"newSpeed": 0,
+					"revolutionsPerSecond": 1,
+					"redirect": true
+				}
+			],
+			"projectile": {
+				"radius": 0.009,
+				"speed": 3,
+				"maxTicks": 100,
+				"partialDamage": {
+					"initialMultiplier": 0.04,
+					"ticks": 180
+				},
+				"detonate": {
+					"damage": 30,
+					"radius": 0.03,
+					"minImpulse": 0.001,
+					"maxImpulse": 0.001
+				},
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"maxSpeed": 0.4,
+						"accelerationPerSecond": -3
+					}
+				],
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "swirl",
+						"color": "#ff009c",
+						"ticks": 50,
+						"radius": 0.009,
+						"particleRadius": 0.001,
+						"glow": 0.05,
+						"smoke": 0.1,
+						"numParticles": 2,
+						"loopTicks": 15,
+						"vanish": 1,
+						"selfColor": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"glow": 0.4,
+						"selfColor": true
+					},
+					{
+						"type": "ray",
+						"ticks": 30,
+						"glow": 0.4,
+						"vanish": 0.5,
+						"selfColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 90,
+						"selfColor": true
+					}
+				]
+			}
+		},
+		"rocket": {
+			"name": "Glaical Rocket",
+			"description": "Fire a slowing moving rocket crafted with the finest freezing magic. Control it with your mouse and click anytime to explode! Small Print: Explosion is bigger than it appears.",
+			"effects": [
+				{
+					"icon": "fas fa-hand-paper",
+					"title": "Interruptible",
+					"text": "If you take an enemy hit, Glaical Rocket will be interrupted."
+				},
+				{
+					"icon": "fas fa-snowflake",
+					"title": "Freeze",
+					"text": "Enemies hit will be unable to move for a long time."
+				}
+			],
+			"color": "#00d2ff",
+			"icon": "crackedBallDunk",
+			"cooldown": 1000,
+			"throttle": false,
+			"movementProportionWhileChannelling": 0,
+			"projectile": {
+				"density": 100,
+				"radius": 0.015,
+				"speed": 0.1,
+				"maxTicks": 135000,
+				"expireOn": 65519000,
+				"partialDamage": {
+					"ticks": 600
+				},
+				"detonate": {
+					"radius": 0.1,
+					"minImpulse": 6e-7,
+					"maxImpulse": 8e-7,
+					"buffs": [
+						{
+							"type": "movement",
+							"maxTicks": 200,
+							"movementProportion": 0.1,
+							"render": {
+								"color": "rgba(64, 255, 255, 1)",
+								"alpha": 0.3,
+								"ticks": 200,
+								"emissionRadiusFactor": 0.5,
+								"particleRadius": 0.02,
+								"shine": 0.4,
+								"glow": 0.4,
+								"bloom": 0.05
+							}
+						}
+					]
+				},
+				"renderers": [
+					{
+						"type": "bloom",
+						"ownerColor": true,
+						"radius": 0.1
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.12,
+						"minRadius": 0.1,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 50,
+						"glow": 0.2,
+						"smoke": 0.5,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 100,
+						"glow": true,
+						"ownerColor": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"whip": {
+			"name": "Knocker",
+			"description": "Obstacles in your way? Knock 'em right off the map! Plus cool sparkles as a bonus! Does not deal damage. The extra knockback does not effect enemies.",
+			"effects": [
+				{
+					"icon": "fas fa-running",
+					"title": "Fast",
+					"text": "Gain a 50% movement speed bonus for 3 seconds when casting (even if you miss)."
+				}
+			],
+			"color": "#E1C23A",
+			"cooldown": 60,
+			"buffs": [
+				{
+					"type": "movement",
+					"maxTicks": 180,
+					"movementProportion": 1.5,
+					"render": {
+						"color": "#8800ff",
+						"heroColor": true,
+						"ticks": 30,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"shine": 0.5,
+						"glow": 0.3,
+						"bloom": 0.05,
+						"vanish": 0.9,
+						"decay": true
+					}
+				}
+			],
+			"projectile": {
+				"density": 25,
+				"radius": 0.05,
+				"detonate": {
+					"damage": 0,
+					"minImpulse": 0.0003,
+					"maxImpulse": 0.0003
+				},
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#fffcb1",
+						"ticks": 30,
+						"radius": 0.005,
+						"particleRadius": 0.001,
+						"numParticles": 2,
+						"loopTicks": 15,
+						"smoke": 0.03,
+						"vanish": 0.8,
+						"glow": 0.07
+					},
+					{
+						"type": "link",
+						"color": "#fffcb1",
+						"width": 0.0025,
+						"toWidth": 0.005,
+						"glow": 0.2
+					},
+					{
+						"type": "strike",
+						"ticks": 40,
+						"glow": true,
+						"numParticles": 10
+					}
+				]
+			}
+		},
+		"bouncer": {
+			"description": "Create a tiny magical ball with infinte potential. Push it along its way to an unsuspecting enemy!",
+			"color": "#0000ff",
+			"icon": "boomerangSun",
+			"cooldown": 45000000000,
+			"throttle": false,
+			"projectile": {
+				"density": 1,
+				"speed": 0,
+				"maxTicks": 100000000000,
+				"hitInterval": 50,
+				"damage": 50,
+				"expireOn": 100000000000,
+				"color": "#0000ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"selfColor": true,
+						"ticks": 60,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ticks": 15,
+						"glow": true,
+						"growth": 1.5
+					}
+				]
+			},
+			"chargeTicks": "60",
+			"name": "Ball"
+		},
+		"drain": {
+			"description": "Fire a lightweight projectile that automatically changes directions when sensing a nearby enemy! After changing directions, speed increases dramatically! With the help of speical runes, this bullet can even detect things that you can't! Unfortunately, the overload of runes has made this spell burn out quickly, so use at mid-range for maximum effect!",
+			"icon": "divert",
+			"projectile": {
+				"density": 1,
+				"radius": 0.001,
+				"speed": 0.1,
+				"maxTicks": 100,
+				"damage": 35,
+				"lifeSteal": 0.25,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "enemy",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 1,
+						"redirect": true
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 10000
+					},
+					{
+						"type": "ray",
+						"ticks": 100,
+						"vanish": 0.5
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"radiusMultiplier": 0.5,
+						"ticks": 500,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 300,
+						"growth": 2,
+						"glow": true,
+						"numParticles": 40
+					}
+				]
+			},
+			"name": "Re-Fraction"
+		},
+		"icewall": {
+			"name": "Enchanted Barricade",
+			"description": "Spawn small, lightweight walls and build your own barricade! These walls will reflect shots.",
+			"maxRange": 0,
+			"movementProportionWhileCharging": 0,
+			"maxTicks": 700,
+			"growthTicks": 10,
+			"cooldown": 60,
+			"throttle": true,
+			"damageMultiplier": 1,
+			"length": 0.025,
+			"width": 0.025,
+			"density": 90,
+			"linearDamping": 0,
+			"angularDamping": 0,
+			"selfPassthrough": false,
+			"icon": "shield",
+			"glow": 1,
+			"bloom": 0.01
+		},
+		"saber": {
+			"name": "Bastion-Mode",
+			"description": "Enter Bastion-Mode! Bastion-Mode conjures a movable energy shield that lasts forever! But the spell is so strong that you won't be able to move! Casting other spells will cancel bastion mode.'",
+			"effects": [
+				{
+					"icon": "fas fa-unlink",
+					"title": "Detach",
+					"text": "Bastion-Mode cuts through any Links or Grapples currently attached to you."
+				}
+			],
+			"damageMultiplier": 1,
+			"width": 0.042,
+			"length": 0.024,
+			"movementProportionWhileChannelling": 0,
+			"interruptibleAfterTicks": 0,
+			"cooldown": 1200,
+			"throttle": true,
+			"icon": "woodenFence",
+			"maxTicks": 100000000000,
+			"channelling": true,
+			"color": "#dfdfdf",
+			"shine": 0.6,
+			"glow": 0.6,
+			"bloom": 0.07
+		},
+		"dualSaber": {
+			"name": "Tough Layers",
+			"description": "Hardness powerful magic and create barriers around yourself! Build these barriers over time and create a cocoon of pure magic! Ineffective against area-of-effect spells... and lucky shots. The cocoons are heavy though, so you will be slightly slowed. Casting spells will remove all shields.",
+			"effects": [
+				{
+					"icon": "fas fa-unlink",
+					"title": "Detach",
+					"text": "Tough Layers cuts through any Links or Grapples currently attached to you."
+				}
+			],
+			"maxTurnRatePerTickInRevs": 0,
+			"damageMultiplier": 1,
+			"width": 0.0215,
+			"length": 0.0215,
+			"movementProportionWhileChannelling": 0.85,
+			"interruptibleAfterTicks": 0,
+			"cooldown": 120,
+			"icon": "crownedExplosion",
+			"maxTicks": 100000000000,
+			"channelling": true,
+			"shine": 0.15,
+			"glow": 0.25,
+			"bloom": 0.04,
+			"movementmaxSpeed": 0.75,
+			"revsPerTickWhileChannelling": 0
+		},
+		"thrust": {
+			"name": "Stardust Dash",
+			"description": "Absorb stardust around you into a sphere and dash foward dealing small damage and knockback!",
+			"range": 0.1,
+			"radiusMultiplier": 0.75,
+			"density": 0.001,
+			"cooldown": 90,
+			"throttle": true,
+			"debuff": false,
+			"damageTemplate": {
+				"damage": 15
+			},
+			"speed": 1,
+			"icon": "cometSpark",
+			"buffs": [
+				{
+					"type": "movement",
+					"movementProportion": 1,
+					"maxTicks": 20,
+					"render": {
+						"color": "#fff",
+						"heroColor": true,
+						"ticks": 10,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.02,
+						"glow": 1.5,
+						"shine": 2.5,
+						"bloom": 0.0075,
+						"decay": true
+					}
+				}
+			]
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		}
+	}
+}
