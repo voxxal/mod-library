@@ -1,0 +1,65 @@
+{
+	"Mod": {
+		"name": "sumo wrestling mod",
+		"author": "meso",
+		"description": "yeet"
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[]
+			],
+			"q": [
+				[
+					"meteorite"
+				]
+			],
+			"w": [],
+			"e": [],
+			"r": [],
+			"f": []
+		}
+	},
+	"Spells": {
+		"meteorite": {
+			"description": "Seemingly unused, haunted sentry.",
+			"cooldown": 100,
+			"projectile": {
+				"density": 1,
+				"radius": 0.03,
+				"speed": 1,
+				"restitution": 1,
+				"minTicks": 100,
+				"maxTicks": 100,
+				"damage": 10,
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 3,
+						"smoke": 0.5,
+						"fade": "#333"
+					},
+					{
+						"type": "ray",
+						"ticks": 70
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"glow": true,
+						"growth": 0.1
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 1,
+						"targetType": "self"
+					}
+				]
+			},
+			"name": "Sentry"
+		}
+	}
+}

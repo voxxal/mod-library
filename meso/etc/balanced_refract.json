@@ -1,0 +1,114 @@
+{
+	"Mod": {
+		"name": "balanced refract",
+		"author": "epicknife",
+		"description": "Wed, 08 Apr 2020 01:58:20 GMT",
+		"titleLeft": "epicknife's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Spells": {
+		"retractor": {
+			"projectile": {
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.006
+					},
+					{
+						"type": "accelerate",
+						"maxSpeed": 0.4,
+						"accelerationPerSecond": 0.4
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"expire": true
+						},
+						"projectile": {
+							"damage": 30,
+							"lifeSteal": 0.3,
+							"density": 60,
+							"radius": 0.0035,
+							"speed": 0.3,
+							"collideWith": 0,
+							"sense": 65535,
+							"maxTicks": 120,
+							"categories": 2,
+							"shieldTakesOwnership": false,
+							"partialDamage": {
+								"initialMultiplier": 0.5,
+								"finalMultiplier": 0.5,
+								"ticks": 1
+							},
+							"detonate": {
+								"damage": 0,
+								"lifeSteal": 0.3,
+								"radius": 0.015,
+								"minImpulse": 0,
+								"maxImpulse": 0,
+								"renderTicks": 15
+							},
+							"behaviours": [
+								{
+									"type": "accelerate",
+									"maxSpeed": 0.4,
+									"accelerationPerSecond": 0.4
+								}
+							],
+							"sound": null,
+							"color": "#00ff7f",
+							"renderers": [
+								{
+									"type": "bloom",
+									"selfColor": true
+								},
+								{
+									"type": "swirl",
+									"color": "#00ff7f",
+									"ticks": 30,
+									"radius": 0.007,
+									"particleRadius": 0.001,
+									"glow": 0.05,
+									"smoke": 0.3,
+									"numParticles": 2,
+									"loopTicks": 15,
+									"vanish": 1,
+									"selfColor": true
+								},
+								{
+									"type": "projectile",
+									"ticks": 7,
+									"glow": 0.3,
+									"selfColor": true
+								},
+								{
+									"type": "ray",
+									"ticks": 15,
+									"glow": 0.3,
+									"vanish": 0.25,
+									"selfColor": true
+								},
+								{
+									"type": "strike",
+									"ticks": 15,
+									"flash": true,
+									"numParticles": 9,
+									"selfColor": true
+								}
+							]
+						},
+						"numProjectiles": 63,
+						"spread": 5,
+						"expire": true
+					},
+					{
+						"type": "expireOnChannellingEnd"
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,73 @@
+{
+	"Mod": {
+		"name": "charging beam mod",
+		"author": "meso",
+		"description": "???"
+	},
+	"Spells": {
+		"rocket": {
+			"name": "Charging Beam",
+			"description": "idk",
+			"cooldown": 450,
+			"movementProportionWhileChannelling": 0,
+			"projectile": {
+				"speed": 0,
+				"detonate": {
+					"damage": 40,
+					"radius": 0.07,
+					"minImpulse": 0.006,
+					"maxImpulse": 0.008,
+					"partialRadius": {
+						"initialMultiplier": 0
+					},
+					"partialImpulse": {
+						"initialMultiplier": 0
+					}
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"trigger": {
+							"afterTicks": 100
+						},
+						"newSpeed": 1,
+						"targetType": "cursor",
+						"redirect": true,
+						"revolutionsPerSecond": 11
+					},
+					{
+						"type": "expireOnChannellingEnd"
+					}
+				],
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.035,
+						"minRadius": 0.03,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 50,
+						"glow": 0.1,
+						"smoke": 0.05,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"glow": true,
+						"numParticles": 9
+					}
+				]
+			},
+			"knockbackCancel": {
+				"cooldownTicks": 30,
+				"maxChannelingTicks": 60
+			},
+			"revsPerTickWhileCharging": 0,
+			"revsPerTickWhileChannelling": 0
+		}
+	}
+}

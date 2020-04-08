@@ -1,0 +1,144 @@
+{
+	"Mod": {
+		"name": "swap mod",
+		"author": "meso",
+		"description": "e"
+	},
+	"Spells": {
+		"fireball": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"flamestrike": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"firespray": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"triplet": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"difire": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"meteor": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"meteorite": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"gravity": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"whirlwind": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"link": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"grapple": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"kamehameha": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"lightning": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"homing": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"boomerang": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"retractor": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"backlash": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"rocket": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"whip": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"bouncer": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"repeater": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"drain": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"horcrux": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"supernova": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"halo": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"mines": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		},
+		"swap": {
+			"projectile": {
+				"swapWith": 65535
+			}
+		}
+	}
+}

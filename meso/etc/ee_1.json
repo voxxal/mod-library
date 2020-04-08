@@ -1,0 +1,10 @@
+{
+    "Spells": {
+        "bouncer":{"id":"bouncer","description":"The more times this bounces, the more damage this does. Stay close to your enemy.","action":"projectile","color":"#88ee22","icon":"divert","maxAngleDiffInRevs":0.01,"cooldown":0,"projectile":{"color":"#88ee22","selfColor":true,"density":2,"radius":0.6,"speed":0.75,"fixedSpeed":true,"maxTicks":180,"damage":4,"collideWith":65533,"expireOn":4,"bounce":{"damageFactor":0.9},"render":"gravity","trailTicks":60}}
+        }
+  ,  "Choices": {
+        "Options": {
+            "d": ["firespray", "bouncer"]
+        }
+    }
+}

@@ -1,0 +1,207 @@
+{
+	"Mod": {
+		"name": "unfair kb mod",
+		"author": "meso",
+		"description": "bean"
+	},
+	"World": {
+		"LavaLifestealProportion": 23
+	},
+	"Hero": {
+		"MaxDamageBonusProportion": 1,
+		"KnockbackRatio": 24
+	},
+	"Spells": {
+		"fireball": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"flamestrike": {
+			"projectile": {
+				"detonate": {
+					"damage": 0
+				}
+			}
+		},
+		"firespray": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"triplet": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "burn",
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0,
+							"lifeSteal": 0.2,
+							"noHit": true,
+							"noKnockback": true
+						},
+						"maxTicks": 240,
+						"render": {
+							"color": "#ff0088",
+							"alpha": 0.049999999999999996,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625
+						}
+					}
+				]
+			}
+		},
+		"difire": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "burn",
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0,
+							"lifeSteal": 0.2,
+							"noHit": true,
+							"noKnockback": true
+						},
+						"maxTicks": 240,
+						"render": {
+							"color": "#ff0088",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625
+						}
+					}
+				]
+			}
+		},
+		"kamehameha": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"homing": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"boomerang": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"retractor": {
+			"projectile": {
+				"detonate": {
+					"damage": 0
+				}
+			}
+		},
+		"backlash": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"whip": {
+			"projectile": {
+				"detonate": {
+					"damage": 0
+				}
+			}
+		},
+		"bouncer": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"repeater": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"drain": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"horcrux": {
+			"projectile": {
+				"behaviours": [
+					{
+						"type": "updateCollideWith",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"collideWith": 65535
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"radius": 0.035,
+						"tickInterval": 10,
+						"buffs": [
+							{
+								"type": "burn",
+								"against": 12,
+								"hitInterval": 10,
+								"packet": {
+									"damage": 0,
+									"lifeSteal": 1,
+									"minHealth": 1,
+									"noHit": true,
+									"noKnockback": true
+								},
+								"maxTicks": 10,
+								"render": {
+									"color": "#22ee88",
+									"alpha": 0.3,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625
+								}
+							}
+						]
+					}
+				]
+			}
+		},
+		"scourge": {
+			"detonate": {
+				"damage": 0
+			},
+			"selfDamage": 0
+		},
+		"halo": {
+			"projectile": {
+				"damage": 0
+			}
+		},
+		"mines": {
+			"projectile": {
+				"detonate": {
+					"damage": 0
+				}
+			}
+		}
+	}
+}

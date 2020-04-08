@@ -1,0 +1,19 @@
+{
+	"Mod": {
+		"name": "hnng",
+		"author": "meso",
+		"description": "Thu, 14 Mar 2019 01:31:25 GMT"
+	},
+	"Choices": {
+		"Options": {
+			"a": [],
+			"q": [
+				"fireball"
+			],
+			"w": [],
+			"e": [],
+			"r": [],
+			"f": []
+		}
+	}
+}

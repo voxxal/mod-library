@@ -1,0 +1,3759 @@
+{
+	"Mod": {
+		"name": "meso fun v3.0.5",
+		"author": "meso",
+		"description": "ee",
+		"titleLeft": "C:/files/",
+		"titleRight": "fun.exe"
+	},
+	"Matchmaking": {
+		"MaxBots": 3,
+		"MaxPlayers": 4,
+		"AllowBotTeams": true
+	},
+	"World": {
+		"InitialRadius": 1,
+		"HeroLayoutProportion": 0.1,
+		"LavaDamagePerSecond": 15,
+		"LavaLifestealProportion": 0.1,
+		"LavaDamageInterval": 10,
+		"SecondsToShrink": 70,
+		"SlopSpeed": 0.003,
+		"SwatchHealth": 100000,
+		"SlopRadius": 10.05
+	},
+	"Hero": {
+		"MoveSpeedPerSecond": 0.2,
+		"MaxSpeed": 3,
+		"DamageMitigationTicks": 1
+	},
+	"Obstacle": {
+		"AngularDamping": 100,
+		"LinearDamping": 100,
+		"Density": 0.1,
+		"ReturnProportion": 1,
+		"ReturnMinSpeed": 0.4,
+		"ReturnTurnRate": 0.6,
+		"Health": 10018821026487468000
+	},
+	"ObstacleTemplates": {
+		"explosive": {
+			"circularHitbox": false,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(128, 0, 255, 0.9)",
+					"deadColor": "rgba(128, 0, 255, 0.25)",
+					"glow": 0.2,
+					"flash": true
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(128, 0, 255, 1)",
+					"particleRadius": 0.01,
+					"fade": "rgba(0, 0, 0, 0)",
+					"ticks": 30,
+					"interval": 8,
+					"speed": 0.1
+				}
+			],
+			"buffs": [
+				{
+					"type": "armor",
+					"proportion": 1.5,
+					"targetOnly": false,
+					"maxTicks": 400,
+					"render": {
+						"color": "#ff90aa",
+						"alpha": 0.075,
+						"ticks": 15,
+						"emissionRadius": 1,
+						"particleRadius": 0.00625
+					}
+				}
+			],
+			"collideWith": 1
+		},
+		"bumper": {
+			"health": 500000000000000000,
+			"impulse": 0.000015,
+			"density": 1,
+			"static": true
+		},
+		"spinner": {
+			"health": 1000,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0, 0, 0, 0.15)",
+					"shadow": true
+				},
+				{
+					"type": "bloom",
+					"color": "#ccc",
+					"bloom": 0.05,
+					"strikeOnly": true
+				}
+			],
+			"angularDamping": 0,
+			"collideWith": 1,
+			"selfPassthrough": true,
+			"density": 0.71
+		},
+		"volcano": {
+			"health": 500000,
+			"buffs": [
+				{
+					"type": "burn",
+					"maxTicks": 15,
+					"packet": {
+						"damage": 2,
+						"lifeSteal": 0,
+						"noKnockback": true,
+						"noHit": true,
+						"isLava": true
+					},
+					"hitInterval": 5,
+					"stack": "volcano",
+					"maxStacks": 1,
+					"render": {
+						"color": "#ff0088",
+						"alpha": 0.3,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.005,
+						"shine": 0.2,
+						"glow": 0.2
+					}
+				},
+				{
+					"collideWith": 65535,
+					"type": "glide",
+					"maxTicks": 15,
+					"linearDampingMultiplier": 1
+				}
+			]
+		},
+		"slow": {
+			"health": 500000000000000000,
+			"buffs": [
+				{
+					"type": "movement",
+					"maxTicks": 15,
+					"movementProportion": 0.4,
+					"render": {
+						"color": "rgba(64, 255, 255, 1)",
+						"alpha": 0.3,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.01,
+						"shine": 0.2,
+						"glow": 0.2,
+						"bloom": 0.03
+					}
+				},
+				{
+					"collideWith": 65535,
+					"type": "glide",
+					"maxTicks": 15,
+					"linearDampingMultiplier": -0.01
+				}
+			]
+		},
+		"outward": {
+			"health": 500000000,
+			"conveyor": {
+				"radialSpeed": 0.01,
+				"lateralSpeed": -0.15
+			}
+		},
+		"inward": {
+			"health": 500000000000000,
+			"conveyor": {
+				"radialSpeed": -0.14
+			}
+		},
+		"wall": {
+			"health": 500000000000000,
+			"render": [
+				{
+					"type": "solid",
+					"color": "#2224b",
+					"strikeGrow": 0.005,
+					"flash": true
+				}
+			],
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"lifeSteal": 40,
+					"maxTicks": 120
+				}
+			],
+			"static": true,
+			"collideWith": 1,
+			"mirror": false
+		},
+		"healer": {
+			"health": 500000000000000000,
+			"collideWith": 1,
+			"sensor": true,
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"lifeSteal": 20,
+					"maxTicks": 120
+				},
+				{
+					"type": "burn",
+					"against": 12,
+					"stack": "fire",
+					"hitInterval": 20,
+					"packet": {
+						"damage": 0,
+						"lifeSteal": 0.2,
+						"noHit": true
+					},
+					"maxTicks": 1,
+					"render": {
+						"color": "rgba(128, 0, 255, 0.9)",
+						"ticks": 15,
+						"emissionRadius": 0.0125,
+						"particleRadius": 0.00625
+					}
+				}
+			],
+			"static": true,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(128, 0, 255, 0.9)",
+					"deadColor": "rgba(128, 0, 255, 0.25)",
+					"glow": 0.2,
+					"flash": true
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(128, 0, 255, 1)",
+					"particleRadius": 0.01,
+					"fade": "rgba(0, 0, 0, 0)",
+					"ticks": 30,
+					"interval": 8,
+					"speed": 0.1
+				}
+			]
+		},
+		"lazy": {
+			"health": 500000000000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(64, 64, 128, 0.75)",
+					"deadColor": "rgba(64, 64, 128, 0.25)",
+					"glow": 0.2,
+					"flash": true
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(64, 64, 128, 1)",
+					"particleRadius": 0.002,
+					"fade": "rgba(0, 0, 0, 0)",
+					"ticks": 20,
+					"interval": 4,
+					"speed": 0,
+					"conveyor": 0.25
+				}
+			],
+			"conveyor": {
+				"lateralSpeed": -0.15,
+				"radialSpeed": -0.1
+			}
+		},
+		"s": {
+			"health": 500000000000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(64, 64, 255, 0.75)",
+					"deadColor": "rgba(64, 64, 255, 0.25)",
+					"glow": 0.2,
+					"flash": true
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(64, 64, 255, 1)",
+					"particleRadius": 0.002,
+					"fade": "rgba(0, 0, 0, 0)",
+					"ticks": 20,
+					"interval": 4,
+					"speed": 0,
+					"conveyor": 0.25
+				}
+			],
+			"conveyor": {
+				"radialSpeed": -0.1,
+				"lateralSpeed": -0.1
+			}
+		},
+		"vanish": {
+			"health": 30000000,
+			"sensor": true,
+			"buffs": [
+				{
+					"type": "vanish",
+					"maxTicks": 1,
+					"untargeted": true,
+					"channelling": true,
+					"sound": "vanish"
+				}
+			],
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0, 0, 0, 0.75)",
+					"shadow": true
+				},
+				{
+					"type": "bloom",
+					"color": "#fc0",
+					"bloom": 0.05,
+					"flash": true,
+					"strikeOnly": true
+				},
+				{
+					"type": "solid",
+					"color": "#fc0",
+					"strikeGrow": 0.005,
+					"flash": true
+				},
+				{
+					"type": "solid",
+					"color": "#c94",
+					"deadColor": "#753",
+					"expand": -0.004,
+					"strikeGrow": 0.005,
+					"flash": true
+				}
+			]
+		},
+		"diabs": {
+			"health": 500000000000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"hitInterval": 90,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(154, 164, 38, 0.75)",
+					"deadColor": "rgba(154, 164, 38, 0.25)",
+					"glow": 0.2,
+					"flash": true
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(154, 164, 38, 1)",
+					"particleRadius": 0.002,
+					"fade": "rgba(0, 0, 0, 0)",
+					"ticks": 20,
+					"interval": 4,
+					"speed": 0
+				}
+			],
+			"buffs": [
+				{
+					"type": "cooldown",
+					"against": 12,
+					"maxTicks": 1,
+					"minCooldown": 30
+				}
+			]
+		},
+		"volcano2": {
+			"health": 500000,
+			"collideWith": 1,
+			"sensor": true,
+			"impulse": 0.00002,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15,
+				"flash": true
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0, 255, 128, 0.9)",
+					"deadColor": "rgba(0, 255, 128, 0.25)",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(0, 255, 128, 1)",
+					"particleRadius": 0.01,
+					"fade": "rgba(0, 0, 0, 0)",
+					"bloom": 0.01,
+					"glow": 0.05,
+					"ticks": 30,
+					"interval": 8,
+					"speed": 0.1
+				}
+			],
+			"hitInterval": 15,
+			"buffs": [
+				{
+					"type": "burn",
+					"maxTicks": 15,
+					"packet": {
+						"damage": 0,
+						"lifeSteal": 0,
+						"noKnockback": true,
+						"noHit": true,
+						"isLava": true
+					},
+					"hitInterval": 5,
+					"stack": "volcano",
+					"maxStacks": 1,
+					"render": {
+						"color": "#00ff88",
+						"alpha": 0.3,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.005,
+						"shine": 0.2,
+						"glow": 0.2
+					}
+				},
+				{
+					"collideWith": 65535,
+					"type": "glide",
+					"maxTicks": 15,
+					"linearDampingMultiplier": 0
+				}
+			]
+		},
+		"apple": {
+			"health": 500000000000000,
+			"collideWith": 2,
+			"sensor": true,
+			"hitInterval": 1,
+			"notCategories": 1,
+			"static": true,
+			"undamageable": true,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(234, 234, 64, 0.75)",
+					"deadColor": "rgba(234, 234, 64, 0.25)",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(128, 128, 128, 1)",
+					"particleRadius": 0.002,
+					"bloom": 0.01,
+					"glow": 0.025,
+					"vanish": 1,
+					"ticks": 20,
+					"interval": 4,
+					"speed": 0,
+					"conveyor": 0.05
+				}
+			],
+			"conveyor": {
+				"radialSpeed": -0.41
+			}
+		}
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "a",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			},
+			null,
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "e",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "r",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "f",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			null,
+			{
+				"btn": "m",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			}
+		],
+		"Options": {
+			"a": [
+				[
+					"teleport"
+				]
+			],
+			"q": [
+				[
+					"grapple"
+				],
+				[
+					"triplet"
+				],
+				[
+					"difire"
+				]
+			],
+			"w": [
+				[
+					"fireball",
+					"mines2"
+				],
+				[
+					"obstacle",
+					"rcoke"
+				],
+				[
+					"homing"
+				]
+			],
+			"e": [
+				[
+					"link",
+					"icewall"
+				],
+				[
+					"drain",
+					"saber"
+				],
+				[
+					"voidRush"
+				]
+			],
+			"r": [
+				[
+					"supernova"
+				],
+				[
+					"halo",
+					"bullet-hell"
+				],
+				[
+					"gravity",
+					"amp"
+				]
+			],
+			"f": [
+				[
+					"light",
+					"whirlwind"
+				],
+				[
+					"embers",
+					"yeet"
+				]
+			],
+			"m": [
+				[
+					"empower",
+					"armor",
+					"ghost"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"fireball": {
+			"description": "Failure to complete the assembly of [DATA EXPUNGED] will result in Dr. N-E-S-S terminating the [DATA EXPUNGED] and casting the husk away.",
+			"action": "spray",
+			"color": "#00eeff",
+			"icon": "fragmentedMeteor",
+			"cooldown": 240,
+			"projectile": {
+				"density": 100,
+				"radius": 0.015,
+				"speed": 1,
+				"maxTicks": 160,
+				"damage": 0,
+				"categories": 6,
+				"color": "#00eeff",
+				"renderers": [
+					{
+						"type": "strike",
+						"ticks": 10,
+						"glow": true,
+						"growth": 0.1
+					},
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "polygon",
+						"numPoints": 5,
+						"radiusMultiplier": 2,
+						"color": "rgba(0,238,255,0)",
+						"fade": "rgba(0,238,255,1)",
+						"revolutionInterval": 60,
+						"ticks": 30,
+						"smoke": 0.4
+					},
+					{}
+				],
+				"ccd": true,
+				"conveyable": true,
+				"collideWith": 1,
+				"buffs": [
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 1,
+						"minCooldown": 60
+					}
+				],
+				"restitution": 0,
+				"minTicks": 1,
+				"hitInterval": 120,
+				"shieldTakesOwnership": false,
+				"expireOn": 1,
+				"detonate": {
+					"damage": 1,
+					"radius": 0.035,
+					"minImpulse": 0.000001,
+					"maxImpulse": 0.000003,
+					"renderTicks": 10
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.012
+					}
+				]
+			},
+			"effects": [
+				{
+					"title": "Gone",
+					"text": "poof."
+				}
+			],
+			"intervalTicks": 10,
+			"lengthTicks": 21,
+			"jitterRatio": 0.1,
+			"name": "PK THUNDER"
+		},
+		"triplet": {
+			"name": "Void Cluster",
+			"description": "A tool of the resistance to nullify effects done to [REDACTED].",
+			"color": "#11111f",
+			"cooldown": 60,
+			"lengthTicks": 5,
+			"projectile": {
+				"density": 0.0001,
+				"radius": 0.03,
+				"speed": 2,
+				"maxTicks": 25,
+				"damage": 5,
+				"categories": 6,
+				"color": "#11111f",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 9,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 2
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"stack": "fire",
+						"hitInterval": 15000,
+						"packet": {
+							"damage": 0,
+							"noHit": true
+						},
+						"maxTicks": 20,
+						"render": {
+							"alpha": 1,
+							"ticks": 15,
+							"emissionRadius": 0.0125,
+							"particleRadius": 0.0066
+						}
+					}
+				],
+				"hitInterval": 10,
+				"conveyable": true,
+				"collideWith": 65535,
+				"expireOn": 65535,
+				"selfPassthrough": true
+			}
+		},
+		"difire": {
+			"name": "Sacrifice",
+			"description": "After termination, patients must be kept in an ice bath for a total of 168 hours. Every 24 hours, the patient must be sterilized with heat before resuming the freezing process.",
+			"color": "#ff88ff",
+			"icon": "waveStrike",
+			"cooldown": 300,
+			"lengthTicks": 1,
+			"jitterRatio": 0,
+			"projectile": {
+				"density": 1,
+				"speed": 2,
+				"lifeSteal": 2,
+				"behaviours": [
+					{
+						"type": "aura",
+						"radius": 0.05,
+						"tickInterval": 15,
+						"buffs": [
+							{
+								"type": "movement",
+								"movementProportion": 0,
+								"against": 12,
+								"maxTicks": 120,
+								"render": {
+									"color": "#a78aff",
+									"alpha": 0.3,
+									"ticks": 15,
+									"emissionRadius": 0.0125,
+									"particleRadius": 0.00625
+								}
+							}
+						]
+					}
+				],
+				"color": "#ff88ff",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(17, 0, 0, 0.5)",
+						"radius": 0.05,
+						"minRadius": 0,
+						"shrinkTicks": 10,
+						"grow": true,
+						"fade": true,
+						"repeat": true
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(255, 136, 255, 0.3)",
+						"numPoints": 3,
+						"radiusMultiplier": 10,
+						"revolutionInterval": 10,
+						"ticks": 60,
+						"smoke": 0.25,
+						"fade": "#110000"
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"glow": true,
+						"numParticles": 2
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 1,
+						"packet": {
+							"damage": 20,
+							"lifeSteal": 2,
+							"noHit": true
+						},
+						"maxTicks": 2,
+						"render": {
+							"color": "#ff0088",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadius": 0.0125,
+							"particleRadius": 0.00625
+						}
+					}
+				],
+				"ccd": true,
+				"conveyable": true
+			},
+			"effects": [
+				{
+					"title": "Blank",
+					"text": "help"
+				}
+			]
+		},
+		"gravity": {
+			"name": "Event C-5",
+			"description": "In the event of a C-5 occurence, higher ranks must decimate any proof the site they were currently working at ever existed.",
+			"effects": [
+				{
+					"title": "Silence",
+					"text": "All that would be left is the emergency anomaly chambers, which come in groups of 3 for each worksite in the [DATA EXPUNGED]."
+				}
+			],
+			"action": "spray",
+			"color": "#011100",
+			"chargeTicks": 0,
+			"projectile": {
+				"ccd": true,
+				"attractable": true,
+				"radius": 0.08,
+				"speed": 1,
+				"maxTicks": 60,
+				"collideWith": 0,
+				"gravity": {
+					"$delete": true
+				},
+				"buffs": {
+					"$delete": true
+				},
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 65535,
+						"categories": 65535,
+						"notCategories": 0,
+						"against": 12,
+						"radius": 0.09,
+						"accelerationPerTick": 0.01,
+						"maxSpeed": 0.4
+					},
+					{
+						"type": "homing",
+						"targetType": "self",
+						"newSpeed": 1
+					}
+				],
+				"color": "#011100",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "swirl",
+						"color": "#011100",
+						"radius": 0.08,
+						"ticks": 15,
+						"loopTicks": 60,
+						"numParticles": 3,
+						"particleRadius": 0.006666666666666667,
+						"glow": 0.1
+					},
+					{
+						"type": "swirl",
+						"color": "#022200",
+						"radius": 0.04,
+						"ticks": 15,
+						"loopTicks": 30,
+						"numParticles": 3,
+						"particleRadius": 0.006666666666666667,
+						"glow": 0.1
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(2,34,0,0.5)",
+						"minRadius": 0,
+						"remainingTicks": 60,
+						"shrinkTicks": 60,
+						"radius": 0.08
+					}
+				],
+				"conveyable": true,
+				"sense": 65535,
+				"minTicks": 60,
+				"detonate": {
+					"damage": 5,
+					"lifeSteal": 0.2,
+					"radius": 0.08,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 40
+				}
+			},
+			"interruptibleAfterTicks": 0,
+			"movementProportionWhileChannelling": 4,
+			"intervalTicks": 15,
+			"lengthTicks": 90,
+			"jitterRatio": 1
+		},
+		"whirlwind": {
+			"name": "ZELDA Resistance",
+			"description": "You're home.",
+			"effects": {
+				"$delete": true
+			},
+			"action": "spray",
+			"color": "#aa22ee",
+			"cooldown": 6000,
+			"projectile": {
+				"ccd": true,
+				"speed": 0.23,
+				"maxTicks": 100,
+				"collideWith": 65535,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow"
+					}
+				],
+				"buffs": {
+					"$delete": true
+				},
+				"color": "#aa22ee",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 10.05
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(200,0,100, 0.01)",
+						"numPoints": 5,
+						"radiusMultiplier": 10.5,
+						"revolutionInterval": 60,
+						"ticks": 100,
+						"smoke": 1,
+						"shine": 0.1
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"growth": 0.1
+					}
+				],
+				"conveyable": true,
+				"detonate": {
+					"damage": 22,
+					"lifeSteal": 1,
+					"radius": 0.12,
+					"minImpulse": 0.0002,
+					"maxImpulse": 0.0002,
+					"renderTicks": 100
+				}
+			},
+			"interruptibleAfterTicks": 520,
+			"lengthTicks": 501,
+			"intervalTicks": 70,
+			"jitterRatio": 0,
+			"movementProportionWhileChanneling": 1,
+			"buffs": [
+				{
+					"collideWith": 65535,
+					"linkOwner": true,
+					"owner": true,
+					"type": "glide",
+					"maxTicks": 520,
+					"linearDampingMultiplier": 1000000000000
+				},
+				{
+					"type": "mass",
+					"cleansable": false,
+					"maxTicks": 520,
+					"radius": 0.0125,
+					"density": 1000000,
+					"restrictCollideWith": 0
+				},
+				{
+					"type": "armor",
+					"proportion": -0.75,
+					"owner": true,
+					"targetOnly": false,
+					"maxTicks": 520,
+					"render": {
+						"color": "#ff0088",
+						"alpha": 0.075,
+						"ticks": 15,
+						"emissionRadius": 1,
+						"particleRadius": 0.00625
+					}
+				}
+			]
+		},
+		"link": {
+			"description": "In the event that a pack of [REDACTED] are in danger, they may fuse itselves together.",
+			"effects": [
+				{
+					"title": "Unnatural",
+					"text": "please im begging you -mag"
+				}
+			],
+			"action": "spray",
+			"cooldown": 60,
+			"throttle": true,
+			"projectile": {
+				"speed": 1,
+				"maxTicks": 20,
+				"damage": 5,
+				"collideWith": 65535,
+				"expireOn": 65535,
+				"link": {
+					"impulsePerTick": 0.00001,
+					"selfFactor": 1,
+					"targetFactor": 0,
+					"minDistance": 0,
+					"maxDistance": 1,
+					"linkTicks": 120,
+					"redirectDamage": {
+						"redirectAfterTicks": 1
+					},
+					"render": {
+						"color": "rgba(54,54,200,0.5)"
+					},
+					"redirectDamageProportion": 3
+				},
+				"detonate": {
+					"damage": 5,
+					"lifeSteal": 0.2,
+					"radius": 0.03,
+					"renderTicks": 10
+				},
+				"behaviours": [
+					{
+						"type": "expireOnOwnerDeath"
+					}
+				],
+				"renderers": [
+					{
+						"type": "polygon",
+						"color": "#4444ff",
+						"numPoints": 3,
+						"radiusMultiplier": 2,
+						"revolutionInterval": 23,
+						"ticks": 10,
+						"smoke": 1
+					},
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "link",
+						"color": "rgba(54,54,200,0.5)",
+						"width": 0.005,
+						"glow": 0.1
+					}
+				],
+				"ccd": true,
+				"conveyable": true,
+				"strafe": {
+					"$delete": true
+				},
+				"buffs": [
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 120,
+						"minCooldown": 120
+					}
+				]
+			},
+			"name": "Fuse",
+			"movementCancel": true,
+			"intervalTicks": 1,
+			"lengthTicks": 2,
+			"jitterRatio": 0.1
+		},
+		"grapple": {
+			"description": "For any discarded [DATA EXPUNGED], the Disposal System will clean them and i̶n̶c̶i̶n̶e̶r̶a̶t̶e̶  cast them into the void.",
+			"action": "spray",
+			"color": "#ff00ff",
+			"icon": "boomerangSun",
+			"cooldown": 60,
+			"throttle": true,
+			"unlink": false,
+			"release": {
+				"$delete": true
+			},
+			"projectile": {
+				"radius": 0.003,
+				"speed": 0.4,
+				"maxTicks": 130,
+				"collideWith": 65535,
+				"expireOn": 1,
+				"expireOnMirror": false,
+				"link": {
+					"linkWith": 1,
+					"selfFactor": 0.1,
+					"targetFactor": 0.1,
+					"sidewaysImpulsePerTick": 0.0002,
+					"maxDistance": 10.075,
+					"channelling": false,
+					"render": {
+						"color": "#ff00ff"
+					}
+				},
+				"buffs": [
+					{
+						"collideWith": 65535,
+						"owner": true,
+						"type": "glide",
+						"maxTicks": 10,
+						"linkOwner": true,
+						"linearDampingMultiplier": 10
+					},
+					{
+						"collideWith": 1,
+						"type": "glide",
+						"maxTicks": 10,
+						"linkVictim": true,
+						"linearDampingMultiplier": 0.4
+					},
+					{
+						"collideWith": 8,
+						"owner": true,
+						"linkOwner": true,
+						"type": "movement",
+						"maxTicks": 10,
+						"movementProportion": 2
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"maxSpeed": 39.8,
+						"accelerationPerSecond": 0.6
+					}
+				],
+				"sound": "boomerang",
+				"color": "#ff00ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02,
+						"color": "#e20000"
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(226,211,168,1)",
+						"radius": 0.01,
+						"ticks": 60,
+						"loopTicks": 11,
+						"numParticles": 1,
+						"particleRadius": 0.01,
+						"fade": "#232"
+					},
+					{
+						"type": "strike",
+						"selfColor": false,
+						"ticks": 15,
+						"glow": true,
+						"radius": 0.1,
+						"numParticles": 5
+					}
+				],
+				"ccd": true,
+				"conveyable": true,
+				"restitution": 1,
+				"lifeSteal": 0.25,
+				"expireAgainstHeroes": 1,
+				"hitInterval": 15,
+				"soundHit": "standard",
+				"minTicks": 1,
+				"selfPassthrough": true
+			},
+			"effects": [
+				{
+					"title": "Lost",
+					"text": "Patients thrown into the void may hallucinate that they instead wake up at the \"edge\" of the void."
+				}
+			],
+			"name": "Disposal System",
+			"lengthTicks": 1,
+			"intervalTicks": 1,
+			"jitterRatio": 0.0001
+		},
+		"homing": {
+			"description": "The now successful [REDACTED] will hunt in packs, each carrying armed shotguns. These weapons are designed to stay inside the body on contact.",
+			"action": "spray",
+			"color": "#aaaaaa",
+			"icon": "meteorImpact",
+			"cooldown": 400,
+			"projectile": {
+				"density": 0.0001,
+				"speed": 2,
+				"maxTicks": 100,
+				"damage": 4,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 4,
+						"maxTurnProportion": 0.001
+					}
+				],
+				"color": "#aaaaaa",
+				"renderers": [
+					{
+						"type": "polygon",
+						"numPoints": 3,
+						"radiusMultiplier": 2.5,
+						"revolutionInterval": 60,
+						"ticks": 10,
+						"smoke": 0.1
+					},
+					{
+						"type": "ray",
+						"color": "rgba(100,100,100,0.5)",
+						"ticks": 10
+					},
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 1,
+						"glow": true,
+						"numParticles": 10
+					}
+				],
+				"hitInterval": 1,
+				"bounce": {
+					"cleanseable": true
+				},
+				"ccd": true,
+				"conveyable": true,
+				"collideWith": 65535,
+				"minTicks": 30
+			},
+			"chargeTicks": 20,
+			"effects": [
+				{
+					"title": "Hurt",
+					"text": "you are being used you are being used -magnolia"
+				}
+			],
+			"movementProportionWhileChannelling": 1,
+			"interruptibleAfterTicks": 0,
+			"revsPerTickWhileCharging": 1,
+			"revsPerTickWhileChannelling": 1,
+			"name": "Arms",
+			"intervalTicks": 1,
+			"jitterRatio": 0.01,
+			"lengthTicks": 5
+		},
+		"drain": {
+			"description": "Once the sacrifice is complete, the remains of a patient will be poured into a 15mx15mx15m spherical cast.",
+			"action": "spray",
+			"cooldown": 200,
+			"projectile": {
+				"radius": 0.01,
+				"speed": 0.5,
+				"maxTicks": 1200,
+				"damage": 10,
+				"lifeSteal": 2,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 0.01,
+						"minDistanceToTarget": 0.075,
+						"targetType": "cursor"
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"smoke": 0.1,
+						"ticks": 100
+					},
+					{
+						"type": "ray",
+						"ticks": 15
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"radiusMultiplier": 0.25,
+						"ticks": 45
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 2,
+						"glow": true,
+						"numParticles": 4
+					}
+				],
+				"ccd": true,
+				"conveyable": true,
+				"buffs": [
+					{
+						"type": "cooldown",
+						"maxTicks": 40,
+						"against": 4,
+						"minCooldown": 30
+					}
+				]
+			},
+			"intervalTicks": 20,
+			"lengthTicks": 61,
+			"jitterRatio": 1,
+			"effects": [
+				{
+					"title": "Divide",
+					"text": "Something... is off."
+				}
+			],
+			"name": "Husk"
+		},
+		"icewall": {
+			"name": "Casting Box",
+			"description": "oh no boys -mag",
+			"maxTicks": 222220,
+			"cooldown": 240,
+			"length": 0.15,
+			"density": 2,
+			"linearDamping": 0,
+			"angularDamping": 0,
+			"selfPassthrough": false,
+			"color": "#e048ff"
+		},
+		"horcrux": {
+			"projectile": {
+				"behaviours": [
+					{
+						"type": "updateCollideWith",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"collideWith": 65535
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1,
+							"atCursor": true
+						},
+						"radius": 10.0375,
+						"tickInterval": 2,
+						"maxHits": 1,
+						"packet": {
+							"damage": 0,
+							"lifeSteal": 1,
+							"minHealth": 1,
+							"noHit": true,
+							"noKnockback": true
+						},
+						"buffs": [
+							{
+								"type": "cooldown",
+								"maxTicks": 520,
+								"against": 12,
+								"spellId": "gravity",
+								"maxCooldown": 520,
+								"sound": "repeater",
+								"color": "#00ff00"
+							},
+							{
+								"type": "cooldown",
+								"maxTicks": 520,
+								"against": 12,
+								"spellId": "light",
+								"maxCooldown": 520,
+								"sound": "repeater",
+								"color": "#00ff00"
+							}
+						]
+					}
+				]
+			}
+		},
+		"saber": {
+			"name": "null",
+			"description": "containmentsigil.exe has crashed unexpectedly.",
+			"effects": {
+				"$delete": true
+			},
+			"blocksTeleporters": true,
+			"shiftMultiplier": 1.25,
+			"speedMultiplier": 5,
+			"maxSpeed": 1.75,
+			"maxTurnRatePerTickInRevs": 12,
+			"damageMultiplier": 3.25,
+			"angleOffsetsInRevs": [
+				0.333333333333333,
+				0.6666666666666,
+				0.99999999999999
+			],
+			"length": 0.1,
+			"movementProportionWhileChannelling": 4,
+			"cooldown": 300,
+			"icon": "sigil",
+			"maxTicks": 200,
+			"channelling": false,
+			"categories": 65535,
+			"collidesWith": 65535,
+			"damageTemplate": {
+				"damage": 1
+			},
+			"color": "#cc00ff"
+		},
+		"supernova": {
+			"description": "Bloodstorm",
+			"action": "spray",
+			"color": "#ff90aa",
+			"cooldown": 360,
+			"projectile": {
+				"density": 0.1,
+				"ccd": true,
+				"radius": 0.005,
+				"speed": 2,
+				"maxTicks": 30,
+				"collideWith": 1,
+				"expireOn": 65535,
+				"expireAfterCursorTicks": 999999999999,
+				"behaviours": {
+					"$delete": true
+				},
+				"detonate": {
+					"damage": 10,
+					"radius": 0.015,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"against": 12,
+					"partialImpulse": {
+						"initialMultiplier": 0.8,
+						"ticks": 12
+					}
+				},
+				"color": "#ff90aa",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "ray",
+						"ticks": 10
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(255, 144, 170, 0.6)",
+						"radius": 0.005,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 4,
+						"particleRadius": 0.025,
+						"fade": "#90ffaa"
+					}
+				],
+				"conveyable": true,
+				"buffs": [
+					{
+						"type": "armor",
+						"proportion": 1.5,
+						"targetOnly": false,
+						"maxTicks": 400,
+						"render": {
+							"color": "#ff90aa",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadius": 1,
+							"particleRadius": 0.00625
+						}
+					}
+				]
+			},
+			"effects": [
+				{
+					"title": "Explodes",
+					"text": "The Acolyte can start spewing blood and bleed to death to avoid resistance tampering."
+				}
+			],
+			"name": "[LEVEL 4 CLEARANCE REQUIRED]",
+			"jitterRatio": 0.1,
+			"intervalTicks": 10,
+			"lengthTicks": 50
+		},
+		"halo": {
+			"name": "Canvas",
+			"description": "Once the casting process is complete, they will be thrown into the void to \"paint the town red.\"",
+			"effects": [
+				{
+					"icon": "fas fa-hand-paper",
+					"title": "Interruptible",
+					"text": "You can stop this! You can stop this! -Maggie"
+				}
+			],
+			"color": "#ff0a07",
+			"icon": "glowingHands",
+			"cooldown": 650,
+			"strikeCancel": {
+				"$delete": true
+			},
+			"jitterRatio": 11,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"buffs": [
+				{
+					"type": "movement",
+					"owner": true,
+					"movementProportion": 1.25,
+					"maxTicks": 730
+				}
+			],
+			"projectile": {
+				"density": 100,
+				"ccd": true,
+				"radius": 0.004,
+				"speed": 1.5,
+				"maxTicks": 730,
+				"hitInterval": 1,
+				"damage": 7,
+				"lifeSteal": 0.5,
+				"collideWith": 0,
+				"expireOn": 0,
+				"destructible": {
+					"$delete": true
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 0.04,
+						"targetType": "self"
+					}
+				],
+				"color": "#ff0a07",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"smoke": 0.4,
+						"ticks": 100
+					},
+					{
+						"type": "ray",
+						"ticks": 100,
+						"intermediatePoints": true
+					},
+					{
+						"type": "strike",
+						"ticks": 15,
+						"growth": 1.1,
+						"glow": true,
+						"numParticles": 3
+					}
+				],
+				"conveyable": true,
+				"strafe": {},
+				"buffs": [
+					{
+						"type": "movement",
+						"owner": true,
+						"movementProportion": 1.5,
+						"maxTicks": 730,
+						"cancelOnHit": true
+					}
+				],
+				"sense": 65535
+			}
+		},
+		"teleport": {
+			"description": "In the event that an [REDACTED] cannot spew blood, they are programmed to run.",
+			"effects": [
+				{
+					"title": "Run",
+					"text": "But from what?"
+				}
+			],
+			"range": 0.4,
+			"cooldown": 400,
+			"chargeTicks": 0,
+			"movementProportionWhileCharging": -1,
+			"icon": "fireDash",
+			"color": "#ff00cc",
+			"action": "thrust",
+			"sound": "thrust",
+			"buffs": [
+				{
+					"type": "movement",
+					"movementProportion": 1,
+					"maxTicks": 60,
+					"render": {
+						"color": "#fff",
+						"heroColor": true,
+						"ticks": 8,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.018750000000000003,
+						"glow": 0.2,
+						"shine": 1,
+						"bloom": 0.07,
+						"decay": true
+					}
+				}
+			],
+			"radiusMultiplier": 1.5,
+			"density": 1000,
+			"damageTemplate": {
+				"damage": 0
+			},
+			"speed": 2,
+			"name": "Chip: Flight Response",
+			"bounceTicks": 300
+		},
+		"voidRush": {
+			"name": "Purity",
+			"description": "A resistance act of purging yourself of all things not ethereal.",
+			"effects": [
+				{
+					"title": "Cleanse",
+					"text": "im so sorry why didnt this work for you why didnt it? i miss you so much. you're beside me and i cannot recognize you. - mag"
+				}
+			],
+			"cooldown": 120,
+			"buffs": [
+				{
+					"type": "movement",
+					"movementProportion": 2,
+					"maxTicks": 50
+				},
+				{
+					"type": "armor",
+					"proportion": -0.5,
+					"targetOnly": false,
+					"maxTicks": 50,
+					"render": {
+						"color": "#8800ff",
+						"alpha": 0.075,
+						"ticks": 15,
+						"emissionRadius": 1,
+						"particleRadius": 0.00625
+					}
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 0,
+					"maxTicks": 50,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "#8800ff",
+						"ticks": 60,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "lifeSteal",
+					"owner": true,
+					"lifeSteal": 40,
+					"maxTicks": 50
+				},
+				{
+					"collideWith": 65535,
+					"owner": true,
+					"type": "glide",
+					"maxTicks": 50,
+					"linearDampingMultiplier": 10000
+				}
+			],
+			"icon": "angelOutfit"
+		},
+		"armor": {
+			"name": "disrupter",
+			"description": "You're here to break the cycle once and for all.",
+			"effects": {
+				"$delete": true
+			},
+			"buffs": [
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 2.5
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgba(136,0,255,0.3)",
+						"ticks": 50,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.3,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 3
+					}
+				},
+				{
+					"type": "mass",
+					"passive": true,
+					"radius": 0.008,
+					"density": 0.0001
+				}
+			]
+		},
+		"empower": {
+			"name": "Vessel",
+			"description": "you're fine. no, seriously, you're okay. you're not going to overreact. you're fine. you don't need any change. you're fine.",
+			"effects": [
+				{
+					"icon": "fas fa-sword",
+					"title": "you are fine",
+					"text": "Change? Doesn't strike you as your priority."
+				}
+			],
+			"buffs": [
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgba(255,0,136,0.1)",
+						"ticks": 60,
+						"emissionRadiusFactor": 2,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.3,
+						"shine": 1,
+						"bloom": 0.03,
+						"vanish": 0.1
+					}
+				},
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.4
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 1.1
+				}
+			]
+		},
+		"bump": {
+			"name": "",
+			"description": "",
+			"buffs": [
+				{
+					"type": "bump",
+					"passive": true,
+					"hitInterval": 1,
+					"impulse": 0.0003
+				}
+			]
+		},
+		"bullet-hell": {
+			"id": "bullet-hell",
+			"name": "Class B amnestic",
+			"description": "im so sorry -dr [TERMINATED]",
+			"action": "spray",
+			"color": "#44ffff",
+			"icon": "bee",
+			"sound": "testsound",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 360,
+			"intervalTicks": 1,
+			"effects": [
+				{
+					"title": "[DATA EXPUNGED]",
+					"text": "Paralyzed. Someone else is controlling you."
+				}
+			],
+			"lengthTicks": 4,
+			"jitterRatio": 0.1,
+			"movementProportionWhileChannelling": 0,
+			"revsPerTickWhileChannelling": 0,
+			"shieldTakesOwnership": true,
+			"throttle": false,
+			"chargeTicks": 0,
+			"projectile": {
+				"categories": 4,
+				"density": 0.0001,
+				"radius": 0.02,
+				"speed": 1,
+				"maxTicks": 120,
+				"damage": 15,
+				"selfPassthrough": true,
+				"buffs": [
+					{
+						"type": "movement",
+						"movementProportion": 0,
+						"against": 12,
+						"maxTicks": 30,
+						"render": {}
+					}
+				],
+				"sound": "testsound",
+				"color": "#ff44ff",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(255, 255, 64, 0.05)",
+						"radius": 0.02,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 9.43,
+						"particleRadius": 0.008,
+						"smoke": 0.3,
+						"fade": "rgba(0, 0, 0, 1)"
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"glow": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"obstacle": {
+			"id": "obstacle",
+			"name": "Channel",
+			"description": "The [REDACTED] will expunge, and consequently weaponize its former emotion.",
+			"action": "spray",
+			"color": "#ff00dd",
+			"icon": "boltSaw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 420,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 2,
+			"effects": [
+				{
+					"title": "please",
+					"text": "i can fix you i can fix you just please don't be another casualty"
+				}
+			],
+			"jitterRatio": 1,
+			"revsPerTickWhileChannelling": 0,
+			"projectile": {
+				"density": 2112121,
+				"radius": 0.042,
+				"speed": 1,
+				"hitInterval": 1,
+				"ccd": true,
+				"maxTicks": 40,
+				"damage": 5,
+				"lifeSteal": 0.2,
+				"selfPassthrough": true,
+				"conveyable": true,
+				"sense": 0,
+				"collideWith": 65535,
+				"categories": 2,
+				"minTicks": 40,
+				"expireAfterCursorTicks": 99999,
+				"sound": "flamestrike",
+				"color": "#ffeeff",
+				"behaviours": [
+					{
+						"type": "updateCollideWith",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"collideWith": 65535
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.042
+					},
+					{
+						"type": "polygon",
+						"fade": "rgba(255, 0, 255, 0)",
+						"color": "rgba(136, 34, 238, 1)",
+						"numPoints": 6,
+						"radiusMultiplier": 1,
+						"revolutionInterval": 40,
+						"ticks": 20,
+						"vanish": 5,
+						"shine": 0.1
+					}
+				]
+			}
+		},
+		"yeet": {
+			"id": "yeet",
+			"name": "Leviathan",
+			"description": "A twisted version of the what existed.",
+			"action": "spray",
+			"color": "#0088ff",
+			"icon": "crossedSlashes",
+			"sound": "triplet",
+			"effects": [
+				{
+					"title": "im sorry",
+					"text": " "
+				},
+				{
+					"title": "hate",
+					"text": "you hate this you hate this"
+				}
+			],
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 6000,
+			"throttle": true,
+			"channeling": true,
+			"interruptibleAfterTicks": 520,
+			"movementProportionWhileChannelling": 1,
+			"revsPerTickWhileChannelling": 1,
+			"intervalTicks": 4,
+			"lengthTicks": 60,
+			"buffs": [
+				{
+					"type": "movement",
+					"owner": true,
+					"movementProportion": 0.5,
+					"maxTicks": 120,
+					"cancelOnHit": true
+				}
+			],
+			"jitterRatio": 1,
+			"projectile": {
+				"density": 1,
+				"ccd": true,
+				"color": "#ff0088",
+				"radius": 0.008,
+				"conveyable": true,
+				"speed": 0.7,
+				"maxTicks": 120,
+				"collideWith": 1,
+				"damage": 0,
+				"lifeSteal": 0.2,
+				"selfPassthrough": true,
+				"categories": 2,
+				"sound": "triplete",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "self",
+						"minDistanceToTarget": 0.1,
+						"revolutionsPerSecond": 0.03
+					},
+					{
+						"type": "aura",
+						"radius": 0.3,
+						"tickInterval": 5,
+						"buffs": [
+							{
+								"type": "burn",
+								"against": 12,
+								"stack": "fire",
+								"hitInterval": 10,
+								"packet": {
+									"damage": 0.44,
+									"minHealth": 10,
+									"lifeSteal": 0.2,
+									"noHit": true
+								},
+								"maxTicks": 5,
+								"render": {
+									"color": "#0088ff",
+									"alpha": 0.075,
+									"ticks": 15,
+									"emissionRadius": 0.0125,
+									"particleRadius": 0.00625
+								}
+							}
+						]
+					},
+					{
+						"type": "aura",
+						"radius": 0.1,
+						"tickInterval": 5,
+						"buffs": [
+							{
+								"type": "burn",
+								"against": 12,
+								"stack": "fire",
+								"hitInterval": 100,
+								"packet": {
+									"damage": 0.4,
+									"lifeSteal": 0.2,
+									"noHit": true
+								},
+								"maxTicks": 5,
+								"render": {
+									"color": "#0088ff",
+									"alpha": 0.075,
+									"ticks": 15,
+									"emissionRadius": 0.0125,
+									"particleRadius": 0.00625
+								}
+							}
+						]
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"color": "#0088ff"
+					},
+					{
+						"type": "polygon",
+						"revolutionInterval": 60,
+						"ticks": 60,
+						"color": "#0088ff",
+						"smoke": 0.01,
+						"shine": 0.1,
+						"numPoints": 5,
+						"radiusMultiplier": 1.6,
+						"fade": "#000000"
+					},
+					{
+						"type": "projectile",
+						"ticks": 60,
+						"color": "#0088ff",
+						"smoke": 0.01,
+						"fade": "#000000"
+					},
+					{
+						"type": "ray",
+						"color": "#0088ff",
+						"ticks": 8
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"glow": true,
+						"numParticles": 2
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 5,
+							"lifeSteal": 0.2,
+							"minHealth": 1900,
+							"noHit": true
+						},
+						"maxTicks": 240,
+						"render": {
+							"color": "#0088ff",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadius": 0.0125,
+							"particleRadius": 0.00625
+						}
+					}
+				]
+			}
+		},
+		"mines2": {
+			"id": "mines2",
+			"name": "i love you maggy",
+			"description": "Disables spells caused by threats to the [REDACTED].",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "mineExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 360,
+			"throttle": true,
+			"effects": [
+				{
+					"title": "im almost done",
+					"text": "just a few more spells i promise -mag"
+				}
+			],
+			"intervalTicks": 1,
+			"lengthTicks": 2,
+			"jitterRatio": 0.5,
+			"projectile": {
+				"density": 80,
+				"radius": 0.1,
+				"ccd": true,
+				"speed": 0.2,
+				"sound": "saber",
+				"maxTicks": 120,
+				"minTicks": 120,
+				"damage": 0,
+				"categories": 2,
+				"sense": true,
+				"conveyable": true,
+				"hitInterval": 120,
+				"collideWith": 0,
+				"expireOn": 65519,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.5,
+					"ticks": 6,
+					"step": true
+				},
+				"behaviours": [],
+				"buffs": [
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 120,
+						"minCooldown": 120
+					}
+				],
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.1
+					},
+					{
+						"type": "swirl",
+						"color": "#ff009c",
+						"radius": 0.1,
+						"ticks": 8,
+						"loopTicks": 240,
+						"numParticles": 12,
+						"particleRadius": 0.006666666666666667,
+						"glow": 0.1
+					},
+					{
+						"type": "swirl",
+						"color": "#ff00be",
+						"radius": 0.05,
+						"ticks": 8,
+						"loopTicks": 240,
+						"numParticles": 6,
+						"particleRadius": 0.006666666666666667,
+						"glow": 0.1
+					}
+				]
+			}
+		},
+		"rcoke": {
+			"id": "rcoke",
+			"name": "Wash",
+			"description": "A common term by resistance members. 'Wash'ing refers to extracting the [REDACTED]'s power supply for further usage.",
+			"action": "spray",
+			"effects": [
+				{
+					"title": "im so close",
+					"text": "i just need one more thing. just please dont be another casualty -mag"
+				}
+			],
+			"color": "#ff8855",
+			"icon": "mightyForce",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"interruptibleAfterTicks": 0,
+			"movementProportionWhileChannelling": 0,
+			"revsPerTickWhileChannelling": 0,
+			"projectile": {
+				"damage": 0,
+				"density": 1,
+				"radius": 0.025,
+				"speed": 0.2,
+				"collideWith": 65535,
+				"ccd": true,
+				"selfPassthrough": true,
+				"conveyable": true,
+				"maxTicks": 50,
+				"shieldTakesOwnership": true,
+				"partialDamage": {
+					"initialMultiplier": 1,
+					"ticks": 120
+				},
+				"detonate": {
+					"damage": 0,
+					"radius": 0.035,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 10,
+					"partialRadius": {
+						"initialMultiplier": 1,
+						"ticks": 60
+					},
+					"partialImpulse": {
+						"initialMultiplier": 10,
+						"ticks": 60
+					}
+				},
+				"partialDetonateRadius": {
+					"initialMultiplier": 1,
+					"ticks": 60
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 20
+						},
+						"newSpeed": 1,
+						"maxTurnProportion": 0
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 15
+						},
+						"newSpeed": 0.5,
+						"maxTurnProportion": 0
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 10
+						},
+						"newSpeed": 0.25,
+						"maxTurnProportion": 0
+					},
+					{
+						"type": "aura",
+						"tickInterval": 1,
+						"radius": 0.1,
+						"buffs": [
+							{
+								"type": "cooldown",
+								"against": 12,
+								"maxTicks": 10,
+								"minCooldown": 10
+							}
+						]
+					}
+				],
+				"sound": "rocket",
+				"color": "#ff9a00",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.01,
+						"ticks": 60,
+						"loopTicks": 50,
+						"numParticles": 3,
+						"particleRadius": 0.02,
+						"fade": "rgba(64, 255, 255, 0)"
+					}
+				]
+			},
+			"lengthTicks": 8,
+			"intervalTicks": 1,
+			"hitInterval": 1,
+			"jitterRatio": 0.16
+		},
+		"amp": {
+			"id": "amp",
+			"name": "Patient Medication",
+			"description": "Patients are required to use it every twelve hours and must not turn it off until exactly 5 minutes have passed. Failure to comply will result in termination following a large dose of Class A amnestics.",
+			"action": "spray",
+			"sound": "leaving",
+			"effects": [
+				{
+					"title": "Complacent",
+					"text": "Empty. Soulless. Hungering for blood."
+				}
+			],
+			"color": "#00ff9c",
+			"icon": "arcingBolt",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 360,
+			"throttle": true,
+			"against": 0,
+			"intervalTicks": 8,
+			"hitInterval": 1,
+			"lengthTicks": 40,
+			"jitterRatio": 0.01,
+			"projectile": {
+				"density": 80,
+				"radius": 0.01,
+				"speed": 0.8,
+				"maxTicks": 300,
+				"minTicks": 300,
+				"conveyable": true,
+				"damage": 2,
+				"ccd": true,
+				"categories": 2,
+				"sense": 65535,
+				"hitInterval": 1,
+				"collideWith": 0,
+				"sound": "leaving",
+				"expireOn": 0,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.5,
+					"ticks": 6,
+					"step": true
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [],
+				"buffs": [
+					{
+						"type": "armor",
+						"proportion": 5,
+						"maxTicks": 200,
+						"against": 0,
+						"targetOnly": false
+					},
+					{
+						"type": "burn",
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0,
+							"noHit": true
+						},
+						"maxTicks": 200,
+						"render": {
+							"color": "#00ff9c",
+							"alpha": 0.1,
+							"ticks": 20,
+							"emissionRadius": 1,
+							"particleRadius": 0.00625
+						}
+					}
+				],
+				"color": "#00ff9c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.1
+					},
+					{
+						"type": "projectile",
+						"ticks": 3
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(0,255,156, 1)",
+						"fade": "rgba(0,0,0, 0)",
+						"radius": 0.1,
+						"remainingTicks": 300,
+						"shrinkTicks": 300,
+						"minRadius": 0
+					}
+				]
+			}
+		},
+		"light": {
+			"id": "light",
+			"name": "Your Holy Light",
+			"description": "It's yours. Why would the NESS Foundation be obsessed?",
+			"action": "spray",
+			"color": "#ff0088",
+			"icon": "divert",
+			"sound": "leaving",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 6000,
+			"throttle": true,
+			"buffs": [
+				{
+					"collideWith": 65535,
+					"linkOwner": true,
+					"owner": true,
+					"type": "glide",
+					"maxTicks": 520,
+					"linearDampingMultiplier": 1000000000000
+				},
+				{
+					"type": "mass",
+					"cleansable": false,
+					"maxTicks": 520,
+					"radius": 0.0125,
+					"density": 1000000,
+					"restrictCollideWith": 0
+				},
+				{
+					"type": "armor",
+					"proportion": -0.75,
+					"owner": true,
+					"targetOnly": false,
+					"maxTicks": 520,
+					"render": {
+						"color": "#ff0088",
+						"alpha": 0.075,
+						"ticks": 15,
+						"emissionRadius": 1,
+						"particleRadius": 0.00625
+					}
+				}
+			],
+			"interruptibleAfterTicks": 520,
+			"movementProportionWhileChannelling": 1,
+			"intervalTicks": 40,
+			"lengthTicks": 400,
+			"jitterRatio": 0,
+			"projectile": {
+				"density": 10,
+				"radius": 0.002,
+				"ccd": true,
+				"buffs": [],
+				"conveyable": true,
+				"speed": -1,
+				"minTicks": 200,
+				"maxTicks": 200,
+				"damage": 22,
+				"selfPassthrough": true,
+				"lifeSteal": 0.25,
+				"categories": 2,
+				"sound": "leaving",
+				"soundHit": "repeater",
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"redirect": true,
+						"trigger": {
+							"afterTicks": 10
+						}
+					},
+					{
+						"type": "accelerate",
+						"maxSpeed": 23,
+						"accelerationPerSecond": 0.9
+					}
+				],
+				"color": "#ff0088",
+				"renderers": [
+					{
+						"type": "swirl",
+						"fade": "rgba(0,136,255,0.01)",
+						"radius": 0.001,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 2,
+						"particleRadius": 0.01,
+						"shine": 0.2,
+						"smoke": 0.003,
+						"vanish": 1
+					},
+					{
+						"type": "bloom",
+						"radius": 0.1612
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 54
+					},
+					{
+						"type": "ray",
+						"ticks": 67,
+						"fade": "#0088ff",
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"glow": true,
+						"numParticles": 2
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(136,0,255,0.04)",
+						"fade": "rgba(255,0,136,0)",
+						"numPoints": 5,
+						"radiusMultiplier": 25,
+						"revolutionInterval": 100,
+						"ticks": 60,
+						"shine": 0.1
+					}
+				],
+				"collideWith": 1,
+				"sense": 0
+			},
+			"effects": [
+				{
+					"title": "confusion",
+					"text": "what is this?"
+				}
+			],
+			"revsPerTickWhileChannelling": 1
+		},
+		"embers": {
+			"id": "embers",
+			"name": "Flurry-Blade",
+			"description": "A common neutral mercenary tool during the war.",
+			"action": "spray",
+			"color": "#bbaaee",
+			"icon": "shock",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 6000,
+			"throttle": true,
+			"projectile": {
+				"damage": 6,
+				"lifeSteal": 0.25,
+				"density": 1,
+				"restitution": 0,
+				"radius": 0.002,
+				"speed": 2.5,
+				"maxTicks": 120,
+				"categories": 2,
+				"sense": 1,
+				"soundHit": "backlash",
+				"collideWith": 0,
+				"expireOn": 3,
+				"expireAgainstHeroes": 1,
+				"shieldTakesOwnership": false,
+				"noKnockback": true,
+				"bumpable": true,
+				"behaviours": [
+					{
+						"type": "homing",
+						"trigger": {
+							"afterTicks": 20
+						},
+						"revolutionsPerSecond": 0.04,
+						"expireWithinRevs": 0.000001,
+						"targetType": "cursor"
+					}
+				],
+				"sound": "backlash",
+				"color": "#00ccff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"color": "#bbaaee"
+					},
+					{
+						"type": "polygon",
+						"color": "#bbaaee",
+						"smoke": 0.3,
+						"numPoints": 3,
+						"radiusMultiplier": 3,
+						"revolutionInterval": 11,
+						"ticks": 40
+					},
+					{
+						"type": "ray",
+						"color": "#bbaaee",
+						"ticks": 25,
+						"vanish": 0.5,
+						"shine": 0.5
+					},
+					{
+						"type": "strike",
+						"color": "#bbaaee",
+						"ticks": 25,
+						"growth": 1.5,
+						"flash": true,
+						"speedMultiplier": -0.5,
+						"detonate": 0.02
+					}
+				],
+				"conveyable": true,
+				"ccd": true,
+				"selfPassthrough": true,
+				"hitInterval": 1
+			},
+			"intervalTicks": 3,
+			"lengthTicks": 50,
+			"jitterRatio": 22
+		},
+		"ghost": {
+			"id": "ghost",
+			"name": "witness",
+			"description": "Stand and bear witness to the world's fate.",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.5
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"passive": true,
+					"sound": "voidRush-lavaImmunity",
+					"render": {
+						"color": "rgba(0,33,33,0.5)",
+						"ticks": 210,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.3,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 9
+					}
+				},
+				{
+					"type": "mass",
+					"passive": true,
+					"radius": 0.0025,
+					"restrictCollideWith": 2
+				}
+			],
+			"icon": "shield",
+			"color": "#033333",
+			"action": "buff"
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"$delete": true
+		},
+		"cold": {
+			"color": "#222",
+			"obstacles": [
+				{
+					"type": "inward",
+					"extent": 0.3,
+					"layoutRadius": 0.7,
+					"numObstacles": 3,
+					"layoutAngleOffsetInRevs": 0.0833333333333,
+					"angularWidthInRevs": 0.34
+				},
+				{
+					"type": "slow",
+					"extent": 0.9,
+					"layoutRadius": 0,
+					"numObstacles": 3,
+					"layoutAngleOffsetInRevs": 0.0833333333333,
+					"angularWidthInRevs": 0.24
+				},
+				{
+					"type": "bumper",
+					"extent": 0.01,
+					"layoutRadius": 0.3,
+					"numPoints": 4,
+					"numObstacles": 8,
+					"angularWidthInRevs": 0.05,
+					"layoutAngleOffsetInRevs": 0.05125
+				},
+				{
+					"type": "bumper",
+					"extent": 0.1,
+					"layoutRadius": 0.8,
+					"numPoints": 4,
+					"numObstacles": 9,
+					"angularWidthInRevs": 0.1,
+					"layoutAngleOffsetInRevs": 0.05125
+				},
+				{
+					"type": "bumper",
+					"extent": 0.1,
+					"layoutRadius": 0,
+					"numPoints": 4,
+					"numObstacles": 1,
+					"layoutAngleOffsetInRevs": 0.0833333333333
+				},
+				{
+					"type": "spinner",
+					"extent": 0.1,
+					"layoutRadius": 0.5,
+					"numPoints": 9,
+					"numObstacles": 10,
+					"layoutAngleOffsetInRevs": 0.16666666666666666
+				},
+				{
+					"type": "spinner",
+					"extent": 0.1,
+					"layoutRadius": 1.3,
+					"numPoints": 9,
+					"numObstacles": 10,
+					"layoutAngleOffsetInRevs": 0.3333333333333333
+				}
+			]
+		},
+		"octogon": {
+			"$delete": true
+		},
+		"return": {
+			"$delete": true
+		},
+		"double": {
+			"$delete": true
+		},
+		"ring": {
+			"$delete": true
+		},
+		"exit": {
+			"$delete": true
+		},
+		"snowflake": {
+			"$delete": true
+		},
+		"inside5": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		},
+		"pepper": {
+			"$delete": true
+		},
+		"mirrors": {
+			"$delete": true
+		},
+		"innerStar": {
+			"$delete": true
+		},
+		"mirrorhenge": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		},
+		"mviocl": {
+			"color": "#222",
+			"numPoints": 6,
+			"obstacles": [
+				{
+					"type": "diabs",
+					"extent": 21,
+					"layoutRadius": 0,
+					"angularWidthInRevs": 0.34,
+					"numObstacles": 3,
+					"layoutAngleOffsetInRevs": 0.0833333333333
+				},
+				{
+					"type": "volcano2",
+					"extent": 0.01,
+					"layoutRadius": 0.6,
+					"numPoints": 4,
+					"pattern": [
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						0
+					],
+					"numObstacles": 80,
+					"angularWidthInRevs": 0.25,
+					"layoutAngleOffsetInRevs": 0.05125
+				},
+				{
+					"type": "volcano2",
+					"extent": 0.1,
+					"layoutRadius": 0.3,
+					"numPoints": 4,
+					"numObstacles": 80,
+					"pattern": [
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					"angularWidthInRevs": 0.05,
+					"layoutAngleOffsetInRevs": 0.05125
+				},
+				{
+					"type": "volcano2",
+					"extent": 0.01,
+					"layoutRadius": 0.5,
+					"numPoints": 4,
+					"numObstacles": 80,
+					"pattern": [
+						0,
+						0,
+						1,
+						0,
+						1,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					"angularWidthInRevs": 0.15,
+					"layoutAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"map-k0jrzo9f": {
+			"color": "#222",
+			"numPoints": 6,
+			"obstacles": [
+				{
+					"type": "apple",
+					"extent": 0.1,
+					"layoutRadius": 0.09,
+					"numPoints": 0,
+					"angularWidthInRevs": 0.34,
+					"numObstacles": 3,
+					"layoutAngleOffsetInRevs": 0.0833333333333
+				},
+				{
+					"type": "explosive",
+					"extent": 0.05,
+					"layoutRadius": 0.4,
+					"numPoints": 4,
+					"numObstacles": 13,
+					"layoutAngleOffsetInRevs": 0.0833333333333
+				},
+				{
+					"type": "healer",
+					"extent": 0.05,
+					"layoutRadius": 0.4,
+					"numPoints": 4,
+					"numObstacles": 13,
+					"layoutAngleOffsetInRevs": 0.041666
+				}
+			]
+		}
+	},
+	"Sounds": {
+		"joining": {
+			"start": [
+				{
+					"stopTime": 0.2,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 225,
+					"stopFreq": 225,
+					"lowPass": 225,
+					"tremoloFreq": 6,
+					"tremoloStrength": 1,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.1
+					]
+				},
+				{
+					"stopTime": 0.2,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 225,
+					"stopFreq": 225,
+					"lowPass": 225,
+					"tremoloFreq": 6,
+					"tremoloStrength": 1,
+					"wave": "triangle",
+					"ratios": [
+						4,
+						1.2
+					]
+				}
+			]
+		},
+		"leaving": {
+			"start": [
+				{
+					"stopTime": 0.2,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 225,
+					"stopFreq": 225,
+					"lowPass": 225,
+					"tremoloFreq": 6,
+					"tremoloStrength": 1,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.1
+					]
+				},
+				{
+					"stopTime": 0.2,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 225,
+					"stopFreq": 225,
+					"lowPass": 225,
+					"tremoloFreq": 6,
+					"tremoloStrength": 1,
+					"wave": "triangle",
+					"ratios": [
+						4,
+						1.2
+					]
+				}
+			]
+		},
+		"message": {
+			"start": [
+				{
+					"volume": 0.05,
+					"stopTime": 0.1,
+					"attack": 0.05,
+					"decay": 0.05,
+					"startFreq": 300,
+					"stopFreq": 300,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"thrust-channelling": {
+			"start": [
+				{
+					"stopTime": 2.25,
+					"attack": 0.05,
+					"decay": 0.2,
+					"lowPass": 1000,
+					"wave": "brown-noise"
+				}
+			],
+			"cutoffEarly": false
+		},
+		"voidRush-lavaImmunity": {
+			"start": {
+				"$delete": true
+			},
+			"sustain": [
+				{
+					"stopTime": 3.7,
+					"volume": 0.01,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 300,
+					"stopFreq": 300,
+					"wave": "sawtooth",
+					"ratios": [
+						1,
+						1.8
+					]
+				}
+			]
+		},
+		"shield-hit": {
+			"start": [
+				{
+					"volume": 0.5,
+					"stopTime": 0.5,
+					"attack": 0.01,
+					"decay": 0.49,
+					"startFreq": 90,
+					"stopFreq": 90,
+					"lowPass": 90,
+					"highPass": 40,
+					"modStartFreq": 180,
+					"modStopFreq": 180,
+					"modStartStrength": 90,
+					"modStopStrength": 90,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"icewall": {
+			"start": [
+				{
+					"volume": 0.25,
+					"stopTime": 1.25,
+					"attack": 0.1,
+					"decay": 1.15,
+					"startFreq": 100,
+					"stopFreq": 100,
+					"highPass": 40,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.5,
+						4
+					]
+				}
+			]
+		},
+		"drain": {
+			"start": [
+				{
+					"stopTime": 2,
+					"attack": 0.25,
+					"decay": 1.75,
+					"startFreq": 1100,
+					"stopFreq": 1103,
+					"lowPass": 300,
+					"tremoloFreq": 10,
+					"tremoloStrength": 0.2,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.2
+					]
+				}
+			]
+		},
+		"fireball": {
+			"sustain": [
+				{
+					"stopTime": 1.5,
+					"attack": 0.25,
+					"decay": 0.25,
+					"highPass": 1,
+					"lowPass": 888,
+					"wave": "brown-noise"
+				}
+			]
+		},
+		"flamestrike": {
+			"sustain": [
+				{
+					"stopTime": 1.5,
+					"attack": 0.25,
+					"decay": 0.25,
+					"highPass": 100,
+					"lowPass": 100,
+					"wave": "sawtooth"
+				}
+			]
+		},
+		"triplet-channelling": {
+			"start": [
+				{
+					"stopTime": 0.5,
+					"attack": 0.005,
+					"decay": 0.05,
+					"highPass": 832,
+					"lowPass": 838,
+					"wave": "sawtooth"
+				}
+			]
+		},
+		"link": {
+			"start": [
+				{
+					"stopTime": 2,
+					"attack": 1,
+					"decay": 1,
+					"startFreq": 150,
+					"stopFreq": 150,
+					"lowPass": 150,
+					"tremoloFreq": 10,
+					"tremoloStrength": 0.2,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"gravity": {
+			"start": [
+				{
+					"stopTime": 8,
+					"attack": 0.25,
+					"decay": 7.75,
+					"startFreq": 910,
+					"tremoloFreq": 12,
+					"tremoloStrength": 0.3,
+					"wave": "sawtooth",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"whirlwind": {
+			"start": [
+				{
+					"volume": 0.65,
+					"stopTime": 5,
+					"attack": 2,
+					"startFreq": 200,
+					"stopFreq": 100,
+					"decay": 4,
+					"wave": "sawtooth",
+					"ratios": [
+						1,
+						1.01
+					]
+				}
+			]
+		},
+		"homing": {
+			"start": [
+				{
+					"stopTime": 5,
+					"attack": 0.5,
+					"decay": 4.5,
+					"startFreq": 800,
+					"stopFreq": 800,
+					"lowPass": 200,
+					"modStartFreq": 2400,
+					"modStopFreq": 2400,
+					"modStartStrength": 800,
+					"modStopStrength": 800,
+					"tremoloFreq": 6,
+					"tremoloStrength": 0.2,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.15
+					]
+				}
+			]
+		},
+		"boomerang": {
+			"start": [
+				{
+					"stopTime": 5,
+					"attack": 0.25,
+					"decay": 1,
+					"startFreq": 205,
+					"stopFreq": 206,
+					"lowPass": 100,
+					"tremoloFreq": 7,
+					"tremoloStrength": 0.3,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.2
+					]
+				}
+			]
+		},
+		"backlash": {
+			"start": [
+				{
+					"stopTime": 1.5,
+					"attack": 0.01,
+					"decay": 1.4,
+					"startFreq": 1900,
+					"stopFreq": 1900,
+					"lowPass": 400,
+					"modStartFreq": 2000,
+					"modStopFreq": 2000,
+					"modStartStrength": 300,
+					"modStopStrength": 300,
+					"tremoloFreq": 21,
+					"tremoloStrength": 0.5,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"backlash-hit": {
+			"start": []
+		},
+		"rocket": {
+			"start": [
+				{
+					"stopTime": 2,
+					"attack": 0.5,
+					"decay": 1.5,
+					"startFreq": 900,
+					"stopFreq": 900,
+					"lowPass": 200,
+					"modStartFreq": 2100,
+					"modStopFreq": 2100,
+					"modStartStrength": 100,
+					"modStopStrength": 100,
+					"tremoloFreq": 11,
+					"tremoloStrength": 0.3,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"rocket-detonating": {
+			"start": [
+				{
+					"stopTime": 2,
+					"attack": 0.01,
+					"decay": 1.95,
+					"startFreq": 100,
+					"stopFreq": 101,
+					"lowPass": 300,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"supernova": {
+			"start": {
+				"$delete": true
+			},
+			"sustain": [
+				{
+					"stopTime": 1,
+					"attack": 0.4,
+					"volume": 0.4,
+					"decay": 0,
+					"startFreq": 1000,
+					"stopFreq": 1000,
+					"tremoloFreq": 7,
+					"tremoloStrength": 0.6,
+					"modStartFreq": 1000,
+					"modStopFreq": 1000,
+					"modStartStrength": 1000,
+					"modStopStrength": 1000,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"supernova-detonating": {
+			"start": [
+				{
+					"stopTime": 1,
+					"attack": 0.4,
+					"volume": 0.4,
+					"decay": 0,
+					"startFreq": 1000,
+					"stopFreq": 1000,
+					"tremoloFreq": 7,
+					"tremoloStrength": 0.6,
+					"modStartFreq": 1000,
+					"modStopFreq": 1000,
+					"modStartStrength": 1000,
+					"modStopStrength": 1000,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"bouncer-hit": {
+			"start": [
+				{
+					"volume": 0.1,
+					"stopTime": 0.1,
+					"attack": 0.001,
+					"decay": 0.49,
+					"startFreq": 8100,
+					"stopFreq": 8500,
+					"lowPass": 9000,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.33
+					]
+				}
+			]
+		},
+		"repeater": {
+			"start": [
+				{
+					"stopTime": 1,
+					"attack": 0.1,
+					"decay": 0.9,
+					"startFreq": 2000,
+					"stopFreq": 900,
+					"lowPass": 1000,
+					"wave": "sine",
+					"tremoloFreq": 15,
+					"tremoloStrength": 0.4,
+					"ratios": [
+						1.98,
+						1.65
+					]
+				},
+				{
+					"stopTime": 1,
+					"attack": 0.1,
+					"decay": 0.9,
+					"startFreq": 900,
+					"stopFreq": 2000,
+					"lowPass": 1000,
+					"wave": "sine",
+					"tremoloFreq": 15,
+					"tremoloStrength": 0.4,
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"firespray-channelling": {
+			"start": [
+				{
+					"volume": 0.25,
+					"stopTime": 0.5,
+					"attack": 0.1,
+					"decay": 0.25,
+					"startFreq": 400,
+					"stopFreq": 100,
+					"modStartFreq": 30,
+					"modStopFreq": 30,
+					"tremoloFreq": 30,
+					"tremoloStrength": 0.1,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.2
+					]
+				}
+			]
+		},
+		"saber": {
+			"start": {
+				"$delete": true
+			},
+			"sustain": [
+				{
+					"volume": 0.25,
+					"stopTime": 5,
+					"attack": 0.65,
+					"decay": 0.1,
+					"startFreq": 150.3,
+					"stopFreq": 150.3,
+					"modStartFreq": 5,
+					"modStopFreq": 4,
+					"modStartStrength": 1,
+					"modStopStrength": 1,
+					"lowPass": 140,
+					"highPass": 20,
+					"tremoloFreq": 7,
+					"tremoloStrength": 0.2,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"saber-hit": {
+			"start": [
+				{
+					"volume": 0.5,
+					"stopTime": 0.5,
+					"attack": 0.1,
+					"decay": 0.4,
+					"startFreq": 100,
+					"stopFreq": 100,
+					"lowPass": 100,
+					"highPass": 40,
+					"modStartFreq": 200,
+					"modStopFreq": 200,
+					"modStartStrength": 100,
+					"modStopStrength": 100,
+					"wave": "sine",
+					"ratios": [
+						1.1,
+						1
+					]
+				}
+			]
+		},
+		"whip": {
+			"start": [
+				{
+					"stopTime": 5,
+					"volume": 1,
+					"attack": 0.25,
+					"decay": 0.25,
+					"highPass": 732,
+					"lowPass": 738,
+					"wave": "brown-noise"
+				}
+			]
+		},
+		"halo": {
+			"start": [
+				{
+					"stopTime": 0.6,
+					"volume": 0.3,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 300,
+					"stopFreq": 300,
+					"wave": "sawtooth",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			],
+			"sustain": [
+				{
+					"stopTime": 1.6,
+					"volume": 0.3,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 300,
+					"stopFreq": 300,
+					"wave": "sawtooth",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"halo-hit": {
+			"start": []
+		},
+		"mines-channelling": {
+			"start": [
+				{
+					"volume": 0.05,
+					"stopTime": 1.47,
+					"attack": 0.05,
+					"decay": 0.05,
+					"startFreq": 6000,
+					"stopFreq": 6400,
+					"modStartFreq": 30,
+					"modStopFreq": 30,
+					"modStartStrength": 3000,
+					"modStopStrength": 12588,
+					"tremoloFreq": 30,
+					"tremoloStrength": 0.1,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.33,
+						1.5
+					]
+				}
+			]
+		},
+		"standard-hit": {
+			"start": [
+				{
+					"stopTime": 0.75,
+					"attack": 0.01,
+					"decay": 0.7,
+					"startFreq": 150,
+					"stopFreq": 0.01,
+					"lowPass": 250,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"death": {
+			"start": [
+				{
+					"stopTime": 0.6,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 225,
+					"stopFreq": 225,
+					"lowPass": 225,
+					"tremoloFreq": 6,
+					"tremoloStrength": 1,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.1
+					]
+				},
+				{
+					"stopTime": 0.6,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 225,
+					"stopFreq": 225,
+					"lowPass": 225,
+					"tremoloFreq": 6,
+					"tremoloStrength": 1,
+					"wave": "triangle",
+					"ratios": [
+						2,
+						1.2
+					]
+				}
+			]
+		},
+		"bump": {
+			"start": [
+				{
+					"volume": 0.3,
+					"stopTime": 0.2,
+					"attack": 0.001,
+					"decay": 0.19,
+					"startFreq": 200,
+					"stopFreq": 200,
+					"lowPass": 120,
+					"highPass": 120,
+					"modStartFreq": 240,
+					"modStopFreq": 240,
+					"modStartStrength": 80,
+					"modStopStrength": 80,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.2
+					]
+				}
+			]
+		},
+		"bumper": {
+			"start": [
+				{
+					"volume": 0.2,
+					"stopTime": 0.5,
+					"attack": 0.001,
+					"decay": 0.49,
+					"startFreq": 120,
+					"stopFreq": 120,
+					"lowPass": 120,
+					"highPass": 40,
+					"modStartFreq": 240,
+					"modStopFreq": 240,
+					"modStartStrength": 120,
+					"modStopStrength": 120,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.2
+					]
+				}
+			]
+		},
+		"explosive-detonating": {
+			"start": [
+				{
+					"stopTime": 2,
+					"attack": 0.01,
+					"decay": 0,
+					"startFreq": 100,
+					"stopFreq": 0.01,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.2
+					]
+				}
+			]
+		},
+		"testsound": {
+			"sustain": [
+				{
+					"volume": 0.15,
+					"stopTime": 0.4,
+					"attack": 0.05,
+					"startFreq": 8000,
+					"stopFreq": 1000,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.01
+					]
+				},
+				{
+					"volume": 0.15,
+					"stopTime": 0.4,
+					"attack": 0.05,
+					"startFreq": 8000,
+					"stopFreq": 2000,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.01
+					]
+				},
+				{
+					"volume": 0.15,
+					"stopTime": 0.4,
+					"attack": 0.05,
+					"startFreq": 8000,
+					"stopFreq": 500,
+					"wave": "sawtooth",
+					"ratios": [
+						1,
+						1.01
+					]
+				}
+			]
+		},
+		"death2": {
+			"start": [
+				{
+					"volume": 0.25,
+					"stopTime": 10,
+					"attack": 0.25,
+					"decay": 2.25,
+					"startFreq": 90,
+					"stopFreq": 80,
+					"highPass": 140,
+					"wave": "brown-noise",
+					"ratios": [
+						2,
+						1.5
+					]
+				}
+			]
+		},
+		"whirlwind-detonating": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.75,
+					"attack": 0.01,
+					"decay": 0.04,
+					"startFreq": 100,
+					"stopFreq": 10,
+					"modStartFreq": 800,
+					"modStopFreq": 80,
+					"modStartStrength": 100,
+					"modStopStrength": 10,
+					"tremoloFreq": 3,
+					"tremoloStrength": 0.1,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.1
+					]
+				}
+			]
+		},
+		"triplete": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.25,
+					"attack": 0.25,
+					"decay": 0.05,
+					"highPass": 832,
+					"lowPass": 877,
+					"wave": "sawtooth"
+				}
+			],
+			"sustain": [
+				{
+					"stopTime": 0.25,
+					"attack": 0.25,
+					"decay": 0.05,
+					"highPass": 832,
+					"lowPass": 877,
+					"wave": "sine"
+				}
+			]
+		},
+		"gravity-detonating": {
+			"cutoffEarly": false,
+			"sustain": [
+				{
+					"stopTime": 1,
+					"attack": 0.25,
+					"decay": 0.75,
+					"startFreq": 910,
+					"tremoloFreq": 12,
+					"tremoloStrength": 0.3,
+					"wave": "sawtooth",
+					"ratios": [
+						1,
+						1.7
+					]
+				}
+			]
+		}
+	},
+	"Visuals": {
+		"Background": "#222",
+		"CameraPanRate": 0.008,
+		"CameraZoomRate": 0.008,
+		"CameraCenterTolerance": 0.05
+	},
+	"Icons": {
+		"mood": {
+			"path": "M220.094 27.688c-26.872-.036-50.823 6.838-74.125 18.625l-.157.812C70.522 86.93 19.124 165.858 19.124 257.063c0 6.59.332 13.085.875 19.5 7.276-8.357 15.818-15.872 26-21.75 13.382-7.727 27.847-12.19 42.344-13.72 4.425-49.566 25.685-94.32 58-128.53 41.687-32.344 93.704-55.56 153.28-67.282-29.822-12.154-55.82-17.56-79.53-17.593zm138.03 15.437c3.455 10.335 5.595 21.317 5.595 32.906 0 16.077-3.528 31.34-9.845 45.064 37.73 26.11 64.81 62.603 79.625 103.344 10.55 56.292 5.53 118.197-15.97 181.093 54.264-42.136 73.225-84.51 75.94-133.592.32-4.903.467-9.87.467-14.875 0-94.773-55.613-175.866-135.812-213.938zM160.813 124.22c-29.6 30.89-49.216 71.464-53.687 116.5.094.005.187.023.28.03 23.03 1.627 45.37 10.552 63.19 25.938 2.623 24.778 15.768 46.414 34.874 60.375 5.39 28.052-.712 57.203-16.47 80.718 41.77 10.37 86.995 7.1 128.47-11.717-10.642-21.43-14.025-46.166-9.126-70.032 18.074-13.773 30.528-34.53 33.344-58.25 17.844-16.04 40.438-25.365 64-27.03 4.524-.32 9.08-.316 13.656-.063-12.407-40.644-37.918-77.395-74.75-103.312-13.174 19.026-32.327 33.592-54.75 40.906-10.333-4.39-21.69-6.843-33.625-6.843-11.732 0-22.935 2.376-33.126 6.625-.01-.003-.022.004-.03 0-27.138-9.022-49.527-28.61-62.25-53.843zm95.094 70.218c34.775 0 62.97 28.162 62.97 62.937s-28.195 62.97-62.97 62.97-62.937-28.195-62.937-62.97 28.16-62.938 62.936-62.938zM51.28 325.405c9.353 68.066 36.573 105.64 77.72 132.53l.625-.217c36.79 23.387 80.423 37.06 127.22 37.06 50.05 0 96.018-15.642 134.217-42.092-10.772-2.214-21.397-5.922-31.437-11.72-13.048-7.532-23.9-17.428-32.344-28.843-42.115 19.633-87.96 24.486-131.124 16.25C143.6 409.052 93.93 374.245 51.28 325.405z",
+			"credit": "https://game-icons.net/1x1/lorc/trefoil-shuriken.html"
+		},
+		"bee": {
+			"path": "M273.625 17.438l3.313 19.406L258.53 40l-3.717-21.594c-11.894 1.303-21.9 3.848-30.188 7.344L238.5 43.375l-14.688 11.563-15.343-19.5c-9.837 8.29-15.64 18.988-17.657 32.156l24.375-1.344 1.03 18.656-12.812.72c36.685 31.72 70.686 71.3 102.125 122.718 3.52-.453 7.054-.697 10.564-.72 2.396-.014 4.774.055 7.156.25 3.744.31 7.462.914 11.125 1.782 10.252-71.962-6.85-130.822-38.5-191.062-7.863-.71-15.335-1.137-22.25-1.157zM78.905 27.813C72.95 32.37 67.494 36.937 62.5 41.5l18.47 17.875-13 13.406-18.657-18.03c-9.15 10.155-16.053 20.23-20.907 30.125l20.125 4.72-4.28 18.218-22.438-5.282c-.528 2.05-.986 4.073-1.343 6.095-2.264 12.796-1.332 25.318 2.593 37.47l22.968-11.19 8.157 16.814-23.53 11.436c4.11 7.18 9.307 14.198 15.562 21.063 3.188 3.5 6.67 6.913 10.405 10.28l15.125-16.28 13.688 12.75-14.25 15.31c10.718 7.82 22.952 15.15 36.562 21.814l10.47-20.125 16.56 8.624-10 19.22c9.974 4.158 20.545 7.945 31.657 11.405l6.657-19.407 17.687 6.062-6.343 18.5c10.976 2.874 22.408 5.395 34.25 7.53l3.157-19.03 18.437 3.063-3.155 18.937c22.212 3.138 45.688 4.95 70.188 5.188l-.188 18.687c-20.204-.195-39.78-1.404-58.594-3.5-1.978 7.395-3.443 15.514-4.25 24.438-99.17-72.015-189.613 29.593-213.843 140 96.828 62.17 166.47 12.61 216.094-69.844l17.532 40.125 17.125-7.5-23.156-52.97c4.207-7.892 8.265-16.012 12.157-24.28 7.755 11.174 16.53 18.968 25.688 23.655l1.03 32.97.126 4.25 3.314 2.686 38.406 31.314 11.813-14.5-35.094-28.625-.72-22.75c11.463.746 22.9-2.88 33.125-10.345l.72 26.906.186 6.19 5.783 2.25 62.28 24.092 6.75-17.437-56.468-21.813-1.094-39.625c2.924-4.387 5.622-9.2 8-14.468 14.34 60.238 86.187 63.25 103.126 7.936 11.726-38.29-19.33-72.846-52.562-72l-10.156-47.25c29.243 7.773 54.154 23.793 73.906 55.906l15.906-9.78c-25.456-41.388-61.373-60.69-100.375-67.595l-13.688-2.406 2.938 13.564 13.25 61.812c-.644.294-1.298.58-1.938.906l-.062.032c-2.39.595-4.74 1.456-7 2.656-4.883 2.592-8.73 6.348-11.625 10.78-9.013-28.358-34.47-46.61-61.406-49.31 3.698 6.412 7.374 12.98 11 19.75l-16.47 8.81C243.755 130.22 169.122 70.843 78.907 27.813zM402.282 276.75c.325-.002.638.013.97.03 2.656.148 5.576.97 8.75 2.564 6.348 3.188 13.04 9.53 17.656 18.22 4.617 8.686 6.13 17.77 5.22 24.81-.912 7.04-3.827 11.552-7.97 13.75-4.142 2.2-9.527 2.096-15.875-1.093-6.347-3.187-13.038-9.53-17.655-18.217-4.617-8.688-6.13-17.773-5.22-24.813.912-7.04 3.827-11.55 7.97-13.75 1.812-.962 3.89-1.485 6.156-1.5z",
+			"credit": "https://game-icons.net/1x1/lorc/bee.html"
+		},
+		"sigil": {
+			"path": "M260.352 8.924L238.037 59.98c-42.626 4.47-81.168 22.782-111.04 50.36l-16.64-16.64-13.214 13.216 16.744 16.744c-26.084 29.167-43.485 66.252-48.117 107.174L17.826 251.79l47.717 20.853c4.285 42.03 22.02 80.115 48.836 109.87L97.144 399.75l13.214 13.215 17.18-17.18c30.096 27.574 68.902 45.784 111.78 49.992l21.034 48.125 21.224-48.558c40.46-4.83 77.114-22.153 106.002-47.988l15.61 15.61 13.214-13.216-15.504-15.504c27.326-29.6 45.554-67.712 50.235-109.875l51.666-22.583-51.907-22.687c-5.02-41.053-22.904-78.167-49.49-107.184l15-15L403.19 93.7l-15.055 15.056c-28.666-25.833-65.062-43.238-105.266-48.31L260.35 8.923zM238.9 78.676l21.452 49.078 21.26-48.64c35.623 4.698 67.85 20.064 93.368 42.796l-18.664 18.664c4.716 4.08 9.17 8.457 13.342 13.088l18.606-18.605c23.548 25.954 39.397 59.022 43.996 95.625l-48.287 21.105 48.52 21.207c-4.306 37.634-20.492 71.617-44.733 98.11l-17.45-17.452c-4.145 4.66-8.575 9.057-13.263 13.168l17.38 17.38c-25.155 22.216-56.75 37.313-91.66 42.152l-22.413-51.282-22.618 51.746c-37.173-4.36-70.762-20.32-97.054-44.175l17.172-17.17c-4.632-4.175-9.005-8.63-13.086-13.345l-17.235 17.234c-23.037-25.86-38.51-58.61-42.978-94.8l52.1-22.77-51.852-22.663c4.74-35.168 19.882-67 42.238-92.313l18.374 18.374c4.112-4.69 8.51-9.116 13.17-13.26l-18.45-18.45c26.647-24.38 60.872-40.61 98.766-44.802zm22.555 69.2c-58.85 0-106.355 47.504-106.355 106.353 0 58.847 47.506 106.354 106.355 106.354 58.85 0 106.356-47.507 106.356-106.355 0-58.85-47.506-106.355-106.355-106.355zm-1.596 41.235c6.653 0 13.077 1.015 19.13 2.89-9.224 1.827-16.944 7.813-21.138 15.924-24.378 1.245-43.942 21.578-43.942 46.25 0 25.466 20.844 46.312 46.31 46.312 25.467 0 46.313-20.846 46.313-46.312 0-3.337-.365-6.59-1.045-9.733 6.114-5.575 9.95-13.606 9.95-22.534 0-.49-.015-.977-.038-1.46 5.98 9.822 9.43 21.34 9.43 33.634 0 35.772-29.2 64.97-64.97 64.97-35.772 0-64.97-29.198-64.97-64.97s29.198-64.97 64.97-64.97zm-4.964 37.95c2.45 14.385 14.968 25.34 30.05 25.34.953 0 1.896-.05 2.827-.136.043.63.07 1.267.07 1.91 0 15.366-12.256 27.623-27.622 27.623s-27.62-12.257-27.62-27.623c0-13.542 9.52-24.663 22.296-27.113z",
+			"credit": "https://game-icons.net/1x1/lorc/dead-eye.html"
+		},
+		"shock": {
+			"path": "M256 512c141.385 0 256-114.615 256-256s-114.615-256-256-256-256 114.615-256 256 114.615 256 256 256zM256 48c114.875 0 208 93.125 208 208s-93.125 208-208 208-208-93.125-208-208 93.125-208 208-208zM192 352c0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64s-64-28.654-64-64zM320 176c0-26.51 14.327-48 32-48s32 21.49 32 48c0 26.51-14.327 48-32 48s-32-21.49-32-48zM128 176c0-26.51 14.327-48 32-48s32 21.49 32 48c0 26.51-14.327 48-32 48s-32-21.49-32-48z",
+			"credit": "https://icomoon.io/app/#/select"
+		}
+	},
+	"Code": "var center = { x: 0.5, y: 0.5 };\n\nvar CloseEnoughDistance = 0.05;\nvar MissRadius = 0.05;\nvar DodgeRadius = 0.03;\nvar SpellCastIntervalMilliseconds = 10;\nvar SpellCastJitterMilliseconds = 50;\n\nvar TicksPerSecond = 60;\n\nvar DefaultReactionMilliseconds = 40;\nvar ReactionMillisecondsLookup = { // Change the reaction time on certain spells\n    retarget: 10,\n    move: 20,\n};\n\nvar alreadyChosenSpells = false;\nvar nextSpell = 0;\n\n// See ai.contracts.ts:\n// input is InputContract - contains information about the current state of the world\n// output is OutputContract - an action you want to take in response to the world \nfunction act(input) {\n    // Want the bot to do nothing? Uncomment the line below (remove the //):\n    // return null;\n\n    var state = input.state;\n    var heroId = input.heroId;\n    var hero = state.heroes[heroId];\n    var cooldowns = input.cooldowns;\n    var settings = input.settings;\n\n    var strongest = findOpponent(state.heroes, heroId);\n    if (!(hero && strongest)) {\n        // Either we're dead, or everyone else is, nothing to do\n        return null;\n    }\n    \n    var action = null;\n    if (state.started) {\n        action =\n            recovery(state, hero, cooldowns)\n            || dodge(state, hero, cooldowns)\n            || castSpell(state, hero, strongest, cooldowns, settings)\n            || focus(hero, strongest)\n            || chase(state, hero, cooldowns, strongest)\n            || move(state, hero);\n    } else {\n        action =\n            chooseSpells(settings)\n            || move(state, hero);\n    }\n\n    if (action) {\n        // Give the bot a reaction time otherwise it is OP\n        var reactionMilliseconds = ReactionMillisecondsLookup[action.spellId] || DefaultReactionMilliseconds;\n        action.delayMilliseconds = reactionMilliseconds;\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction chooseSpells(settings) {\n    if (alreadyChosenSpells) {\n        return null;\n    }\n    alreadyChosenSpells = false;\n\n    var spells = randomSpells(settings);\n\n    // Want to test a particular spell? Uncomment and edit the lines below\n// spells[\"r\"] = \"bullet-hell\";\n\n    return { spells };\n}\n\nfunction randomSpells(settings) {\n\tvar keyBindings = {};\n\tvar allOptions = settings.Choices.Options;\n\tfor (var btn in allOptions) { // One of the buttons, e.g. Q or R\n        var options = allOptions[btn];\n\n        var spellIds = [];\n        for (var i = 0; i < options.length; ++i) {\n            var row = options[i];\n            for (var j = 0; j < row.length; ++j) {\n                var spellId = row[j];\n                spellIds.push(spellId);\n            }\n        }\n\n\t\tif (spellIds.length > 1) {\n\t\t\tkeyBindings[btn] = spellIds[Math.floor(Math.random() * spellIds.length)];\n\t\t}\n\t}\n\treturn keyBindings;\n}\n\nfunction findOpponent(heroes, myHeroId) {\n    var myHero = heroes[myHeroId];\n    if (!myHero) {\n        return null;\n    }\n\n    var choice = null;\n    var mostHealth = 0;\n    for (var heroId in heroes) {\n        var hero = heroes[heroId];\n\n        if (!hero.isEnemy) { continue; }\n\n        // Uncomment the line below to only target humans\n        // if (hero.isBot) { continue; }\n\n        if (hero.health > mostHealth) {\n            // Target the enemy with the most health\n            mostHealth = hero.health;\n            choice = hero;\n        }\n    }\n    return choice;\n}\n\nfunction recovery(state, hero, cooldowns) {\n    if (hero.inside || state.radius <= 0) {\n        // No need to recover\n        return null;\n    }\n\n    var spellId = null;\n    if (cooldowns[\"teleport\"] === 0) {\n        spellId = \"teleport\";\n    } else if (cooldowns[\"whirlwind\"] === 0) {\n        spellId = \"whirlwind\";\n    }else if (cooldowns[\"yeet\"] === 0) {\n        spellId = \"yeet\";\n    }else if (cooldowns[\"light\"] === 0) {\n        spellId = \"light\";\n    }else if (cooldowns[\"embers\"] === 0) {\n        spellId = \"embers\";\n    }else if (cooldowns[\"thrust\"] === 0) {\n        spellId = \"thrust\";\n    } else if (cooldowns[\"gravity\"] === 0) {\n        spellId = \"gravity\";\n    } else if (cooldowns[\"voidRush\"] === 0) {\n        spellId = \"voidRush\";\n    } else if (cooldowns[\"vanish\"] === 0) {\n        spellId = \"vanish\";\n    } else {\n        spellId = \"move\";\n    }\n\n    if (spellId) {\n        return { spellId, target: center };\n    }\n    return null;\n}\n\nfunction deflect(state, hero, cooldowns, projectile) {\n    var target = vectorMidpoint(hero.pos, projectile.pos);\n    var spellId = null;\n    if (cooldowns[\"mines2\"] === 0) {\n        spellId = \"mines2\";\n    }else if (cooldowns[\"saber\"] === 0) {\n        spellId = \"saber\";\n    }else if (cooldowns[\"icewall\"] === 0) {\n        spellId = \"icewall\";\n    }else if (cooldowns[\"whirlwind\"] === 0) {\n        spellId = \"whirlwind\";\n    }else if (cooldowns[\"yeet\"] === 0) {\n        spellId = \"yeet\";\n    }else if (cooldowns[\"light\"] === 0) {\n        spellId = \"light\";\n    }else if (cooldowns[\"rcoke\"] === 0) {\n        spellId = \"rcoke\";\n    }else if (cooldowns[\"embers\"] === 0) {\n        spellId = \"embers\";\n    }\n     else if (cooldowns[\"voidRush\"] === 0) {\n        spellId = \"voidRush\";\n    }  else if (cooldowns[\"dualSaber\"] === 0) {\n        spellId = \"dualSaber\";\n    } else if (cooldowns[\"meteor\"] === 0) {\n        spellId = \"meteor\";\n    } else if (cooldowns[\"meteorite\"] === 0) {\n        spellId = \"meteorite\";\n    } else {\n        spellId = null;\n    }\n\n    if (spellId) {\n        return { spellId, target };\n    } else {\n        return null;\n    }\n}\n\nfunction castSpell(state, hero, opponent, cooldowns, settings) {\n    if (!readyForNextSpell(hero)) {\n        return null;\n    }\n\n    var candidates = [];\n    for (var spellId in cooldowns) {\n        var readyToCast = !cooldowns[spellId];\n        var spell = settings.Spells[spellId];\n\n        if (spell\n            && readyToCast\n            && validAttack(state, hero, opponent, spell)) {\n\n            candidates.push(spellId);\n        }\n    }\n\n    if (candidates.length > 0) {\n        var spellId = candidates[Math.floor(Math.random() * candidates.length)];\n        var action = { spellId, target: jitter(opponent.pos, MissRadius) };\n        if (action.spellId === spellId) {\n            updateNextSpellTime();\n        }\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction validAttack(state, hero, opponent, spell) {\n    var opponentShielded = !!opponent.shieldTicksRemaining;\n\n    var distance = vectorDistance(hero.pos, opponent.pos);\n    if (spell.action === \"projectile\" || spell.action === \"spray\" || spell.action === \"retractor\" || spell.action === \"focus\" || spell.action === \"charge\") {\n        if (spell.projectile.swapWith) { // Swap doesn't work as an attack\n            return false;\n        }\n        if (opponentShielded && !spell.projectile.detonate) { // Detonate spells can penetrate shields, nothing else can\n            return false;\n        }\n        if (spell.id === \"grapple\") {\n            // Just keep casting Electroshock even if out of range\n            return true;\n        }\n\n        var range = spell.projectile.speed * spell.projectile.maxTicks / TicksPerSecond + opponent.radius;\n        return distance <= range;\n    } else if (spell.action === \"gravity\") {\n        var range = spell.radius;\n        return distance <= range;\n    } else {\n        return false;\n    }\n}\n\nfunction readyForNextSpell(hero) {\n    return (\n        Date.now() >= nextSpell // Don't cast too fast\n        || !!hero.link // If linked to something, cast as many spells as possible\n    );\n}\n\nfunction updateNextSpellTime() {\n    nextSpell = Date.now() + SpellCastIntervalMilliseconds + Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * SpellCastJitterMilliseconds);\n}\n\nfunction jitter(target, missRadius) {\n    var radius = Math.random() * missRadius;\n    var angle = Math.random() * 2 * Math.PI;\n    return {\n        x: target.x + radius * Math.cos(angle),\n        y: target.y + radius * Math.sin(angle),\n    };\n}\n\nfunction focus(hero, opponent) { // When using a spell (e.g. Acolyte Beam, Spirit Missile) - ensure we are focusing the enemy, otherwise we will miss\n    if (hero.casting) {\n        if (hero.casting.spellId === \"blast\" || hero.casting.spellId === \"retractor\" || hero.casting.spellId === \"rocket\") {\n            // Have to release or it won't fire\n            return { spellId: hero.casting.spellId, release: true, target: opponent.pos };\n        \n        }   else if (hero.casting.spellId === \"halo\"|| hero.casting.spellId === \"yeet\"|| hero.casting.spellId === \"gravity\") {\n            return { spellId: \"move\",release: true, target: opponent.pos };\n        } else {\n            return { spellId: \"retarget\", target: opponent.pos };\n        }\n    } else {\n        return null;\n    }\n}\n\nfunction chase(state, hero, cooldowns, opponent) {\n    if (\"gravity\" in cooldowns) {\n        // Got to get within range when using Electroshock\n        var target = vectorMidpoint(hero.pos, opponent.pos);\n        return { spellId: \"move\", target };\n    } else {\n        return null;\n    }\n}\n\nfunction move(state, hero) {\n    var centroid = { x: 0, y: 0 };\n    var numOpponents = 0;\n    for (var heroId in state.heroes) {\n        if (heroId === hero.id) {\n            continue; // Ignore self\n        }\n\n        var opponent = state.heroes[heroId];\n        centroid.x += opponent.pos.x;\n        centroid.y += opponent.pos.y;\n\n        ++numOpponents;\n    }\n    centroid.x /= numOpponents;\n    centroid.y /= numOpponents;\n\n    if (!numOpponents) {\n        return;\n    }\n\n    var offset = vectorNegate(vectorDiff(centroid, center)); // Move to the opposite side of the arena\n    var targetDistance = state.radius * 0.33; // Closer to center than edge (for polygonal maps)\n    var target = vectorPlus(center, vectorRelengthen(offset, targetDistance));\n\n    var distanceToTarget = vectorDistance(hero.pos, target);\n    if (distanceToTarget <= CloseEnoughDistance) {\n        // Close enough - don't send any action so the game can sleep while waiting for players\n        return null;\n    }\n\n    return { spellId: \"move\", target };\n}\n\nfunction dodge(state, hero, cooldowns) {\n    for (var projectileId in state.projectiles) {\n        var projectile = state.projectiles[projectileId];\n        if (projectile.ownerId === hero.id) {\n            // This is my own projectile\n            continue;\n        }\n\n        if (projectile.spellId === \"halo\" || projectile.spellId === \"yeet\"|| projectile.spellId === \"gravity\"|| projectile.spellId === \"whirlwind\") {\n            // Halo is never coming for us, it orbits around its owner\n            continue;\n        }\n\n        var diff = vectorDiff(hero.pos, projectile.pos);\n        var distancePerTimeStep = vectorDot(projectile.velocity, vectorUnit(diff));\n        if (distancePerTimeStep <= 0) {\n            // Not coming towards us\n            continue;\n        }\n\n        var timeToCollision = vectorLength(diff) / distancePerTimeStep;\n        if (timeToCollision <= 0 || timeToCollision >= 30) {\n            // Not coming towards us or too far away\n            continue;\n        }\n\n        var collisionPoint = vectorPlus(projectile.pos, vectorMultiply(projectile.velocity, timeToCollision));\n        var distanceToCollision = vectorDistance(collisionPoint, hero.pos);\n        if (distanceToCollision > Math.max(DodgeRadius, projectile.radius) + hero.radius) {\n            // Won't hit us\n        }\n\n        var deflectAction = deflect(state, hero, cooldowns, projectile);\n        if (deflectAction) {\n            return deflectAction;\n        }\n\n        // Run away from collision point\n        var direction = vectorUnit(vectorNegate(vectorDiff(collisionPoint, hero.pos)));\n        var step = vectorMultiply(direction, projectile.radius + hero.radius);\n        var target = vectorPlus(hero.pos, step);\n        return { spellId: \"move\", target };\n    }\n    return null;\n}\n\nfunction vectorDiff(to, from) {\n    return { x: to.x - from.x, y: to.y - from.y };\n}\n\nfunction vectorLength(vector) {\n    return Math.sqrt(vector.x * vector.x + vector.y * vector.y);\n}\n\nfunction vectorDistance(from, to) {\n    return vectorLength(vectorDiff(from, to));\n}\n\nfunction vectorUnit(vec) {\n    var length = vectorLength(vec);\n    return length === 0 ? vec : vectorMultiply(vec, 1 / length);\n}\n\nfunction vectorPlus(from, offset) {\n    return { x: from.x + offset.x, y: from.y + offset.y };\n}\n\nfunction vectorMultiply(vec, multiplier) {\n    return { x: vec.x * multiplier, y: vec.y * multiplier };\n}\n\nfunction vectorRelengthen(vec, length) {\n    return vectorMultiply(vectorUnit(vec), length);\n}\n\nfunction vectorNegate(vec) {\n    return vectorMultiply(vec, -1);\n}\n\nfunction vectorDot(a, b) {\n    return (a.x * b.x) + (a.y * b.y);\n}\n\nfunction vectorMidpoint(a, b) {\n    var diff = vectorDiff(b, a);\n    return vectorPlus(a, vectorMultiply(diff, 0.5));\n}\n\nfunction vectorFromAngle(angle) {\n\treturn { x: Math.cos(angle), y: Math.sin(angle) };\n}\n\n// See ai.contracts.ts: Must return a BotContract\nreturn { act };"
+}
