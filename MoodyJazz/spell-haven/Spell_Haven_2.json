@@ -1,0 +1,951 @@
+{
+	"Mod": {
+		"name": "Spell Haven",
+		"author": "MoodyJazz",
+		"description": "Fri, 20 Mar 2020 17:31:21 GMT",
+		"titleLeft": "INFINITE",
+		"titleRight": "POWER",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"q": [
+				[
+					"fireball",
+					"flamestrike",
+					"angleboom"
+				],
+				[
+					"triplet",
+					"difire",
+					"ninefire"
+				],
+				[
+					"retractor",
+					"backlash"
+				],
+				[
+					"whip",
+					"lifetear"
+				]
+			],
+			"w": [
+				[
+					"boost"
+				],
+				[
+					"homing",
+					"boomerang",
+					"drain",
+					"BottleRocket",
+					"BallisticMissile"
+				],
+				[
+					"gravity",
+					"whirlwind"
+				],
+				[
+					"link",
+					"grapple",
+					"lasso"
+				],
+				[
+					"lightning"
+				]
+			],
+			"e": [
+				[
+					"armor",
+					"horcrux"
+				],
+				[
+					"shield",
+					"icewall"
+				],
+				[
+					"saber",
+					"dualSaber"
+				],
+				[
+					"phaseOut",
+					"blaze"
+				],
+				[
+					"meteor",
+					"meteorite",
+					"fraggrenade"
+				]
+			],
+			"r": [
+				[
+					"empower"
+				],
+				[
+					"supernova",
+					"rocket"
+				],
+				[
+					"bouncer",
+					"repeater"
+				],
+				[
+					"kamehameha",
+					"blast",
+					"beamosteal",
+					"beamomight"
+				]
+			],
+			"f": [
+				[
+					"bump",
+					"scourge"
+				],
+				[
+					"firespray",
+					"iceBomb"
+				],
+				[
+					"mines",
+					"bomba"
+				],
+				[
+					"halo"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"firespray": {
+			"name": "Fire Breath",
+			"description": "Shoot fire out of your mouth like a dragon.",
+			"projectile": {
+				"density": 4,
+				"speed": 0.4,
+				"damage": 2,
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.15,
+						"vanish": 1,
+						"bloom": 0.01
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 7,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 1,
+						"buffs": [
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"against": 12,
+								"stack": "fire",
+								"hitInterval": 20,
+								"packet": {
+									"damage": 0.8333333333333334,
+									"lifeSteal": 0.3,
+									"noHit": true
+								},
+								"maxTicks": 240,
+								"resetOnGameStart": true,
+								"render": {
+									"color": "#ff0088",
+									"alpha": 0.075,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 0.2
+								}
+							}
+						]
+					}
+				]
+			}
+		},
+		"BottleRocket": {
+			"id": "BottleRocket",
+			"name": "Bottle Rocket",
+			"description": "Follows the enemy. Low damage, but it's much faster than normal.'",
+			"action": "projectile",
+			"color": "#44ffcc",
+			"icon": "boltSaw",
+			"cooldown": 130,
+			"throttle": true,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 25,
+				"radius": 0.002,
+				"speed": 0.3,
+				"maxTicks": 210,
+				"damage": 9,
+				"lifeSteal": 0.3,
+				"expireOn": 13,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 1
+					}
+				],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#44ffcc",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05,
+						"vanish": 0.75
+					},
+					{
+						"type": "ray",
+						"ticks": 10,
+						"vanish": 0.75
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 1,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"BallisticMissile": {
+			"id": "BallisticMissile",
+			"name": "Ballistic Missile",
+			"description": "Follows the enemy. Incredible damage, yet it's easier to dodge.'.",
+			"action": "projectile",
+			"color": "#44ffcc",
+			"icon": "boltSaw",
+			"cooldown": 250,
+			"throttle": true,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 25,
+				"radius": 0.005,
+				"speed": 0.2,
+				"maxTicks": 210,
+				"damage": 25,
+				"lifeSteal": 0.3,
+				"expireOn": 30,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.95
+					}
+				],
+				"detonate": {
+					"damage": 3,
+					"radius": 0.09,
+					"minImpulse": 0.0004,
+					"maxImpulse": 0.001,
+					"renderTicks": 30
+				},
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#44ffcc",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05,
+						"vanish": 0.75
+					},
+					{
+						"type": "ray",
+						"ticks": 10,
+						"vanish": 0.75
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 1,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"lifetear": {
+			"id": "lifetear",
+			"name": "Lifetear",
+			"description": "Lifetear is faster, yet weaker than Refract. It does give lifesteal, so control it.",
+			"action": "focus",
+			"color": "#00ff7f",
+			"icon": "arcingBolt",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"focusDelaysCooldown": false,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"release": {},
+			"releaseBehaviours": [
+				{
+					"type": "homing",
+					"targetType": "cursor",
+					"newSpeed": 0.4,
+					"revolutionsPerSecond": 1,
+					"redirect": true
+				},
+				{
+					"type": "partial",
+					"partialDamage": {
+						"initialMultiplier": 0.5,
+						"finalMultiplier": 1,
+						"ticks": 60
+					}
+				}
+			],
+			"projectile": {
+				"damage": 20,
+				"lifeSteal": 2,
+				"density": 60,
+				"radius": 0.0015,
+				"speed": 0.5,
+				"maxTicks": 120,
+				"categories": 2,
+				"shieldTakesOwnership": false,
+				"partialDamage": {
+					"initialMultiplier": 0.5,
+					"finalMultiplier": 0.5,
+					"ticks": 1
+				},
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.015,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 15
+				},
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"maxSpeed": 0.4,
+						"accelerationPerSecond": 0.4
+					}
+				],
+				"sound": "scourge",
+				"color": "#00ff7f",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "swirl",
+						"color": "#00ff7f",
+						"ticks": 30,
+						"radius": 0.007,
+						"particleRadius": 0.001,
+						"glow": 0.05,
+						"smoke": 0.3,
+						"numParticles": 2,
+						"loopTicks": 15,
+						"vanish": 1,
+						"selfColor": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"glow": 0.2,
+						"selfColor": true
+					},
+					{
+						"type": "ray",
+						"ticks": 15,
+						"glow": 0.2,
+						"vanish": 0.25,
+						"selfColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 15,
+						"flash": true,
+						"numParticles": 9,
+						"selfColor": true
+					}
+				]
+			}
+		},
+		"fraggrenade": {
+			"id": "fraggrenade",
+			"name": "Fragmentation Grenade",
+			"description": "Hurl a grenade at your opponent, exploding on impact with another spell.",
+			"action": "projectile",
+			"color": "#ff0066",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 175,
+			"throttle": true,
+			"projectile": {
+				"density": 50,
+				"square": true,
+				"ccd": false,
+				"attractable": false,
+				"swappable": false,
+				"linkable": false,
+				"radius": 0.018,
+				"speed": 0.3,
+				"speedDecayPerTick": 0.5,
+				"restitution": 0,
+				"minTicks": 1,
+				"maxTicks": 120,
+				"hitInterval": 120,
+				"damage": 0,
+				"shieldTakesOwnership": false,
+				"categories": 6,
+				"collideWith": 65519,
+				"expireOn": 0,
+				"sound": "meteorite",
+				"color": "#ff0066",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 12,
+						"shine": 0,
+						"smoke": 0.5,
+						"fade": "#333"
+					},
+					{
+						"type": "strike",
+						"ticks": 12,
+						"flash": true,
+						"growth": 0.1
+					}
+				],
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 1
+						},
+						"projectile": {
+							"density": 50,
+							"square": true,
+							"ccd": false,
+							"attractable": false,
+							"swappable": true,
+							"linkable": true,
+							"radius": 0.009,
+							"speed": 0.5,
+							"speedDecayPerTick": 0.5,
+							"restitution": 0,
+							"minTicks": 1,
+							"maxTicks": 60,
+							"hitInterval": 120,
+							"damage": 8,
+							"shieldTakesOwnership": false,
+							"categories": 6,
+							"collideWith": 65519,
+							"expireOn": 0,
+							"sound": "submeteorite",
+							"color": "#ff0066",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.04
+								},
+								{
+									"type": "projectile",
+									"ticks": 12,
+									"shine": 0,
+									"smoke": 0.5,
+									"fade": "#333"
+								},
+								{
+									"type": "strike",
+									"ticks": 12,
+									"flash": true,
+									"growth": 0.1
+								}
+							]
+						},
+						"numProjectiles": 15,
+						"spread": 1,
+						"expire": true
+					}
+				]
+			}
+		},
+		"ninefire": {
+			"id": "ninefire",
+			"name": "Ninefire",
+			"description": "Each bolt of Ninefire will add another stack of 2 damage per second to your enemy. There is no limit to the number of stacks, but you must hit them with Trifire at least once every 4 seconds to keep the fire burning.",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#ff0088",
+			"icon": "tripleScratches",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 90,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 9,
+			"intervalTicks": 1,
+			"lengthTicks": 1.5,
+			"jitterRatio": 0.1,
+			"projectile": {
+				"density": 10,
+				"radius": 0.002,
+				"speed": 0.5,
+				"maxTicks": 63,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#ff0088",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": -0.2,
+						"maxSpeed": 1
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0.22223333,
+							"lifeSteal": 0,
+							"noHit": true
+						},
+						"maxTicks": 240,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#ff0088",
+							"alpha": 0.049999999999999996,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				]
+			}
+		},
+		"bomba": {
+			"id": "bomba",
+			"name": "Anti-Life Bomb",
+			"description": "A single bomb that explodes upon touching a person. Place it well in order to do fair damage.",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "mineExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.7,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.014,
+				"speed": 0.5,
+				"maxTicks": 270,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 13,
+				"sense": 2,
+				"expireOn": 65519,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 31,
+					"lifeSteal": 2,
+					"radius": 0.025,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "expireOnOwnerRetreat",
+						"maxDistance": 0.15,
+						"trigger": {
+							"afterTicks": 60
+						}
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"beamosteal": {
+			"id": "beamosteal",
+			"name": "Beam of Lifesteal",
+			"description": "Unleash a beam so powerful it can wipe out a full-health enemy in seconds, and recharge your life.",
+			"action": "spray",
+			"sound": "kamehameha",
+			"color": "#8cff00",
+			"icon": "glowingHands",
+			"maxAngleDiffInRevs": 0.0001,
+			"chargeTicks": 18,
+			"cooldown": 300,
+			"throttle": true,
+			"revsPerTickWhileCharging": 0,
+			"revsPerTickWhileChannelling": 0.00005,
+			"movementCancel": true,
+			"strikeCancel": {
+				"cooldownTicks": 300
+			},
+			"jitterRatio": 0,
+			"intervalTicks": 6,
+			"lengthTicks": 150,
+			"projectile": {
+				"density": 0.0001,
+				"attractable": false,
+				"radius": 0.003,
+				"speed": 4,
+				"maxTicks": 30,
+				"damage": 4,
+				"lifeSteal": 2,
+				"categories": 6,
+				"swappable": false,
+				"destroying": true,
+				"sound": "kamehameha",
+				"color": "#e2ffbf",
+				"renderers": [
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 60,
+						"glow": 0.2,
+						"bloom": 0.01
+					}
+				]
+			}
+		},
+		"beamomight": {
+			"id": "beamomight",
+			"name": "Beam Of Might",
+			"description": "Unleash a beam so powerful it can wipe out a full-health enemy in seconds, for a longer cooldown.",
+			"action": "spray",
+			"sound": "kamehameha",
+			"color": "#44ddff",
+			"icon": "glowingHands",
+			"maxAngleDiffInRevs": 0.0001,
+			"chargeTicks": 18,
+			"cooldown": 400,
+			"throttle": true,
+			"revsPerTickWhileCharging": 0,
+			"revsPerTickWhileChannelling": 0.00005,
+			"movementCancel": true,
+			"strikeCancel": {
+				"cooldownTicks": 300
+			},
+			"interruptibleAfterTicks": 0,
+			"interruptCancel": {
+				"cooldownTicks": 300,
+				"maxChannelingTicks": 0
+			},
+			"jitterRatio": 0,
+			"intervalTicks": 6,
+			"lengthTicks": 150,
+			"projectile": {
+				"density": 0.0001,
+				"attractable": false,
+				"radius": 0.01,
+				"speed": 3,
+				"maxTicks": 30,
+				"damage": 9,
+				"lifeSteal": 0.3,
+				"categories": 6,
+				"swappable": false,
+				"destroying": true,
+				"sound": "kamehameha",
+				"color": "#ffffff",
+				"renderers": [
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 60,
+						"glow": 0.1,
+						"bloom": 0.01
+					}
+				]
+			}
+		},
+		"lasso": {
+			"id": "lasso",
+			"name": "Lasso",
+			"description": "Hold the button to grapple. Move your cursor to swing Grapple around. Throw your enemies into the void!",
+			"action": "focus",
+			"color": "#f02",
+			"icon": "grapple",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": false,
+			"unlink": true,
+			"release": {},
+			"maxChannellingTicks": 120,
+			"movementProportionWhileChannelling": 1,
+			"projectile": {
+				"density": 1,
+				"radius": 0.0025,
+				"speed": 0.7,
+				"maxTicks": 20,
+				"damage": 6,
+				"collideWith": 65533,
+				"expireOn": 13,
+				"expireOnMirror": true,
+				"shieldTakesOwnership": false,
+				"link": {
+					"linkWith": 13,
+					"selfFactor": 1,
+					"targetFactor": 0.25,
+					"impulsePerTick": 0.00002,
+					"sidewaysImpulsePerTick": 0.00002,
+					"massInvariant": true,
+					"minDistance": 0.025,
+					"maxDistance": 0.075,
+					"linkTicks": 60,
+					"channelling": true,
+					"render": {
+						"type": "link",
+						"color": "#f02",
+						"width": 0.0015,
+						"toWidth": 0.003,
+						"glow": 0.5,
+						"shine": 0.25
+					}
+				},
+				"buffs": [
+					{
+						"collideWith": 65535,
+						"owner": true,
+						"type": "glide",
+						"maxTicks": 60,
+						"linkOwner": true,
+						"linearDampingMultiplier": 10
+					},
+					{
+						"collideWith": 1,
+						"type": "glide",
+						"maxTicks": 60,
+						"linkVictim": true,
+						"linearDampingMultiplier": 0.9
+					}
+				],
+				"behaviours": [
+					{
+						"type": "expireOnOwnerDeath"
+					},
+					{
+						"type": "expireOnChannellingEnd"
+					}
+				],
+				"sound": "grapple",
+				"color": "#f02",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "polygon",
+						"color": "#f02",
+						"numPoints": 3,
+						"radiusMultiplier": 4,
+						"revolutionInterval": 31,
+						"ticks": 1
+					},
+					{
+						"type": "link",
+						"color": "#f02",
+						"width": 0.001,
+						"toWidth": 0.005,
+						"glow": 0.2,
+						"shine": 0.25
+					}
+				]
+			}
+		},
+		"cherrybombs": {
+			"id": "cherrybombs",
+			"name": "Cherry Bombs",
+			"description": "Mark out your territory with some Energy Mines. If you walk away from the mines, they expire. Energy mines only do damage after 0.1 seconds.",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#b52b1f",
+			"icon": "mineExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 8,
+			"jitterRatio": 0.7,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.003,
+				"speed": 0.5,
+				"maxTicks": 270,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 13,
+				"sense": 2,
+				"expireOn": 65519,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 12,
+					"lifeSteal": 0.3,
+					"radius": 0.015,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "expireOnOwnerRetreat",
+						"maxDistance": 6,
+						"trigger": {
+							"afterTicks": 90
+						}
+					}
+				],
+				"sound": "mines",
+				"color": "#b52b1f",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		}
+	}
+}
