@@ -1,0 +1,743 @@
+{
+	"Mod": {
+		"name": "guppstar pain",
+		"author": "MoodyJazz",
+		"description": "Wed, 08 Apr 2020 19:57:20 GMT",
+		"titleLeft": "this is for",
+		"titleRight": "guppstar",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"teleport"
+				],
+				[
+					"vanish"
+				]
+			],
+			"q": [
+				[
+					"flamestrike"
+				],
+				[
+					"difire"
+				],
+				[
+					"backlash"
+				],
+				[
+					"whip"
+				]
+			],
+			"w": [
+				[
+					"homing",
+					"boomerang",
+					"drain"
+				],
+				[
+					"gravity"
+				]
+			],
+			"e": [
+				[
+					"horcrux"
+				],
+				[
+					"icewall"
+				],
+				[
+					"saber",
+					"dualSaber"
+				],
+				[
+					"phaseOut"
+				],
+				[
+					"meteorite"
+				]
+			],
+			"r": [
+				[],
+				[
+					"rocket"
+				],
+				[
+					"bouncer",
+					"repeater"
+				],
+				[
+					"kamehameha",
+					"blast"
+				]
+			],
+			"f": [
+				[
+					"bump",
+					"scourge"
+				],
+				[
+					"iceBomb"
+				],
+				[
+					"halo"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"fireball": {
+			"$delete": true
+		},
+		"flamestrike": {
+			"cooldown": 1,
+			"projectile": {
+				"radius": 0.05,
+				"speed": 0.4,
+				"damage": 20,
+				"detonate": {
+					"damage": 50,
+					"radius": 0.1
+				}
+			}
+		},
+		"firespray": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"difire": {
+			"cooldown": 1,
+			"numProjectilesPerTick": 15
+		},
+		"meteor": {
+			"$delete": true
+		},
+		"meteorite": {
+			"cooldown": 1,
+			"projectile": {
+				"density": 1,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 18
+						},
+						"projectile": {
+							"density": 1000,
+							"square": true,
+							"ccd": false,
+							"attractable": false,
+							"swappable": true,
+							"linkable": true,
+							"radius": 0.009,
+							"speed": 0.3,
+							"speedDecayPerTick": 0.5,
+							"restitution": 0,
+							"minTicks": 1,
+							"maxTicks": 60,
+							"hitInterval": 120,
+							"damage": 43,
+							"shieldTakesOwnership": false,
+							"categories": 6,
+							"collideWith": 65519,
+							"expireOn": 0,
+							"sound": "submeteorite",
+							"color": "#ff0066",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.04
+								},
+								{
+									"type": "projectile",
+									"ticks": 12,
+									"light": null,
+									"shine": 0,
+									"smoke": 0.5,
+									"fade": "#333",
+									"shadow": 0.5
+								},
+								{
+									"type": "strike",
+									"ticks": 12,
+									"flash": true,
+									"growth": 0.1
+								}
+							]
+						},
+						"numProjectiles": 30,
+						"spread": 1,
+						"expire": true
+					}
+				]
+			}
+		},
+		"gravity": {
+			"cooldown": 1,
+			"projectile": {
+				"radius": 0.2,
+				"speed": 0.5,
+				"maxTicks": 400,
+				"damage": 13
+			}
+		},
+		"whirlwind": {
+			"$delete": true
+		},
+		"link": {
+			"$delete": true
+		},
+		"grapple": {
+			"$delete": true
+		},
+		"kamehameha": {
+			"maxAngleDiffInRevs": 0.01,
+			"chargeTicks": 3,
+			"cooldown": 1,
+			"strikeCancel": {
+				"cooldownTicks": 1
+			},
+			"interruptCancel": {
+				"cooldownTicks": 1
+			},
+			"projectile": {
+				"radius": 0.05,
+				"damage": 5
+			}
+		},
+		"lightning": {
+			"$delete": true
+		},
+		"blast": {
+			"cooldown": 1,
+			"chargeTicks": 1,
+			"release": {
+				"maxChargeTicks": 1
+			},
+			"strikeCancel": {
+				"cooldownTicks": 1
+			},
+			"projectile": {
+				"damage": 46,
+				"detonate": {
+					"damage": 34
+				}
+			}
+		},
+		"homing": {
+			"cooldown": 1,
+			"projectile": {
+				"speed": 0.25,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.95
+					}
+				]
+			}
+		},
+		"boomerang": {
+			"cooldown": 1,
+			"projectile": {
+				"radius": 0.006,
+				"expireOn": 2000,
+				"partialDamage": {
+					"ticks": 1,
+					"initialMultiplier": 3
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.065,
+						"minDistanceToTarget": 0.075,
+						"targetType": "enemy"
+					}
+				]
+			}
+		},
+		"retractor": {
+			"$delete": true
+		},
+		"backlash": {
+			"cooldown": 1,
+			"projectile": {
+				"radius": 0.02,
+				"speed": 0.22,
+				"behaviours": [
+					{
+						"trigger": {
+							"afterTicks": 33
+						},
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"targetType": "enemy"
+					},
+					{
+						"trigger": {
+							"afterTicks": 33
+						},
+						"type": "clearHits"
+					}
+				]
+			}
+		},
+		"rocket": {
+			"cooldown": 1,
+			"projectile": {
+				"damage": 50,
+				"density": 90,
+				"radius": 0.001,
+				"maxTicks": 999999,
+				"detonate": {
+					"damage": 34,
+					"radius": 0.5
+				}
+			}
+		},
+		"whip": {
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "movement",
+					"stack": "whip",
+					"maxTicks": 999999999,
+					"movementProportion": 2,
+					"render": {
+						"color": "#8800ff",
+						"alpha": 0.2,
+						"heroColor": true,
+						"ticks": 30,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"shine": 0.5,
+						"glow": 1,
+						"bloom": 0.03,
+						"vanish": 1,
+						"decay": true
+					}
+				}
+			],
+			"projectile": {
+				"radius": 0.01,
+				"damage": 20
+			}
+		},
+		"bouncer": {
+			"cooldown": 1,
+			"projectile": {
+				"maxTicks": 90000,
+				"damage": 35,
+				"expireOn": 90000
+			}
+		},
+		"repeater": {
+			"cooldown": 1,
+			"projectile": {
+				"radius": 0.02
+			}
+		},
+		"drain": {
+			"cooldown": 1,
+			"projectile": {
+				"radius": 0.005,
+				"speed": 2,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "enemy",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 1,
+						"redirect": true
+					}
+				]
+			}
+		},
+		"icewall": {
+			"maxRange": 1,
+			"maxTicks": 600,
+			"cooldown": 1,
+			"width": 0.9
+		},
+		"horcrux": {
+			"cooldown": 1,
+			"projectile": {
+				"maxTicks": 1000,
+				"minTicks": 400,
+				"damage": 0.0002,
+				"behaviours": [
+					{
+						"type": "updateCollideWith",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"collideWith": 65535
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 60,
+							"atCursor": true
+						},
+						"radius": 0.2,
+						"tickInterval": 6,
+						"maxHits": 10,
+						"packet": {
+							"damage": 2,
+							"lifeSteal": 1,
+							"minHealth": 0,
+							"noHit": true,
+							"noKnockback": true
+						},
+						"buffs": [
+							{
+								"type": "movement",
+								"stack": "horcrux",
+								"maxTicks": 10,
+								"movementProportion": 1,
+								"render": {
+									"color": "#22ee88",
+									"alpha": 0.3,
+									"glow": 0.7,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"light": 1
+								}
+							}
+						]
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"light": null
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(0, 0, 0, 0.05)",
+						"radius": 0.04,
+						"minRadius": 0.036
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(34, 238, 136, 0.1)",
+						"radius": 0.2,
+						"minRadius": 0.0325,
+						"shrinkTicks": 13,
+						"grow": true,
+						"fade": true,
+						"repeat": true
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(34, 238, 136, 0.5)",
+						"numPoints": 5,
+						"radiusMultiplier": 2.5,
+						"revolutionInterval": 60,
+						"ticks": 1,
+						"shine": 0
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"glow": 0.3,
+						"smoke": 0.3
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 1.25,
+						"numParticles": 5
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(34, 238, 136, 0.5)",
+						"radius": 0.04,
+						"minRadius": 0.0325,
+						"shrinkTicks": 10,
+						"startingTicks": 10
+					},
+					{
+						"type": "link",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"width": 0.001,
+						"toWidth": 0.002,
+						"glow": 0.3
+					}
+				]
+			}
+		},
+		"saber": {
+			"maxSpeed": 1,
+			"length": 0.9,
+			"cooldown": 1
+		},
+		"dualSaber": {
+			"length": 0.5,
+			"cooldown": 1
+		},
+		"scourge": {
+			"detonate": {
+				"damage": 75,
+				"radius": 0.5
+			},
+			"cooldown": 1,
+			"selfDamage": 0
+		},
+		"shield": {
+			"$delete": true
+		},
+		"phaseOut": {
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "cooldown",
+					"channelling": true,
+					"cleansable": true,
+					"maxTicks": 100000000,
+					"spellId": "phaseOut",
+					"cooldownRateModifier": 0
+				},
+				{
+					"type": "mass",
+					"channelling": true,
+					"cleansable": false,
+					"maxTicks": 60,
+					"radius": 0.0125,
+					"density": 1000000,
+					"restrictCollideWith": 0
+				},
+				{
+					"type": "armor",
+					"channelling": true,
+					"cleansable": false,
+					"maxTicks": 60,
+					"proportion": -1
+				},
+				{
+					"type": "movement",
+					"channelling": true,
+					"cleansable": false,
+					"maxTicks": 60,
+					"movementProportion": 0
+				},
+				{
+					"type": "glide",
+					"channelling": true,
+					"cleansable": false,
+					"maxTicks": 60,
+					"linearDampingMultiplier": 1000
+				},
+				{
+					"type": "vanish",
+					"channelling": true,
+					"noTargetingIndicator": true,
+					"noBuffs": true,
+					"cleansable": false,
+					"maxTicks": 60,
+					"sound": "phaseOut",
+					"renderStart": {
+						"numParticles": 10,
+						"color": "#111",
+						"ticks": 15,
+						"particleRadius": 0.0125,
+						"glow": 0.3,
+						"shine": 1,
+						"bloom": 0,
+						"vanish": 1,
+						"light": 1
+					},
+					"renderFinish": {
+						"numParticles": 10,
+						"color": "#111",
+						"ticks": 15,
+						"particleRadius": 0.0125,
+						"glow": 0.3,
+						"shine": 1,
+						"bloom": 0,
+						"vanish": 1,
+						"light": 1
+					}
+				}
+			]
+		},
+		"supernova": {
+			"$delete": true
+		},
+		"halo": {
+			"cooldown": 1,
+			"maxChannellingTicks": 9000000,
+			"intervalTicks": 180,
+			"lengthTicks": 362,
+			"projectile": {
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"ownerColor": true,
+						"radius": 0.02
+					},
+					{
+						"type": "ray",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"glow": 0,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"flash": true,
+						"numParticles": 9
+					}
+				]
+			}
+		},
+		"mines": {
+			"$delete": true
+		},
+		"iceBomb": {
+			"cooldown": 1,
+			"projectile": {
+				"density": 30,
+				"speed": 3,
+				"damage": 16,
+				"noKnockback": false,
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "iceBomb",
+						"maxStacks": 999,
+						"movementProportion": 0.1,
+						"maxTicks": 75,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"bloom": 0,
+							"vanish": 1
+						}
+					}
+				]
+			}
+		},
+		"teleport": {
+			"range": 2,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"owner": true,
+					"type": "lifeSteal",
+					"maxTicks": 1,
+					"damageMultiplier": 3000,
+					"minHealth": 1,
+					"decay": true
+				}
+			]
+		},
+		"thrust": {
+			"$delete": true
+		},
+		"blaze": {
+			"$delete": true
+		},
+		"swap": {
+			"$delete": true
+		},
+		"voidRush": {
+			"$delete": true
+		},
+		"vanish": {
+			"cooldown": 1,
+			"movementProportionWhileChannelling": 3,
+			"buffs": [
+				{
+					"type": "vanish",
+					"maxTicks": 99999999,
+					"channelling": true,
+					"cancelOnBump": false,
+					"sound": "vanish",
+					"renderStart": {
+						"numParticles": 10,
+						"color": "#111",
+						"ticks": 60,
+						"particleRadius": 0.0125,
+						"glow": 0.3,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"render": {
+						"invisible": true,
+						"color": "#181818",
+						"ticks": 60,
+						"particleRadius": 0.0125,
+						"glow": 0.3,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"renderFinish": {
+						"numParticles": 10,
+						"color": "#111",
+						"ticks": 60,
+						"particleRadius": 0.0125,
+						"glow": 0.3,
+						"shine": 0,
+						"bloom": 0,
+						"vanish": 1
+					}
+				}
+			]
+		},
+		"armor": {
+			"$delete": true
+		},
+		"empower": {
+			"$delete": true
+		},
+		"boost": {
+			"$delete": true
+		},
+		"bump": {
+			"buffs": [
+				{
+					"type": "bump",
+					"passive": true,
+					"hitInterval": 15,
+					"impulse": 0.019
+				}
+			]
+		}
+	}
+}
