@@ -1,0 +1,78 @@
+{
+	"Mod": {
+		"name": "Homing Cluster",
+		"author": "raysplaceinspace",
+		"description": "Fri, 10 Apr 2020 23:39:02 GMT",
+		"titleLeft": "Homing",
+		"titleRight": "Cluster!"
+	},
+	"Choices": {
+		"Options": {
+			"r": [
+				[
+					"cluster"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"cluster": {
+			"id": "cluster",
+			"description": "Shoot a cluster of slow-moving missiles at your enemy.",
+			"action": "spray",
+			"color": "#06f",
+			"icon": "boltSaw",
+			"cooldown": 540,
+			"throttle": true,
+			"maxAngleDiffInRevs": 0.01,
+			"intervalTicks": 5,
+			"lengthTicks": 25,
+			"jitterRatio": 0.3,
+			"projectile": {
+				"density": 25,
+				"radius": 0.002,
+				"speed": 0.15,
+				"maxTicks": 210,
+				"damage": 16,
+				"lifeSteal": 0.3,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.01
+					}
+				],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#06f",
+				"renderers": [
+					{
+						"type": "bloom",
+						"glow": 0.1,
+						"radius": 0.03
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"light": 0.5,
+						"smoke": 0.05,
+						"vanish": 0.75
+					},
+					{
+						"type": "ray",
+						"ticks": 30,
+						"light": 0.1,
+						"vanish": 0.75
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 1,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		}
+	}
+}
