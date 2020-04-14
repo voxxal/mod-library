@@ -1,0 +1,1002 @@
+{
+	"Mod": {
+		"name": "fire emblem",
+		"author": "mesoe",
+		"description": "Tue, 14 Apr 2020 01:04:02 GMT",
+		"titleLeft": "mesoe's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"World": {
+		"InitialRadius": 0.8,
+		"LavaDamage": {
+			"damage": 0
+		},
+		"SecondsToShrink": 9000000
+	},
+	"Hero": {
+		"MaxHealth": 50
+	},
+	"ObstacleTemplates": {
+		"miro": {
+			"health": 50000,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "bloom",
+					"color": "#fff8",
+					"strikeOnly": true,
+					"bloom": 0.05
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#ddd",
+					"deadColor": "#c33",
+					"gradient": 0.2
+				},
+				{
+					"type": "solid",
+					"color": "#999",
+					"deadColor": "#822",
+					"gradient": 0.3,
+					"expand": -0.003
+				}
+			]
+		}
+	},
+	"Choices": {
+		"Keys": [
+			null,
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "e",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "r",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			null,
+			{
+				"btn": "f",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			}
+		],
+		"Options": {
+			"a": [
+				[
+					"move"
+				]
+			],
+			"q": [
+				[
+					"aq",
+					"bq"
+				]
+			],
+			"w": [
+				[
+					"aw",
+					"bw"
+				]
+			],
+			"e": [
+				[
+					"ae",
+					"be"
+				]
+			],
+			"r": [
+				[
+					"ar",
+					"br"
+				]
+			],
+			"f": [
+				[
+					"af",
+					"bf"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"af": {
+			"id": "af",
+			"description": "After sending a defensive gesture, many units will spawn!",
+			"action": "projectile",
+			"color": "#f80",
+			"icon": "boltSaw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"projectile": {
+				"density": 50,
+				"ccd": false,
+				"radius": 0.018,
+				"speed": 0,
+				"maxTicks": 1200,
+				"damage": 0,
+				"collideWith": 577,
+				"expireOn": 3,
+				"expireAfterCursorTicks": 180000,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 512
+						},
+						"projectile": {
+							"density": 25,
+							"radius": 0.003,
+							"speed": 0.1,
+							"maxTicks": 9000,
+							"damage": 5,
+							"lifeSteal": 0.3,
+							"categories": 66,
+							"sound": "fireball",
+							"soundHit": "standard",
+							"color": "#f80",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.045
+								},
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"ticks": 30
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 5
+								}
+							],
+							"expireOn": 3,
+							"collideWith": 65535,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1024
+									},
+									"projectile": {
+										"density": 25,
+										"radius": 0.003,
+										"speed": 0.5,
+										"maxTicks": 9000,
+										"damage": 5,
+										"lifeSteal": 0.3,
+										"categories": 66,
+										"sound": "fireball",
+										"soundHit": "standard",
+										"color": "#f80",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.045
+											},
+											{
+												"type": "projectile",
+												"ticks": 30,
+												"smoke": 0.05
+											},
+											{
+												"type": "ray",
+												"ticks": 30
+											},
+											{
+												"type": "strike",
+												"ticks": 30,
+												"flash": true,
+												"numParticles": 5
+											}
+										],
+										"expireOn": 3,
+										"collideWith": 65535,
+										"behaviours": []
+									},
+									"numProjectiles": 2,
+									"spread": 1.5,
+									"expire": true
+								},
+								{
+									"type": "homing",
+									"trigger": {
+										"collideWith": 256
+									},
+									"targetType": "follow",
+									"newSpeed": 0.2,
+									"redirect": true
+								},
+								{
+									"type": "accelerate",
+									"trigger": {
+										"collideWith": 256
+									},
+									"maxSpeed": 0.4,
+									"accelerationPerSecond": 0.4
+								},
+								{
+									"type": "homing",
+									"trigger": {
+										"collideWith": 512
+									},
+									"targetType": "cursor",
+									"newSpeed": 0.4,
+									"revolutionsPerSecond": 1,
+									"maxTurnProportion": 0.065,
+									"minDistanceToTarget": 0.075
+								}
+							]
+						},
+						"numProjectiles": 10,
+						"spread": 2,
+						"expire": true
+					}
+				],
+				"sound": "meteorite",
+				"color": "#f80",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 12,
+						"light": null,
+						"shine": 0,
+						"smoke": 0.5,
+						"fade": "#333",
+						"shadow": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 12,
+						"flash": true,
+						"growth": 0.1
+					}
+				],
+				"categories": 64,
+				"square": true,
+				"attractable": false,
+				"swappable": true,
+				"linkable": true,
+				"speedDecayPerTick": 0.2,
+				"restitution": 0,
+				"minTicks": 1,
+				"hitInterval": 120,
+				"shieldTakesOwnership": false
+			},
+			"name": "(A) Strategic Takeover"
+		},
+		"ae": {
+			"id": "ae",
+			"name": "(A) Guard",
+			"description": "Defensive positioning.",
+			"action": "projectile",
+			"sound": "horcrux",
+			"color": "#f80",
+			"icon": "boltSaw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 540,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"restitution": 0,
+				"radius": 0.503,
+				"speed": 0,
+				"maxTicks": 6,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"collideWith": 64,
+				"expireOn": 0,
+				"conveyable": true,
+				"bumpable": true,
+				"shieldTakesOwnership": false,
+				"behaviours": [],
+				"sound": "homing",
+				"color": "#44ffcc",
+				"renderers": [],
+				"soundHit": "standard",
+				"sensor": true,
+				"categories": 512
+			}
+		},
+		"aw": {
+			"id": "aw",
+			"description": "Lead your units to victory!",
+			"action": "projectile",
+			"color": "#f80",
+			"icon": "boltSaw",
+			"cooldown": 540,
+			"throttle": true,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 25,
+				"radius": 0.503,
+				"speed": 0,
+				"maxTicks": 6,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"expireOn": 0,
+				"behaviours": [],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#44ffcc",
+				"renderers": [],
+				"sensor": true,
+				"collideWith": 64,
+				"categories": 256
+			},
+			"name": "(A) Rally"
+		},
+		"aq": {
+			"id": "aq",
+			"description": "Deploy a unit!",
+			"action": "projectile",
+			"color": "#f80",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"radius": 0.003,
+				"speed": 0,
+				"maxTicks": 9000,
+				"damage": 5,
+				"lifeSteal": 0.3,
+				"categories": 66,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#f80",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				],
+				"expireOn": 3,
+				"collideWith": 65535,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 1024
+						},
+						"projectile": {
+							"density": 25,
+							"radius": 0.003,
+							"speed": 0.5,
+							"maxTicks": 9000,
+							"damage": 5,
+							"lifeSteal": 0.3,
+							"categories": 66,
+							"sound": "fireball",
+							"soundHit": "standard",
+							"color": "#f80",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.045
+								},
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"ticks": 30
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 5
+								}
+							],
+							"expireOn": 3,
+							"collideWith": 65535,
+							"behaviours": []
+						},
+						"numProjectiles": 2,
+						"spread": 1.5,
+						"expire": true
+					},
+					{
+						"type": "homing",
+						"trigger": {
+							"collideWith": 256
+						},
+						"targetType": "follow",
+						"newSpeed": 0.2,
+						"redirect": true
+					},
+					{
+						"type": "accelerate",
+						"trigger": {
+							"collideWith": 256
+						},
+						"maxSpeed": 0.4,
+						"accelerationPerSecond": 0.4
+					},
+					{
+						"type": "homing",
+						"trigger": {
+							"collideWith": 512
+						},
+						"targetType": "cursor",
+						"newSpeed": 0.4,
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.065,
+						"minDistanceToTarget": 0.075
+					}
+				]
+			},
+			"name": "(A) Deploy"
+		},
+		"ar": {
+			"id": "ar",
+			"name": "(A) Scatter",
+			"description": "Confuse the opponents!",
+			"action": "projectile",
+			"sound": "mines",
+			"color": "#f80",
+			"icon": "boltSaw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 540,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 5,
+			"jitterRatio": 0.7,
+			"projectile": {
+				"density": 25,
+				"radius": 0.503,
+				"speed": 0,
+				"maxTicks": 6,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"expireOn": 0,
+				"behaviours": [],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#f80",
+				"renderers": [],
+				"sensor": true,
+				"collideWith": 64,
+				"categories": 1024
+			}
+		},
+		"bq": {
+			"id": "bq",
+			"description": "Deploy a unit!",
+			"action": "projectile",
+			"color": "#0077ff",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"radius": 0.003,
+				"speed": 0,
+				"maxTicks": 9000,
+				"damage": 5,
+				"lifeSteal": 0.3,
+				"categories": 130,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#0077ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				],
+				"expireOn": 3,
+				"collideWith": 65535,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 1024
+						},
+						"projectile": {
+							"density": 25,
+							"radius": 0.003,
+							"speed": 0.5,
+							"maxTicks": 9000,
+							"damage": 5,
+							"lifeSteal": 0.3,
+							"categories": 130,
+							"sound": "fireball",
+							"soundHit": "standard",
+							"color": "#0077ff",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.045
+								},
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"ticks": 30
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 5
+								}
+							],
+							"expireOn": 3,
+							"collideWith": 65535,
+							"behaviours": []
+						},
+						"numProjectiles": 2,
+						"spread": 1.5,
+						"expire": true
+					},
+					{
+						"type": "homing",
+						"trigger": {
+							"collideWith": 256
+						},
+						"targetType": "follow",
+						"newSpeed": 0.2,
+						"redirect": true
+					},
+					{
+						"type": "accelerate",
+						"trigger": {
+							"collideWith": 256
+						},
+						"maxSpeed": 0.4,
+						"accelerationPerSecond": 0.4
+					},
+					{
+						"type": "homing",
+						"trigger": {
+							"collideWith": 512
+						},
+						"targetType": "cursor",
+						"newSpeed": 0.4,
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.065,
+						"minDistanceToTarget": 0.075
+					}
+				]
+			},
+			"name": "(B) Deploy"
+		},
+		"bw": {
+			"id": "bw",
+			"description": "Lead your units to victory!",
+			"action": "projectile",
+			"color": "#0077ff",
+			"icon": "boltSaw",
+			"cooldown": 540,
+			"throttle": true,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 25,
+				"radius": 0.503,
+				"speed": 0,
+				"maxTicks": 6,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"expireOn": 0,
+				"behaviours": [],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#44ffcc",
+				"renderers": [],
+				"sensor": true,
+				"collideWith": 128,
+				"categories": 256
+			},
+			"name": "(B) Rally"
+		},
+		"be": {
+			"id": "be",
+			"name": "(B) Guard",
+			"description": "Defensive positioning.",
+			"action": "projectile",
+			"sound": "horcrux",
+			"color": "#0077ff",
+			"icon": "boltSaw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 540,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"restitution": 0,
+				"radius": 0.503,
+				"speed": 0,
+				"maxTicks": 6,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"collideWith": 128,
+				"expireOn": 0,
+				"conveyable": true,
+				"bumpable": true,
+				"shieldTakesOwnership": false,
+				"behaviours": [],
+				"sound": "homing",
+				"color": "#44ffcc",
+				"renderers": [],
+				"soundHit": "standard",
+				"sensor": true,
+				"categories": 512
+			}
+		},
+		"bf": {
+			"id": "bf",
+			"description": "After any defensive gesture, many units will spawn!",
+			"action": "projectile",
+			"color": "#0077ff",
+			"icon": "boltSaw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"projectile": {
+				"density": 50,
+				"ccd": false,
+				"radius": 0.018,
+				"speed": 0,
+				"maxTicks": 1200,
+				"damage": 0,
+				"collideWith": 641,
+				"expireOn": 3,
+				"expireAfterCursorTicks": 180000,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 512
+						},
+						"projectile": {
+							"density": 25,
+							"radius": 0.003,
+							"speed": 0.1,
+							"maxTicks": 9000,
+							"damage": 5,
+							"lifeSteal": 0.3,
+							"categories": 130,
+							"sound": "fireball",
+							"soundHit": "standard",
+							"color": "#07f",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.045
+								},
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"ticks": 30
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 5
+								}
+							],
+							"expireOn": 3,
+							"collideWith": 65535,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1024
+									},
+									"projectile": {
+										"density": 25,
+										"radius": 0.003,
+										"speed": 0.5,
+										"maxTicks": 9000,
+										"damage": 5,
+										"lifeSteal": 0.3,
+										"categories": 130,
+										"sound": "fireball",
+										"soundHit": "standard",
+										"color": "#0077ff",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.045
+											},
+											{
+												"type": "projectile",
+												"ticks": 30,
+												"smoke": 0.05
+											},
+											{
+												"type": "ray",
+												"ticks": 30
+											},
+											{
+												"type": "strike",
+												"ticks": 30,
+												"flash": true,
+												"numParticles": 5
+											}
+										],
+										"expireOn": 3,
+										"collideWith": 65535,
+										"behaviours": []
+									},
+									"numProjectiles": 2,
+									"spread": 1.5,
+									"expire": true
+								},
+								{
+									"type": "homing",
+									"trigger": {
+										"collideWith": 256
+									},
+									"targetType": "follow",
+									"newSpeed": 0.2,
+									"redirect": true
+								},
+								{
+									"type": "accelerate",
+									"trigger": {
+										"collideWith": 256
+									},
+									"maxSpeed": 0.4,
+									"accelerationPerSecond": 0.4
+								},
+								{
+									"type": "homing",
+									"trigger": {
+										"collideWith": 512
+									},
+									"targetType": "cursor",
+									"newSpeed": 0.4,
+									"revolutionsPerSecond": 1,
+									"maxTurnProportion": 0.065,
+									"minDistanceToTarget": 0.075
+								}
+							]
+						},
+						"numProjectiles": 10,
+						"spread": 2,
+						"expire": true
+					}
+				],
+				"sound": "meteorite",
+				"color": "#0077ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 12,
+						"light": null,
+						"shine": 0,
+						"smoke": 0.5,
+						"fade": "#333",
+						"shadow": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 12,
+						"flash": true,
+						"growth": 0.1
+					}
+				],
+				"categories": 128,
+				"square": true,
+				"attractable": false,
+				"swappable": true,
+				"linkable": true,
+				"speedDecayPerTick": 0.2,
+				"restitution": 0,
+				"minTicks": 1,
+				"hitInterval": 120,
+				"shieldTakesOwnership": false
+			},
+			"name": "(A) Strategic Takeover"
+		},
+		"br": {
+			"id": "br",
+			"name": "(B) Scatter",
+			"description": "Confuse the opponents!",
+			"action": "projectile",
+			"sound": "mines",
+			"color": "#0077ff",
+			"icon": "boltSaw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 540,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 5,
+			"jitterRatio": 0.7,
+			"projectile": {
+				"density": 25,
+				"radius": 0.503,
+				"speed": 0,
+				"maxTicks": 6,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"expireOn": 0,
+				"behaviours": [],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#0077ff",
+				"renderers": [],
+				"sensor": true,
+				"collideWith": 128,
+				"categories": 1024
+			}
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"$delete": true
+		},
+		"cold": {
+			"$delete": true
+		},
+		"octogon": {
+			"$delete": true
+		},
+		"return": {
+			"$delete": true
+		},
+		"double": {
+			"$delete": true
+		},
+		"ring": {
+			"$delete": true
+		},
+		"exit": {
+			"$delete": true
+		},
+		"heal": {
+			"$delete": true
+		},
+		"snowflake": {
+			"$delete": true
+		},
+		"inside5": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		},
+		"pepper": {
+			"$delete": true
+		},
+		"mirrors": {
+			"$delete": true
+		},
+		"innerStar": {
+			"$delete": true
+		},
+		"mirrorhenge": {
+			"obstacles": [
+				{
+					"type": "miro",
+					"numObstacles": 2,
+					"layoutRadius": 0.18,
+					"layoutAngleOffsetInRevs": 0.08333333,
+					"numPoints": 4,
+					"extent": 0.003,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.25
+				},
+				{
+					"type": "miro",
+					"numObstacles": 4,
+					"layoutRadius": 0.48,
+					"layoutAngleOffsetInRevs": 0.08333333,
+					"numPoints": 4,
+					"extent": 0.003,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.2
+				}
+			]
+		},
+		"spiral": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		}
+	}
+}
