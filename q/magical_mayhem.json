@@ -1,0 +1,706 @@
+{
+	"Mod": {
+		"name": "magical mayhem",
+		"author": "q",
+		"description": "Mon, 30 Dec 2019 20:09:10 GMT",
+		"subtitleLeft": "Magical",
+		"subtitleRight": "Mayhem!"
+	},
+	"ObstacleTemplates": {
+		"explosive": {
+			"detonate": {
+				"damage": 100
+			}
+		}
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"thrust"
+				],
+				[
+					"teleport"
+				],
+				[
+					"voidRush"
+				],
+				[
+					"vanish"
+				]
+			],
+			"q": [
+				[
+					"fireball"
+				],
+				[
+					"difire"
+				],
+				[
+					"hyperLightBlaster"
+				],
+				[
+					"whip"
+				]
+			],
+			"w": [
+				[
+					"homing"
+				],
+				[
+					"hurricane"
+				],
+				[
+					"gravity"
+				],
+				[
+					"electroBolt"
+				]
+			],
+			"e": [
+				[
+					"shield"
+				],
+				[
+					"masterSword"
+				],
+				[
+					"magicMissle"
+				],
+				[
+					"fallingMeteor"
+				]
+			],
+			"r": [
+				[
+					"damageUp"
+				],
+				[
+					"speedUp"
+				],
+				[
+					"armourUp"
+				],
+				[
+					"evoBoost"
+				]
+			],
+			"f": [
+				[
+					"scourge"
+				],
+				[
+					"firespray"
+				],
+				[
+					"mines"
+				],
+				[
+					"halo"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"hurricane": {
+			"id": "hurricane",
+			"name": "Hurricane",
+			"description": "A freezing whirlwind to slow and damage your enemies. While acive, you cannot move and it follows your cursor",
+			"effects": [
+				{
+					"icon": "fas fa-snowflake",
+					"title": "Slow",
+					"text": "Enemies caught in your freezing breath will be slowed 50% for 2 seconds."
+				}
+			],
+			"action": "focus",
+			"color": "#44ffff",
+			"movementProportionWhileChannelling": 0.05,
+			"focusDelaysCooldown": false,
+			"throttle": true,
+			"interruptibleAfterTicks": 0,
+			"strikeCancel": {},
+			"icon": "snowflake1",
+			"sound": "whirlwind",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 0.0069,
+				"radius": 0.03,
+				"speed": 0.25,
+				"maxTicks": 120,
+				"damage": 8,
+				"collideWith": 1,
+				"expireOn": 0,
+				"swappable": false,
+				"sensor": true,
+				"noKnockback": true,
+				"hitInterval": 15,
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 4,
+						"categories": 15,
+						"against": 12,
+						"radius": 0.03,
+						"accelerationPerTick": -0.03,
+						"maxSpeed": 0.2
+					},
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.006
+					},
+					{
+						"type": "expireOnChannellingEnd"
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "hurricane",
+						"movementProportion": 0.5,
+						"maxTicks": 120,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 0.5)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.2,
+							"bloom": 0.03
+						}
+					}
+				],
+				"sound": "whirlwind",
+				"color": "#44ffff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(64, 255, 255, 0.2)",
+						"radius": 0.01,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 2,
+						"particleRadius": 0.02,
+						"shine": 0.2,
+						"smoke": 1.3,
+						"fade": "#144",
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"magicMissle": {
+			"id": "magicMissle",
+			"name": "Magic Missle",
+			"description": "Unleash a magic missle. The missle flies forward until you release the spell button, then it homes in on an enemy.",
+			"action": "focus",
+			"color": "#ff8855",
+			"icon": "mightyForce",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"focusDelaysCooldown": false,
+			"movementProportionWhileChannelling": 1,
+			"throttle": true,
+			"interruptibleAfterTicks": 0,
+			"release": {},
+			"releaseBehaviours": [
+				{
+					"type": "homing",
+					"newSpeed": 0.15,
+					"revolutionsPerSecond": 1,
+					"redirect": false,
+					"maxTurnProportion": 0.05
+				}
+			],
+			"strikeCancel": {},
+			"projectile": {
+				"damage": 0,
+				"density": 1,
+				"radius": 0.005,
+				"speed": 0.25,
+				"maxTicks": 210,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"shieldTakesOwnership": false,
+				"partialDetonateRadius": {
+					"initialMultiplier": 0.5,
+					"ticks": 60
+				},
+				"detonate": {
+					"damage": 20,
+					"radius": 0.028,
+					"minImpulse": 0.0006,
+					"maxImpulse": 0.0008,
+					"renderTicks": 10
+				},
+				"partialBuffDuration": {
+					"initialMultiplier": 0.33,
+					"ticks": 60
+				},
+				"sound": "rocket",
+				"color": "#ff9a00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"ownerColor": true,
+						"radius": 0.028
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.028,
+						"minRadius": 0.024,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 5,
+						"glow": 0.2,
+						"smoke": 0.5,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"ownerColor": true,
+						"numParticles": 9
+					}
+				]
+			}
+		},
+		"damageUp": {
+			"id": "damageUp",
+			"name": "Damage Boost",
+			"description": "Use to do 40% more damage for 3 seconds.",
+			"effects": [
+				{
+					"icon": "fas fa-sword",
+					"title": "Empowered",
+					"text": "Increase damage dealt by 40%."
+				}
+			],
+			"passive": false,
+			"untargeted": true,
+			"cooldown": 400,
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"damageMultiplier": 1.4,
+					"maxTicks": 180,
+					"render": {
+						"color": "rgb(255, 0, 0, 0.2)",
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.0125,
+						"shine": 0.2,
+						"glow": 0.2,
+						"bloom": 0.02,
+						"vanish": 1,
+						"decay": false
+					}
+				}
+			],
+			"icon": "fireSilhouette",
+			"color": "#40f",
+			"action": "buff"
+		},
+		"fallingMeteor": {
+			"id": "fallingMeteor",
+			"name": "Falling Meteor",
+			"description": "Launch a falling meteor that falls.",
+			"action": "projectile",
+			"color": "#ff9a00",
+			"icon": "crownedExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"projectile": {
+				"partialDetonateRadius": {
+					"initialMultiplier": 0.1,
+					"ticks": 30
+				},
+				"density": 5,
+				"ccd": false,
+				"radius": 0.001,
+				"speed": 0.3,
+				"maxTicks": 120,
+				"damage": 0,
+				"collideWith": 0,
+				"expireOn": 0,
+				"expireAfterCursorTicks": 18,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 120
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"detonate": {
+					"damage": 0,
+					"radius": 0.05,
+					"minImpulse": 0.0004,
+					"maxImpulse": 0.001,
+					"renderTicks": 30
+				},
+				"sound": "supernova",
+				"color": "#ff9a00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "ray",
+						"ticks": 60,
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "#ff9a00",
+						"minRadius": 0,
+						"remainingTicks": 0,
+						"usePartialDamageMultiplier": true,
+						"shrinkTicks": 100,
+						"radius": 0.04
+					}
+				]
+			}
+		},
+		"hyperLightBlaster": {
+			"id": "hyperLightBlaster",
+			"name": "Hyper Light Blaster",
+			"description": "Fire 3 blasts that greatly reduces cooldown if you hit. Dont miss, as this has a long cooldown.",
+			"action": "spray",
+			"color": "#ff009c",
+			"icon": "sonicLightning",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"chargeTicks": 0,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 15,
+			"lengthTicks": 45,
+			"jitterRatio": 0.1,
+			"projectile": {
+				"density": 0.5,
+				"radius": 0.005,
+				"speed": 0.8,
+				"maxTicks": 60,
+				"damage": 12,
+				"source": "repeater",
+				"lifeSteal": 0.3,
+				"collideWith": 65533,
+				"expireOn": 65519,
+				"buffs": [
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "hyperLightBlaster",
+						"maxCooldown": 90
+					}
+				],
+				"sound": "repeater",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "projectile",
+						"ticks": 15
+					},
+					{
+						"type": "ray",
+						"ticks": 15
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"masterSword": {
+			"id": "masterSword",
+			"name": "Legendary Sword",
+			"description": "Bring out the epic legendary sword. Its so sharp, it cuts through enemies without doing knockback. 30 damage",
+			"untargeted": true,
+			"unlink": true,
+			"takesOwnership": true,
+			"blocksTeleporters": false,
+			"shiftMultiplier": 0.08,
+			"speedMultiplier": 0.5,
+			"maxSpeed": 0.05,
+			"maxTurnRatePerTickInRevs": 0.1,
+			"damageMultiplier": 0.5,
+			"angleOffsetsInRevs": [
+				1
+			],
+			"width": 0.001,
+			"length": 0.075,
+			"movementProportionWhileChannelling": 0.2,
+			"interruptibleAfterTicks": 20,
+			"cooldown": 600,
+			"throttle": false,
+			"icon": "waveStrike",
+			"maxTicks": 60,
+			"channelling": true,
+			"categories": 16,
+			"collidesWith": 3,
+			"damageTemplate": {
+				"damage": 30
+			},
+			"hitBuffs": [
+				{
+					"type": "delink"
+				}
+			],
+			"trailTicks": 1,
+			"color": "#00ccff",
+			"shine": 0.1,
+			"glow": 0.2,
+			"bloom": 0.03,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"bloom": 0.03
+			},
+			"sound": "saber",
+			"action": "saber"
+		},
+		"electroBolt": {
+			"id": "electroBolt",
+			"name": "Electro Bolt",
+			"description": "Does damage, knockback, and stuns!",
+			"action": "projectile",
+			"color": "#ffff00",
+			"icon": "lightningHelix",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"density": 1,
+				"radius": 0.0025,
+				"speed": 3,
+				"maxTicks": 30,
+				"collideWith": 65533,
+				"swappable": false,
+				"damage": 20,
+				"sound": "lightning",
+				"color": "#ffff00",
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "zap",
+						"movementProportion": 0,
+						"maxTicks": 30,
+						"against": 12,
+						"render": {
+							"color": "rgba(255, 255, 0, 0.1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.2,
+							"bloom": 0.03
+						}
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.01
+					}
+				]
+			}
+		},
+		"speedUp": {
+			"id": "speedUp",
+			"name": "Speed Boost",
+			"description": "Triple speeeeeeeeed!!!! (only for 1 second)",
+			"untargeted": true,
+			"maxAngleDiffInRevs": 1,
+			"cooldown": 600,
+			"throttle": false,
+			"debuff": true,
+			"buffs": [
+				{
+					"type": "movement",
+					"movementProportion": 3,
+					"maxTicks": 60,
+					"render": {
+						"color": "#8800ff",
+						"heroColor": true,
+						"ticks": 60,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				}
+			],
+			"icon": "sprint",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"evoBoost": {
+			"id": "evoBoost",
+			"name": "Evo Boost",
+			"description": "Buffs damage, speed, and reduces damage and knockback at 15%. Lasts for 1 second,",
+			"passive": false,
+			"untargeted": true,
+			"cooldown": 450,
+			"buffs": [
+				{
+					"type": "mass",
+					"maxTicks": 60,
+					"radius": 0.0125,
+					"density": 1.15
+				},
+				{
+					"type": "armor",
+					"cleansable": false,
+					"maxTicks": 60,
+					"proportion": -0.15
+				},
+				{
+					"type": "lifeSteal",
+					"damageMultiplier": 1.15,
+					"maxTicks": 60,
+					"render": {
+						"color": "rgb(255, 0, 0, 0.2)",
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.0125,
+						"shine": 0.2,
+						"glow": 0.2,
+						"bloom": 0.02,
+						"vanish": 1,
+						"decay": false
+					}
+				},
+				{
+					"type": "movement",
+					"movementProportion": 1.15,
+					"maxTicks": 60,
+					"render": {
+						"color": "#8800ff",
+						"heroColor": true,
+						"ticks": 60,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				}
+			],
+			"icon": "fireSilhouette",
+			"color": "#40f",
+			"action": "buff"
+		},
+		"armourUp": {
+			"id": "armourUp",
+			"name": "Armour Boost",
+			"description": "halves damage for 2 seconds, but slows you down.",
+			"passive": false,
+			"untargeted": true,
+			"cooldown": 450,
+			"buffs": [
+				{
+					"type": "mass",
+					"maxTicks": 120,
+					"radius": 0.0125,
+					"density": 1.15
+				},
+				{
+					"type": "armor",
+					"cleansable": false,
+					"maxTicks": 120,
+					"proportion": -0.5
+				},
+				{
+					"type": "movement",
+					"movementProportion": 0.75,
+					"maxTicks": 120,
+					"render": {
+						"color": "#8800ff",
+						"heroColor": true,
+						"ticks": 20,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"glow": 0.2,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				}
+			],
+			"icon": "fireSilhouette",
+			"color": "#40f",
+			"action": "buff"
+		}
+	},
+	"Icons": {
+		"fireSilhouette": {
+			"path": "M272.95 16.707c-151.29 47.714 57.322 110.88-26.536 131.344C190.7 161.648 137.3 96.283 192.947 45.313c-90.766 32.524-66.292 89.67-12.396 113.25 34.31 15.01 31.884 61.38 8.643 64.637 46.37-54.285-116.637-44.737-86.03-147.47-126.44 158.063 132.535 163.37 51.6 273.194 16.4-51.26-51.074-33.42-65.52-77.88-48.557 115.975 86.87 96.047 107.81 222.95h36.394l-7.375-108.703H196.93c0-49.724 3.178-108.336 45.2-116.245-7.75-9.352-12.786-24.51-12.786-39.207 0-26.536 15.774-48.523 35.98-51.15h.002c1.348-.17 2.78 0 4.164 0 22.13 0 40.145 22.846 40.145 51.15 0 14.334-4.772 29.304-12.192 38.613 45.905 7.12 44.903 66.976 44.903 116.84H314.69l-6.524 108.704h36.752c14.29-138.24 137.056-121.245 77.576-235.742 9.728 46.034-32.646 93.67-53.514 52.13-19.04-37.903 125.515-105.092 70.21-215.175 4.588 81.484-114.155 120.303-118.663 65.824 52.768 23.022 73.61-45.905 30.02-71.985-40.69-24.346-116.444-36.76-77.596-72.338zm69.488 20.635c44.895 15.685 63.888 78.675 48.73 110.674 18.238-3.568 70.807-106.98-48.73-110.674z"
+		}
+	},
+	"Code": "var center = { x: 0.5, y: 0.5 };\n\nvar CloseEnoughDistance = 0.01;\nvar MissRadius = 0.05;\nvar DodgeRadius = 0.15;\nvar SpellCastIntervalMilliseconds = 1000;\nvar SpellCastJitterMilliseconds = 500;\n\nvar TicksPerSecond = 60;\n\nvar DefaultReactionMilliseconds = 600;\nvar ReactionMillisecondsLookup = { // Change the reaction time on certain spells\n    retarget: 200,\n};\n\nvar alreadyChosenSpells = false;\nvar nextSpell = 0;\n\n// See ai.contracts.ts:\n// input is InputContract - contains information about the current state of the world\n// output is OutputContract - an action you want to take in response to the world \nfunction act(input) {\n    // Want the bot to do nothing? Uncomment the line below (remove the //):\n    return null;\n\n    var state = input.state;\n    var heroId = input.heroId;\n    var hero = state.heroes[heroId];\n    var cooldowns = input.cooldowns;\n    var settings = input.settings;\n\n    var opponent = findOpponent(state.heroes, heroId);\n    if (!(hero && opponent)) {\n        // Either we're dead, or everyone else is, nothing to do\n        return null;\n    }\n    \n    var action = null;\n    if (state.started) {\n        action =\n            recovery(state, hero, cooldowns)\n            || dodge(state, hero, cooldowns)\n            || castSpell(state, hero, opponent, cooldowns, settings)\n            || focus(hero, opponent)\n            || chase(state, hero, cooldowns, opponent)\n            || move(state, hero);\n    } else {\n        action =\n            chooseSpells(settings)\n            || dodge(state, hero, cooldowns)\n            || move(state, hero);\n    }\n\n    if (action) {\n        // Give the bot a reaction time otherwise it is OP\n        var reactionMilliseconds = ReactionMillisecondsLookup[action.spellId] || DefaultReactionMilliseconds;\n        action.delayMilliseconds = reactionMilliseconds;\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction chooseSpells(settings) {\n    if (alreadyChosenSpells) {\n        return null;\n    }\n    alreadyChosenSpells = true;\n\n    var spells = randomSpells(settings);\n\n    // Want to test a particular spell? Uncomment and edit the lines below\n    // spells[\"e\"] = \"saber\";\n\n    return { spells };\n}\n\nfunction randomSpells(settings) {\n\tvar keyBindings = {};\n\tvar allOptions = settings.Choices.Options;\n\tfor (var btn in allOptions) { // One of the buttons, e.g. Q or R\n        var options = allOptions[btn];\n\n        var spellIds = [];\n        for (var i = 0; i < options.length; ++i) {\n            var row = options[i];\n            for (var j = 0; j < row.length; ++j) {\n                var spellId = row[j];\n                spellIds.push(spellId);\n            }\n        }\n\n\t\tif (spellIds.length > 1) {\n\t\t\tkeyBindings[btn] = spellIds[Math.floor(Math.random() * spellIds.length)];\n\t\t}\n\t}\n\treturn keyBindings;\n}\n\nfunction findOpponent(heroes, myHeroId) {\n    var myHero = heroes[myHeroId];\n    if (!myHero) {\n        return null;\n    }\n\n    var choice = null;\n    var mostHealth = 0;\n    for (var heroId in heroes) {\n        var hero = heroes[heroId];\n\n        if (!hero.isEnemy) { continue; }\n\n        // Uncomment the line below to only target humans\n        // if (hero.isBot) { continue; }\n\n        if (hero.health > mostHealth) {\n            // Target the enemy with the most health\n            mostHealth = hero.health;\n            choice = hero;\n        }\n    }\n    return choice;\n}\n\nfunction recovery(state, hero, cooldowns) {\n    if (hero.inside || state.radius <= 0) {\n        // No need to recover\n        return null;\n    }\n\n    var spellId = null;\n    if (cooldowns[\"teleport\"] === 0) {\n        spellId = \"teleport\";\n    } else if (cooldowns[\"thrust\"] === 0) {\n        spellId = \"thrust\";\n    } else if (cooldowns[\"swap\"] === 0) {\n        spellId = \"swap\";\n    } else if (cooldowns[\"voidRush\"] === 0) {\n        spellId = \"voidRush\";\n    } else if (cooldowns[\"vanish\"] === 0) {\n        spellId = \"vanish\";\n    } else {\n        spellId = \"move\";\n    }\n\n    if (spellId) {\n        return { spellId, target: center };\n    }\n    return null;\n}\n\nfunction deflect(state, hero, cooldowns, projectile) {\n    var target = vectorMidpoint(hero.pos, projectile.pos);\n    var spellId = null;\n    if (cooldowns[\"shield\"] === 0) {\n        spellId = \"shield\";\n    } else if (cooldowns[\"icewall\"] === 0) {\n        spellId = \"icewall\";\n    } else if (cooldowns[\"saber\"] === 0) {\n        spellId = \"saber\";\n    } else if (cooldowns[\"dualSaber\"] === 0) {\n        spellId = \"dualSaber\";\n    } else if (cooldowns[\"meteor\"] === 0) {\n        spellId = \"meteor\";\n    } else if (cooldowns[\"meteorite\"] === 0) {\n        spellId = \"meteorite\";\n    } else if (cooldowns[\"whirlwind\"] === 0) {\n        spellId = \"whirlwind\";\n    } else if (cooldowns[\"phaseOut\"] === 0) {\n        spellId = \"phaseOut\";\n    } else {\n        spellId = null;\n    }\n\n    if (spellId) {\n        return { spellId, target };\n    } else {\n        return null;\n    }\n}\n\nfunction castSpell(state, hero, opponent, cooldowns, settings) {\n    if (!readyForNextSpell(hero)) {\n        return null;\n    }\n\n    var candidates = [];\n    for (var spellId in cooldowns) {\n        var readyToCast = !cooldowns[spellId];\n        var spell = settings.Spells[spellId];\n\n        if (spell\n            && readyToCast\n            && validAttack(state, hero, opponent, spell)) {\n\n            candidates.push(spellId);\n        }\n    }\n\n    if (candidates.length > 0) {\n        var spellId = candidates[Math.floor(Math.random() * candidates.length)];\n        var action = { spellId, target: jitter(opponent.pos, MissRadius) };\n        if (action.spellId === spellId) {\n            updateNextSpellTime();\n        }\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction validAttack(state, hero, opponent, spell) {\n    var opponentShielded = !!opponent.shieldTicksRemaining;\n\n    var distance = vectorDistance(hero.pos, opponent.pos);\n    if (spell.action === \"projectile\" || spell.action === \"spray\" || spell.action === \"retractor\" || spell.action === \"focus\" || spell.action === \"charge\") {\n        if (spell.projectile.swapWith) { // Swap doesn't work as an attack\n            return false;\n        }\n        if (opponentShielded && !spell.projectile.detonate) { // Detonate spells can penetrate shields, nothing else can\n            return false;\n        }\n        if (spell.id === \"whip\") {\n            // Just keep casting Electroshock even if out of range\n            return true;\n        }\n\n        var range = spell.projectile.speed * spell.projectile.maxTicks / TicksPerSecond + opponent.radius;\n        return distance <= range;\n    } else if (spell.action === \"scourge\") {\n        var range = spell.radius + opponent.radius;\n        return distance <= range;\n    } else if (spell.id === \"blaze\") {\n        return true;\n    } else {\n        return false;\n    }\n}\n\nfunction readyForNextSpell(hero) {\n    return (\n        Date.now() >= nextSpell // Don't cast too fast\n        || !!hero.link // If linked to something, cast as many spells as possible\n    );\n}\n\nfunction updateNextSpellTime() {\n    nextSpell = Date.now() + SpellCastIntervalMilliseconds + Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * SpellCastJitterMilliseconds);\n}\n\nfunction jitter(target, missRadius) {\n    var radius = Math.random() * missRadius;\n    var angle = Math.random() * 2 * Math.PI;\n    return {\n        x: target.x + radius * Math.cos(angle),\n        y: target.y + radius * Math.sin(angle),\n    };\n}\n\nfunction focus(hero, opponent) { // When using a spell (e.g. Acolyte Beam, Spirit Missile) - ensure we are focusing the enemy, otherwise we will miss\n    if (hero.casting) {\n        if (hero.casting.spellId === \"blast\" || hero.casting.spellId === \"retractor\" || hero.casting.spellId === \"rocket\") {\n            // Have to release or it won't fire\n            return { spellId: hero.casting.spellId, release: true, target: opponent.pos };\n        } else if (hero.casting.spellId === \"saber\" || hero.casting.spellId === \"dualSaber\") {\n            // Don't focus the lightsaber, just swish it around\n            return { spellId: \"retarget\", target: vectorPlus(hero.pos, vectorFromAngle(hero.heading + Math.PI / 2)) };\n        } else if (hero.casting.spellId === \"grapple\") {\n            // Throw away to the right (TODO: be smarter about this)\n            return { spellId: hero.casting.spellId, release: true, target: vectorPlus(hero.pos, vectorFromAngle(hero.heading + Math.PI / 2)) };\n        } else if (hero.casting.spellId === \"halo\") {\n            return { spellId: \"move\", target: opponent.pos };\n        } else {\n            return { spellId: \"retarget\", target: opponent.pos };\n        }\n    } else {\n        return null;\n    }\n}\n\nfunction chase(state, hero, cooldowns, opponent) {\n    if (\"whip\" in cooldowns) {\n        // Got to get within range when using Electroshock\n        var target = vectorMidpoint(hero.pos, opponent.pos);\n        return { spellId: \"move\", target };\n    } else {\n        return null;\n    }\n}\n\nfunction move(state, hero) {\n    var centroid = { x: 0, y: 0 };\n    var numOpponents = 0;\n    for (var heroId in state.heroes) {\n        if (heroId === hero.id) {\n            continue; // Ignore self\n        }\n\n        var opponent = state.heroes[heroId];\n        centroid.x += opponent.pos.x;\n        centroid.y += opponent.pos.y;\n\n        ++numOpponents;\n    }\n    centroid.x /= numOpponents;\n    centroid.y /= numOpponents;\n\n    if (!numOpponents) {\n        return;\n    }\n\n    var offset = vectorNegate(vectorDiff(centroid, center)); // Move to the opposite side of the arena\n    var targetDistance = state.radius * 0.33; // Closer to center than edge (for polygonal maps)\n    var target = vectorPlus(center, vectorRelengthen(offset, targetDistance));\n\n    var distanceToTarget = vectorDistance(hero.pos, target);\n    if (distanceToTarget <= CloseEnoughDistance) {\n        // Close enough - don't send any action so the game can sleep while waiting for players\n        return null;\n    }\n\n    return { spellId: \"move\", target };\n}\n\nfunction dodge(state, hero, cooldowns) {\n    for (var projectileId in state.projectiles) {\n        var projectile = state.projectiles[projectileId];\n        if (projectile.ownerId === hero.id) {\n            // This is my own projectile\n            continue;\n        }\n\n        if (projectile.spellId === \"halo\") {\n            // Halo is never coming for us, it orbits around its owner\n            continue;\n        }\n\n        var diff = vectorDiff(hero.pos, projectile.pos);\n        var distancePerTimeStep = vectorDot(projectile.velocity, vectorUnit(diff));\n        if (distancePerTimeStep <= 0) {\n            // Not coming towards us\n            continue;\n        }\n\n        var timeToCollision = vectorLength(diff) / distancePerTimeStep;\n        if (timeToCollision <= 0 || timeToCollision >= 30) {\n            // Not coming towards us or too far away\n            continue;\n        }\n\n        var collisionPoint = vectorPlus(projectile.pos, vectorMultiply(projectile.velocity, timeToCollision));\n        var distanceToCollision = vectorDistance(collisionPoint, hero.pos);\n        var dodgeRadius = Math.max(DodgeRadius, projectile.radius) + hero.radius;\n        if (distanceToCollision > dodgeRadius) {\n            // Won't hit us\n            continue;\n        }\n\n        var deflectAction = deflect(state, hero, cooldowns, projectile);\n        if (deflectAction) {\n            return deflectAction;\n        }\n\n        // Run away from collision point\n        var direction = vectorUnit(vectorNegate(vectorDiff(collisionPoint, hero.pos)));\n        var step = vectorMultiply(direction, dodgeRadius);\n        var target = vectorPlus(hero.pos, step);\n        return { spellId: \"move\", target };\n    }\n    return null;\n}\n\nfunction vectorDiff(to, from) {\n    return { x: to.x - from.x, y: to.y - from.y };\n}\n\nfunction vectorLength(vector) {\n    return Math.sqrt(vector.x * vector.x + vector.y * vector.y);\n}\n\nfunction vectorDistance(from, to) {\n    return vectorLength(vectorDiff(from, to));\n}\n\nfunction vectorUnit(vec) {\n    var length = vectorLength(vec);\n    return length === 0 ? vec : vectorMultiply(vec, 1 / length);\n}\n\nfunction vectorPlus(from, offset) {\n    return { x: from.x + offset.x, y: from.y + offset.y };\n}\n\nfunction vectorMultiply(vec, multiplier) {\n    return { x: vec.x * multiplier, y: vec.y * multiplier };\n}\n\nfunction vectorRelengthen(vec, length) {\n    return vectorMultiply(vectorUnit(vec), length);\n}\n\nfunction vectorNegate(vec) {\n    return vectorMultiply(vec, -1);\n}\n\nfunction vectorDot(a, b) {\n    return (a.x * b.x) + (a.y * b.y);\n}\n\nfunction vectorMidpoint(a, b) {\n    var diff = vectorDiff(b, a);\n    return vectorPlus(a, vectorMultiply(diff, 0.5));\n}\n\nfunction vectorFromAngle(angle) {\n\treturn { x: Math.cos(angle), y: Math.sin(angle) };\n}\n\n// See ai.contracts.ts: Must return a BotContract\nreturn { act };"
+}

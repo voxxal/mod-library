@@ -1,0 +1,533 @@
+{
+	"Mod": {
+		"name": "gun mod",
+		"author": "q",
+		"description": "Fri, 27 Dec 2019 20:08:39 GMT",
+		"titleLeft": "Gun",
+		"titleRight": "Mod!",
+		"subtitleLeft": "6",
+		"subtitleRight": "9"
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"thrust"
+				],
+				[
+					"teleport",
+					"swap"
+				],
+				[
+					"voidRush",
+					"vanish",
+					"test"
+				]
+			],
+			"q": [
+				[
+					"fireball",
+					"flamestrike"
+				],
+				[
+					"triplet",
+					"difire"
+				],
+				[
+					"retractor",
+					"backlash"
+				],
+				[
+					"whip",
+					"gun"
+				]
+			],
+			"w": [
+				[
+					"boost"
+				],
+				[
+					"homing",
+					"boomerang",
+					"drain"
+				],
+				[
+					"gravity",
+					"whirlwind"
+				],
+				[
+					"link",
+					"grapple"
+				],
+				[
+					"lightning",
+					"railgun"
+				]
+			],
+			"e": [
+				[
+					"armor",
+					"horcrux"
+				],
+				[
+					"shield",
+					"icewall"
+				],
+				[
+					"saber",
+					"dualSaber"
+				],
+				[
+					"phaseOut",
+					"blaze"
+				],
+				[
+					"meteor",
+					"meteorite",
+					"minigun"
+				]
+			],
+			"r": [
+				[
+					"empower"
+				],
+				[
+					"supernova",
+					"rocket"
+				],
+				[
+					"bouncer",
+					"repeater",
+					"sixshooter"
+				],
+				[
+					"kamehameha",
+					"blast"
+				]
+			],
+			"f": [
+				[
+					"bump",
+					"scourge"
+				],
+				[
+					"firespray",
+					"iceBomb",
+					"shotgun"
+				],
+				[
+					"mines",
+					"grenade"
+				],
+				[
+					"halo"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"gun": {
+			"id": "gun",
+			"name": "Gun",
+			"description": "Your garden veriety gun. Hold to aim, release to fire.",
+			"effects": [
+				{
+					"icon": "fas fa-hand-paper",
+					"title": "Interruptible",
+					"text": "If you take an enemy hit, Acolyte Blast will be interrupted."
+				}
+			],
+			"takesOwnership": true,
+			"angleOffsetsInRevs": [
+				0
+			],
+			"width": 0.001,
+			"length": 0.05,
+			"action": "charge",
+			"color": "#f00",
+			"icon": "fireRay",
+			"sound": "blast",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"chargeTicks": 120,
+			"release": {
+				"maxChargeTicks": 450
+			},
+			"retarget": true,
+			"movementProportionWhileCharging": 0.5,
+			"strikeCancel": {
+				"cooldownTicks": 300
+			},
+			"projectile": {
+				"attractable": true,
+				"collideWith": 65535,
+				"expireOn": 13,
+				"density": 100,
+				"radius": 0.005,
+				"speed": 0.5,
+				"minTicks": 3,
+				"lifeSteal": 0.3,
+				"maxTicks": 120,
+				"swappable": true,
+				"damage": 40,
+				"detonate": {
+					"radius": 0.025,
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 0
+				},
+				"sound": "blast",
+				"color": "#0ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.07
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"selfColor": true,
+						"shine": 1,
+						"smoke": 0.15,
+						"glow": 0.2,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"numParticles": 10,
+						"flash": true
+					}
+				]
+			}
+		},
+		"test": {
+			"id": "test",
+			"name": "test",
+			"description": "óöôoøœōõ",
+			"untargeted": true,
+			"unlink": false,
+			"takesOwnership": true,
+			"blocksTeleporters": false,
+			"shiftMultiplier": 0.5,
+			"speedMultiplier": 2,
+			"maxTurnRatePerTickInRevs": 0.1,
+			"angleOffsetsInRevs": [
+				0
+			],
+			"width": 0.1,
+			"length": 0.1,
+			"movementProportionWhileChannelling": 0,
+			"interruptibleAfterTicks": 20,
+			"cooldown": 0,
+			"channelling": true,
+			"categories": 16,
+			"collidesWith": 3,
+			"damageTemplate": {
+				"damage": 0
+			},
+			"trailTicks": 5,
+			"color": "#00ccff",
+			"shine": 0.1,
+			"glow": 0.2,
+			"bloom": 0.03,
+			"sound": "saber",
+			"action": "saber"
+		},
+		"sixshooter": {
+			"id": "sixshooter",
+			"name": "Six Shooter",
+			"description": "As the name would suggest, it shoots 6 bullets. also gives you a small speed boost",
+			"action": "spray",
+			"sound": "firespray",
+			"color": "#ff0044",
+			"icon": "gun",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"intervalTicks": 5,
+			"lengthTicks": 30,
+			"jitterRatio": 0.075,
+			"movementProportionWhileChannelling": 1.2,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"radius": 0.002,
+				"speed": 0.5,
+				"maxTicks": 100,
+				"damage": 5,
+				"lifeSteal": 0.3,
+				"color": "#ff0044",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.15,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 7,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 1
+					}
+				]
+			}
+		},
+		"railgun": {
+			"id": "railgun",
+			"name": "Snipe Shot",
+			"description": "Huge damage, if your aim is good enough.",
+			"action": "projectile",
+			"color": "#00ddff",
+			"icon": "lightningHelix",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"density": 1,
+				"radius": 0.0025,
+				"speed": 2,
+				"maxTicks": 30,
+				"collideWith": 65533,
+				"swappable": false,
+				"damage": 50,
+				"sound": "lightning",
+				"color": "#f00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.01
+					}
+				]
+			}
+		},
+		"grenade": {
+			"id": "grenade",
+			"name": "Grenade",
+			"description": "Throw a grenade that detonates after 5 seconds. You can hold down the spell to prolong the delay. Has a fixed length",
+			"action": "projectile",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "mineExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 180,
+			"throttle": true,
+			"projectile": {
+				"density": 69,
+				"ccd": false,
+				"radius": 0.005,
+				"speed": 1,
+				"maxTicks": 300,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"sense": 2,
+				"expireOn": 65519,
+				"collideWith": 13,
+				"conveyable": true,
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 40,
+					"lifeSteal": 0.3,
+					"radius": 0.1,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"minigun": {
+			"id": "minigun",
+			"name": "Bullet Spray",
+			"description": "Shoot a stream of bullets in a wide arc. Get closer to focus all your damage onto one target.",
+			"action": "spray",
+			"sound": "firespray",
+			"color": "#ff0044",
+			"icon": "gun",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"throttle": true,
+			"intervalTicks": 5,
+			"lengthTicks": 50,
+			"jitterRatio": 0.2,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"movementProportionWhileChannelling": 5,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"radius": 0.002,
+				"speed": 1,
+				"maxTicks": 30,
+				"damage": 5,
+				"lifeSteal": 0.3,
+				"color": "#ff0044",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 7,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 10
+					}
+				]
+			}
+		},
+		"shotgun": {
+			"id": "shotgun",
+			"name": "Shotgun",
+			"description": "Fire a blast of multiple bullets. Does knockback and damage.",
+			"action": "spray",
+			"sound": "firespray",
+			"color": "#ff0044",
+			"icon": "gun",
+			"cooldown": 300,
+			"throttle": true,
+			"numProjectilesPerTick": 2,
+			"intervalTicks": 1,
+			"lengthTicks": 3.9,
+			"jitterRatio": 0.4,
+			"projectile": {
+				"density": 3,
+				"ccd": false,
+				"restitution": 0,
+				"radius": 0.01,
+				"speed": 1,
+				"maxTicks": 5,
+				"minTicks": 5,
+				"damage": 20,
+				"swappable": false,
+				"attractable": false,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"categories": 2,
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 4,
+						"categories": 15,
+						"against": 12,
+						"radius": 0.03,
+						"accelerationPerTick": -0.1,
+						"maxSpeed": 0.2,
+						"damage": 20
+					}
+				],
+				"shieldTakesOwnership": false,
+				"sound": "iceBomb",
+				"color": "#44ffff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 40,
+						"color": "rgba(64, 255, 255, 0.5)",
+						"smoke": 0.3,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		}
+	},
+	"Icons": {
+		"gun": {
+			"path": "M33.385 18.482l179.818 179.82c15.992-12.5 32.854-21.332 49.008-25.884 6.11-1.722 12.21-2.827 18.142-3.232L129.646 18.482h-96.26zM18.1 94.508v22.414l143.933 143.933c2.284-4.853 4.898-9.714 7.87-14.544L18.1 94.51zm0 48.844v21.718l133.513 133.514c.357-6.05 1.454-12.282 3.192-18.527L18.1 143.352zm267.76 44.308c-5.534-.06-11.76.824-18.58 2.746-18.187 5.125-39.366 17.645-58.06 36.338-18.693 18.693-31.214 39.874-36.34 58.06-5.124 18.187-2.865 32.154 4.983 40.003 7.848 7.848 21.816 10.107 40.002 4.982 2.79-.787 5.657-1.767 8.57-2.897-4.446 35.305 2.834 81.353 22.27 137.377 7.042-107.06 40.21-77.135 84.346 18.867-25.618-105.636 50.953-72.313 151.733 8.195-82.658-96.046-104.87-162.764 10.524-134.658-113.18-40.95-130.87-81.878-33.092-84.97-63.505-23.373-114.68-32.166-153.004-27.345 1.2-3.05 2.23-6.05 3.054-8.97 5.124-18.186 2.867-32.155-4.98-40.003-4.906-4.905-12.203-7.627-21.425-7.727zm-15.63 20.928c7.007.084 13.038 2.182 17.358 6.502 7.242 7.242 8.227 19.295 3.96 32.7-32.244 8.713-52.945 29.435-61.653 61.358-13.234 4.11-25.11 3.073-32.274-4.09-13.822-13.824-4.888-45.17 19.956-70.013 17.08-17.08 37.233-26.642 52.653-26.457z",
+			"credit": "https://game-icons.net/lorc/originals/energy-breath.html"
+		}
+	}
+}

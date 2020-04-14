@@ -1,0 +1,2365 @@
+{
+	"Mod": {
+		"name": "gun mod",
+		"author": "q",
+		"description": "Fri, 27 Dec 2019 20:08:39 GMT",
+		"subtitleLeft": "armed",
+		"subtitleRight": "mode"
+	},
+	"Matchmaking": {
+		"MaxBots": 3,
+		"AllowBotTeams": true
+	},
+	"ObstacleTemplates": {
+		"default2": {
+			"health": 500,
+			"static": true,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "bloom",
+					"color": "#ccc",
+					"strikeOnly": true,
+					"bloom": 0.05
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#ddd",
+					"deadColor": "#c33"
+				},
+				{
+					"type": "solid",
+					"color": "#999",
+					"deadColor": "#822",
+					"expand": -0.003
+				}
+			]
+		},
+		"default3": {
+			"health": 10000,
+			"static": true,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "bloom",
+					"color": "#ccc",
+					"strikeOnly": true,
+					"bloom": 0.05
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#ddd",
+					"deadColor": "#c33"
+				},
+				{
+					"type": "solid",
+					"color": "#999",
+					"deadColor": "#822",
+					"expand": -0.003
+				}
+			]
+		},
+		"mine": {
+			"health": 50,
+			"static": true,
+			"density": 10,
+			"linearDamping": 1.5,
+			"circularHitbox": true,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#fc0",
+					"deadColor": "#fc0"
+				},
+				{
+					"type": "solid",
+					"color": "#c94",
+					"deadColor": "#fc8",
+					"expand": -0.002
+				}
+			],
+			"expireOn": 1,
+			"detonate": {
+				"damage": 0,
+				"minImpulse": 0.0002,
+				"maxImpulse": 0.0005,
+				"radius": 0.05,
+				"renderTicks": 30,
+				"sound": "explosive"
+			}
+		}
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"leap"
+				],
+				[
+					"leap2"
+				],
+				[
+					"bombingrun2"
+				],
+				[
+					"bDash"
+				]
+			],
+			"q": [
+				[
+					"gun"
+				],
+				[
+					"lazer"
+				],
+				[
+					"knife"
+				],
+				[
+					"firebomb"
+				]
+			],
+			"w": [
+				[
+					"missle"
+				],
+				[
+					"rocketrain"
+				],
+				[
+					"kbturrent"
+				],
+				[
+					"railgun"
+				]
+			],
+			"e": [
+				[
+					"shield"
+				],
+				[
+					"substitute"
+				],
+				[
+					"freeze"
+				],
+				[
+					"minigun"
+				]
+			],
+			"r": [
+				[
+					"ricochet"
+				],
+				[
+					"meteorrain"
+				],
+				[
+					"sixshooter"
+				],
+				[
+					"biggun"
+				]
+			],
+			"f": [
+				[
+					"turrent"
+				],
+				[
+					"shotgun"
+				],
+				[
+					"grenade"
+				],
+				[
+					"flashbang"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"lightning": {
+			"projectile": {
+				"damage": 1
+			}
+		},
+		"whip": {
+			"name": "Whip",
+			"description": "Whip your enemies at short-range. The whip lifesteals from your enemy."
+		},
+		"repeater": {
+			"description": "Every time reloader hits, the cooldown resets and you can shoot it again immediately. Hitting the same enemy again will do 150% damage, and the third time it will do 200% damage (the maximum). Repeater takes 0.4 seconds to grow to full damage, so hit from a distance for maximum effect.",
+			"name": "reloader"
+		},
+		"icewall": {
+			"name": "Wall",
+			"description": "Create a wall that reflects projectiles and blocks other acolytes. You can pass through your own wall, but other acolytes cannot, even if they are using teleport."
+		},
+		"shield": {
+			"name": "shield",
+			"description": "Reflect away projectile attacks. Ineffective against area-of-effect weapons."
+		},
+		"teleport": {
+			"effects": {
+				"$delete": true
+			}
+		},
+		"gun": {
+			"id": "gun",
+			"name": "Gun",
+			"description": "Your garden veriety gun. Hold to aim, release to fire. Contrary to popular belief, aiming does not make you do more damage.",
+			"effects": [
+				{
+					"icon": "fas fa-hand-paper",
+					"title": "Interruptible",
+					"text": "If you take an enemy hit, gun will be interrupted."
+				}
+			],
+			"takesOwnership": true,
+			"angleOffsetsInRevs": [
+				0
+			],
+			"width": 0.001,
+			"length": 0.05,
+			"action": "charge",
+			"color": "#f00",
+			"icon": "gun",
+			"sound": "blast",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"chargeTicks": 120,
+			"release": {
+				"maxChargeTicks": 450
+			},
+			"retarget": true,
+			"movementProportionWhileCharging": 0.5,
+			"strikeCancel": {
+				"cooldownTicks": 300
+			},
+			"projectile": {
+				"attractable": true,
+				"collideWith": 65535,
+				"expireOn": 13,
+				"density": 5,
+				"radius": 0.005,
+				"speed": 0.5,
+				"minTicks": 3,
+				"lifeSteal": 0.3,
+				"maxTicks": 120,
+				"swappable": true,
+				"damage": 20,
+				"detonate": {
+					"radius": 0.025,
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 0
+				},
+				"sound": "blast",
+				"color": "#0ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.07
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"selfColor": true,
+						"shine": 1,
+						"smoke": 0.15,
+						"glow": 0.2,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"numParticles": 10,
+						"flash": true
+					}
+				]
+			}
+		},
+		"sixshooter": {
+			"id": "sixshooter",
+			"name": "Six Shooter",
+			"description": "As the name would suggest, it shoots 6 bullets. also gives you a small speed boost",
+			"action": "spray",
+			"sound": "firespray",
+			"color": "#ff0044",
+			"icon": "revolvericon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"intervalTicks": 5,
+			"lengthTicks": 30,
+			"jitterRatio": 0.075,
+			"movementProportionWhileChannelling": 1.2,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"radius": 0.002,
+				"speed": 0.5,
+				"maxTicks": 100,
+				"damage": 5,
+				"lifeSteal": 0.3,
+				"color": "#ff0044",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.15,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 7,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 1
+					}
+				]
+			}
+		},
+		"railgun": {
+			"id": "railgun",
+			"name": "Snipe Shot",
+			"description": "Huge damage, if your aim is good enough.",
+			"action": "projectile",
+			"color": "#00ddff",
+			"icon": "railgunicon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"density": 1,
+				"radius": 0.0025,
+				"speed": 2,
+				"maxTicks": 30,
+				"collideWith": 65535,
+				"swappable": false,
+				"damage": 40,
+				"sound": "lightning",
+				"color": "#f00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.01
+					}
+				]
+			}
+		},
+		"grenade": {
+			"id": "grenade",
+			"name": "Grenade",
+			"description": "Throw a grenade that detonates after 5 seconds. Has a fixed range",
+			"action": "charge",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "grenadeicon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 180,
+			"throttle": true,
+			"projectile": {
+				"density": 69,
+				"ccd": false,
+				"ownerColor": "True",
+				"radius": 0.005,
+				"speed": 1,
+				"maxTicks": 300,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"sense": 2,
+				"expireOn": 0,
+				"collideWith": 0,
+				"conveyable": true,
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 40,
+					"lifeSteal": 0.3,
+					"radius": 0.1,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.1,
+						"minRadius": 0.09
+					},
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"minigun": {
+			"id": "minigun",
+			"name": "Bullet Spray",
+			"description": "Shoot a stream of bullets in a wide arc. Get closer to focus all your damage onto one target.",
+			"action": "spray",
+			"sound": "firespray",
+			"color": "#ff0044",
+			"icon": "minigunicon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"throttle": true,
+			"intervalTicks": 5,
+			"lengthTicks": 50,
+			"jitterRatio": 0.2,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"movementProportionWhileChannelling": 5,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"radius": 0.002,
+				"speed": 1,
+				"maxTicks": 30,
+				"damage": 5,
+				"lifeSteal": 0.3,
+				"color": "#ff0044",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 7,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 10
+					}
+				]
+			}
+		},
+		"shotgun": {
+			"id": "shotgun",
+			"name": "Shotgun",
+			"description": "Fire a blast of multiple bullets. Does knockback and damage.",
+			"action": "spray",
+			"sound": "firespray",
+			"color": "#ff0044",
+			"icon": "shotgunicon",
+			"cooldown": 300,
+			"throttle": true,
+			"numProjectilesPerTick": 2,
+			"intervalTicks": 1,
+			"lengthTicks": 3.9,
+			"jitterRatio": 0.4,
+			"projectile": {
+				"density": 3,
+				"ccd": false,
+				"restitution": 0,
+				"radius": 0.01,
+				"speed": 1,
+				"maxTicks": 5,
+				"minTicks": 5,
+				"damage": 15,
+				"swappable": false,
+				"attractable": false,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"categories": 2,
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 4,
+						"categories": 15,
+						"against": 12,
+						"radius": 0.03,
+						"accelerationPerTick": -0.1,
+						"maxSpeed": 0.2,
+						"damage": 20
+					}
+				],
+				"shieldTakesOwnership": false,
+				"sound": "iceBomb",
+				"color": "#44ffff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 40,
+						"color": "rgba(64, 255, 255, 0.5)",
+						"smoke": 0.3,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"lazer": {
+			"id": "lazer",
+			"name": "Lazer Rifle",
+			"description": "Fire 3 consecutive lazer beams.",
+			"action": "spray",
+			"color": "#00ddff",
+			"icon": "lazericon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 120,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 10,
+			"lengthTicks": 30,
+			"jitterRatio": 0.1,
+			"projectile": {
+				"density": 1,
+				"radius": 0.0025,
+				"speed": 2,
+				"maxTicks": 30,
+				"collideWith": 65533,
+				"swappable": false,
+				"damage": 1,
+				"sound": "lightning",
+				"color": "#f00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 15,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 15,
+						"flash": true,
+						"detonate": 0.01
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0.2,
+							"lifeSteal": 0.3,
+							"noHit": true
+						},
+						"maxTicks": 240,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#ff0088",
+							"alpha": 0.075,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				]
+			}
+		},
+		"knife": {
+			"id": "knife",
+			"name": "Knife",
+			"description": "Swing your knife. Why would you bring a knife to a gunfight?",
+			"action": "projectile",
+			"color": "#39fffa",
+			"icon": "knifeicon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.002,
+				"speed": 0.5,
+				"maxTicks": 20,
+				"hitInterval": 15,
+				"damage": 30,
+				"lifeSteal": 1,
+				"collideWith": 17,
+				"expireOn": 0,
+				"swappable": false,
+				"selfPassthrough": true,
+				"shieldTakesOwnership": false,
+				"destructible": {
+					"against": 12
+				},
+				"behaviours": [
+					{
+						"type": "strafe"
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.15,
+						"minDistanceToTarget": 0.02,
+						"targetType": "self",
+						"trigger": {
+							"afterTicks": 5
+						}
+					}
+				],
+				"sound": "whip",
+				"color": "#fffcb1",
+				"renderers": [
+					{
+						"type": "link",
+						"color": "#fffcb1",
+						"width": 0.0025,
+						"toWidth": 0.005,
+						"glow": 0.2
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 7
+					}
+				]
+			}
+		},
+		"missle": {
+			"id": "missle",
+			"name": "Missle Swarm",
+			"description": "Fire 6 missles that home in on an enemy.",
+			"action": "spray",
+			"color": "#ff0088",
+			"icon": "missleicon",
+			"sound": "triplet",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 500,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 2,
+			"lengthTicks": 18,
+			"jitterRatio": 1,
+			"projectile": {
+				"density": 7,
+				"radius": 0.0025,
+				"speed": 0.15,
+				"maxTicks": 90,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "homing",
+						"trigger": {
+							"afterTicks": 30
+						},
+						"redirect": true,
+						"newSpeed": 0.5
+					}
+				],
+				"color": "#ff0088",
+				"detonate": {
+					"damage": 8,
+					"radius": 0.03,
+					"minImpulse": 0.000002,
+					"renderTicks": 10
+				},
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"flash": true,
+						"numParticles": 2
+					}
+				]
+			}
+		},
+		"rocketrain": {
+			"id": "rocketrain",
+			"name": "Rocket Rain",
+			"description": "Fire 3 rockets that home in on your cursor. Not a brawl stars reference.",
+			"action": "spray",
+			"color": "#ff0008",
+			"icon": "rocketicon",
+			"sound": "triplet",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 400,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 3,
+			"jitterRatio": 1,
+			"projectile": {
+				"density": 7,
+				"radius": 0.005,
+				"speed": 0.2,
+				"maxTicks": 240,
+				"damage": 5,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"expireAfterCursorTicks": 0,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "homing",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 5
+						},
+						"redirect": false,
+						"newSpeed": 0.8,
+						"maxTurnProportion": 0.1
+					}
+				],
+				"color": "#ff0008",
+				"detonate": {
+					"damage": 10,
+					"radius": 0.05,
+					"minImpulse": 0.00005,
+					"renderTicks": 10
+				},
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"flash": true,
+						"numParticles": 2
+					}
+				]
+			}
+		},
+		"freeze": {
+			"id": "freeze",
+			"name": "Freeze Ray",
+			"description": "Fires a lazer that freezes.",
+			"effects": [
+				{
+					"icon": "fas fa-snowflake",
+					"title": "Freeze",
+					"text": "Freeze nearby enemies for 1 seconds."
+				}
+			],
+			"action": "projectile",
+			"color": "#87ceeb",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"projectile": {
+				"density": 10,
+				"radius": 0.003,
+				"speed": 1,
+				"maxTicks": 90,
+				"damage": 18,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#87ceeb",
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "iceBomb",
+						"maxStacks": 1,
+						"movementProportion": 0.1,
+						"maxTicks": 60,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.2,
+							"bloom": 0.03
+						}
+					},
+					{
+						"type": "armor",
+						"stack": "frostsplatter",
+						"maxTicks": 60,
+						"maxStacks": 1,
+						"proportion": 0.25,
+						"against": 4
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"leap": {
+			"id": "leap",
+			"name": "Bullet Launch",
+			"description": "Create three explosions behind you, doing damage and bosting you forward.",
+			"action": "spray",
+			"color": "#ff0088",
+			"icon": "explosionicon",
+			"sound": "triplet",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 500,
+			"throttle": true,
+			"movementProportionWhileChannelling": 0,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 10,
+			"lengthTicks": 30,
+			"jitterRatio": 0,
+			"projectile": {
+				"density": 0,
+				"noKnockback": true,
+				"radius": 0.0025,
+				"speed": -1,
+				"maxTicks": 90,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"detonate": {
+					"damage": 30,
+					"radius": 0.05,
+					"minImpulse": 0.005,
+					"renderTicks": 5
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "self",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"newSpeed": 1
+					}
+				],
+				"color": "#ff0088",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0
+					},
+					{
+						"type": "projectile",
+						"ticks": 0,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 0,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 0,
+						"flash": true,
+						"numParticles": 0
+					}
+				]
+			}
+		},
+		"flashbang": {
+			"id": "flashbang",
+			"name": "Flashbang",
+			"description": "Throw a bomb that stuns enemies.",
+			"action": "projectile",
+			"sound": "mines",
+			"color": "#ffff00",
+			"icon": "flashbangicon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"projectile": {
+				"density": 0,
+				"ownerColor": "True",
+				"ccd": false,
+				"radius": 0.005,
+				"speed": 1,
+				"maxTicks": 60,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"sense": 2,
+				"expireOn": 0,
+				"collideWith": 8,
+				"conveyable": true,
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.08,
+					"renderTicks": 15,
+					"buffs": [
+						{
+							"type": "cooldown",
+							"against": 12,
+							"maxTicks": 1,
+							"minCooldown": 60
+						},
+						{
+							"type": "movement",
+							"stack": "flashbang",
+							"movementProportion": 0,
+							"maxTicks": 60,
+							"against": 12,
+							"render": {
+								"color": "rgba(255, 255, 0, 1)",
+								"alpha": 0.3,
+								"ticks": 15,
+								"emissionRadiusFactor": 1,
+								"particleRadius": 0.01,
+								"shine": 0.2,
+								"glow": 0.2,
+								"bloom": 0.03
+							}
+						}
+					]
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.08,
+						"minRadius": 0.07,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"biggun": {
+			"id": "biggun",
+			"name": "Big Gun",
+			"description": "A very big gun. As you would expect, this big gun does big damage.",
+			"action": "projectile",
+			"color": "#00ddff",
+			"icon": "biggunicon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 30,
+			"projectile": {
+				"density": 1,
+				"radius": 0.02,
+				"speed": 3,
+				"maxTicks": 30,
+				"collideWith": 65533,
+				"swappable": false,
+				"damage": 40,
+				"sound": "lightning",
+				"color": "#00ddff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.1
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.01
+					}
+				]
+			}
+		},
+		"turrent": {
+			"id": "turrent",
+			"name": "Sentry",
+			"description": "Place a sentry that fires 6 shots. Halves damage while you are constructing it.",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "sentryicon",
+			"maxAngleDiffInRevs": 0.01,
+			"movementProportionWhileChannelling": 0,
+			"numProjectilesPerTick": 1,
+			"cooldown": 450,
+			"throttle": true,
+			"intervalTicks": 10,
+			"lengthTicks": 120,
+			"jitterRatio": 0,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.5
+				},
+				{
+					"type": "mass",
+					"maxTicks": 120,
+					"channelling": true,
+					"radius": 0.0125,
+					"density": 100000000,
+					"render": {
+						"color": "#8800ff",
+						"heroColor": true,
+						"ticks": 30,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"shine": 0.5,
+						"glow": 0.2,
+						"bloom": 0.03,
+						"vanish": 1,
+						"decay": true
+					}
+				}
+			],
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.004,
+				"speed": 0,
+				"maxTicks": 600,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 13,
+				"sense": 2,
+				"expireOn": 1,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 12,
+					"lifeSteal": 0.3,
+					"radius": 0.015,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"trigger": {
+							"afterTicks": 180
+						},
+						"newSpeed": 1,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"ricochet": {
+			"id": "ricochet",
+			"name": "Ricochet Rounds",
+			"description": "Fire a fast bouncing bullet. Watch out, it can hit you too!",
+			"action": "projectile",
+			"color": "#88ee22",
+			"icon": "divert",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"radius": 0.005,
+				"speed": 2,
+				"fixedSpeed": false,
+				"bumpable": true,
+				"maxTicks": 180,
+				"hitInterval": 15,
+				"damage": 20,
+				"lifeSteal": 0.3,
+				"collideWith": 29,
+				"expireOn": 4,
+				"shieldTakesOwnership": false,
+				"bounce": {
+					"cleanseable": true
+				},
+				"sound": "bouncer",
+				"color": "#88ee22",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"selfColor": true,
+						"ticks": 30,
+						"vanish": 0.25
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ticks": 15,
+						"flash": true,
+						"growth": 1
+					}
+				]
+			}
+		},
+		"bDash": {
+			"id": "bDash",
+			"name": "Bullet Dash",
+			"description": "Spray bullets everywhere and speed forward.",
+			"action": "spray",
+			"sound": "firespray",
+			"color": "#ff0044",
+			"icon": "dashicon",
+			"maxAngleDiffInRevs": 0.01,
+			"movementProportionWhileChannelling": 5,
+			"cooldown": 600,
+			"numProjectilesPerTick": 3,
+			"throttle": true,
+			"intervalTicks": 2,
+			"lengthTicks": 40,
+			"jitterRatio": 21,
+			"projectile": {
+				"density": 2,
+				"ccd": false,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"radius": 0.001,
+				"speed": 1,
+				"maxTicks": 60,
+				"damage": 8,
+				"lifeSteal": 0.3,
+				"color": "#ff0044",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"vanish": 1,
+						"bloom": 0.01
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 20,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"numParticles": 1
+					}
+				]
+			}
+		},
+		"bombingrun": {
+			"id": "bombingrun",
+			"name": "Bombing Run",
+			"description": "Speed forward, leaving deadly bombs behind you.",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "bombicon",
+			"maxAngleDiffInRevs": 0.01,
+			"movementProportionWhileChannelling": 5,
+			"cooldown": 600,
+			"throttle": true,
+			"intervalTicks": 5,
+			"lengthTicks": 25,
+			"jitterRatio": 0,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.004,
+				"speed": 0.5,
+				"maxTicks": 90,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 13,
+				"sense": 2,
+				"expireOn": 0,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 20,
+					"lifeSteal": 0.3,
+					"radius": 0.05,
+					"minImpulse": 0.0005,
+					"maxImpulse": 0.0005,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.05,
+						"minRadius": 0.04,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"kbturrent": {
+			"id": "kbturrent",
+			"name": "Water Sentry",
+			"description": "Place a sentry that sprays compressed water at enemies. Halves incoming damage.",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "sentryicon",
+			"maxAngleDiffInRevs": 0.01,
+			"movementProportionWhileChannelling": 0,
+			"numProjectilesPerTick": 1,
+			"cooldown": 450,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 120,
+			"jitterRatio": 0,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.5
+				},
+				{
+					"type": "mass",
+					"maxTicks": 120,
+					"channelling": true,
+					"radius": 0.0125,
+					"density": 100000000,
+					"render": {
+						"color": "#8800ff",
+						"heroColor": true,
+						"ticks": 30,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"shine": 0.5,
+						"glow": 0.2,
+						"bloom": 0.03,
+						"vanish": 1,
+						"decay": true
+					}
+				}
+			],
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.004,
+				"speed": 0,
+				"maxTicks": 6000,
+				"minTicks": 6000,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 13,
+				"sense": 2,
+				"expireOn": 1,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.015,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"trigger": {
+							"afterTicks": 180
+						},
+						"newSpeed": 1,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"substitute": {
+			"id": "substitute",
+			"name": "Substitute",
+			"description": "Dissapear and leave a substitute in place. The substitute takes greatly reduced knockback.",
+			"untargeted": true,
+			"maxAngleDiffInRevs": 1,
+			"cooldown": 300,
+			"throttle": false,
+			"unlink": true,
+			"interuptileAfterTicks": 15,
+			"maxChargeTicks": 90,
+			"buffs": [
+				{
+					"type": "mass",
+					"channelling": true,
+					"cleansable": false,
+					"maxTicks": 90,
+					"radius": 0.0125,
+					"density": 100
+				},
+				{
+					"type": "armor",
+					"channelling": true,
+					"cleansable": false,
+					"maxTicks": 90,
+					"proportion": -1
+				},
+				{
+					"type": "movement",
+					"channelling": true,
+					"cleansable": false,
+					"maxTicks": 90,
+					"movementProportion": 0
+				},
+				{
+					"type": "glide",
+					"channelling": true,
+					"cleansable": false,
+					"maxTicks": 90,
+					"linearDampingMultiplier": 1
+				},
+				{
+					"type": "lavaImmunity",
+					"damageProportion": 1,
+					"maxTicks": 90,
+					"sound": "voidRush-lavaImmunity",
+					"renderStart": {
+						"numParticles": 10,
+						"color": "#fff",
+						"ticks": 25,
+						"particleRadius": 0.015,
+						"glow": 0.2,
+						"shine": 1,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"renderFinish": {
+						"numParticles": 10,
+						"color": "#fff",
+						"ticks": 25,
+						"particleRadius": 0.015,
+						"glow": 0.2,
+						"shine": 1,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"render": {
+						"color": "#fff",
+						"alpha": 0.5,
+						"ticks": 20,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.01,
+						"shine": 1,
+						"glow": 0.2
+					}
+				}
+			],
+			"action": "buff",
+			"icon": "substituteblock",
+			"color": "#ff00dd"
+		},
+		"bombingrun2": {
+			"id": "bombingrun2",
+			"name": "Bombing Run",
+			"description": "Speed forward, leaving deadly bombs behind you.",
+			"action": "thrust",
+			"sound": "blaze",
+			"color": "#ff009c",
+			"icon": "bombicon",
+			"cooldown": 600,
+			"range": 0.3,
+			"speed": 0.8,
+			"followCursor": true,
+			"damageTemplate": {
+				"damage": 12,
+				"lifeSteal": 0.3
+			},
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"channelling": true,
+					"maxTicks": 60,
+					"radius": 0.005,
+					"restrictCollideWith": 20,
+					"appendCollideWith": 16,
+					"sense": 3
+				}
+			],
+			"projectileInterval": 5,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.004,
+				"speed": 0.5,
+				"maxTicks": 90,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 13,
+				"sense": 2,
+				"expireOn": 0,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 20,
+					"lifeSteal": 0.3,
+					"radius": 0.05,
+					"minImpulse": 0.0005,
+					"maxImpulse": 0.0005,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.05,
+						"minRadius": 0.04,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"leap2": {
+			"id": "leap2",
+			"name": "Leap",
+			"description": "Jump over any obstacles and create explosions when you land.",
+			"untargeted": true,
+			"cooldown": 600,
+			"throttle": false,
+			"icon": "fireWave",
+			"color": "#ff00cc",
+			"action": "thrust",
+			"sound": "blaze",
+			"range": 0.3,
+			"speed": 0.5,
+			"followCursor": false,
+			"damageTemplate": {
+				"damage": 12,
+				"lifeSteal": 0.3
+			},
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"channelling": true,
+					"maxTicks": 60,
+					"radius": 0.02,
+					"restrictCollideWith": 20,
+					"appendCollideWith": 16,
+					"sense": 3
+				}
+			],
+			"projectileInterval": 30,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"collideWith": 17,
+				"expireOn": 65535,
+				"expireOnMirror": true,
+				"sensor": true,
+				"swappable": false,
+				"selfPassthrough": true,
+				"radius": 0.005,
+				"speed": 0.1,
+				"maxTicks": 1,
+				"damage": 0,
+				"destructible": {},
+				"lifeSteal": 0.3,
+				"detonate": {
+					"damage": 10,
+					"lifeSteal": 0.3,
+					"radius": 0.1,
+					"minImpulse": 0.0005,
+					"maxImpulse": 0.0008,
+					"renderTicks": 15
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 1,
+						"redirect": true
+					}
+				],
+				"color": "#ff0044",
+				"renderers": [
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 0.5,
+						"radiusMultiplier": 0.2
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"radiusMultiplier": 0.5,
+						"smoke": {
+							"isotropicSpeed": 0.1
+						},
+						"vanish": 1,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"detonate": 0.02
+					}
+				]
+			}
+		},
+		"bDash2": {
+			"id": "bDash2",
+			"name": "Bullet Dash",
+			"description": "Spray bullets everywhere and speed forward.",
+			"action": "thrust",
+			"sound": "blaze",
+			"color": "#ff0044",
+			"icon": "dashicon",
+			"range": 0.075,
+			"speed": 0.8,
+			"followCursor": true,
+			"damageTemplate": {
+				"damage": 12,
+				"lifeSteal": 0.3
+			},
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"channelling": true,
+					"maxTicks": 60,
+					"radius": 0.005,
+					"restrictCollideWith": 20,
+					"appendCollideWith": 16,
+					"sense": 3
+				}
+			],
+			"projectileInterval": 2,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"collideWith": 17,
+				"expireOn": 65535,
+				"expireOnMirror": true,
+				"sensor": true,
+				"swappable": false,
+				"selfPassthrough": true,
+				"radius": 0.005,
+				"speed": 1,
+				"maxTicks": 100,
+				"damage": 0,
+				"destructible": {},
+				"lifeSteal": 0.3,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "enemy",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 1,
+						"redirect": true
+					}
+				],
+				"color": "#ff0044",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"radiusMultiplier": 0.5,
+						"smoke": {
+							"isotropicSpeed": 0.1
+						},
+						"vanish": 1,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.02
+					}
+				]
+			}
+		},
+		"meteorrain": {
+			"id": "meteorrain",
+			"name": "Air Strike",
+			"description": "Rain explosives on your enemies. Remember: has a maximum range!",
+			"action": "spray",
+			"color": "#ff9a00",
+			"icon": "crownedExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 5,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.5,
+			"cooldown": 450,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"ccd": false,
+				"radius": 0,
+				"speed": 3,
+				"maxTicks": 63,
+				"damage": 0,
+				"collideWith": 0,
+				"expireOn": 0,
+				"expireAfterCursorTicks": 40,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 4
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"detonate": {
+					"damage": 15,
+					"radius": 0.03,
+					"minImpulse": 0.00001,
+					"maxImpulse": 0.0004,
+					"renderTicks": 30
+				},
+				"sound": "supernova",
+				"color": "#ff9a00",
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "#ff9a00",
+						"minRadius": 0.049,
+						"remainingTicks": 40,
+						"shrinkTicks": 40,
+						"radius": 0.05
+					}
+				]
+			}
+		},
+		"firebomb": {
+			"id": "firebomb",
+			"name": "Firebomb",
+			"description": "Throw a small incindiary explosive that burns enemies. Does not have a fixed range",
+			"action": "charge",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "flameicon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 69,
+				"ccd": false,
+				"ownerColor": "True",
+				"radius": 0.005,
+				"speed": 1,
+				"maxTicks": 30,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"sense": 2,
+				"expireOn": 0,
+				"collideWith": 0,
+				"conveyable": true,
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.04,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 15,
+					"buffs": [
+						{
+							"type": "burn",
+							"collideWith": 9,
+							"against": 12,
+							"stack": "fire",
+							"hitInterval": 10,
+							"packet": {
+								"damage": 2,
+								"lifeSteal": 0.3,
+								"noHit": true
+							},
+							"maxTicks": 120,
+							"resetOnGameStart": true,
+							"render": {
+								"color": "#ff0088",
+								"alpha": 0.5,
+								"ticks": 15,
+								"emissionRadiusFactor": 1,
+								"particleRadius": 0.00625,
+								"shine": 0.2,
+								"glow": 0.2
+							}
+						}
+					]
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 12
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.04,
+						"minRadius": 0.035
+					},
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		}
+	},
+	"Layouts": {
+		"castle": {
+			"color": "#1d2e33",
+			"startMessage": "Game started. Take over the castle!",
+			"background": "#121d20",
+			"numPoints": 4,
+			"obstacles": [
+				{
+					"type": "default2",
+					"numObstacles": 8,
+					"layoutRadius": 0.1,
+					"layoutAngleOffsetInRevs": 0.37,
+					"numPoints": 6,
+					"extent": 0.01,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.12,
+					"pattern": [
+						1,
+						1,
+						1,
+						1,
+						1,
+						1,
+						1,
+						0
+					]
+				}
+			]
+		},
+		"minefield": {
+			"color": "#332b2f",
+			"background": "#211a1e",
+			"startMessage": "Game started. Look out for mines!",
+			"obstacles": [
+				{
+					"type": "mine",
+					"numObstacles": 7,
+					"layoutRadius": 0.05,
+					"layoutAngleOffsetInRevs": 0.2216666667,
+					"numPoints": 3,
+					"extent": 0.005,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"type": "mine",
+					"numObstacles": 15,
+					"layoutRadius": 0.1,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 3,
+					"extent": 0.005,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"type": "mine",
+					"numObstacles": 15,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.44,
+					"numPoints": 3,
+					"extent": 0.005,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"speedway": {
+			"color": "#1d2e33",
+			"background": "#121d20",
+			"numPoints": 8,
+			"obstacles": [
+				{
+					"type": "default3",
+					"numObstacles": 8,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.37,
+					"numPoints": 6,
+					"extent": 0.01,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.12
+				},
+				{
+					"type": "default3",
+					"numObstacles": 8,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.37,
+					"numPoints": 6,
+					"extent": 0.01,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.12
+				},
+				{
+					"type": "fast",
+					"numObstacles": 8,
+					"layoutRadius": 0.25,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.003,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1
+				},
+				{
+					"type": "inward",
+					"numObstacles": 8,
+					"layoutRadius": 0.275,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.005,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.12
+				},
+				{
+					"type": "outward",
+					"numObstacles": 8,
+					"layoutRadius": 0.225,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.005,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.12
+				}
+			]
+		},
+		"shootout": {
+			"color": "#1d2e33",
+			"startMessage": "Game started. Take cover behind walls!",
+			"background": "#121d20",
+			"numPoints": 5,
+			"obstacles": [
+				{
+					"type": "default3",
+					"numObstacles": 5,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.1,
+					"numPoints": 6,
+					"extent": 0.01,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1
+				},
+				{
+					"type": "default3",
+					"numObstacles": 5,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 6,
+					"extent": 0.01,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.08
+				}
+			]
+		}
+	},
+	"Icons": {
+		"gun": {
+			"path": "M33.385 18.482l179.818 179.82c15.992-12.5 32.854-21.332 49.008-25.884 6.11-1.722 12.21-2.827 18.142-3.232L129.646 18.482h-96.26zM18.1 94.508v22.414l143.933 143.933c2.284-4.853 4.898-9.714 7.87-14.544L18.1 94.51zm0 48.844v21.718l133.513 133.514c.357-6.05 1.454-12.282 3.192-18.527L18.1 143.352zm267.76 44.308c-5.534-.06-11.76.824-18.58 2.746-18.187 5.125-39.366 17.645-58.06 36.338-18.693 18.693-31.214 39.874-36.34 58.06-5.124 18.187-2.865 32.154 4.983 40.003 7.848 7.848 21.816 10.107 40.002 4.982 2.79-.787 5.657-1.767 8.57-2.897-4.446 35.305 2.834 81.353 22.27 137.377 7.042-107.06 40.21-77.135 84.346 18.867-25.618-105.636 50.953-72.313 151.733 8.195-82.658-96.046-104.87-162.764 10.524-134.658-113.18-40.95-130.87-81.878-33.092-84.97-63.505-23.373-114.68-32.166-153.004-27.345 1.2-3.05 2.23-6.05 3.054-8.97 5.124-18.186 2.867-32.155-4.98-40.003-4.906-4.905-12.203-7.627-21.425-7.727zm-15.63 20.928c7.007.084 13.038 2.182 17.358 6.502 7.242 7.242 8.227 19.295 3.96 32.7-32.244 8.713-52.945 29.435-61.653 61.358-13.234 4.11-25.11 3.073-32.274-4.09-13.822-13.824-4.888-45.17 19.956-70.013 17.08-17.08 37.233-26.642 52.653-26.457z",
+			"credit": "https://game-icons.net/lorc/originals/energy-breath.html"
+		},
+		"shotgunicon": {
+			"path": "M472.133 19.812L162.52 197.03l21.996 34.133L483.97 38.183l-11.837-18.37zm-71.897 93.748l-117.627 75.8 16.35 10.41c45.98-32.88 82.61-61.844 100.483-82.544l.793-3.666zm-134.283 86.535l-100.125 64.523 20.48 12.13c34.023-22.565 66.99-44.805 96.788-65.74l-17.143-10.913zm-118.826 6.277l-6.227 4.012c-6.594 19.98-1.4 36.31 7.81 43.852l20.677-13.323-22.26-34.54zm-23.71 42.045c-5.512 5.532-12.928 13.198-22.288 23.64-17.225 19.212-36.353 43.545-43.47 60.405-18.543 43.928-15.34 97.99-18 147.736 2.41 7.08 5.408 9.92 8.197 11.137 2.96 1.292 6.896 1.194 11.74-.824 9.393-3.91 19.696-15.595 22.262-25.282-.174-2.232-.92-12.117-1.237-25.643-.356-15.14-.246-33.002 2.63-46.297 5.15-23.82 13.395-49.19 30.268-69.05 10.193-11.993 27.132-22.48 41.92-30.848 4.68-2.65 8.665-4.724 12.415-6.65-19.88-12.29-36.656-17.7-44.437-38.323zm-57.75 37.793l-37.638 9.64L43.6 320.01c5.432-11.014 13.33-22.587 22.064-33.8zm125.86 8.82l-1.154.532s-6.765 3.116-16.096 8.043c-.25 10.99-5.59 19.736-12.617 25.5-5.492 4.505-12.02 6.843-17.803 6.695-4.355-.112-8.346-1.367-12.013-4.55-1.8 1.62-3.36 3.18-4.606 4.644-2.444 2.876-4.69 5.96-6.77 9.197 6.78 5.595 14.91 8.5 22.928 8.704 10.763.276 21.213-3.827 29.68-10.773 12.754-10.462 20.973-28.17 18.45-47.99z",
+			"credit": "https://game-icons.net/lorc/originals/energy-breath.html"
+		},
+		"grenadeicon": {
+			"path": "M253.713 25.463l-4.16 15.523C147.833 33.02 69.483 164.754 40.46 273.08l11.374 57.45C105.83 169.524 184.77 82.474 254.436 83.35l136.16 36.486 14.424-53.828-151.307-40.543zm164.695 62.78l-4.836 18.05 24.246 6.498c-1.23 1.64-2.35 3.376-3.353 5.175-5.413 9.698-8.35 22.035-8.35 35.55 0 13.513 2.937 25.85 8.35 35.548s14.18 17.628 25.46 17.628c11.278 0 20.043-7.93 25.456-17.627 5.414-9.7 8.352-22.035 8.352-35.55 0-13.512-2.938-25.848-8.35-35.546-4.145-7.425-10.26-13.8-17.956-16.387l.05-.19L418.41 88.24zm-162.88 14.017c-16.805 5.265-33.33 14.11-48.827 26.033l43.484 11.652c8.062-12.484 16.437-23.367 24.978-32.424l-19.635-5.26zm40.638 10.888c-8.584 7.96-17.527 18.798-26.414 32.04l66.496 17.818c-1.075-15.91-3.4-29.77-6.855-40.953l-33.227-8.905zm163.758 5.877c2.23 0 5.697 1.883 9.14 8.05 3.44 6.166 5.98 15.744 5.98 26.44 0 10.694-2.54 20.274-5.98 26.44-3.443 6.166-6.91 8.05-9.14 8.05-2.23 0-5.7-1.884-9.14-8.05-3.442-6.166-5.98-15.746-5.98-26.44 0-10.697 2.538-20.277 5.98-26.443 3.44-6.166 6.91-8.047 9.14-8.047zm-109.528 8.655c2.87 12.113 4.678 25.725 5.418 40.568l48.528 13.004c-7.46-18.074-17.346-33.997-29.266-46.96l-24.68-6.612zm-160.75 15.392c-18.056 17.506-34.11 39.42-46.763 64.79l66.03 17.695c9.335-25.593 19.883-48.854 31.226-68.955l-50.495-13.53zm69.762 18.694c-11.404 19.538-22.43 42.79-32.164 68.703l103.178 27.643c4.528-27.308 6.605-52.958 6.498-75.58l-77.512-20.767zm96.778 25.93c-.228 23.08-2.723 48.5-7.436 75.33l71.076 19.044c1.728-28.298-1.217-55.304-8.1-79.492l-55.54-14.88zm-221.15 37.413c-4.475 10.84-8.35 22.21-11.522 34.048-2.768 10.33-4.893 20.618-6.416 30.797l68.04 18.23c2.17-10.04 4.624-20.227 7.385-30.533 3.164-11.807 6.598-23.282 10.254-34.392l-67.74-18.15zm85.93 23.023c-3.733 11.077-7.225 22.543-10.39 34.355-2.762 10.308-5.183 20.513-7.29 30.56l106.593 28.56c3.198-9.752 6.204-19.8 8.966-30.108 3.165-11.813 5.877-23.488 8.183-34.947l-106.065-28.42zm124.247 33.293c-2.39 11.45-5.15 23.103-8.315 34.91-2.76 10.305-5.73 20.357-8.87 30.137l73.085 19.582c3.77-9.577 7.072-19.547 9.84-29.877 3.173-11.84 5.5-23.623 7.043-35.25l-72.783-19.502zm-230.256 27.3c-2 25.508-.197 50.033 4.86 72.49L173.51 395.6c.822-21.46 3.467-44.693 7.943-69.057l-66.498-17.818zm84.8 22.723c-4.306 24.693-6.634 48.122-7.153 69.267l82.693 22.158c10.122-18.572 19.82-40.026 28.437-63.564l-103.976-27.86zm122.28 32.763c-8.305 23.338-17.63 44.783-27.646 63.78l58.74 15.737c15.605-16.92 29.43-37.258 40.45-60.347l-71.543-19.17zM125.65 402.125c7.774 23.043 19.257 43.167 33.743 58.918l19.636 5.262c-3.55-15.012-5.47-32.33-5.76-51.42l-47.62-12.76zm66.998 17.953c.63 20.52 3.166 38.184 7.387 51.856l33.217 8.9c10.492-9.73 21.52-23.758 32.326-41.215l-72.93-19.542zm92.31 24.733c-9.796 16.388-20.118 30.428-30.698 41.653l24.68 6.613c20.423-6.398 40.43-18.082 58.683-34.152l-52.666-14.113z"
+		},
+		"revolvericon": {
+			"path": "M481.14 125.357c-18.78 5.476-34.912 14.487-46.952 32.973h46.953v-32.973zm-188.915 50.01l-13.125.002-.116 35.74H491.47l-.343-35.74H292.225v-.003zm-29.125.002l-33.07.003-97.298.008c-16.018 27.973-16.89 57.78 1.04 94.07H262.8l.063-20.22H168.09a8 8 0 1 1 0-16h94.8v-22.68h-95.15a8 8 0 1 1 0-16h95.3l.06-19.18zm-161.377.01c-7.834 28.723-12.348 45.61-18.73 58.69-6.78 13.893-15.75 23.88-32.3 41.7C11.077 351.204 17.48 389.416 20.46 432.083c12.07 14.128 29.67 21.282 48.724 23.54 17.703 2.097 36.135-.286 50.816-4.597-.272-47.016 8.213-93.296 40.84-139.84l5.264-7.507 6.724 6.23c18.24 16.9 40.922 21.272 63.205 17.717 22.283-3.555 43.756-15.464 57.254-30.285 9.92-10.894 12.492-23.074 11.66-37.932h-26.115l-.084 26.04h-.695c-9.56 10.992-33.904 24.083-47.803 24.146-13.556.06-35.84-13.197-47.896-24.145H123.88l-2.253-4.266c-20.284-38.435-21.828-74.208-7.06-105.803h-12.844zm-74.88 2.47c7.33 23.547 19.127 43.547 34.825 60.796 2.733-3.822 4.952-7.508 6.945-11.593 2.33-4.772 4.44-10.37 6.715-17.44-.225-.142-.403-.248-.635-.394-7.68-4.854-17.46-11.227-27.117-17.58-10.508-6.916-13.477-8.943-20.734-13.79zm252.09 49.26l-.042 13.66v2.638h82.72V227.11h-82.676zM88.642 293.9c16.474 0 30 13.525 30 29.998 0 16.474-13.526 30-30 30-16.473 0-30-13.526-30-30 0-16.473 13.527-29.998 30-29.998zm0 15.998c-7.826 0-14 6.174-14 14 0 7.827 6.174 14 14 14 7.827 0 14-6.173 14-14 0-7.826-6.173-14-14-14zm-18.025 67.676a13 13 0 0 1 12.625 12.998 13 13 0 1 1-26 0 13 13 0 0 1 13.375-12.998z"
+		},
+		"railgunicon": {
+			"path": "M20.91 20.002v32.29l357.793 338.9L20.91 101.407v58.942l355.942 250.224-86.89-17.527 26.913 30.947-70.502 3.008 245.633 64.603-65.502-249.054-15.352 92.36-27.3-31.46 16.683 60.464L161.26 20.002h-22.37l142.276 208.935L109.496 42.17l98.975 138.547L45.194 20.002H20.91zm433 92.186l-32.234 38.482 55.19 208.21 15.286-217.794-38.242-28.9zm-231.88 327.89l-24.975 23.47 21.674 27.62 149.225-12.78-145.926-38.31z"
+		},
+		"minigunicon": {
+			"path": "M201.607 102.77c.08-3.119.01-6.214-.183-9.274l54.291 65.964a36.619 36.619 0 0 1 6.109 10.657 37.024 37.024 0 0 1 1.69 6.148 38.273 38.273 0 0 1-2.357 21.57 38.643 38.643 0 0 1-8.229 12.322 38.18 38.18 0 0 1-12.238 8.242 37.093 37.093 0 0 1-11.189 2.764q-1.775.153-3.6.136-.907-.015-1.794-.066-.887-.052-1.766-.15-.88-.099-1.74-.234-.858-.135-1.71-.305l-83.581-17.189.537-.232a109.821 109.821 0 0 0 33.429-23.781 116.196 116.196 0 0 0 23.158-34.754 111.765 111.765 0 0 0 9.173-41.818zm52.265 25.309l16.134 19.594a55.27 55.27 0 0 1 11.699 25.272 56.958 56.958 0 0 1-33.935 62.542 55.535 55.535 0 0 1-16.76 4.138 59.787 59.787 0 0 1-5.382.208 52.376 52.376 0 0 1-2.69-.094 47.843 47.843 0 0 1-2.656-.224c-.88-.098-1.76-.208-2.62-.343a62.808 62.808 0 0 1-2.583-.463l-55.717-11.46-1.254 23.334 128.059-.345 1.368-124.617zm87.127 54.31l-.035-.415a10.332 10.332 0 0 0-.296-1.136 9.348 9.348 0 0 0-.445-1.123c-.01-.115-.11-.21-.166-.31-.055-.1-.26-.466-.396-.686l-.212-.307a7.706 7.706 0 0 0-.48-.597l-.22-.249a7.243 7.243 0 0 0-.768-.7 7.08 7.08 0 0 0-1.69-1.016 8.238 8.238 0 0 0-3.808-.52l-.265.023-.472.041a12.565 12.565 0 0 0-3.981 1.376 16.198 16.198 0 0 0-2.437 1.639 17.852 17.852 0 0 0-1.563 1.4 18.442 18.442 0 0 0-3.124 4.183 16.776 16.776 0 0 0-1.232 2.95 14.96 14.96 0 0 0-.472 1.934 11.905 11.905 0 0 0 .079 4.697c.016.184.1.351.15.532a8.654 8.654 0 0 0 1.629 3.135 7.752 7.752 0 0 0 2.383 1.92 7.96 7.96 0 0 0 .93.408l.323.111q.394.129.796.21l.366.073a9.06 9.06 0 0 0 .938.105l.265-.023a9.87 9.87 0 0 0 1.159-.03l.173-.015a11.975 11.975 0 0 0 4.453-1.417 15.596 15.596 0 0 0 3.886-3.017 17.713 17.713 0 0 0 2.926-4.189 16.73 16.73 0 0 0 1.586-4.91c.075-.482.115-.961.144-1.428l-.04-.461c-.014-.162.004-.628-.01-.929-.015-.3-.028-.322-.041-.472-.013-.15.038-.503-.01-.789zm7.024 41.097l-.04-.462c-.026-.3-.132-.592-.203-.876-.071-.284-.022-.254-.102-.375a10.575 10.575 0 0 0-.422-1.125 9.788 9.788 0 0 0-.56-1.113l-.189-.297a9.022 9.022 0 0 0-.488-.678l-.258-.303c-.18-.205-.371-.398-.562-.59l-.24-.235a8.48 8.48 0 0 0-.885-.69 8.33 8.33 0 0 0-1.797-.914 9.152 9.152 0 0 0-3.932-.486l-.542.047a12.067 12.067 0 0 0-4.21 1.408 14.462 14.462 0 0 0-2.194 1.5 15.527 15.527 0 0 0-1.579 1.484 15.804 15.804 0 0 0-2.737 4.091 14.485 14.485 0 0 0-1.012 3.072 13.317 13.317 0 0 0-.26 1.706 11.477 11.477 0 0 0 .536 4.599c.093.27.196.529.31.774a9.383 9.383 0 0 0 1.856 2.802 8.967 8.967 0 0 0 2.646 1.874 9.117 9.117 0 0 0 .95.382l.346.099q.404.116.842.206l.39.07a9.719 9.719 0 0 0 .972.103l.265-.023a10.413 10.413 0 0 0 1.159-.03l.196-.017a11.06 11.06 0 0 0 1.145-.18 11.57 11.57 0 0 0 1.889-.592 12.38 12.38 0 0 0 1.373-.641c.21-.111.408-.244.607-.366a14.092 14.092 0 0 0 3.087-2.588l.2-.238a15.26 15.26 0 0 0 2.408-3.866 14.694 14.694 0 0 0 1.153-4.814 13.363 13.363 0 0 0 .007-1.394l-.04-.45c-.012-.15-.049-.576-.084-.851zm3.023-17.343c4.227 2.83 8.62 5.703 13.155 8.598a12.021 12.021 0 0 0 2.379-2.04 12.808 12.808 0 0 0 2.231-3.49 12.287 12.287 0 0 0 .982-4.102 10.922 10.922 0 0 0-.138-2.543 9.348 9.348 0 0 0-.682-2.264 8.284 8.284 0 0 0-1.173-1.884 7.509 7.509 0 0 0-1.587-1.443q-6.459-4.333-12.655-8.723l.017.196a29.387 29.387 0 0 1-2.737 8.667 30.36 30.36 0 0 1-4.529 6.614l.299.09a21.115 21.115 0 0 1 4.427 2.325zm4.978 54.15c-.027-.31-.054-.622-.185-.924-.13-.302-.025-.3-.12-.443-.093-.142-.177-.577-.282-.858-.105-.281-.091-.247-.137-.371a11.246 11.246 0 0 0-.514-1.117l-.006-.07a10.413 10.413 0 0 0-.645-1.024l-.248-.315c-.17-.218-.351-.434-.531-.64l-.293-.3c-.192-.204-.405-.383-.618-.562l-.288-.242a9.672 9.672 0 0 0-.927-.652 9.51 9.51 0 0 0-1.948-.912 9.985 9.985 0 0 0-4.035-.465l-.311.026a11.732 11.732 0 0 0-4.37 1.434 13.097 13.097 0 0 0-2.011 1.334 13.78 13.78 0 0 0-4.025 5.584 12.912 12.912 0 0 0-.798 3.274 12.46 12.46 0 0 0-.086 1.424 11.292 11.292 0 0 0 .922 4.507 10.494 10.494 0 0 0 .492.992 10.262 10.262 0 0 0 1.993 2.51 10.1 10.1 0 0 0 2.828 1.824 10.24 10.24 0 0 0 1.008.378l.357.097q.428.114.864.192l.4.07c.33.053.67.082 1.02.098l.253-.021a11.003 11.003 0 0 0 1.159-.03l.219-.02a11.269 11.269 0 0 0 1.963-.4 11.709 11.709 0 0 0 2.433-1.011 12.727 12.727 0 0 0 3.532-2.94 13.433 13.433 0 0 0 2.323-4.045 13.282 13.282 0 0 0 .755-4.71 12.727 12.727 0 0 0-.119-1.383c.018-.06-.016-.184-.04-.322zm1.37-18.605l.378.212c5.77 3.486 11.825 7.052 18.106 10.669.246-.242.491-.496.713-.759a11.292 11.292 0 0 0 2.026-3.437 11.176 11.176 0 0 0 .675-4.03 10.552 10.552 0 0 0-.343-2.502 9.591 9.591 0 0 0-.89-2.246 9.013 9.013 0 0 0-1.321-1.849 8.527 8.527 0 0 0-1.747-1.405q-7.167-4.342-14.117-8.725a27.374 27.374 0 0 1-2.097 8.426 27.987 27.987 0 0 1-2.715 4.879l.583.425c.273.07.514.177.735.309zm-32 8.412a21.855 21.855 0 0 1-5.996-4.361 22.087 22.087 0 0 1-5.085-8.341 24.077 24.077 0 0 1-1.18-9.665 26.703 26.703 0 0 1 2.385-9.112 28.37 28.37 0 0 1 4.367-6.729l-2.799-1.489a20.583 20.583 0 0 1-5.985-4.908 21.647 21.647 0 0 1-4.402-8.91 24.517 24.517 0 0 1-.233-9.712 28.716 28.716 0 0 1 3.054-8.775 31.065 31.065 0 0 1 5.197-7.067 29.515 29.515 0 0 1 7.033-5.309 24.956 24.956 0 0 1 9.041-2.892l.588-.05-7.081-10.76-9.12-13.939-9.112-13.836-1.369 125.953a18.512 18.512 0 0 1 6.723 1.337l2.503 1.016 8.482 3.427c.084-.24.154-.501.25-.742a26.368 26.368 0 0 1 2.725-5.158zm38.74 47.05c-.013-.138-.025-.276-.093-.398-.069-.122-.157-.602-.24-.896-.083-.295-.095-.294-.154-.44-.059-.146-.222-.562-.339-.83-.116-.269-.102-.247-.17-.369a11.57 11.57 0 0 0-.607-1.109 11.257 11.257 0 0 0-.738-1.016l-.257-.292c-.193-.215-.386-.43-.6-.633l-.317-.298c-.213-.19-.427-.381-.662-.547l-.311-.24a10.853 10.853 0 0 0-.983-.624 10.61 10.61 0 0 0-2.05-.892 10.714 10.714 0 0 0-4.126-.434l-.334.029a11.489 11.489 0 0 0-4.337 1.419 12.114 12.114 0 0 0-1.838 1.319 12.45 12.45 0 0 0-3.792 5.587 11.998 11.998 0 0 0-.601 3.536c.03.357-.007.72.023 1.078a11.42 11.42 0 0 0 1.241 4.433 11.13 11.13 0 0 0 5.758 5.241c.337.134.673.256 1.018.354l.368.096q.44.113.888.19l.4.07q.53.071 1.065.095l.23-.02q.543-.047 1.159-.042l.3-.026a11.836 11.836 0 0 0 4.25-1.341l.115-.01a11.697 11.697 0 0 0 3.396-2.906 12.137 12.137 0 0 0 2.107-3.99 12.357 12.357 0 0 0 .49-4.687 12.16 12.16 0 0 0-.273-1.428zm.695-18.883a1492.97 1492.97 0 0 0 19.875 10.853 9.939 9.939 0 0 0 2.285-2.055 10.135 10.135 0 0 0 1.8-3.383 10.413 10.413 0 0 0-.113-6.424 10.02 10.02 0 0 0-1.057-2.162 9.765 9.765 0 0 0-1.514-1.809 9.534 9.534 0 0 0-1.884-1.37q-7.758-4.326-15.322-8.69a25.604 25.604 0 0 1-5.098 14.56l.667.325zm13.443 52.26a12.01 12.01 0 0 0-.267-1.347c-.011-.127-.022-.254-.114-.373-.084-.307-.191-.611-.299-.915l-.164-.416a9.595 9.595 0 0 0-.397-.837l-.3-.392a11.015 11.015 0 0 0-1.494-2.1l-.28-.29a10.96 10.96 0 0 0-.634-.62l-.34-.295a15.95 15.95 0 0 0-.696-.544l-.323-.24a11.743 11.743 0 0 0-1.041-.63 11.57 11.57 0 0 0-2.082-.842 11.327 11.327 0 0 0-4.181-.418l-.358.03a11.338 11.338 0 0 0-7.631 4.293 11.385 11.385 0 0 0-2.335 8.492 11.64 11.64 0 0 0 1.48 4.379 11.79 11.79 0 0 0 .852 1.25 11.813 11.813 0 0 0 5.19 3.908c.348.132.707.252 1.076.36l.369.096q.45.112.922.188l.41.057c.354.051.716.078 1.076.082l.242-.021c.346-.03.704-.06 1.06-.092l.358-.03a11.188 11.188 0 0 0 4.35-1.397 11.038 11.038 0 0 0 3.306-2.886 11.292 11.292 0 0 0 1.982-3.956 11.57 11.57 0 0 0 .371-2.564 11.94 11.94 0 0 0-.124-1.975zm-3.35-14.622q7.066 3.7 14.585 7.535l4.349 2.227.29-.142a9.36 9.36 0 0 0 4.494-5.787 9.8 9.8 0 0 0 .22-3.92 10.262 10.262 0 0 0-.662-2.428 10.413 10.413 0 0 0-1.183-2.14 10.563 10.563 0 0 0-1.628-1.776 10.413 10.413 0 0 0-1.985-1.35q-8.208-4.287-16.258-8.622a24.644 24.644 0 0 1-5.123 15.213 17.875 17.875 0 0 1 2.914 1.2zm17.495 48.068a11.94 11.94 0 0 0-.324-1.33c-.01-.128-.08-.25-.126-.385-.107-.304-.215-.608-.345-.91l-.186-.403a13.76 13.76 0 0 0-.432-.833l-.205-.366a12.38 12.38 0 0 0-.722-1.1 12.368 12.368 0 0 0-.852-.994l-.292-.288a11.409 11.409 0 0 0-.669-.616l-.35-.284a10.826 10.826 0 0 0-.73-.53l-.346-.237a10.603 10.603 0 0 0-1.075-.615l-.475.958-2.356 4.732 2.368-4.733.475-.958a12.276 12.276 0 0 0-2.138-.826 11.813 11.813 0 0 0-4.24-.413l-.369.031a11.176 11.176 0 0 0-4.302 1.416 10.783 10.783 0 0 0-5.086 6.744 11.06 11.06 0 0 0-.234 3.898l.055.634a11.882 11.882 0 0 0 1.65 4.33 12.333 12.333 0 0 0 .974 1.332 12.438 12.438 0 0 0 5.272 3.773c.361.143.731.262 1.111.357l.266.117q.462.11.933.186l.4.059q.552.069 1.169.085l.207-.018c.392-.034.789-.01 1.158-.041l.253-.022a11.234 11.234 0 0 0 3.125-.803 10.841 10.841 0 0 0 1.204-.58 10.598 10.598 0 0 0 3.1-2.706l.137-.163a10.69 10.69 0 0 0 1.821-3.93 11.338 11.338 0 0 0 .114-4.61zm-1.015-20.281c6.698 3.348 13.72 6.82 21.214 10.494a8.943 8.943 0 0 0 1.118-2.79 9.487 9.487 0 0 0 .084-3.887 10.216 10.216 0 0 0-.754-2.408 10.667 10.667 0 0 0-1.285-2.119 11.05 11.05 0 0 0-3.75-3.091q-8.496-4.262-16.994-8.547a23.857 23.857 0 0 1-2.336 11.175 25.107 25.107 0 0 1 2.652 1.12zm17.98 52.09a11.905 11.905 0 0 0-.404-1.312c-.01-.127-.102-.247-.16-.381-.058-.134-.248-.583-.388-.86l-.222-.423a9.311 9.311 0 0 0-.486-.794l-.227-.34a11.732 11.732 0 0 0-1.739-1.988l-.314-.275c-.226-.2-.463-.39-.712-.577l-.371-.27c-.248-.176-.506-.34-.775-.502l-.355-.213c-.354-.202-.718-.38-1.092-.545l-.081.007-2.54 5.84 2.54-5.84a12.727 12.727 0 0 0-2.2-.728 12.125 12.125 0 0 0-4.28-.224l-.37.032a11.095 11.095 0 0 0-4.23 1.584 10.413 10.413 0 0 0-4.653 6.915 10.945 10.945 0 0 0 .045 4.026l.04.473a12.01 12.01 0 0 0 1.933 4.234 12.727 12.727 0 0 0 1.101 1.322 12.785 12.785 0 0 0 5.48 3.488c.37.12.74.227 1.118.31l.378.072q.472.087.953.15l.4.047c.373.026.746.04 1.164.04l.207-.018 1.153-.1.311-.026a11.454 11.454 0 0 0 1.662-.387 10.864 10.864 0 0 0 2.605-1.177 10.413 10.413 0 0 0 2.292-1.974l.138-.151a10.32 10.32 0 0 0 2.242-4.838 10.887 10.887 0 0 0 .106-2.82 11.466 11.466 0 0 0-.32-1.819zm-2.24-20.21a6463.82 6463.82 0 0 0 21.53 9.317l.054-.19a9.256 9.256 0 0 0 .003-3.868 10.286 10.286 0 0 0-.81-2.392 10.887 10.887 0 0 0-1.342-2.103 11.304 11.304 0 0 0-1.764-1.74 11.489 11.489 0 0 0-2.1-1.318q-8.75-4.251-17.444-8.52a22.55 22.55 0 0 1-1.492 9.64 25.535 25.535 0 0 1 3.387 1.172zm23.14 51.866a11.674 11.674 0 0 0-.357-1.316c-.012-.138-.092-.259-.15-.393-.058-.135-.225-.585-.366-.875l-.198-.412c-.14-.279-.303-.555-.465-.82l-.216-.341a12.727 12.727 0 0 0-.779-1.094 13.074 13.074 0 0 0-.897-.98l-.303-.276a17.435 17.435 0 0 0-.691-.614l-.361-.282a17.918 17.918 0 0 0-.767-.538l-.344-.226c-.355-.213-.721-.414-1.086-.603a12.97 12.97 0 0 0-2.256-.85 12.287 12.287 0 0 0-4.03-.408l-.623.053a11.038 11.038 0 0 0-4.28 1.414 10.413 10.413 0 0 0-1.519 1.095 10.066 10.066 0 0 0-3.35 5.607 10.934 10.934 0 0 0-.08 4.06l.038.437a12.195 12.195 0 0 0 1.776 4.307 12.808 12.808 0 0 0 1.06 1.372 12.843 12.843 0 0 0 5.478 3.743c.3.114.61.215.919.293l.38.095q.462.11.945.185l.411.058q.552.068 1.11.078l.22-.018 1.152-.1.311-.026a11.5 11.5 0 0 0 1.475-.267 10.876 10.876 0 0 0 2.854-1.116 10.297 10.297 0 0 0 4.955-6.78 11.003 11.003 0 0 0-.015-4.492zm-1.562-20.292l9.279 4.45 8.685 4.164a8.573 8.573 0 0 0 .202-.888 9.256 9.256 0 0 0-.182-3.863 10.286 10.286 0 0 0-.934-2.347 10.957 10.957 0 0 0-1.452-2.035 11.454 11.454 0 0 0-1.862-1.662 11.686 11.686 0 0 0-2.154-1.278l-18.085-7.733a22.897 22.897 0 0 1-.762 8.95 25.303 25.303 0 0 1 2.884.587 25.639 25.639 0 0 1 4.344 1.624zm29.852 67.105a23.14 23.14 0 0 1-3.483 3.784 2897.814 2897.814 0 0 1 18.215 7.21 10.633 10.633 0 0 0 1.194.386 10.413 10.413 0 0 0 1.183.258 10.216 10.216 0 0 0 2.33.078l.138-.012a9.603 9.603 0 0 0 3.733-1.158 9.175 9.175 0 0 0 2.81-2.425 9.013 9.013 0 0 0 1.605-3.343 9.325 9.325 0 0 0 .106-3.888 9.892 9.892 0 0 0-.753-2.409 10.413 10.413 0 0 0-1.342-2.102 10.899 10.899 0 0 0-1.742-1.755 11.234 11.234 0 0 0-2.089-1.33q-8.705-4.266-17.48-8.527a23.429 23.429 0 0 1-.51 6.605 23.047 23.047 0 0 1-3.95 8.62zm-8.35-16.06a11.709 11.709 0 0 0-.346-1.318c-.012-.138-.093-.27-.151-.405-.058-.134-.225-.585-.353-.864l-.2-.424c-.14-.278-.291-.556-.453-.82l-.216-.353a12.357 12.357 0 0 0-.768-1.095 12.97 12.97 0 0 0-.958-1.01l-.303-.275c-.227-.213-.454-.426-.703-.613l-.36-.283a11.217 11.217 0 0 0-.755-.527l-.357-.236a12.848 12.848 0 0 0-1.11-.613 12.877 12.877 0 0 0-2.183-.822 12.24 12.24 0 0 0-4.285-.398l-.38.033a11.05 11.05 0 0 0-4.28 1.414 10.286 10.286 0 0 0-4.892 6.703 11.038 11.038 0 0 0-.123 3.97l.046.531a12.24 12.24 0 0 0 1.773 4.272 12.727 12.727 0 0 0 1.01 1.353 13.062 13.062 0 0 0 2.113 2.001 12.889 12.889 0 0 0 3.516 1.857c.25.083.503.178.764.248l.38.095q.462.111.933.187l.4.058q.552.069 1.169.085l.196-.017 1.083-.093.346-.03a11.362 11.362 0 0 0 2.45-.547 10.841 10.841 0 0 0 1.89-.848 10.482 10.482 0 0 0 5.035-6.786 11.003 11.003 0 0 0 .013-4.437zm-1.47-20.3l18.346 8.87a9.325 9.325 0 0 0-.22-2.547 10.181 10.181 0 0 0-.81-2.392 10.772 10.772 0 0 0-1.342-2.103 11.362 11.362 0 0 0-1.776-1.74 11.697 11.697 0 0 0-2.122-1.315l-17.698-8.497a23.406 23.406 0 0 1-.452 6.484c-.081.401-.21.784-.315 1.188.673.128 1.335.268 2.001.455a25.581 25.581 0 0 1 4.33 1.59zm-164.17-146.86a1.874 1.874 0 0 0-1.496-.382 12.947 12.947 0 0 0-2.53.566 32.858 32.858 0 0 0-3.317 1.26 43.51 43.51 0 0 0-3.72 1.843 44.433 44.433 0 0 0-3.157 1.909 24.297 24.297 0 0 0-2.366 1.783 8.006 8.006 0 0 0-1.382 1.478 1.076 1.076 0 0 0-.25 1.008l82.13 165.108a3.471 3.471 0 0 0 .618-.239c.415-.175.995-.457 1.73-.81l2.63-1.296 3.339-1.68 3.7-1.945 3.129-1.686c.91-.497 1.662-.922 2.215-1.248a7.717 7.717 0 0 0 .98-.63c-16.708-33.26-65.547-131.791-82.253-165.04zm-45.423 6.141a32.095 32.095 0 0 0-2.85-2.077 45.252 45.252 0 0 0-3.563-2.143 39.262 39.262 0 0 0-3.322-1.619 23.8 23.8 0 0 0-2.793-1.013 7.902 7.902 0 0 0-2.005-.362l-.254.022a.902.902 0 0 0-.748.343l-97.637 163.044a1.84 1.84 0 0 0 .547.428c.37.247.923.595 1.621 1.022l2.523 1.513 3.204 1.873 3.662 2.076 3.122 1.729c.913.49 1.68.9 2.25 1.188a7.544 7.544 0 0 0 1.065.489c19.567-33.04 77.926-130.189 97.497-163.182a1.944 1.944 0 0 0-.555-1.323 12.727 12.727 0 0 0-1.765-2.02zm12.924 21.694l22.76 78.342.65-.149 1.85-.507 2.822-.801 3.568-1.039 4.02-1.194 3.395-1.035.253-.022-37.81-76.047zm-29.306-47.41c.646-.056 1.303-.112 1.945-.075a25.754 25.754 0 0 1 6.99 1.07 42.149 42.149 0 0 1 5.01 1.81 58.73 58.73 0 0 1 4.848 2.358 57.696 57.696 0 0 1 5.024 3.051 50.445 50.445 0 0 1 4.529 3.373 47.427 47.427 0 0 1 2.342 2.12l1.162.005c.397-.383.805-.766 1.237-1.14a42.635 42.635 0 0 1 4.187-3.171 45.785 45.785 0 0 1 4.562-2.716c1.623-.836 3.467-1.808 5.201-2.573a51.173 51.173 0 0 1 5.218-1.982 30.672 30.672 0 0 1 6.318-1.334l.15-.013a19.97 19.97 0 0 1 15.347 4.926c.39.35.77.723 1.125 1.065.383.408.772.874 1.111 1.309.34.435.737 1.005 1.06 1.523.324.518.63 1.107.892 1.584l1.397 2.736 9.713.058 9.295.058 25.086.163-24.964-10.079-8.579-3.465-8.59-3.464-9.287.034-9.288.022-128.871.345 48.305 9.125 3.541.67a19.252 19.252 0 0 1 13.973-7.393zM89.843 55.946a11.743 11.743 0 0 0-6.862-1.476 12.97 12.97 0 0 0-2.695.534 14.404 14.404 0 0 0-8.257 6.738 14.404 14.404 0 0 0-1.573 10.587 11.824 11.824 0 0 0 15.252 8.685 14.775 14.775 0 0 0 9.835-17.279 12.01 12.01 0 0 0-5.7-7.789zm93.296 46.37a93.716 93.716 0 0 1-7.737 34.89 98.344 98.344 0 0 1-19.489 29.235 91.91 91.91 0 0 1-27.801 19.813 80.075 80.075 0 0 1-26.436 7.085q-2.974.256-5.98.27a69.014 69.014 0 0 1-30.362-6.674 67.244 67.244 0 0 1-22.85-17.89 73.388 73.388 0 0 1-13.636-25.79 84.298 84.298 0 0 1-3.084-31.09 94.676 94.676 0 0 1 8.013-31.138 98.483 98.483 0 0 1 17.204-26.1 93.276 93.276 0 0 1 24.28-19.034 81.857 81.857 0 0 1 29.568-9.421l2.178-.188a70.657 70.657 0 0 1 27.845 3.072 66.897 66.897 0 0 1 25.112 14.756 70.993 70.993 0 0 1 17.252 25.038 81.764 81.764 0 0 1 5.876 33.17zm-72.23-46.512l-9.773-8.704-.277-.243-.125-.105a6.942 6.942 0 0 0-.672-.523 25.326 25.326 0 0 0-23.88-4.493 28.23 28.23 0 0 0-16.287 13.143 28.23 28.23 0 0 0-2.98 20.672 25.627 25.627 0 0 0 16.103 18.296l14.247 5.509a6.838 6.838 0 0 0 .693.23 23.406 23.406 0 0 0 9.648 1.19 25.13 25.13 0 0 0 19.556-12.809c6.351-11.068 3.557-25.041-6.254-32.163z"
+		},
+		"lazericon": {
+			"path": "M55.25 16.53l28.844 52.876 8.125 38.75-35.314-5.53-38.625-13.97v19.875l39.94 14.44 17.31 16.905-42.78 43.406 52-8.843 18.906 56.782-8.687 102.81-13.47 32.19-11.406-6.97-51.813-64.188v29.75l37.564 46.563L65.97 389.53 18 416.564l49.344 6.406-22 42.467 40.53-18.218 16.69 43.092 8.75-41.812 42.936 15.438-18.406-35.782 63.97 1.313-56-31.314L158 388.062l73.938-19.437 36.812-.156-46.03 72.75 77.25-41.5 33.124 91.874 22.812-83.813 56.22 54.19-13.22-82.564 53.375-2.562-45.936-37.906 81.406-53.594-86.813 4.562-14.187-89.5-39.844 80.25-44.594-64.844-22.062-98.468 84.625-18.72-15.938 26.095 38.188-13.032 10.188 45.75 24.78-36.407 39.438 18.44-14.405-36.532 38.594-10.47-43.564-19 20.406-33.874L422.22 51.47l-29.314-32.282-3.97 39.874-46.186-9.28 24.844 29.124-91.406 20.22-18.5-82.595H238.53l19.407 86.626-13.75 3.063-59.343 2 33-88.064-56.594 59.22L139.03 22l-11.905 65.97-23.47-21.69-27.124-49.75H55.25zM262 121.376l22.938 102.438-2.47 69.843-93.5-16.75 66.532 53.25-46.906 25.25-59.844 15.75-26.063-.25-9.187-34.156 9.813-116.125 15.5-32.875 39.343 33.438-5.062-45.25 58.625 16.812-42.94-41.656 56.126-25.938 17.094-3.78z"
+		},
+		"knifeicon": {
+			"path": "M47.688 19.156c-.376-.003-.748.016-1.126.032-6.044.245-12.252 2.815-17.28 7.843-10.057 10.058-10.297 24.924-1.72 33.5 3.94 3.94 9.21 6.034 14.72 6.157l3.062-3.093L67.5 41.437l1.406-1.406c-.123-5.515-2.217-10.78-6.156-14.718-4.022-4.02-9.423-6.114-15.063-6.156zm28.28 40.25L63.063 72.313c13.653 33.245 37.167 56.274 67.438 73.718l18.75-18.75C130.385 97.324 105.988 74.1 75.97 59.407zm129.344 38.25L99.906 203.094l23.844 23.844c29.782-40.624 65.415-75.33 105.5-105.344l-23.938-23.938zm12.813 56.406c-22.467 18.703-43.183 39.077-61.875 61.438 34.053 43.905 76.278 82.775 122.406 112.375-20.858 1.702-40.402 1.278-58.562-1.28 34.15 24.845 71.227 45.65 110.25 61.155-28.237 2.647-54.58 2.25-78.97-1.188 72.535 52.773 155.472 91.19 243.064 107.47-20.59-94.733-58.107-178.44-109.844-249.094 3.565 24.952 4.537 52.326 2.47 82.312-16.075-41.127-36.744-78.823-61.564-112.72 2.653 18.574 3.49 38.852 2.22 60.94-29.64-47.287-66.485-88.237-109.595-121.408z"
+		},
+		"missleicon": {
+			"path": "M45.773-1.58l-.072.275h1.09c-.337-.09-.682-.188-1.017-.275zm-28.43 18.963V51.46c19.897 34.454 44.06 69.077 77.686 99.577 6.936 24.534 23.59 43.637 46.226 53.85v-.008c-5.885-8.19-9.39-18.102-9.584-30.097 12.07.163 21.906 3.716 30.1 9.588-10.022-22.422-28.7-38.966-52.883-46.01C68.625 102.25 42.263 59.577 19.87 17.382h-2.526zm26.952 0C98.647 32.315 173.468 71.74 240.527 124.45l16.278-11.555C205.6 71.815 149.63 38.578 99.975 17.383h-55.68zm110.06 0c28.402 8.136 52.815 19.562 75.33 32.826 13.042 21.96 34.095 36.143 58.635 40.155-7.798-6.388-13.742-15.053-17.033-26.584 11.7-2.98 22.12-2.09 31.555 1.458-15.497-19.08-37.847-30.23-63.06-30.758-10.274-6.072-21-11.82-32.317-17.097h-53.11zM288.32 90.365l.012.01.002-.008c-.005 0-.01 0-.014-.002zm37.334-68.023l-4.633 49.273c-.014 0-.028-.004-.043-.006l-18.137 31.413c.037.05.076.097.113.147l-31.146 22.107-.073-.062-9.515 6.754 39.616 22.876.047-.018.006.004 38.305-13.883c37.3 28.674 84.672 43.582 133.49 39.767-21.153-44.63-57.795-78.24-101.46-96.04l-7.022-39.503-39.55-22.832zM194.91 148.834l-17.226 46.404-.045-.017-25.65 25.65c.022.055.046.11.07.165l-46.69 17.332 32.296 32.297 40.596-3.49c28.606 37.346 70.505 64.008 118.644 72.96-8.882-48.582-35.574-90.534-73.144-119.03l3.44-39.975-32.292-32.296zm123.332 19.943l-18.217 6.602-4.304-2.487c17.836 17.583 34.275 36.046 48.592 55.097 1.07 24.403 12.092 46.127 30.635 61.29-3.563-9.432-4.385-19.913-1.463-31.55 11.625 3.273 20.2 9.256 26.596 17.045-4.058-25.375-18.94-46.994-42.234-59.9-12.03-15.88-25.347-31.29-39.604-46.098zm-300.898 78.41v49.76c14.048 24.524 33.504 44.45 56.984 60.963 12.88 23.576 34.676 38.807 60.264 42.99-7.803-6.385-13.75-15.052-17.043-26.584 11.7-2.98 22.12-2.095 31.555 1.457-14.967-18.427-36.325-29.457-60.476-30.666-35.613-23.867-60.18-54.168-71.286-97.92zM134.592 400.9s.003 0 .004.002l.002-.002h-.006zm306.69-151.87l-28.647 40.355-.035-.026-31.414 18.138.023.182-49.587 4.66 22.834 39.55 40.115 7.13c17.964 43.483 51.537 80.08 95.723 101.185 3.997-49.232-10.932-96.66-39.85-133.908l13.67-37.72-22.834-39.548zm-269.366 83.84l-4.63 49.284c-.017 0-.032-.004-.048-.006l-18.136 31.414c.035.048.073.093.11.14l-40.61 28.82 39.552 22.843 38.305-13.877c37.297 28.67 84.672 43.58 133.49 39.766-21.153-44.63-57.796-78.24-101.462-96.04l-7.023-39.507-39.55-22.836z"
+		},
+		"rocketicon": {
+			"path": "M482.22 44.844l-50.533 46.25-21.937 57.22c-34.637 15.445-47.955 24.442-61.47 74.874l39.564-17.657-1.875 32.095 37.342 14.344 21.75-24.5 17.625 39.56c24.52-42.467 25.663-63.24 4.282-96.78l21.936-57.22-6.687-68.186zM389.093 263.22c-16.33 25.16-38.017 48.57-63.063 68.217-.022.018-.038.045-.06.063-37.302 23.693-83.27 29.138-118.095 15.688 16.236 15.056 37.635 20.705 59.156 19.156-49.41 14.874-102.32 9.118-139.624-14.28 14.142 19.334 34.493 31.22 56.97 36.592-58.93 3.328-117.894-19.792-162.44-84l.002 168.03c65.91 28.65 135.148 19.62 196.218-11.56l-16.97 35.78 88.126-85.03h-.093c2-1.796 3.973-3.6 5.936-5.438l-11.28 43.937 59.812-99.438c19.668-27.56 35.253-57.384 45.406-87.718z"
+		},
+		"flashbangicon": {
+			"path": "M279.31 24.574l-9.34 16.188 26.34 15.2 9.348-16.185-26.347-15.203zm55.692 1.77l-23.04 39.88c8.697 3.117 17.316 7.09 25.716 11.936 9.207 5.313 17.637 11.378 25.215 18.024l23.287-40.31-51.178-29.53zm-71.49 50.017c-4.798.02-9.493.35-14.04.984-24.26 3.384-44.065 15.097-55.01 34.043l-28.89 50.01 16.758 9.67 22.945-40.14 16.225 9.276-22.982 40.203 48.847 28.188 22.774-39.84 16.223 9.275-22.81 39.906 56.992 32.886 22.58-39.506 16.227 9.274-22.62 39.572 14.88 8.586 28.894-50.018c10.945-18.946 11.19-41.94 1.994-64.626-9.195-22.687-27.957-44.635-54.162-59.756-19.655-11.34-40.545-17.14-59.996-17.9-1.62-.064-3.23-.093-4.83-.087zM389.207 87.99l-9.348 16.184 53.646 30.957c-4.74 3.604-8.798 8.41-12.006 13.83-6.885 11.636-10.73 26.704-10.73 43.216s3.845 31.582 10.73 43.217c6.885 11.634 17.644 20.515 30.8 20.515 13.153 0 23.913-8.88 30.798-20.515 6.884-11.635 10.726-26.705 10.726-43.217s-3.842-31.58-10.726-43.215c-4.96-8.38-11.934-15.308-20.36-18.542l-73.53-42.43zm63.092 59.147c.85 0 1.724.113 2.614.345l5.164 2.98.12-.206c2.308 1.833 4.62 4.52 6.814 8.225 4.763 8.048 8.123 20.172 8.123 33.696 0 13.523-3.36 25.65-8.123 33.7-4.763 8.048-10.093 11.343-14.713 11.343-4.62 0-9.953-3.296-14.716-11.345-4.763-8.05-8.123-20.176-8.123-33.7 0-13.523 3.36-25.647 8.124-33.696 4.763-8.05 10.095-11.345 14.715-11.345zM174.66 188.217L112.25 296.254l148.63 85.764 62.41-108.036-148.628-85.765zM84.467 301.8l-28.895 50.016c-10.946 18.948-11.19 41.943-1.996 64.63 9.193 22.68 27.948 44.62 54.143 59.74.006.004.013.01.02.013h.002c26.206 15.12 54.607 20.388 78.865 17.003 24.26-3.384 44.064-15.096 55.01-34.043l28.89-50.01-16.595-9.576-25.855 45.235-16.227-9.277 25.895-45.3-56.993-32.885-25.662 44.894-16.226-9.275 25.7-44.96-48.847-28.187-25.494 44.598-16.224-9.275 25.53-44.663-15.043-8.68z",
+			"credit": "https://game-icons.net/lorc/originals/atomic-slashes.html"
+		},
+		"biggunicon": {
+			"path": "M237.58 213.41a48.65 48.65 0 0 1 2.09-14.63h-17.15a1.45 1.45 0 0 0-1.37 1.37v14.58a15 15 0 0 0 1 6.15c.1 0 .26-.1.38-.1h15.58a59 59 0 0 1-.53-7.37zM145.16 396l-2.07 13.22-106.72-16.69 2.11-13.48 106.06 16.86zm249.29-246.22H86.71c2.08-37 19.18-47 19.18-47h378.27v32.53c-59-2.45-81.32 6.47-89.71 14.47zm89.59.92h.12v27.08h-80v-16.77c4-3.09 20.68-12.82 79.87-10.31zM27.84 361.78l119.12 19s25.79-87.28 36.14-115.79c6.14-16.95 29.91-20.21 41.32-20.21h31.32c16.06 0 29.42-13.69 30.42-30.92l-.2-23.08a7 7 0 0 1 7.2-7h96v-18H83.64c-3.18 4.32-9.37 6.14-21.27 7.24-27.3 2.54-21.28 19.3-21.28 19.3a37.51 37.51 0 0 1 4.56-.29c9.55 0 27.65 2.63 39.74 17.75 14.49 18.08-38.28 94.73-57.55 152zm178.32-161.63a16.16 16.16 0 0 1 16.37-16.37h37.31a16.12 16.12 0 0 1 16.32 16.37v14.58c0 12-9.11 22.05-18.32 22.05h-35.32c-12 0-16.37-9.89-16.37-22.05v-14.58zm-155 151.53a10.23 10.23 0 0 1-1.73-10.49c12.36-30.23 55.41-128.32 70.86-161.48 6.48-13.9 35.77-14.41 52.31-8.65 14.25 5 21.13 14.74 18.4 26.15-5.46 22.81-36.94 120.87-52.6 165.22-1.33 3.78-4.7 6.15-10 7.05a45.81 45.81 0 0 1-7.46.51c-9.91 0-23.26-1.95-33.24-4-19.89-4-32.18-8.82-36.54-14.31zm83-165.32c-14.86 31.91-55 123.3-69 156.95 4.32 2.21 14.25 5.53 28.85 8.26 15.21 2.84 26.29 3.37 30.81 2.88 15.65-44.71 46-139.46 51.14-160.83.26-1.09.87-3.65-5.17-6.64-5.51-2.73-14.08-4.26-22.36-4-8.68.28-13.37 2.4-14.27 3.38zm5.86 18.66a8.3 8.3 0 1 1 8.3 8.3 8.3 8.3 0 0 1-8.31-8.3zm-30.79 124.15a8.3 8.3 0 1 1-8.3-8.3 8.3 8.3 0 0 1 8.28 8.3zM77.99 116l-4.59 15.93a10.15 10.15 0 0 1-2.94-4.2c-.73-2.39-9.62-17.8-19.42-18.59 10.12-4.61 26.94 6.86 26.94 6.86z"
+		},
+		"sentryicon": {
+			"path": "M94 67.656v78.094h124.063V67.656H94zm-74.156 49.5v75.875l97.78 98.032h144.44l-.002-173.906H236.75V164.438H75.312V117.155H19.844zM280.75 136.03v89.407h99l-46.625 46.75H280.75v18.688h60.125l2.75-2.75 58.625-58.78 2.72-2.72v-1.188h.342V136.03H280.75zM424 154.407v51.75h68.53v-51.75H424zM165.906 309.75c.198 13.433 5.876 25.525 14.938 34.125L115.75 429.97c-25.832 2.44-47.42 20.308-56.97 45.217h126.064c-8.29-21.625-25.665-37.942-47-43.468l23.125-30.564h101.31l23.095 30.563c-21.332 5.527-38.68 21.844-46.97 43.467h126.032c-9.546-24.906-31.11-42.775-56.937-45.218l-63.28-83.658c10.65-8.667 17.47-21.81 17.686-36.562h-96zm30.813 44.156c5.34 2.05 11.124 3.156 17.186 3.156 4.702 0 9.237-.678 13.53-1.937l20.69 27.344h-73l21.593-28.564z"
+		},
+		"dashicon": {
+			"path": "M 185.90107,21.667141 C 273.66638,103.1344 325.90096,190.87541 363.18841,289.15305 275.49038,184.91376 242.31441,163.72278 116.88975,109.32966 208.45258,181.54047 226.10768,200.34679 279.72895,286.04514 209.68602,233.82364 113.352,182.99257 20.763168,155.41009 l 0,85.40121 c 95.446312,24.53997 244.609212,97.10025 311.841382,175.21478 -0.6242,-25.57532 -3.9844,-51.14691 -14.51542,-76.72223 l 108.86098,111.97263 c -6.54474,-34.00574 -20.51072,-67.18544 -41.9895,-99.52977 L 499.0058,468.38214 C 461.7632,292.83657 343.06642,104.33981 185.90294,21.667141 Z"
+		},
+		"explosionicon": {
+			"path": "M328.547 19.115c-30.61 99.22-47.583 151.205-86.88 156.778-18.626 2.642-42.988-19.225-70.16-50.29 15.47 30.702 21.275 55.265 10.845 61.348-15.787 9.21-51.095-6.94-106.815-30.837 31.653 20.827 83.667 50.18 77.358 58.63-8.074 10.81-77.23-4.706-130.866-13.163 89.224 25.398 137.61 55.572 137.61 82.387 0 18.423-48.845 62.18-71.888 83.928 19.558-11.397 64.736-24.44 76.777-2.99 13.335 23.758-6.577 61.6-28.5 128.027 31.39-46.19 73.363-108.122 90.734-106.49 12.248 1.15-4.805 60.692-10.47 98.71 21.547-80.082 46.534-132.5 90.153-131.015 29.665 1.01 58.022 30.762 88.99 52.047-16.188-19.81-45.975-47.99-39.55-53.243 8.9-7.276 56.48 12.547 94.224 25.726-24.982-17.962-68.644-43.88-61.653-50.852 10.417-10.387 72.436 1.332 117.49 7.178-87.746-30.728-136.846-44.187-147.33-78.533-5.283-17.31 10.853-40.3 40.89-68.038-31.377 17.197-54.588 28.694-63.737 12.392-11.576-20.622 11.374-65.883 35.238-126.06-21.135 32.47-48.532 83.487-55.254 77.174-8.972-8.425 5.598-77.597 12.795-132.813h-.003zM20.45 19.27v23.36c48.52 27.437 95.253 62.39 141.333 102.786-33.768-41.685-67.34-83.79-94.025-126.146H20.45zm175.79 0c18.465 37.356 34.503 76.96 48.475 117.97-5.007-39.79-9.898-79.367-12.264-117.97h-36.21zm160.022 0c-7.18 26.672-15.416 53.437-25.116 80.593 15.405-27.34 30.698-54.514 46.723-80.593H356.26zm105.123 0c-27.895 50.718-63.73 99.873-105.707 147.755 46.514-37.68 92.9-75.343 140.164-103.37V19.27h-34.457zm34.455 160.02c-36.077 17.98-74.843 34.036-115.635 47.89 38.908-6.17 77.882-12.105 115.635-15.77v-32.12zm-206.266 42.868c9.35 0 16.93 7.58 16.93 16.932 0 9.35-7.58 16.93-16.93 16.93s-16.93-7.58-16.93-16.93 7.58-16.932 16.93-16.932zm-52.06 1.598c15.508 0 28.082 12.57 28.082 28.08 0 9.718-4.938 18.28-12.44 23.322 3.614 3.843 5.842 9.002 5.842 14.694 0 11.86-9.613 21.474-21.473 21.474s-21.474-9.615-21.474-21.474c0-5.687 2.228-10.842 5.837-14.684-7.51-5.04-12.453-13.608-12.453-23.332 0-15.51 12.57-28.08 28.08-28.08zM20.45 235.078v38.547c31.87-4.584 64.46-5.693 97.532-4.09-33.727-10.19-67.407-20.35-97.53-34.457zm265.82 28.377c9.35 0 16.93 7.58 16.93 16.932 0 9.35-7.58 16.93-16.93 16.93s-16.932-7.58-16.932-16.93 7.58-16.932 16.932-16.932zM128.494 295.05c-36.153 11.99-72.24 20.293-108.043 24.313v51.393c30.994-28.64 69.426-52.264 108.044-75.703v-.002zm5.84 88.645c-37.923 30.72-75.607 61.482-113.885 87.02v23.943h29.784c24.02-37.76 52.365-74.765 84.1-110.963zm202.07 11.096c26.807 33.093 53.226 66.414 76.508 99.87h59.568c-46.586-27.078-91.877-61.12-136.074-99.87h-.002zm-52.562 9.93c-3.175 30.26-6.39 60.5-10.512 89.94h20.44c-4.51-29.083-7.904-59.17-9.926-89.94h-.002zm26.865 13.432c11.346 25.473 22.374 51.18 32.705 76.508h23.36c-19.395-23.9-38.105-49.64-56.065-76.508z"
+		},
+		"bombicon": {
+			"path": "M288.625 19.625C252.95 45.54 233.16 81.95 226.655 126.938l41.095 23.687c9.348-5.82 17.33-12.415 24.22-19.656 4.383 22.757 20.633 45.578 39.874 56.686l65.5 37.813c24.465 14.124 54.433 9.697 73.812-8.907l7.97 4.593 17.312-30-7.938-4.594c6.426-26.087-4.752-54.28-29.22-68.406l-65.5-37.812c-19.76-11.41-48.63-13.89-70.78-5.53 2.947-10.077 5.108-20.605 6.688-31.47l-41.063-23.72zm12.313 174.97c-49.957 19.17-84.558 55.62-106.313 106.31l40.688 40.72c12.79-3.888 24.24-9.11 34.593-15.438-2 28.05 9.847 59.878 28.906 78.938l64.907 64.906c24.242 24.245 60.782 28.477 89.342 12.75l7.875 7.876 29.72-29.72-7.844-7.873c15.736-28.564 11.465-65.097-12.782-89.344l-64.905-64.908c-19.58-19.58-52.628-31.56-81.22-28.718 6.62-10.884 12.457-22.543 17.72-34.78l-40.688-40.72zm-182.157.655c-35.453-.015-68.357 12.318-99 35.22l12.72 47.468c11.113 2.584 21.805 3.602 32.156 3.343-13.452 19.88-18.267 48.465-12.312 70.69l20.28 75.686c7.576 28.27 32.77 46.972 60.595 47.53l2.468 9.19 34.656-9.282-2.47-9.188c23.81-14.4 36.262-43.205 28.69-71.47l-20.25-75.686c-6.117-22.822-25.445-45.77-47.783-55.875 9.534-5.22 18.83-11.36 27.94-18.156l-12.72-47.44c-8.458-1.34-16.787-2.027-24.97-2.03z"
+		},
+		"substituteblock": {
+			"path": "M209.875 44.156l-182 106.47 119.625 54.31 148.344 11.72 41.97-24.312 17.342 11.562L309 230.656V379.53l53.563-14.624-64.625 51.97-110.875-59.626-2.157-1.53-71.28 6.56 75.936-31.967 100.75 52.125v-147.5l-145.906-11.5-1.625-.125-1.5-.688-121.093-55V391.47L44 423.186l82 20.97 21.875-21.282 11.156 29.72 131.282 33.592V434l4.25 2.28 5.47 2.94 4.812-3.908L309 431.97v52.155L491.375 377.78v-96.405L466.78 269.47l24.595-38.75V125l-90.25 52.28-1.094 34.095-88-58.688 84.97 5.375L476.5 112 291.562 64.937l1.625.563-64.406 5.78 5.345-20.936-24.25-6.188z"
+		},
+		"flameicon": {
+			"path": "M310.764 27.086c35.65 52.304 28.718 138.494 1.23 202.857.814-37.525-4.488-79.686-18.12-124.634 9.56 106.27-74.502 226.382-113.556 176.323-18.965-24.314-25.796-96.042 7.48-148.52-20.36 12.828-36.114 34.506-46.052 60.358C89.2 293.815 127.04 411.82 248.318 411.82c154.426 0 249.604-250.51 62.446-384.732zM225.67 132.773c-11.55 1.477-24.57 13.962-33.502 34.973-14.002 32.94-13.464 74.536.64 92.914 10.576 13.785 25.695 10.895 38.678-5.465l.004-.004c4.328-5.45 8.49-12.35 11.99-20.588.11-.262.002-.618.112-.88-10.898 12.023-23.323 14.096-32.006 2.782-12.374-16.126-12.36-52.928-.074-81.832 4.055-9.54 8.972-16.68 14.158-21.9zm141.492 80.635c-11.895 181.347-175.84 187.74-203.445 106.76h.002c51.202 34.305 111.037 8.255 128.913-60.43l6.043 51.364c31.064-29.207 49.024-50.36 68.486-97.694zM99.722 363.936C49.57 377.563 17.175 397.75 17.175 420.14c0 41.018 106.522 74.352 237.695 74.352 131.172 0 237.696-33.334 237.696-74.35 0-22.312-32.12-42.58-81.964-56.206 17.23 8.88 27.517 19.25 27.517 30.445 0 32.13-82.312 58.546-183.25 58.546-100.936 0-182.66-26.418-182.66-58.545 0-11.253 10.11-21.536 27.517-30.444h-.004z",
+			"credit": "https://game-icons.net/1x1/lorc/burning-eye.html"
+		}
+	},
+	"Code": "var center = { x: 0.5, y: 0.5 };\n\nvar CloseEnoughDistance = 0.01;\nvar MissRadius = 0.05;\nvar DodgeRadius = 0.15;\nvar SpellCastIntervalMilliseconds = 1000;\nvar SpellCastJitterMilliseconds = 500;\n\nvar TicksPerSecond = 60;\n\nvar DefaultReactionMilliseconds = 0;\nvar ReactionMillisecondsLookup = { // Change the reaction time on certain spells\n    retarget: 0,\n};\n\nvar alreadyChosenSpells = false;\nvar nextSpell = 0;\n\n// See ai.contracts.ts:\n// input is InputContract - contains information about the current state of the world\n// output is OutputContract - an action you want to take in response to the world \nfunction act(input) {\n    // Want the bot to do nothing? Uncomment the line below (remove the //):\n    // return null;\n\n    var state = input.state;\n    var heroId = input.heroId;\n    var hero = state.heroes[heroId];\n    var cooldowns = input.cooldowns;\n    var settings = input.settings;\n\n    var opponent = findOpponent(state.heroes, heroId);\n    if (!(hero && opponent)) {\n        // Either we're dead, or everyone else is, nothing to do\n        return null;\n    }\n    \n    var action = null;\n    if (state.started) {\n        action =\n            recovery(state, hero, cooldowns)\n            || dodge(state, hero, cooldowns)\n            || castSpell(state, hero, opponent, cooldowns, settings)\n            || focus(hero, opponent)\n            || chase(state, hero, cooldowns, opponent)\n            || move(state, hero);\n    } else {\n        action =\n            chooseSpells(settings)\n            || dodge(state, hero, cooldowns)\n            || move(state, hero);\n    }\n\n    if (action) {\n        // Give the bot a reaction time otherwise it is OP\n        var reactionMilliseconds = ReactionMillisecondsLookup[action.spellId] || DefaultReactionMilliseconds;\n        action.delayMilliseconds = reactionMilliseconds;\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction chooseSpells(settings) {\n    if (alreadyChosenSpells) {\n        return null;\n    }\n    alreadyChosenSpells = true;\n\n    var spells = randomSpells(settings);\n\n    // Want to test a particular spell? Uncomment and edit the lines below\n    // spells[\"f\"] = \"turrent\";\n\n    return { spells };\n}\n\nfunction randomSpells(settings) {\n\tvar keyBindings = {};\n\tvar allOptions = settings.Choices.Options;\n\tfor (var btn in allOptions) { // One of the buttons, e.g. Q or R\n        var options = allOptions[btn];\n\n        var spellIds = [];\n        for (var i = 0; i < options.length; ++i) {\n            var row = options[i];\n            for (var j = 0; j < row.length; ++j) {\n                var spellId = row[j];\n                spellIds.push(spellId);\n            }\n        }\n\n\t\tif (spellIds.length > 1) {\n\t\t\tkeyBindings[btn] = spellIds[Math.floor(Math.random() * spellIds.length)];\n\t\t}\n\t}\n\treturn keyBindings;\n}\n\nfunction findOpponent(heroes, myHeroId) {\n    var myHero = heroes[myHeroId];\n    if (!myHero) {\n        return null;\n    }\n\n    var choice = null;\n    var mostHealth = 0;\n    for (var heroId in heroes) {\n        var hero = heroes[heroId];\n\n        if (!hero.isEnemy) { continue; }\n\n        // Uncomment the line below to only target humans\n        // if (hero.isBot) { continue; }\n\n        if (hero.health > mostHealth) {\n            // Target the enemy with the most health\n            mostHealth = hero.health;\n            choice = hero;\n        }\n    }\n    return choice;\n}\n\nfunction recovery(state, hero, cooldowns) {\n    if (hero.inside || state.radius <= 0) {\n        // No need to recover\n        return null;\n    }\n\n    var spellId = null;\n    if (cooldowns[\"leap\"] === 0) {\n        spellId = \"leap\";\n    } else if (cooldowns[\"leap2\"] === 0) {\n        spellId = \"leap2\";\n    } else if (cooldowns[\"bombingrun2\"] === 0) {\n        spellId = \"bombingrun2\";\n    } else if (cooldowns[\"bDash\"] === 0) {\n        spellId = \"bDash\";\n    } else {\n        spellId = \"move\";\n    }\n\n    if (spellId) {\n        return { spellId, target: center };\n    }\n    return null;\n}\n\nfunction deflect(state, hero, cooldowns, projectile) {\n    var target = vectorMidpoint(hero.pos, projectile.pos);\n    var spellId = null;\n    if (cooldowns[\"shield\"] === 0) {\n        spellId = \"shield\";\n    } else if (cooldowns[\"icewall\"] === 0) {\n        spellId = \"icewall\";\n    } else {\n        spellId = null;\n    }\n\n    if (spellId) {\n        return { spellId, target };\n    } else {\n        return null;\n    }\n}\n\nfunction castSpell(state, hero, opponent, cooldowns, settings) {\n    if (!readyForNextSpell(hero)) {\n        return null;\n    }\n\n    var candidates = [];\n    for (var spellId in cooldowns) {\n        var readyToCast = !cooldowns[spellId];\n        var spell = settings.Spells[spellId];\n\n        if (spell\n            && readyToCast\n            && validAttack(state, hero, opponent, spell)) {\n\n            candidates.push(spellId);\n        }\n    }\n\n    if (candidates.length > 0) {\n        var spellId = candidates[Math.floor(Math.random() * candidates.length)];\n        var action = { spellId, target: jitter(opponent.pos, MissRadius) };\n        if (action.spellId === spellId) {\n            updateNextSpellTime();\n        }\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction validAttack(state, hero, opponent, spell) {\n    var opponentShielded = !!opponent.shieldTicksRemaining;\n\n    var distance = vectorDistance(hero.pos, opponent.pos);\n    if (spell.action === \"projectile\" || spell.action === \"spray\" || spell.action === \"retractor\" || spell.action === \"focus\" || spell.action === \"charge\") {\n        if (spell.id === \"bDash\") { // Swap doesn't work as an attack\n            return false;\n        }\n        if (opponentShielded && !spell.projectile.detonate) { // Detonate spells can penetrate shields, nothing else can\n            return false;\n        }\n        if (spell.id === \"whip\") {\n            // Just keep casting Electroshock even if out of range\n            return true;\n        }\n        if (spell.id === \"sentry\") {\n            // Just keep casting Electroshock even if out of range\n            return true;\n        }\n        if (spell.id === \"bombingrun\") {\n            return false;\n        }\n        if (spell.id === \"leap\") {\n            return false;\n        }\n\n        var range = spell.projectile.speed * spell.projectile.maxTicks / TicksPerSecond + opponent.radius;\n        return distance <= range;\n    } else if (spell.action === \"kbsentry\") {\n        return true;\n        return distance <= range;\n    } else if (spell.id === \"minigun\") {\n        return true;\n    } else {\n        return false;\n    }\n}\n\nfunction readyForNextSpell(hero) {\n    return (\n        Date.now() >= nextSpell // Don't cast too fast\n        || !!hero.link // If linked to something, cast as many spells as possible\n    );\n}\n\nfunction updateNextSpellTime() {\n    nextSpell = 0;\n}\n\nfunction jitter(target, missRadius) {\n    var radius = Math.random() * missRadius;\n    var angle = Math.random() * 2 * Math.PI;\n    return {\n        x: target.x + radius * Math.cos(angle),\n        y: target.y + radius * Math.sin(angle),\n    };\n}\n\nfunction focus(hero, opponent) { // When using a spell (e.g. Acolyte Beam, Spirit Missile) - ensure we are focusing the enemy, otherwise we will miss\n    if (hero.casting) {\n        if (hero.casting.spellId === \"gun\" || hero.casting.spellId === \"retractor\" || hero.casting.spellId === \"rocket\") {\n            // Have to release or it won't fire\n            return { spellId: hero.casting.spellId, release: true, target: opponent.pos };\n        } else if (hero.casting.spellId === \"knife\" || hero.casting.spellId === \"dualSaber\") {\n            // Don't focus the lightsaber, just swish it around\n            return { spellId: \"retarget\", target: vectorPlus(hero.pos, vectorFromAngle(hero.heading + Math.PI / 2)) };\n        } else if (hero.casting.spellId === \"rocketrain\") {\n            // Throw away to the right (TODO: be smarter about this)\n            return { spellId: hero.casting.spellId, release: true, target: vectorPlus(hero.pos, vectorFromAngle(hero.heading + Math.PI / 2)) };\n        } else if (hero.casting.spellId === \"halo\") {\n            return { spellId: \"move\", target: opponent.pos };\n        } else {\n            return { spellId: \"retarget\", target: opponent.pos };\n        }\n    } else {\n        return null;\n    }\n}\n\nfunction chase(state, hero, cooldowns, opponent) {\n    if (\"whip\" in cooldowns) {\n        // Got to get within range when using Electroshock\n        var target = vectorMidpoint(hero.pos, opponent.pos);\n        return { spellId: \"move\", target };\n    } else {\n        return null;\n    }\n}\n\nfunction move(state, hero) {\n    var centroid = { x: 0, y: 0 };\n    var numOpponents = 0;\n    for (var heroId in state.heroes) {\n        if (heroId === hero.id) {\n            continue; // Ignore self\n        }\n\n        var opponent = state.heroes[heroId];\n        centroid.x += opponent.pos.x;\n        centroid.y += opponent.pos.y;\n\n        ++numOpponents;\n    }\n    centroid.x /= numOpponents;\n    centroid.y /= numOpponents;\n\n    if (!numOpponents) {\n        return;\n    }\n\n    var offset = vectorNegate(vectorDiff(centroid, center)); // Move to the opposite side of the arena\n    var targetDistance = state.radius * 0.33; // Closer to center than edge (for polygonal maps)\n    var target = vectorPlus(center, vectorRelengthen(offset, targetDistance));\n\n    var distanceToTarget = vectorDistance(hero.pos, target);\n    if (distanceToTarget <= CloseEnoughDistance) {\n        // Close enough - don't send any action so the game can sleep while waiting for players\n        return null;\n    }\n\n    return { spellId: \"move\", target };\n}\n\nfunction dodge(state, hero, cooldowns) {\n    for (var projectileId in state.projectiles) {\n        var projectile = state.projectiles[projectileId];\n        if (projectile.ownerId === hero.id) {\n            // This is my own projectile\n            continue;\n        }\n\n        if (projectile.spellId === \"halo\" || \"knife\") {\n            // Halo is never coming for us, it orbits around its owner\n            continue;\n        }\n\n        var diff = vectorDiff(hero.pos, projectile.pos);\n        var distancePerTimeStep = vectorDot(projectile.velocity, vectorUnit(diff));\n        if (distancePerTimeStep <= 0) {\n            // Not coming towards us\n            continue;\n        }\n\n        var timeToCollision = vectorLength(diff) / distancePerTimeStep;\n        if (timeToCollision <= 0 || timeToCollision >= 30) {\n            // Not coming towards us or too far away\n            continue;\n        }\n\n        var collisionPoint = vectorPlus(projectile.pos, vectorMultiply(projectile.velocity, timeToCollision));\n        var distanceToCollision = vectorDistance(collisionPoint, hero.pos);\n        var dodgeRadius = Math.max(DodgeRadius, projectile.radius) + hero.radius;\n        if (distanceToCollision > dodgeRadius) {\n            // Won't hit us\n            continue;\n        }\n\n        var deflectAction = deflect(state, hero, cooldowns, projectile);\n        if (deflectAction) {\n            return deflectAction;\n        }\n\n        // Run away from collision point\n        var direction = vectorUnit(vectorNegate(vectorDiff(collisionPoint, hero.pos)));\n        var step = vectorMultiply(direction, dodgeRadius);\n        var target = vectorPlus(hero.pos, step);\n        return { spellId: \"move\", target };\n    }\n    return null;\n}\n\nfunction vectorDiff(to, from) {\n    return { x: to.x - from.x, y: to.y - from.y };\n}\n\nfunction vectorLength(vector) {\n    return Math.sqrt(vector.x * vector.x + vector.y * vector.y);\n}\n\nfunction vectorDistance(from, to) {\n    return vectorLength(vectorDiff(from, to));\n}\n\nfunction vectorUnit(vec) {\n    var length = vectorLength(vec);\n    return length === 0 ? vec : vectorMultiply(vec, 1 / length);\n}\n\nfunction vectorPlus(from, offset) {\n    return { x: from.x + offset.x, y: from.y + offset.y };\n}\n\nfunction vectorMultiply(vec, multiplier) {\n    return { x: vec.x * multiplier, y: vec.y * multiplier };\n}\n\nfunction vectorRelengthen(vec, length) {\n    return vectorMultiply(vectorUnit(vec), length);\n}\n\nfunction vectorNegate(vec) {\n    return vectorMultiply(vec, -1);\n}\n\nfunction vectorDot(a, b) {\n    return (a.x * b.x) + (a.y * b.y);\n}\n\nfunction vectorMidpoint(a, b) {\n    var diff = vectorDiff(b, a);\n    return vectorPlus(a, vectorMultiply(diff, 0.5));\n}\n\nfunction vectorFromAngle(angle) {\n\treturn { x: Math.cos(angle), y: Math.sin(angle) };\n}\n\n// See ai.contracts.ts: Must return a BotContract\nreturn { act };"
+}
