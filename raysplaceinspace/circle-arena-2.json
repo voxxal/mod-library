@@ -1,0 +1,34 @@
+{
+	"Mod": {
+		"name": "SlitheringHorror's mod",
+		"author": "SlitheringHorror",
+		"description": "Tue, 30 Apr 2019 18:20:14 GMT"
+	},
+	"World": {
+		"InitialRadius": 0.2,
+		"HeroLayoutRadius": 0.15
+	},
+	"ObstacleTemplates": {
+		"mirror": {
+			"health": 500,
+			"static": true,
+			"damageFrom": 0
+		}
+	},
+	"Layouts": {
+		"circle-mirror": {
+			"obstacles": [
+				{
+					"type": "mirror",
+					"numObstacles": 20,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 20,
+					"extent": 0.008,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.05
+				}
+			]
+		}
+	}
+}
