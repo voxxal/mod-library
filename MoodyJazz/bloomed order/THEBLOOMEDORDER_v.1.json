@@ -1,0 +1,1312 @@
+{
+	"Mod": {
+		"name": "THEBLOOMEDORDER",
+		"author": "SGT. MOODYJAZZ",
+		"description": "there's something wrong with the world now...",
+		"titleLeft": "THE BLOOMED",
+		"titleRight": "ORDER",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"World": {
+		"SecondsToShrink": 100000000000000000
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"classjuggernaut"
+				],
+				[
+					"classsoldier"
+				],
+				[
+					"classrebel"
+				]
+			],
+			"q": [
+				[
+					"Ricochet"
+				],
+				[
+					"plasmarifle"
+				],
+				[
+					"homingrefract"
+				]
+			],
+			"w": [
+				[
+					"phasesaber"
+				],
+				[
+					"riotshield"
+				],
+				[
+					"abc123"
+				]
+			],
+			"e": [
+				[
+					"bodyarmor"
+				],
+				[
+					"hustle"
+				],
+				[
+					"thermoheal"
+				]
+			],
+			"r": [
+				[
+					"test3"
+				],
+				[
+					"test4"
+				],
+				[
+					"test5"
+				]
+			],
+			"f": [
+				[
+					"BallisticMissile"
+				],
+				[
+					"bomba"
+				],
+				[
+					"cherrybombs"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"fireball": {
+			"$delete": true
+		},
+		"flamestrike": {
+			"$delete": true
+		},
+		"firespray": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"difire": {
+			"$delete": true
+		},
+		"meteor": {
+			"$delete": true
+		},
+		"meteorite": {
+			"$delete": true
+		},
+		"gravity": {
+			"$delete": true
+		},
+		"whirlwind": {
+			"$delete": true
+		},
+		"link": {
+			"$delete": true
+		},
+		"grapple": {
+			"$delete": true
+		},
+		"kamehameha": {
+			"$delete": true
+		},
+		"lightning": {
+			"$delete": true
+		},
+		"blast": {
+			"$delete": true
+		},
+		"homing": {
+			"$delete": true
+		},
+		"boomerang": {
+			"$delete": true
+		},
+		"retractor": {
+			"$delete": true
+		},
+		"backlash": {
+			"$delete": true
+		},
+		"rocket": {
+			"$delete": true
+		},
+		"whip": {
+			"$delete": true
+		},
+		"bouncer": {
+			"$delete": true
+		},
+		"repeater": {
+			"$delete": true
+		},
+		"drain": {
+			"$delete": true
+		},
+		"icewall": {
+			"$delete": true
+		},
+		"horcrux": {
+			"$delete": true
+		},
+		"saber": {
+			"$delete": true
+		},
+		"dualSaber": {
+			"$delete": true
+		},
+		"scourge": {
+			"$delete": true
+		},
+		"shield": {
+			"$delete": true
+		},
+		"phaseOut": {
+			"$delete": true
+		},
+		"supernova": {
+			"$delete": true
+		},
+		"halo": {
+			"$delete": true
+		},
+		"mines": {
+			"$delete": true
+		},
+		"iceBomb": {
+			"$delete": true
+		},
+		"teleport": {
+			"$delete": true
+		},
+		"thrust": {
+			"$delete": true
+		},
+		"blaze": {
+			"$delete": true
+		},
+		"swap": {
+			"$delete": true
+		},
+		"voidRush": {
+			"$delete": true
+		},
+		"vanish": {
+			"$delete": true
+		},
+		"armor": {
+			"$delete": true
+		},
+		"empower": {
+			"$delete": true
+		},
+		"boost": {
+			"$delete": true
+		},
+		"bump": {
+			"$delete": true
+		},
+		"test5": {
+			"id": "test5",
+			"name": "Quadrone",
+			"description": "Send a single, heavy drone towards your enemy. If they attack it, it divides into four, and pushes them around.",
+			"action": "projectile",
+			"color": "#00ff7f",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 780,
+			"throttle": true,
+			"projectile": {
+				"density": 50,
+				"square": true,
+				"ccd": false,
+				"attractable": false,
+				"swappable": true,
+				"linkable": true,
+				"radius": 0.018,
+				"speed": 0.2,
+				"speedDecayPerTick": 0.2,
+				"restitution": 0,
+				"minTicks": 1,
+				"maxTicks": 120,
+				"hitInterval": 120,
+				"damage": 0,
+				"shieldTakesOwnership": false,
+				"categories": 6,
+				"collideWith": 65519,
+				"expireOn": 0,
+				"sound": "meteorite",
+				"color": "#9fff96",
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 18
+						},
+						"projectile": {
+							"density": 50,
+							"square": true,
+							"ccd": false,
+							"attractable": false,
+							"swappable": true,
+							"linkable": true,
+							"radius": 0.009,
+							"speed": 0.2,
+							"speedDecayPerTick": 0.2,
+							"restitution": 0,
+							"minTicks": 1,
+							"maxTicks": 180,
+							"hitInterval": 120,
+							"damage": 5,
+							"shieldTakesOwnership": false,
+							"categories": 6,
+							"collideWith": 65519,
+							"expireOn": 0,
+							"sound": "submeteorite",
+							"color": "#b4ffad",
+							"behaviours": [
+								{
+									"type": "homing",
+									"revolutionsPerSecond": 1,
+									"maxTurnProportion": 0.07
+								},
+								{
+									"type": "accelerate",
+									"accelerationPerSecond": 0.09,
+									"maxSpeed": 0.5
+								}
+							],
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.04
+								},
+								{
+									"type": "projectile",
+									"ticks": 12,
+									"light": null,
+									"shine": 0,
+									"smoke": 0.5,
+									"fade": "#c7ffc2",
+									"shadow": 0.5
+								},
+								{
+									"type": "strike",
+									"ticks": 12,
+									"flash": true,
+									"growth": 0.1
+								}
+							]
+						},
+						"numProjectiles": 5,
+						"spread": 1,
+						"expire": true
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 12,
+						"light": null,
+						"shine": 0,
+						"smoke": 0.5,
+						"fade": "#9fff96",
+						"shadow": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 12,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"riotshield": {
+			"id": "riotshield",
+			"name": "Riot Shield",
+			"description": "Defend yourself against any projectile attack. Does not defend against AoE attacks. Bring it out when you can, for much slower movement.",
+			"maxTicks": 180,
+			"cooldown": 220,
+			"categories": 24,
+			"throttle": false,
+			"minRadius": 0.015,
+			"strokeRadius": 0.024,
+			"radius": 0.03,
+			"growthTicks": 9,
+			"angularWidthInRevs": 0.28,
+			"maxTurnRatePerTickInRevs": 0.04,
+			"takesOwnership": true,
+			"blocksTeleporters": false,
+			"damageMultiplier": 1,
+			"buffs": [
+				{
+					"type": "movement",
+					"maxTicks": 90,
+					"movementProportion": 0.2,
+					"decay": false
+				}
+			],
+			"icon": "shieldReflect",
+			"color": "#831fb5",
+			"light": 1,
+			"glow": 0.9,
+			"bloom": 0.03,
+			"shine": 0.1,
+			"strike": {
+				"ticks": 10,
+				"flash": true,
+				"growth": 0.3,
+				"bloom": 0.03
+			},
+			"action": "shield",
+			"sound": "shield"
+		},
+		"Ricochet": {
+			"id": "Ricochet",
+			"description": "Reflects off of everthing. [MADE BY M7]",
+			"action": "projectile",
+			"color": "#850f0b",
+			"icon": "meteorImpact",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"destructible": {},
+				"radius": 0.004,
+				"collideWith": 65535,
+				"expireOn": 4,
+				"expireAgainstObjects": 65534,
+				"speed": 0.42,
+				"maxTicks": 150,
+				"damage": 16,
+				"lifeSteal": 0,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#d8bfd8",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "ray",
+						"ticks": 15,
+						"vanish": 10
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.02,
+						"light": 0.3
+					},
+					{
+						"type": "ray",
+						"ticks": 15,
+						"light": 0.6
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"detonate": 0.01,
+						"numParticles": 15,
+						"speedMultiplier": -1.2
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind",
+						"movementProportion": 1,
+						"maxTicks": 0,
+						"against": 0,
+						"render": {
+							"alpha": 0,
+							"ticks": 0,
+							"emissionRadiusFactor": 0,
+							"particleRadius": 0,
+							"shine": 0,
+							"glow": 0,
+							"bloom": 0,
+							"vanish": 0
+						}
+					}
+				]
+			},
+			"name": "Ricochet"
+		},
+		"bodyarmor": {
+			"id": "bodyarmor",
+			"name": "Body Armor",
+			"description": "Your entire body is covered with protective plating, protecting you, while it does slow you down a bit.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				},
+				{
+					"icon": "fas fa-weight-hanging",
+					"title": "Heavy",
+					"text": "Speed reduced 5%, and knockback protection increased by 25%."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				},
+				{
+					"type": "movement",
+					"movementProportion": 0.89201
+				},
+				{
+					"type": "mass",
+					"radius": 1,
+					"density?": 1.25
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#850f0b",
+			"action": "buff"
+		},
+		"homingrefract": {
+			"id": "homingrefract",
+			"name": "Ancient Homing Drone",
+			"description": "A singular beam that when released will dart at the opponent.",
+			"action": "focus",
+			"color": "#00ff7f",
+			"icon": "arcingBolt",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 210,
+			"focusDelaysCooldown": true,
+			"throttle": true,
+			"movementProportionWhileChannelling": 0.5,
+			"release": {},
+			"releaseAfterTicks": 40,
+			"releaseBehaviours": [
+				{
+					"type": "homing",
+					"targetType": "enemy",
+					"newSpeed": 0.5,
+					"revolutionsPerSecond": 4,
+					"redirect": true
+				},
+				{
+					"type": "partial",
+					"partialDamage": {
+						"initialMultiplier": 0.5,
+						"finalMultiplier": 1,
+						"ticks": 60
+					}
+				}
+			],
+			"projectile": {
+				"damage": 13,
+				"lifeSteal": 0.3,
+				"density": 2,
+				"radius": 0.003,
+				"speed": 0.3,
+				"maxTicks": 120,
+				"categories": 2,
+				"shieldTakesOwnership": false,
+				"partialDamage": {
+					"initialMultiplier": 0.5,
+					"finalMultiplier": 0.5,
+					"ticks": 1
+				},
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0,
+					"radius": 0.015,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 1
+				},
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"maxSpeed": 0.4,
+						"accelerationPerSecond": 0.4
+					}
+				],
+				"sound": "retractor",
+				"color": "#00ff7f",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "swirl",
+						"color": "#00ff7f",
+						"ticks": 30,
+						"radius": 0.007,
+						"particleRadius": 0.001,
+						"glow": 0.05,
+						"smoke": 0.3,
+						"numParticles": 2,
+						"loopTicks": 15,
+						"vanish": 1,
+						"selfColor": false
+					},
+					{
+						"type": "projectile",
+						"ticks": 7,
+						"glow": 0.3,
+						"selfColor": false
+					},
+					{
+						"type": "ray",
+						"ticks": 15,
+						"glow": 0.3,
+						"vanish": 0.25,
+						"selfColor": false
+					},
+					{
+						"type": "strike",
+						"ticks": 15,
+						"flash": true,
+						"numParticles": 9,
+						"selfColor": false
+					}
+				]
+			}
+		},
+		"plasmarifle": {
+			"id": "plasmarifle",
+			"name": "Plasma Rifle",
+			"description": "Your basic, military grade plasma rifle.",
+			"action": "projectile",
+			"color": "#831fb5",
+			"icon": "lightningHelix",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"chargeTicks": 6,
+			"recoil": 0.2,
+			"projectile": {
+				"density": 1,
+				"radius": 0.0025,
+				"speed": 2,
+				"maxTicks": 30,
+				"collideWith": 65535,
+				"swappable": false,
+				"damage": 13,
+				"sound": "repeater",
+				"color": "#1c1221",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.5
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 15,
+						"flash": true,
+						"detonate": 0.02,
+						"numParticles": 5,
+						"speedMultiplier": 0.2
+					}
+				]
+			}
+		},
+		"phasesaber": {
+			"id": "phasesaber",
+			"name": "Phasesaber",
+			"description": "Use your phasesaber to attack your opponents, and detaching anything they have to you.",
+			"effects": [
+				{
+					"icon": "fas fa-unlink",
+					"title": "Detach",
+					"text": "Lightsaber cuts through any Links or Grapples."
+				}
+			],
+			"color": "#850f0b",
+			"icon": "waveStrike",
+			"untargeted": true,
+			"unlink": true,
+			"takesOwnership": true,
+			"blocksTeleporters": false,
+			"shiftMultiplier": 0.5,
+			"speedMultiplier": 2,
+			"maxSpeed": 0.5,
+			"maxTurnRatePerTickInRevs": 0.1,
+			"damageMultiplier": 1,
+			"angleOffsetsInRevs": [
+				0
+			],
+			"width": 0.001,
+			"length": 0.075,
+			"movementProportionWhileChannelling": 0.5,
+			"interruptibleAfterTicks": 20,
+			"cooldown": 600,
+			"throttle": false,
+			"maxTicks": 180,
+			"channelling": true,
+			"categories": 16,
+			"collidesWith": 3,
+			"damageTemplate": {
+				"damage": 5
+			},
+			"hitBuffs": [
+				{
+					"type": "delink"
+				}
+			],
+			"trailTicks": 20,
+			"light": 1,
+			"shine": 0.1,
+			"shadow": 0.5,
+			"glow": 0.3,
+			"bloom": 0.03,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"bloom": 0.03
+			},
+			"sound": "saber",
+			"action": "saber"
+		},
+		"cherrybombs": {
+			"id": "cherrybombs",
+			"name": "Cherry Bombs",
+			"description": "Throw some cherry bombs around yourself.",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#00ff7f",
+			"icon": "mineExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 360,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 8,
+			"jitterRatio": 0.7,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.003,
+				"speed": 0.8,
+				"maxTicks": 270,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 13,
+				"sense": 2,
+				"expireOn": 65519,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 6,
+					"lifeSteal": 0.3,
+					"radius": 0.015,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "expireOnOwnerRetreat",
+						"maxDistance": 0.5,
+						"trigger": {
+							"afterTicks": 90
+						}
+					}
+				],
+				"sound": "mines",
+				"color": "#b52b1f",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": false,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": false,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": false,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"bomba": {
+			"id": "bomba",
+			"name": "Anti-Life Bomb",
+			"description": "A single bomb that explodes upon touching a person. Place it well in order to do fair damage.",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#831fb5",
+			"icon": "mineExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.7,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.014,
+				"speed": 0.5,
+				"maxTicks": 270,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.5,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 13,
+				"sense": 2,
+				"expireOn": 65519,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 7,
+					"step": true
+				},
+				"detonate": {
+					"damage": 20,
+					"lifeSteal": 0.2,
+					"radius": 0.025,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "expireOnOwnerRetreat",
+						"maxDistance": 0.15,
+						"trigger": {
+							"afterTicks": 60
+						}
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": false,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": false,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": false,
+						"ticks": 3,
+						"selfColor": false,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"BallisticMissile": {
+			"id": "BallisticMissile",
+			"name": "Ballistic Missile",
+			"description": "Follows the enemy. Incredible damage, yet it's easier to dodge.",
+			"action": "projectile",
+			"color": "#850f0b",
+			"icon": "ballisticMissile",
+			"cooldown": 560,
+			"throttle": true,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 25,
+				"radius": 0.005,
+				"speed": 0.1,
+				"maxTicks": 120,
+				"damage": 20,
+				"lifeSteal": 0.3,
+				"expireOn": 30,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.95
+					},
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.05,
+						"maxSpeed": 0.5
+					}
+				],
+				"detonate": {
+					"damage": 3,
+					"radius": 0.07,
+					"minImpulse": 0.0004,
+					"maxImpulse": 0.001,
+					"renderTicks": 30
+				},
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#00ff7f",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.85,
+						"vanish": 0.75
+					},
+					{
+						"type": "ray",
+						"ticks": 40,
+						"vanish": 0.75
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 1,
+						"flash": false,
+						"numParticles": 7
+					}
+				]
+			}
+		},
+		"classsoldier": {
+			"id": "classsoldier",
+			"name": "BLOOMED AGENTS",
+			"description": "",
+			"effects": [
+				{
+					"title": "SPELLS FOR CLASS",
+					"text": "Plasma Rifle - Riot Shield - Hustle - Drone Barrage - Anti-Life Bomb"
+				}
+			],
+			"color": "#831fb5",
+			"icon": "soldierclass"
+		},
+		"classrebel": {
+			"id": "classrebel",
+			"name": "PEOPLE OF OLD",
+			"description": "",
+			"effects": [
+				{
+					"title": "SPELLS FOR CLASS",
+					"text": "Ancient Homing Drone - Freezing Strike - ThermoHeal - Quadrone - Cherry Bombs"
+				}
+			],
+			"color": "#00ff7f",
+			"icon": "rebelsclass"
+		},
+		"classjuggernaut": {
+			"id": "classjuggernaut",
+			"name": "THE JUGGERNAUTS",
+			"description": "",
+			"effects": [
+				{
+					"title": "SPELLS FOR CLASS",
+					"text": "Ricochet - Phasesaber - Body Armor - Explosive Swarm - Ballistic Missile"
+				}
+			],
+			"color": "#850f0b",
+			"icon": "juggernautclass"
+		},
+		"test3": {
+			"id": "test3",
+			"name": "Explosive Swarm",
+			"description": "A swarm of explosions going around your body.",
+			"action": "spray",
+			"color": "#850f0b",
+			"icon": "crownedExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 780,
+			"throttle": true,
+			"maxChannellingTicks?": 1,
+			"numProjectilesPerTick?": 10,
+			"intervalTicks": 5,
+			"lengthTicks": 120,
+			"jitterRatio": 2,
+			"recoil?": 9,
+			"projectile": {
+				"density": 5,
+				"ccd": true,
+				"radius": 0.0008,
+				"speed": 0.25,
+				"maxTicks": 63,
+				"damage": 0,
+				"collideWith": 0,
+				"expireOn": 0,
+				"expireAfterCursorTicks": 18,
+				"behaviours": [],
+				"detonate": {
+					"damage": 10,
+					"radius": 0.05,
+					"minImpulse": 0.0005,
+					"maxImpulse": 0.0015,
+					"renderTicks": 30
+				},
+				"sound": "supernova",
+				"color": "#ff9a00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "projectile",
+						"ticks": 3,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 30,
+						"color": "#850f0b",
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "#850f0b",
+						"minRadius": 0.049,
+						"remainingTicks": 15,
+						"shrinkTicks": 15,
+						"radius": 0.05
+					}
+				]
+			}
+		},
+		"test4": {
+			"id": "test4",
+			"name": "Drone Barrage",
+			"description": "Summon drones that home towards where you command.",
+			"action": "spray",
+			"color": "#831fb5",
+			"icon": "boomerangSun",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 780,
+			"throttle": true,
+			"maxChannellingTicks?": 90,
+			"numProjectilesPerTick?": 2,
+			"intervalTicks": 11,
+			"lengthTicks": 120,
+			"jitterRatio": 2,
+			"recoil?": 9,
+			"projectile": {
+				"density": 1,
+				"restitution": 1,
+				"radius": 0.003,
+				"speed": 0.8,
+				"maxTicks": 120,
+				"damage": 6,
+				"bumpable": false,
+				"lifeSteal": 0,
+				"expireOn": 5,
+				"expireAgainstHeroes": 4,
+				"hitInterval": 15,
+				"shieldTakesOwnership": false,
+				"partialDamage": {
+					"ticks": 60,
+					"initialMultiplier": 0.5
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.15,
+						"minDistanceToTarget": 0.075,
+						"targetType": "follow"
+					}
+				],
+				"color": "#ff00ff",
+				"sound": "boomerang",
+				"soundHit": "standard",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": false
+					},
+					{
+						"type": "projectile",
+						"selfColor": false,
+						"ticks": 10,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"selfColor": false,
+						"ticks": 10,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"selfColor": false,
+						"radiusMultiplier": 0.25,
+						"ticks": 60,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"selfColor": false,
+						"ticks": 15,
+						"flash": true,
+						"numParticles": 5,
+						"detonate": 0.006
+					}
+				]
+			}
+		},
+		"hustle": {
+			"id": "hustle",
+			"name": "Hustle",
+			"description": "After years of training, you are a bit stronger and faster than your comrades, but it does make you a little more weak, endurance wise.",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.2
+				},
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.1
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.1
+				}
+			],
+			"icon": "dodging",
+			"color": "#831fb5",
+			"action": "buff"
+		},
+		"thermoheal": {
+			"id": "thermoheal",
+			"name": "Thermo Healing",
+			"description": "Using the power of heat inside of you, you automatically heal yourself.",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"icon": "dodging",
+			"color": "#00ff7f",
+			"action": "buff",
+			"buffs": [
+				{
+					"type": "burn",
+					"collideWith": 9,
+					"against": 1,
+					"stack": "fire",
+					"hitInterval": 20,
+					"packet": {
+						"damage": -0.833333337,
+						"isLava": true,
+						"noHit": true
+					},
+					"passive": true,
+					"render": {
+						"color": "#37eb34",
+						"alpha": 0.075,
+						"light": 1,
+						"ticks": 15,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.00625,
+						"shine": 0.2,
+						"glow": 1,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				}
+			]
+		},
+		"abc123": {
+			"id": "abc123",
+			"name": "Freezing Strike",
+			"description": "A single ray that slows down your opponents to them not being able to move. Does no damage, but has some knockback to it.",
+			"action": "projectile",
+			"color": "#00ff7f",
+			"icon": "burningDot",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 360,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"radius": 0.01,
+				"speed": 0.2,
+				"maxTicks": 120,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAfterCursorTicks": 0,
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 4,
+						"categories": 2,
+						"against": 12,
+						"radius": 0.04,
+						"accelerationPerTick": 0.1,
+						"clampSpeed": 0.4
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind",
+						"movementProportion": 0.2,
+						"maxTicks": 120,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"bloom": 0,
+							"vanish": 1
+						}
+					}
+				],
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.036,
+					"minImpulse": 0.00015,
+					"maxImpulse": 0.00015,
+					"renderTicks": 20
+				},
+				"partialDetonateRadius": {
+					"initialMultiplier": 0.2,
+					"ticks": 60
+				},
+				"partialDamage": {
+					"initialMultiplier": 0.67,
+					"ticks": 30
+				},
+				"sound": "flamestrike",
+				"color": "#32558f",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(27, 32, 131, 1)",
+						"radius": 0.04,
+						"minRadius": 0.036,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 4,
+						"vanish": 1,
+						"minGraphics": 5
+					},
+					{
+						"type": "projectile",
+						"ticks": 18,
+						"smoke": 0.4,
+						"fade": "#333"
+					},
+					{
+						"type": "ray",
+						"ticks": 18
+					},
+					{
+						"type": "strike",
+						"ticks": 18,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		}
+	},
+	"Icons": {
+		"ballisticMissile": {
+			"path": "M490.74 21.411c-8.947.782-20.72 3.22-33.566 7.781-16.386 5.82-34.345 14.758-50.969 25.893l26.783 36.525c15.712-12.52 29.853-26.925 40.428-40.757 8.265-10.811 14.055-21.243 17.324-29.442zm-99.265 44.026L57.609 310.24l8.28 11.291 83.062-60.906 10.643 14.516-83.063 60.906 8.28 11.29 333.865-244.806zm-18.252 92.746L203.164 282.876l13.924 7.15L375.855 173.61zm-48.602 75.316l-35.775 26.234c3.899 3.046 8.821 4.856 14.213 4.856 12.809 0 23-10.191 23-23 0-2.855-.51-5.579-1.438-8.09zm-255.267 7.527L21.26 260.67l25.705 35.057 65.54-48.057zm226.705 40.948v30.615h14v-30.615a40.734 40.734 0 0 1-7 .615c-2.386 0-4.723-.219-7-.615zm-135.065 31.822l-65.54 48.058 25.706 35.06 33.194-39.964zm-117.9 7.09l-11.291 8.279 27.2 37.096 11.29-8.28zm236.965 9.703v78h46v-78zm-18 54.336l-61.426 71.664h23.709l37.717-44.004zm82 0v27.66l37.716 44.004h23.71zm-192 89.664v16h94v-16zm208 0v16h94v-16z",
+			"credit": "https://game-icons.net/lorc/originals/comet-spark.html"
+		},
+		"icon-k91u6fee": {},
+		"soldierclass": {
+			"path": "M23.113 18c3.425 32.11 13.432 59.227 28.08 82.438 20.956 33.203 50.994 58.33 83.807 80.37v-21.865c-27.563-19.53-51.623-41.236-68.584-68.11C53.43 70.252 44.41 46.607 41.136 18H23.112zM105 18v39.512L145.46 71h59.194L183 45.285V18h-78zm96 0v20.715L228.188 71h55.625L311 38.715V18H201zm128 0v27.285L307.346 71h59.193L407 57.514V18h-78zM153 89v334h206V89h-30.527a16 16 0 0 1-15.973 15.25A16 16 0 0 1 296.537 89H186.064c4.35 15.944 7.01 31.603 13.13 42.752 4 7.287 8.96 12.664 17.085 16.357 2.936 1.334 6.36 2.437 10.345 3.226a29.68 39.572 0 0 1-.305-5.336A29.68 39.572 0 0 1 256 106.428 29.68 39.572 0 0 1 285.68 146a29.68 39.572 0 0 1-21.186 37.885c5.498.232 11.014.828 16.32 1.914 8.974 1.39 15.104 5.588 20.174 12.384 5.07 6.797 8.75 16.362 11.178 27.472 4.403 20.152 4.68 44.91 4.697 66.7h-25.287l-6.453 97.806c-17.838 4.018-37.613 4.163-56.135-.017l-7.293-97.79h-26.558c.17-21.525 1.238-45.946 6.097-65.945 2.684-11.04 6.515-20.62 11.524-27.494 5.01-6.875 10.868-11.097 18.86-12.6a155.5 155.5 0 0 1 16.698-2.142 29.68 39.572 0 0 1-15.66-13.863c-9.147-.758-17.02-2.72-23.824-5.814-11.886-5.402-20.042-14.295-25.414-24.082-9.082-16.545-11.715-35.59-16.172-51.414H153zm341 8.44c-5.896 14.547-12.162 28.405-19.1 41.1-22.9 41.908-51.386 70.866-97.9 75.806v18.074c54.012-5.202 89.058-40.16 113.695-85.248a322.96 322.96 0 0 0 3.305-6.23v-43.5zM333.242 114.9a13.02 13.02 0 0 1 13.022 13.022 13.02 13.02 0 0 1-13.022 13.02 13.02 13.02 0 0 1-13.02-13.02 13.02 13.02 0 0 1 13.02-13.022zm-26.535 33.3a9.047 9.047 0 0 1 9.047 9.048 9.047 9.047 0 0 1-9.047 9.047 9.047 9.047 0 0 1-9.047-9.047 9.047 9.047 0 0 1 9.047-9.047zM494 224.036c-10.438 26.16-21.8 49.85-33.584 69-15.506 25.197-31.98 42.045-45.44 47.106-6.732 2.53-12.46 2.607-18.732.048-5.882-2.4-12.438-7.535-19.244-16.57v25.87c3.984 3.133 8.124 5.6 12.44 7.364 10.418 4.25 21.64 3.984 31.87.138 20.456-7.69 37.942-27.718 54.436-54.52 6.28-10.205 12.38-21.468 18.254-33.542v-44.893zM105 441v18h142v-18H105zm160 0v18h142v-18H265zM73 477v17h174v-17H73zm192 0v17h174v-17H265z",
+			"credit": "https://game-icons.net/lorc/originals/comet-spark.html"
+		},
+		"juggernautclass": {
+			"path": "M165.906 18.688C15.593 59.28-42.187 198.55 92.72 245.375h-1.095c.635.086 1.274.186 1.906.28 8.985 3.077 18.83 5.733 29.532 7.94C173.36 273.35 209.74 321.22 212.69 368c-33.514 23.096-59.47 62.844-59.47 62.844L179.5 469.53 138.28 493h81.97c-40.425-40.435-11.76-85.906 36.125-85.906 48.54 0 73.945 48.112 36.156 85.906h81.126l-40.375-23.47 26.283-38.686s-26.376-40.4-60.282-63.406c3.204-46.602 39.5-94.167 89.595-113.844 10.706-2.207 20.546-4.86 29.53-7.938.633-.095 1.273-.195 1.908-.28h-1.125c134.927-46.82 77.163-186.094-73.157-226.69-40.722 39.37 6.54 101.683 43.626 56.877 36.9 69.08 8.603 127.587-72.28 83.406-11.88 24.492-34.213 41.374-60.688 41.374-26.703 0-49.168-17.167-60.97-42-81.774 45.38-110.512-13.372-73.437-82.78 37.09 44.805 84.35-17.508 43.626-56.876zm90.79 35.92c-27.388 0-51.33 27.556-51.33 63.61 0 36.056 23.942 62.995 51.33 62.995 27.387 0 51.327-26.94 51.327-62.994 0-36.058-23.94-63.61-51.328-63.61z",
+			"credit": "https://game-icons.net/lorc/originals/comet-spark.html"
+		},
+		"rebelsclass": {
+			"path": "M166.3 71.14l8.1 95.06-14.8 2.6-24.7-91.98 9 94.78-15.7 3-24.9-92.14 9.1 94.94-14.83 2.6L71.8 88.06 83.06 200.9l47.24-8.5L148 290c3.3-1.1 6.8-1.7 10.4-1.7 2.7 0 5.3.3 7.8 1l-18.1-100.1 47.2-8.5zm175.9 5.28c-3.3 29.88-14.3 61.48-27.2 55.48-12.2-5.6-8.9-19.2.4-34.25-15.1 10.75-36.3 17.65-22.4 46.65-14.9-8.5-10.7-25.2-12.9-39.2-21.5 16.1-14.4 43.8-5.7 66.2l11.9 3.5.5-25.2 10.2 18.3c12.2-5.1 12.4-8.5 19.8-15.4-4.7 9.2-7.2 19.2-18 26.5l7.9 2.6c22.9-5.3 57.3-45.6 35.5-105.18zm96.5 39.98c-19.8.2-47.8 21.4-33.6 45.4 13.5-59.9 69.2-13.1 62.9 7.8-8.5 28.2-29 25.9-37.3 40.6l14.4 5c64.9-24.2 43.8-95.6-4.5-98.7-.6 0-1.2-.1-1.9-.1zm-166.8 77.1l-6.5 32 23.1 5.5 12.2-29.6zm153.2 33.8l-20.4 70.2c4.7-2.4 9.9-3.8 15.4-3.8 2.2 0 4.4.2 6.5.6l14.4-61.5zm-156.7 12.2c-11.3 0-20.4 10.3-20.4 23 0 12.3 8.6 22.4 19.5 22.9 2.2 9.5 4.5 19 7.1 28.5 5.6 2.9 10.5 7.2 14.4 12.3 7.1 9.5 11.2 21.9 11.2 35.5 0 6-.8 11.8-2.3 17.3.2.4.4.9.6 1.3l29.5 5.2-7.8 80.6 6.5 27.9h60.6l-9.7-103.7-.6-7.1c9.5-3.3 19.1-6 26.6-8.1l-25.6-5.5c-6.6 6-14.9 9.8-24.1 9.8-12.1 0-22.7-6.6-29.8-16-6.3-8.4-10.2-19.2-11-31-10-20-19.7-40.2-25.4-62.5 4.1-13.9-8.3-30-19.3-30.4zM84.42 249.7c-11.26 0-16.87 5.8-16.86 14.6 0 5-.56 11.1 4.48 14.1-2.53 7.9-5.51 15.5-8.74 23 4.58 1.5 8.79 4 12.5 7.2.14-.2.27-.4.41-.6 4.32-5.7 9.95-10.4 16.4-13.2 1.32-5.4 2.58-10.8 3.77-16.2 5.32-3 8.42-7.8 8.42-12.9 0-8.8-9.12-16-20.38-16zm269.48 44.7c-5.6 0-10.9 2.9-15.4 8.9-4.5 5.9-7.6 14.7-7.6 24.6 0 9.9 3.1 18.7 7.6 24.6 4.5 6 9.8 8.9 15.4 8.9s10.9-2.9 15.4-8.9c4.5-5.9 7.5-14.7 7.5-24.6 0-9.9-3-18.7-7.5-24.6-4.5-6-9.8-8.9-15.4-8.9zm-195.5 11.9c-5.6 0-10.9 2.9-15.4 8.9-4.5 5.9-7.6 14.7-7.6 24.6 0 9.9 3.1 18.7 7.6 24.6 4.5 6 9.8 8.9 15.4 8.9s10.9-2.9 15.4-8.9c4.5-5.9 7.5-14.7 7.5-24.6 0-9.9-3-18.7-7.5-24.6-4.5-6-9.8-8.9-15.4-8.9zM106 310c-5.6 0-10.94 2.9-15.4 8.9-1.13 1.5-2.17 3.2-3.1 5 3.92 8 6.09 17.3 6.09 27.2 0 6.2-.84 12.1-2.42 17.6l15.23 3.3 14.3-3c.8-1 1.7-2.2 2.3-3.2-3.6-7.7-5.6-16.6-5.6-26 0-7.6 1.3-14.8 3.6-21.4-4.4-5.6-9.5-8.4-15-8.4zm314.1 1.7c-5.6 0-10.9 2.9-15.4 8.9-4.5 5.9-7.5 14.7-7.5 24.6 0 3.7.4 7.2 1.2 10.4l17.9 3.9c0-1.3-.1-2.7-.1-4.1 0-13.6 4.1-26 11.2-35.5 1.1-1.4 2.3-2.8 3.5-4.1-3.3-2.8-7-4.1-10.8-4.1zm-367.46 5.9c-5.59 0-10.94 2.9-15.4 8.9-4.46 5.9-7.55 14.7-7.55 24.6 0 9.9 3.09 18.7 7.55 24.6 4.46 6 9.81 8.9 15.4 8.9s10.94-2.9 15.4-8.9c4.46-5.9 7.55-14.7 7.55-24.6 0-9.9-3.09-18.7-7.55-24.6-4.46-6-9.81-8.9-15.4-8.9zm148.96 2.2c-1.7 0-3.5.3-5.1.9 1.8 5.9 2.8 12.4 2.8 19.1 0 10.3-2.3 19.8-6.4 28l26.4 5.8c-.7-3.8-1.1-7.8-1.1-11.9 0-8.1 1.5-15.8 4.1-22.6-1.3-4-3.1-7.6-5.3-10.4-4.5-6-9.8-8.9-15.4-8.9zm255.6 2.1c-5.6 0-10.9 2.9-15.4 8.9-4.5 5.9-7.6 14.7-7.6 24.6.1 9.9 3.1 18.7 7.6 24.6 4.5 6 9.8 8.9 15.4 8.9s10.9-2.9 15.4-8.9c4.5-5.9 7.6-14.7 7.6-24.6 0-9.9-3.1-18.7-7.6-24.6-4.5-6-9.8-8.9-15.4-8.9zm-198 6.3c-5.6 0-10.9 2.9-15.4 8.9-4.5 5.9-7.6 14.7-7.6 24.6 0 9.9 3.1 18.7 7.6 24.6 4.5 6 9.8 8.9 15.4 8.9s10.9-2.9 15.4-8.9c4.5-5.9 7.6-14.7 7.6-24.6 0-9.9-3.1-18.7-7.6-24.6-4.5-6-9.8-8.9-15.4-8.9zm-79 55.2c-6.2 4.9-13.6 7.9-21.8 7.9-7.9 0-15.2-2.8-21.3-7.4l-31.8 6.8L129.4 494h67.7l.4-3.3c-3.6-35.3-7.4-70.6-10.9-105.9zm-97.77 3.2c-7.11 9.4-17.73 16-29.79 16-11.6 0-21.86-6.1-28.94-14.9l-5.7 1.2v66.9l8.15 38.2h70.28l5.27-39.7-15.94-68.4c-1.81-.5-2.37-.6-3.33.7zm343.17 1.7c-10 2.2-19.7 4.7-29.4 7.6l9.2 98.1h84.5l4.1-30.6v-70.9c-2.4-.8-5-1.4-7-1.6-7.1 9.4-17.7 16-29.8 16-14.2-2-24.8-8.4-31.6-18.6zm-197 7.8l-22.4 3.4 9.7 94.5h83.4l9.1-93.7-19.2-3.4c-.1.1-.1.2-.2.3-7.1 9.4-17.7 16-29.8 16-13.2-1.9-24.1-8-30.6-17.1z",
+			"credit": "https://game-icons.net/lorc/originals/body-swapping.html"
+		}
+	}
+}
