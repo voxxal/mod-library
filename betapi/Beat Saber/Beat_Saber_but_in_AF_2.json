@@ -1,16 +1,18 @@
 {
 	"Mod": {
-		"name": "Beat Saber but in AF {Beta Version}",
+		"name": "Beat Saber but in AF",
 		"author": "BetaPi",
 		"description": "Mon, 13 Apr 2020 05:59:17 GMT",
 		"titleLeft": "Beat Saber",
 		"titleRight": "but in AF!",
 		"subtitleLeft": "This is bad. ",
-		"subtitleRight": "I'm sorry'"
+		"subtitleRight": "I'm sorry"
 	},
 	"Matchmaking": {
 		"MaxBots": 1,
-		"NumGamesToMaxBotDifficulty": 0
+		"NumGamesToMaxBotDifficulty": 0,
+		"BotRating": 1500000,
+		"RatingPower": 20000
 	},
 	"World": {
 		"InitialRadius": 0.9,
@@ -257,8 +259,8 @@
 		},
 		"leveleasy": {
 			"id": "leveleasy",
-			"name": "Level: Easy",
-			"description": "Quite the relaxing beat, is it not?",
+			"name": "Level: Medium",
+			"description": "Getting a bit tired?",
 			"effects": [
 				{
 					"icon": "fas fa-hand-paper",
@@ -267,7 +269,7 @@
 				}
 			],
 			"action": "spray",
-			"sound": "kamehameha",
+			"sound": "repeater",
 			"color": "#44ddff",
 			"icon": "glowingHands",
 			"maxAngleDiffInRevs": 0.0001,
@@ -286,7 +288,7 @@
 				"maxChannelingTicks": 9999990
 			},
 			"jitterRatio": 1,
-			"intervalTicks": 20,
+			"intervalTicks": 10,
 			"lengthTicks": 9999900,
 			"projectile": {
 				"damage": 5,
@@ -340,7 +342,7 @@
 						"type": "expireOnChannellingEnd"
 					}
 				],
-				"sound": "rocket",
+				"sound": "blast-charging",
 				"color": "#ff9a00",
 				"renderers": [
 					{
@@ -471,6 +473,14 @@
 		},
 		"tripletSwirl": {
 			"$delete": true
+		}
+	},
+	"Sounds": {
+		"blast-charging": {
+			"cutoffEarly": false
+		},
+		"repeater": {
+			"cutoffEarly": false
 		}
 	},
 	"Visuals": {
