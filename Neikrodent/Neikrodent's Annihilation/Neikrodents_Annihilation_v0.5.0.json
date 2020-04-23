@@ -1,0 +1,137 @@
+{
+	"Mod": {
+		"name": "Neikrodent's Annihilation v0.5.0",
+		"author": "Neikrodent",
+		"description": "[No Description]",
+		"titleLeft": "Neikrodent's",
+		"titleRight": "Annihilation"
+	},
+	"Spells": {
+		"triplet": {
+			"name": "Moon Claws",
+			"description": "[No Description]",
+			"color": "#f5f3ce",
+			"cooldown": 220,
+			"lengthTicks": 10,
+			"jitterRatio": 1,
+			"projectile": {
+				"density": 5,
+				"speed": 0.6,
+				"maxTicks": 270,
+				"damage": 5,
+				"color": "#f5f3ce",
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "self",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.02
+					}
+				],
+				"buffs": {
+					"$delete": true
+				}
+			}
+		},
+		"difire": {
+			"name": "Wiz",
+			"description": "[No Description]",
+			"cooldown": 180,
+			"jitterRatio": 0.5,
+			"projectile": {
+				"density": 100,
+				"radius": 0.006,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 25
+						},
+						"redirect": true,
+						"newSpeed": 0.6
+					}
+				],
+				"buffs": {
+					"$delete": true
+				}
+			}
+		},
+		"bouncer": {
+			"description": "[No Description]",
+			"color": "#00FFFF",
+			"cooldown": 350,
+			"projectile": {
+				"density": 80,
+				"damage": 0,
+				"color": "#00FFFF"
+			},
+			"name": "Keep Distance"
+		},
+		"repeater": {
+			"description": "[No Description]",
+			"projectile": {
+				"density": 5,
+				"maxTicks": 80,
+				"damage": 15,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"trigger": {
+							"afterTicks": 10
+						},
+						"redirect": true,
+						"newSpeed": 0.7
+					},
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"trigger": {
+							"afterTicks": 20
+						},
+						"redirect": true,
+						"newSpeed": 0.6
+					},
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"trigger": {
+							"afterTicks": 30
+						},
+						"redirect": true,
+						"newSpeed": 0.5
+					},
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"trigger": {
+							"afterTicks": 40
+						},
+						"redirect": true,
+						"newSpeed": 0.4
+					},
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"trigger": {
+							"afterTicks": 50
+						},
+						"redirect": true,
+						"newSpeed": 0.3
+					},
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"trigger": {
+							"afterTicks": 65
+						},
+						"redirect": true,
+						"newSpeed": 0.3
+					}
+				]
+			},
+			"name": "Green Arrows"
+		}
+	}
+}

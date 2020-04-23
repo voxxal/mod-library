@@ -1,0 +1,44 @@
+{
+	"Mod": {
+		"name": "Neikrodent's Annihilation v0.3.0",
+		"author": "Neikrodent",
+		"description": "[No Description]",
+		"titleLeft": "Neikrodent's",
+		"titleRight": "Annihilation"
+	},
+	"Spells": {
+		"difire": {
+			"name": "Wiz",
+			"description": "[No Description]",
+			"cooldown": 180,
+			"jitterRatio": 0.5,
+			"projectile": {
+				"density": 100,
+				"radius": 0.006,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 20
+						},
+						"redirect": true,
+						"newSpeed": 0.6
+					}
+				],
+				"buffs": {
+					"$delete": true
+				}
+			}
+		},
+		"bouncer": {
+			"description": "[No Description]",
+			"color": "#00FFFF",
+			"projectile": {
+				"density": 37.5,
+				"damage": 0
+			},
+			"name": "Keep Distance"
+		}
+	}
+}
