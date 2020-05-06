@@ -1,0 +1,315 @@
+{
+	"Mod": {
+		"name": "Castle Wars",
+		"author": "Ace2",
+		"description": "Use Medieval Themed Spells!",
+		"titleLeft": "Castle",
+		"titleRight": "Wars",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "a",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			},
+			null,
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "e",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "r",
+				"barSize": 1,
+				"wheelSize": 0.75
+			}
+		],
+		"Options": {
+			"a": [
+				[
+					"thrust"
+				]
+			],
+			"q": [
+				[
+					"flamestrike",
+					"boomerang",
+					"gravity"
+				]
+			],
+			"w": [
+				[
+					"armor",
+					"shield"
+				]
+			],
+			"e": [
+				[
+					"saber",
+					"dualSaber"
+				]
+			],
+			"r": [
+				[
+					"empower",
+					"boost"
+				]
+			],
+			"f": {
+				"$delete": true
+			}
+		}
+	},
+	"Spells": {
+		"flamestrike": {
+			"name": "Flaming Arrow",
+			"description": "Takes 0.5 seconds to shrink to minimum damage, so keep a little bit of distance for maximum effect.",
+			"projectile": {
+				"radius": 0.002,
+				"speed": 0.4,
+				"damage": 20,
+				"detonate": {
+					"damage": 10,
+					"radius": 0.01
+				},
+				"partialDetonateRadius": {
+					"initialMultiplier": 2
+				},
+				"partialDamage": {
+					"initialMultiplier": 2
+				},
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(128, 32, 0, 0.1)",
+						"radius": 0.01,
+						"minRadius": 0.036,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 4,
+						"vanish": 1,
+						"minGraphics": 2
+					},
+					{
+						"type": "projectile",
+						"ticks": 18,
+						"smoke": 0.4,
+						"fade": "#333"
+					},
+					{
+						"type": "ray",
+						"ticks": 18
+					},
+					{
+						"type": "strike",
+						"ticks": 18,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"gravity": {
+			"name": "Trap",
+			"color": "#225",
+			"cooldown": 1000,
+			"projectile": {
+				"maxTicks": 2000,
+				"damage": 20,
+				"gravity": {
+					"render": {
+						"color": "#222",
+						"glow": 0.1,
+						"shine": 0.1,
+						"vanish": 0.1,
+						"bloom": 0.1,
+						"light": 0.1,
+						"smoke": {
+							"axisMultiplier": 0.1,
+							"isotropicSpeed": 0.1
+						}
+					}
+				},
+				"color": "#225",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#223",
+						"colorize": 0.1,
+						"radius": 0.02,
+						"ticks": 15,
+						"loopTicks": 20,
+						"numParticles": 3,
+						"particleRadius": 0.006666666666666667,
+						"glow": 0.1,
+						"shine": 0.1,
+						"vanish": 0.1,
+						"bloom": 0.1,
+						"light": 0.1,
+						"smoke": {
+							"axisMultiplier": 0,
+							"isotropicSpeed": 0
+						}
+					}
+				]
+			}
+		},
+		"boomerang": {
+			"name": "Falcon",
+			"color": "#a17562",
+			"cooldown": 500,
+			"projectile": {
+				"radius": 0.008,
+				"damage": 40,
+				"expireOn": 10,
+				"color": "#a17562",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 10,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"radiusMultiplier": 0.25,
+						"ticks": 10,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"numParticles": 5,
+						"detonate": 0.006
+					}
+				]
+			}
+		},
+		"saber": {
+			"name": "Longsword",
+			"description": "For 1 second, swing your longsword to deflect projectiles and knockback enemies!",
+			"width": 0.0015,
+			"length": 0.095,
+			"interruptibleAfterTicks": 60,
+			"expireAfterHitHeroTicks": 30,
+			"cooldown": 400,
+			"maxTicks": 100,
+			"damageTemplate": {
+				"damage": 40
+			},
+			"color": "#777777"
+		},
+		"dualSaber": {
+			"name": "Double Sword",
+			"description": "Swing dual swords to deflect projectiles and knockback enemies!",
+			"effects": [
+				{
+					"icon": "fas fa-unlink",
+					"title": "Detach",
+					"text": "Sword cuts through any Links or Grapples."
+				}
+			],
+			"damageMultiplier": 1.1,
+			"width": 0.003,
+			"length": 0.04,
+			"interruptibleAfterTicks": 60,
+			"expireAfterHitHeroTicks": 30,
+			"cooldown": 400,
+			"maxTicks": 100,
+			"damageTemplate": {
+				"damage": 30
+			},
+			"color": "#e5ddd0"
+		},
+		"shield": {
+			"name": "Shield",
+			"maxTicks": 200,
+			"radius": 0.015
+		},
+		"thrust": {
+			"range": 0.1,
+			"damageTemplate": {
+				"damage": 10
+			}
+		},
+		"armor": {
+			"name": "Light Armor",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 10%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.1
+				}
+			]
+		},
+		"empower": {
+			"name": "Rage",
+			"description": "Passive ability. Your rage allows you to attack with increased effectiveness.",
+			"effects": [
+				{
+					"icon": "fas fa-sword",
+					"title": "Empowered",
+					"text": "Increase damage dealt by 10%."
+				}
+			],
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1.1
+				}
+			]
+		},
+		"boost": {
+			"name": "Blessed",
+			"description": "Passive ability. Dodge even more effectively.",
+			"effects": [
+				{
+					"icon": "fas fa-running",
+					"title": "Fast",
+					"text": "Increase movement speed by 20%."
+				}
+			],
+			"buffs": [
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.2
+				}
+			]
+		}
+	}
+}
