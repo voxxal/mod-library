@@ -1,19 +1,15 @@
 # mod-library
 
-
-![Discord](https://img.shields.io/discord/290959441262804992?color=7289Da&label=Discord) ![repo size](https://img.shields.io/github/repo-size/v0Xal/mod-library)
+[![Discord](https://img.shields.io/discord/290959441262804992?color=7289Da&label=Discord)](https://discord.gg/eC3yxv5)
+![repo size](https://img.shields.io/github/repo-size/v0Xal/mod-library)
 
 
 Acolytefight Mod Library
 
 
+Please read the LICENSE before taking the mods.
 
 
-An unofficial collection of Acolyte Fight mods!
-                                                                     
+## Contributing
 
-
-
-
-
-(Please do not take anyones work without their permission!)
+If you would like to contribute please join our discord (by pressing the discord shield) and by asking voxal.#9877
