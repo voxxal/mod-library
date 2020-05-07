@@ -1,0 +1,388 @@
+{
+	"Mod": {
+		"name": "Spell Remake v0.2.1",
+		"author": "Neikrodent",
+		"description": "",
+		"titleLeft": "Spell",
+		"titleRight": "Remake",
+		"subtitleLeft": "N i",
+		"subtitleRight": "c e"
+	},
+	"Matchmaking": {
+		"MaxPlayers": 5,
+		"MinBots": 4,
+		"MaxBots": 4
+	},
+	"World": {
+		"InitialRadius": 1,
+		"SecondsToShrink": 180
+	},
+	"Choices": {
+		"Options": {
+			"q": [
+				[
+					"fireball",
+					"flamestrike"
+				],
+				[
+					"triplet",
+					"difire"
+				],
+				[
+					"retractor",
+					"backlash"
+				]
+			],
+			"r": [
+				[
+					"empower"
+				],
+				[
+					"supernova",
+					"rocket",
+					"whip"
+				],
+				[
+					"bouncer",
+					"repeater"
+				],
+				[
+					"kamehameha",
+					"blast"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"whirlwind": {
+			"name": "Freezing Spirits",
+			"description": "Send 2 Spirits that circle around you. They don't deal damage but slow down enemies and sometimes protect you from projectiles",
+			"effects": [
+				{
+					"icon": "fas fa-snowflake",
+					"title": "Slow",
+					"text": "Enemies caught in your freezing spirits will be slowed 50% for 2 seconds."
+				}
+			],
+			"action": "spray",
+			"cooldown": 750,
+			"projectile": {
+				"radius": 0.005,
+				"speed": 0.5,
+				"maxTicks": 300,
+				"damage": 1,
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 4,
+						"categories": 2,
+						"against": 12,
+						"radius": 0.04,
+						"accelerationPerTick": 0.1,
+						"clampSpeed": 0.4
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.07,
+						"minDistanceToTarget": 0.075,
+						"targetType": "self"
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.005,
+						"light": 0.05
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"growth": 0.1
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05
+					}
+				]
+			},
+			"numProjectilesPerTick": 2,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 2
+		},
+		"homing": {
+			"description": "Sends a wave of drones that transform into walls if they hit something. Walls in front of enemies make them unable to shoot in your direction",
+			"action": "spray",
+			"icon": "crystal",
+			"projectile": {
+				"density": 0.0001,
+				"speed": 1,
+				"maxTicks": 30,
+				"damage": 0,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.05,
+						"targetType": "enemy"
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 65535
+						},
+						"projectile": {
+							"density": 1000,
+							"ccd": false,
+							"radius": 0.004,
+							"speed": 0,
+							"maxTicks": 270,
+							"minTicks": 1,
+							"damage": 0,
+							"lifeSteal": 0.3,
+							"hitInterval": 30,
+							"source": "mines",
+							"categories": 2,
+							"collideWith": 65535,
+							"sense": 2,
+							"expireOn": 0,
+							"expireAgainstObjects": 65534,
+							"conveyable": true,
+							"attractable": {
+								"ignoreAlliance": true
+							},
+							"shieldTakesOwnership": false,
+							"behaviours": [],
+							"sound": "mines",
+							"color": "#ff009c",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 1,
+									"light": 1,
+									"selfColor": true,
+									"colorize": 0.1,
+									"bloom": 0.01,
+									"shine": 0.4,
+									"glow": 0.4,
+									"shadow": 0.3,
+									"noPartialRadius": true
+								},
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 3,
+									"selfColor": true,
+									"noPartialRadius": true,
+									"maxTicks": 6
+								}
+							]
+						},
+						"numProjectiles": 1,
+						"spread": 0,
+						"expire": true
+					}
+				],
+				"sound": "shield",
+				"categories": 65535,
+				"collideWith": 65535
+			},
+			"name": "Defense Mechanism",
+			"movementProportionWhileChannelling": 0,
+			"numProjectilesPerTick": 100,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 1
+		},
+		"whip": {
+			"name": "Dynamite",
+			"description": "Throw dynamite with a small cooldown, high damage and lifesteal. The downside is that it takes a while to explode",
+			"effects": {
+				"$delete": true
+			},
+			"color": "#dc5539",
+			"icon": "dynamite",
+			"chargeTicks": 0,
+			"buffs": {
+				"$delete": true
+			},
+			"projectile": {
+				"density": 0.1,
+				"radius": 0.01,
+				"speed": 0.5,
+				"maxTicks": 150,
+				"damage": 1,
+				"collideWith": 65535,
+				"detonate": {
+					"lifeSteal": 0.3,
+					"radius": 0.065,
+					"renderTicks": 100
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 1
+						}
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0.1,
+						"redirect": true
+					}
+				],
+				"sound": "supernova",
+				"renderers": [
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 7,
+						"particleColorize": 0.25
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05,
+						"ownerColor": true
+					},
+					{
+						"type": "reticule",
+						"ownerColor": true,
+						"minRadius": 0.064,
+						"remainingTicks": 150,
+						"shrinkTicks": 150,
+						"radius": 0.065
+					}
+				]
+			}
+		},
+		"supernova": {
+			"description": "The Exploding Blackhole Bomb first sucks your enemies in and then explodes, dealing massive damage if the enemy was in the middle of the explosion",
+			"color": "#301934",
+			"icon": "blackhole",
+			"projectile": {
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 45
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"expire": true
+						},
+						"projectile": {
+							"density": 5,
+							"ccd": false,
+							"radius": 0.001,
+							"speed": 0.2,
+							"maxTicks": 18,
+							"damage": 0,
+							"collideWith": 0,
+							"expireOn": 0,
+							"behaviours": [],
+							"detonate": {
+								"damage": 5,
+								"radius": 0.08,
+								"minImpulse": 0.00004,
+								"maxImpulse": 0.0001,
+								"renderTicks": 30
+							},
+							"sound": "supernova",
+							"color": "#301934",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.03
+								},
+								{
+									"type": "projectile",
+									"ticks": 3,
+									"vanish": 1
+								},
+								{
+									"type": "ray",
+									"ticks": 30,
+									"vanish": 1
+								}
+							]
+						},
+						"numProjectiles": 10,
+						"spread": 2,
+						"expire": false
+					}
+				],
+				"detonate": {
+					"radius": 0.2,
+					"minImpulse": -0.00004,
+					"maxImpulse": -0.0001,
+					"renderTicks": 10
+				},
+				"color": "#301934",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.03
+					},
+					{
+						"type": "projectile",
+						"ticks": 3,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 30,
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "#301934",
+						"minRadius": 0.199,
+						"remainingTicks": 15,
+						"shrinkTicks": 15,
+						"radius": 0.2
+					}
+				]
+			},
+			"name": "E.B.B.",
+			"chargeTicks": 30
+		}
+	},
+	"Icons": {
+		"dynamite": {
+			"path": "M288.486 65.154c-4.03-.012-6.848 1.054-8.445 2.617-2.837 2.78-4.187 9.457-.782 20.04 3.405 10.584 11.316 23.592 22.83 35.35 11.514 11.76 24.354 19.94 34.863 23.567 10.51 3.626 17.214 2.418 20.052-.362 2.838-2.78 4.186-9.452.78-20.035-3.404-10.583-11.313-23.595-22.827-35.353-11.514-11.76-24.356-19.94-34.865-23.565-4.598-1.586-8.468-2.248-11.604-2.258zm80.604.776c-4.032-.012-6.853 1.053-8.45 2.617-2.838 2.78-4.183 9.456-.78 20.04 3.406 10.582 11.315 23.59 22.83 35.35 11.514 11.757 24.353 19.94 34.863 23.565 10.51 3.626 17.212 2.418 20.05-.36 2.84-2.78 4.187-9.457.782-20.04-3.405-10.584-11.316-23.592-22.83-35.35-11.514-11.76-24.352-19.94-34.862-23.566-4.598-1.587-8.467-2.247-11.603-2.256zM260.432 86.975l-31.258 30.607c5.788 17.413 13.473 32.68 24.185 44.813 12.826 14.526 29.924 24.947 55.134 29.666l1.547.29 27.35-26.782c-2.107-.5-4.218-1.104-6.31-1.826-13.972-4.82-28.638-14.492-41.853-27.988-13.216-13.496-22.576-28.362-27.102-42.432-.678-2.107-1.238-4.23-1.693-6.347zm-58.295 57.084L81.3 262.384c5.703 16.54 13.196 31.068 23.475 42.71 12.827 14.525 29.925 24.946 55.135 29.665l3.947.738 118.028-115.576c-37.01-11.376-62.938-38.592-79.748-75.863zm179.955 13.827c-4.03-.012-6.85 1.053-8.447 2.617-2.84 2.78-4.187 9.454-.782 20.037 3.405 10.584 11.316 23.594 22.83 35.353 11.515 11.758 24.354 19.94 34.864 23.566 10.51 3.625 17.21 2.417 20.048-.362.71-.696 1.33-1.635 1.8-2.82 13.218 11.37 24.29 26.203 25.34 35.833 1.27 11.666-3.506 21.664-12.89 32.37-9.387 10.703-23.192 21.244-37.308 31.977s-28.55 21.646-39.303 34.48c-10.754 12.83-17.9 28.62-14.7 46.32 2.824 15.628 11.277 31.794 25.02 42.99 13.744 11.198 33.482 16.712 55.157 9.655l8.56-2.787L456.704 450l-8.557 2.787c-16.327 5.316-28.412 1.494-38.214-6.492-9.803-7.987-16.62-20.85-18.678-32.24-2.084-11.53 1.97-21.04 10.783-31.557 8.813-10.518 22.32-21.006 36.4-31.713 14.083-10.707 28.73-21.645 39.95-34.44 11.216-12.794 19.193-28.317 17.25-46.18-2.223-20.41-18.936-37.77-35.61-50.938-4.033-3.187-8.103-6.08-12.09-8.623-4.204-8.643-10.786-18.118-19.38-26.895-11.516-11.76-24.357-19.94-34.867-23.565-4.598-1.587-8.466-2.25-11.6-2.258zm-28.057 21.816l-27.35 26.783.256 1.555c4.19 25.305 14.25 42.618 28.503 55.747 11.904 10.965 27.008 18.968 44.295 25.12l31.258-30.608c-2.11-.5-4.218-1.103-6.31-1.825-13.972-4.82-28.638-14.493-41.854-27.99-13.216-13.495-22.577-28.36-27.103-42.43-.68-2.11-1.24-4.232-1.695-6.352zm-55.445 54.293L180.5 349.636l.656 3.962c4.19 25.303 14.25 42.615 28.502 55.744 11.423 10.52 25.79 18.317 42.207 24.367l120.01-117.517c-36.728-17.825-63.1-44.612-73.285-82.197zM55.68 287.47l-33.522 32.827.07.07c-.304.214-.59.436-.833.676-2.84 2.78-4.187 9.456-.782 20.04 3.405 10.582 11.316 23.59 22.83 35.35 11.515 11.757 24.354 19.94 34.864 23.565 10.51 3.626 17.21 2.418 20.048-.36.245-.24.475-.52.696-.818l.07.07 35.804-35.06c-36.806-11.614-62.575-38.98-79.244-76.36zm95.158 91.21l-35.076 34.347.07.07c-.303.215-.587.438-.832.678-2.838 2.78-4.188 9.454-.783 20.038 3.405 10.583 11.316 23.593 22.83 35.35 11.514 11.76 24.354 19.94 34.863 23.567 10.51 3.627 17.213 2.42 20.05-.36.246-.24.474-.52.694-.817l6.366 6.5-6.295-6.432 31.713-31.054c-36.792-17.74-63.268-44.425-73.6-81.886z",
+			"credit": "https://game-icons.net/1x1/delapouite/dynamite.html"
+		},
+		"crystal": {
+			"path": "M253.844 15.563l-79.916 84.11 2.27 58.81 50.61 36.22 31.88 181.965 10.78-26.89 11.876-235.35 18.666.94-9.135 181.007 28.373-70.773 8.15-107.99.924-17.938-74.478-84.112zm138.965 50.57L346.194 116.9l-3.857 51.104 10.52-26.24 30.406-13.618 9.545-62.013zm60.31 51.205l-85.727 38.394L264.81 411.62l14.585 83.25h7.81l147.613-293.083 16.692 8.406L308.13 494.87h24.41l146.585-291.802-26.006-85.73zM112.923 136.18L58.79 235.29l69.087 259.58h93.596l-51.118-274.724 18.374-3.417 51.752 278.14h19.938l-50.7-289.417-96.796-69.273zm345.463 232.193L405.44 391.38l-49.825 99.186 69.748-36.662v-.002l33.024-85.53zm-423.15.225l42.47 126.72h30.95L80.603 389.902l-45.366-21.304zm48.732 145.408l.096.29 1.65-.29h-1.747z",
+			"credit": "https://game-icons.net/1x1/lorc/crystal-growth.html"
+		},
+		"blackhole": {
+			"path": "M19.188 17.5v152.063C66.86 258.63 151.98 320.656 248.28 341.092c7.287 2.303 15.034 3.563 23.064 3.563 6.747 0 13.288-.884 19.53-2.53-47.547 33.525-105.556 53.155-168.187 53.155-36.77 0-71.258-7.8-103.5-20.342v35.625c39.863 9.25 78.667 13.034 114.188 10.812 22.572-1.413 43.213-4.7 63.063-10.53-45.634 33.337-107.435 50.03-177.25 49.686v29.44c6.82.457 13.417.874 20.343.874 132.277 0 245.515-77.08 300.283-188.28.174-.357.357-.708.53-1.064.236-.48.463-.953.688-1.438-.046.417-.076.835-.124 1.25-7.255 62.57-34.964 122.59-82.937 170.563-7.697 7.696-15.647 14.944-23.94 21.594h104.595c28.33-57.514 37.687-120.485 29.125-180.72-3.284-23.093-8.64-45.25-16.938-67.188 53.172 71.838 78.54 160.38 71.47 247.907h73.374C492.68 363.235 416.173 252.043 305.406 199c-.273-.13-.538-.276-.812-.406-1.12-.54-2.227-1.045-3.375-1.53-.6-.278-1.183-.573-1.783-.845.102.086.21.16.313.25-4.324-1.73-8.834-3.08-13.5-4 61.317-7.77 125.604 3.935 183.25 37.218 8.896 5.135 17.562 10.86 25.656 16.78v-94.655c-22.682-5.175-45.22-7.668-68.125-7.97-66.77-.874-133.078 18.29-189.186 54.876-9.19 4.476-17.36 10.758-24.063 18.343 24.015-56.973 66.21-107.004 123.69-140.188 49.576-28.623 104.276-41.016 157.686-39V17.5h-118.78c-41.383 17.778-79.457 43.683-111.282 75.656 16.34-27.53 36.19-52.736 58.594-75.656h-42.032c-60.804 67.31-91.872 156.46-87 245.656-.093 1.544-.156 3.09-.156 4.656 0 14.815 4.25 28.65 11.563 40.407-47.44-37.913-83.766-90.83-100.625-153.75-12.45-46.46-12.248-92.975-2.657-136.97H19.188zm252.156 192.188c32.223 0 58.156 25.902 58.156 58.125 0 32.222-25.933 58.156-58.156 58.156-11.938 0-23.007-3.57-32.22-9.69 6.202 3.168 13.23 4.97 20.72 4.97 25.67 0 46.438-20.802 46.437-46.47.003-23.096-16.51-42.202-38.592-45.81 10.03 6.777 17 18.396 17 31.405 0 20.813-17.123 37.313-37.938 37.313-13.864 0-25.89-7.378-32.438-18.532-.72-3.67-1.125-7.457-1.125-11.344 0-32.223 25.934-58.125 58.157-58.125z",
+			"credit": "https://game-icons.net/1x1/lorc/vortex.html"
+		}
+	}
+}

@@ -1,0 +1,819 @@
+{
+	"Mod": {
+		"name": "Blue Spells",
+		"author": "Neikrodent",
+		"description": "Spells: Snake, Dash, Ghost, Mega, Fireball 2/3, Fast Circeler, Step"
+	},
+	"World": {
+		"SecondsToShrink": 180,
+		"LavaDamagePerSecond": 20
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"thrust",
+					"dash",
+					"mini thrust"
+				],
+				[
+					"teleport",
+					"swap"
+				],
+				[
+					"vanish",
+					"ghost"
+				],
+				[
+					"voidRush"
+				]
+			],
+			"q": [
+				[
+					"fireball",
+					"fireball 2",
+					"fireball 3"
+				],
+				[
+					"flamestrike",
+					"mega fireball"
+				],
+				[
+					"triplet",
+					"difire"
+				],
+				[
+					"retractor"
+				],
+				[
+					"whip"
+				]
+			],
+			"w": [
+				[
+					"gravity",
+					"whirlwind"
+				],
+				[
+					"link",
+					"grapple",
+					"poison"
+				],
+				[
+					"lightning",
+					"knock"
+				],
+				[
+					"homing",
+					"points"
+				],
+				[
+					"boomerang",
+					"frang"
+				]
+			],
+			"r": [
+				[
+					"kamehameha"
+				],
+				[
+					"bouncer",
+					"repeater"
+				],
+				[
+					"supernova"
+				],
+				[
+					"missile",
+					"rocket"
+				]
+			],
+			"f": [
+				[
+					"scourge",
+					"insta"
+				],
+				[
+					"firespray"
+				],
+				[
+					"mines",
+					"supermines"
+				],
+				[
+					"halo",
+					"spirits"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"dash": {
+			"id": "dash",
+			"name": "Dash",
+			"description": "Accelerate quickly, knocking away and making damage to anything in your path.",
+			"range": 0.3,
+			"radiusMultiplier": 1.5,
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 850,
+			"throttle": false,
+			"unlink": true,
+			"debuff": true,
+			"damageTemplate": {
+				"damage": 20
+			},
+			"speed": 1,
+			"bounceTicks": 3,
+			"icon": "fireDash",
+			"color": "#DB000B",
+			"action": "thrust",
+			"sound": "thrust"
+		},
+		"poison": {
+			"id": "poison",
+			"name": "Snake",
+			"description": "Shoot a snake that will deal damage",
+			"action": "projectile",
+			"color": "#30DF30",
+			"icon": "grapple",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 475,
+			"throttle": false,
+			"projectile": {
+				"density": 1,
+				"radius": 0.005,
+				"speed": 0.4,
+				"maxTicks": 50,
+				"damage": 25,
+				"collideWith": 65533,
+				"expireOn": 16,
+				"shieldTakesOwnership": false,
+				"link": {
+					"linkWith": 9,
+					"selfFactor": 1,
+					"targetFactor": 0.1,
+					"impulsePerTick": 0.016666666666666666,
+					"minDistance": 0.05,
+					"maxDistance": 0.25,
+					"linkTicks": 1,
+					"movementProportion": 2,
+					"render": {
+						"type": "link",
+						"color": "#30DF30",
+						"width": 0.005,
+						"glow": 0.1
+					}
+				},
+				"behaviours": [
+					{
+						"type": "expireOnOwnerDeath"
+					}
+				],
+				"sound": "grapple",
+				"color": "#30DF30",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "link",
+						"color": "#30DF30",
+						"width": 0.009,
+						"glow": 0.1
+					}
+				]
+			}
+		},
+		"ghost": {
+			"id": "ghost",
+			"name": "Ghost",
+			"description": "Be a ghost that takes damage for a long time but you can't cancel it",
+			"untargeted": false,
+			"maxAngleDiffInRevs": 1,
+			"cooldown": 750,
+			"throttle": false,
+			"unlink": true,
+			"debuff": true,
+			"movementProportionWhileChannelling": 1.75,
+			"interruptibleAfterTicks": 500,
+			"buffs": [
+				{
+					"type": "vanish",
+					"maxTicks": 500,
+					"channelling": true,
+					"sound": "vanish"
+				}
+			],
+			"icon": "hidden",
+			"color": "#919191",
+			"action": "buff"
+		},
+		"": {
+			"id": "",
+			"description": "Quick cooldown and packs a punch. Good old trusty fireball.",
+			"action": "projectile",
+			"color": "#ff8800",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"projectile": {
+				"density": 12.5,
+				"radius": 0.003,
+				"speed": 0.6,
+				"maxTicks": 60,
+				"damage": 10,
+				"lifeSteal": 0.2,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#ff8800",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"mega fireball": {
+			"id": "mega fireball",
+			"name": "Mega",
+			"description": "Big and quick Fireball",
+			"action": "projectile",
+			"color": "#982525",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 330,
+			"throttle": true,
+			"projectile": {
+				"density": 12.5,
+				"radius": 0.009,
+				"speed": 0.9,
+				"maxTicks": 60,
+				"damage": 5,
+				"lifeSteal": 0.2,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#982525",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"mini thrust": {
+			"id": "mini thrust",
+			"name": "Step",
+			"description": "Go a step forward",
+			"range": 0.05,
+			"radiusMultiplier": 1.5,
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 100,
+			"throttle": false,
+			"unlink": true,
+			"debuff": true,
+			"damageTemplate": {
+				"damage": 0
+			},
+			"speed": 1,
+			"bounceTicks": 3,
+			"icon": "fireDash",
+			"color": "#BABAA0",
+			"action": "thrust",
+			"sound": "thrust"
+		},
+		"frang": {
+			"id": "frang",
+			"name": "Fast Circeler",
+			"description": "Around and around you. Keep following your enemies at orbital distance until it hits.",
+			"action": "projectile",
+			"color": "#FF8FF3",
+			"icon": "boomerangSun",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"radius": 0.004,
+				"speed": 1,
+				"maxTicks": 300,
+				"damage": 15,
+				"expireOn": 5,
+				"expireAgainstHeroes": 4,
+				"hitInterval": 15,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.0625,
+						"minDistanceToTarget": 0.075,
+						"targetType": "self"
+					}
+				],
+				"color": "#ff00ff",
+				"sound": "boomerang",
+				"soundHit": "standard",
+				"renderers": [
+					{
+						"type": "projectile",
+						"selfColor": true,
+						"ticks": 10
+					},
+					{
+						"type": "ray",
+						"selfColor": true,
+						"ticks": 10
+					},
+					{
+						"type": "ray",
+						"selfColor": true,
+						"radiusMultiplier": 0.25,
+						"ticks": 60
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ticks": 15,
+						"glow": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"fireball 2": {
+			"id": "fireball 2",
+			"description": "More the Cooldown and Damage from the previous Fireball",
+			"action": "projectile",
+			"color": "#ff8800",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 200,
+			"throttle": true,
+			"projectile": {
+				"density": 12.5,
+				"radius": 0.003,
+				"speed": 0.6,
+				"maxTicks": 60,
+				"damage": 17,
+				"lifeSteal": 0.2,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#ff8800",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"fireball 3": {
+			"id": "fireball 3",
+			"description": "More the Cooldown and Damage from the previous Fireball",
+			"action": "projectile",
+			"color": "#ff8800",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 400,
+			"throttle": true,
+			"projectile": {
+				"density": 12.5,
+				"radius": 0.003,
+				"speed": 0.6,
+				"maxTicks": 60,
+				"damage": 35,
+				"lifeSteal": 0.2,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#ff8800",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"missile": {
+			"id": "missile",
+			"name": "Missile",
+			"description": "You control a fast Missile but while doing this, you cannot move. Cast Missile again to detonate it at exactly the right moment.",
+			"action": "focus",
+			"color": "#FFCE00",
+			"icon": "mightyForce",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 550,
+			"throttle": true,
+			"interruptibleAfterTicks": 0,
+			"movementProportionWhileChannelling": 0.05,
+			"projectile": {
+				"damage": 7,
+				"density": 1,
+				"radius": 0.005,
+				"speed": 0.4,
+				"maxTicks": 135,
+				"collideWith": 65535,
+				"expireOn": 65519,
+				"shieldTakesOwnership": false,
+				"partialDamage": {
+					"initialMultiplier": 0.5,
+					"ticks": 180
+				},
+				"detonate": {
+					"damage": 15,
+					"partialRadius": true,
+					"radius": 0.1,
+					"minImpulse": 0.0003,
+					"maxImpulse": 0.0004,
+					"renderTicks": 10
+				},
+				"strafe": {
+					"expireOnHeroHit": true
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.0075
+					},
+					{
+						"type": "expireOnChannellingEnd"
+					}
+				],
+				"sound": "rocket",
+				"color": "#FFCE00",
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.035,
+						"minRadius": 0.03,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 5,
+						"glow": 0.1,
+						"smoke": 0.5,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"glow": true,
+						"numParticles": 9
+					}
+				]
+			}
+		},
+		"spirits": {
+			"id": "spirits",
+			"name": "Spirits",
+			"description": "Up to 15 Spirits can fly around you dealing small but rapid damage",
+			"action": "projectile",
+			"color": "#BFBFBF",
+			"icon": "angelOutfit",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 100,
+			"throttle": true,
+			"projectile": {
+				"density": 1,
+				"radius": 0.002,
+				"speed": 0.5,
+				"maxTicks": 120000,
+				"hitInterval": 15,
+				"damage": 0.4,
+				"lifeSteal": 0,
+				"collideWith": 21,
+				"expireOn": 16,
+				"expireAgainstHeroes": 12,
+				"expireAgainstObjects": 12,
+				"selfPassthrough": true,
+				"shieldTakesOwnership": false,
+				"strafe": {
+					"expireOnHeroHit": true
+				},
+				"damageScaling": false,
+				"destructible": {
+					"against": 12
+				},
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.15,
+						"minDistanceToTarget": 0.02,
+						"targetType": "self"
+					}
+				],
+				"sound": "halo",
+				"soundHit": "halo",
+				"color": "#ccc",
+				"renderers": [
+					{
+						"type": "ray",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ownerColor": true,
+						"ticks": 15,
+						"growth": 1.1,
+						"glow": true,
+						"numParticles": 3
+					}
+				]
+			}
+		},
+		"points": {
+			"id": "points",
+			"name:": "Pont",
+			"description": "Goes at the point where your cursor was and circles around there",
+			"action": "projectile",
+			"color": "#44ffcc",
+			"icon": "boltSaw",
+			"cooldown": 800,
+			"throttle": true,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 25,
+				"radius": 0.009,
+				"speed": 0.2,
+				"maxTicks": 900,
+				"damage": 30,
+				"expireOn": 13,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.05
+					}
+				],
+				"sound": "homing",
+				"soundHit": "standard",
+				"targetType": "obstacle",
+				"color": "#44ffcc",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 1,
+						"glow": true,
+						"numParticles": 10
+					}
+				]
+			}
+		},
+		"insta": {
+			"id": "insta",
+			"name": "Insta",
+			"description": "One shots anybody but only once per game.",
+			"action": "projectile",
+			"color": "#01EF19",
+			"icon": "burningDot",
+			"maxAngleDiffInRevs": 0.01,
+			"chargeTicks": 30,
+			"cooldown": 1000000,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"radius": 0.005,
+				"speed": 0.18,
+				"maxTicks": 120,
+				"damage": 1000000,
+				"lifeSteal": 0.2,
+				"categories": 2,
+				"expireAfterCursorTicks": 0,
+				"detonate": {
+					"damage": 1000000,
+					"lifeSteal": 0.2,
+					"radius": 0.03,
+					"minImpulse": 0.00005,
+					"maxImpulse": 0.00005,
+					"renderTicks": 10,
+					"partialRadius": {
+						"initialMultiplier": 0.3,
+						"ticks": 60
+					}
+				},
+				"partialDamage": {
+					"initialMultiplier": 0.5,
+					"ticks": 30
+				},
+				"sound": "flamestrike",
+				"color": "#01EF19",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 2,
+						"fade": "#333"
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 3
+					}
+				]
+			}
+		},
+		"knock": {
+			"id": "knock",
+			"name": "Knock",
+			"description": "Small but fast.",
+			"action": "projectile",
+			"color": "#00BDB1",
+			"icon": "burningDot",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 50,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"radius": 0.0005,
+				"speed": 1,
+				"maxTicks": 120,
+				"damage": 0,
+				"lifeSteal": 0,
+				"categories": 2,
+				"expireAfterCursorTicks": 0,
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0,
+					"radius": 0.003,
+					"minImpulse": 0.00005,
+					"maxImpulse": 0.00005,
+					"renderTicks": 10,
+					"partialRadius": {
+						"initialMultiplier": 0.3,
+						"ticks": 60
+					}
+				},
+				"partialDamage": {
+					"initialMultiplier": 0.5,
+					"ticks": 30
+				},
+				"sound": "flamestrike",
+				"color": "#00BDB1",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 2,
+						"fade": "#333"
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"glow": true,
+						"numParticles": 3
+					}
+				]
+			}
+		},
+		"supermines": {
+			"id": "supermines",
+			"name": "Tentacles",
+			"description": "Mark out your territory with some Energy Mines. If you walk away from the mines, they expire. Energy mines only do damage after 0.1 seconds.",
+			"action": "spray",
+			"sound": "mines",
+			"color": "#ff009c",
+			"icon": "mineExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"intervalTicks": 1,
+			"lengthTicks": 50,
+			"jitterRatio": 1,
+			"projectile": {
+				"density": 1,
+				"radius": 0.004,
+				"speed": 1,
+				"maxTicks": 270,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.1,
+				"knockbackScaling": false,
+				"categories": 2,
+				"collideWith": 13,
+				"expireOn": 65519,
+				"destructible": {},
+				"partialDamage": {
+					"initialMultiplier": 0.001,
+					"ticks": 6,
+					"step": true
+				},
+				"detonate": {
+					"damage": 3,
+					"lifeSteal": 0.2,
+					"radius": 0.015,
+					"minImpulse": 0.00005,
+					"maxImpulse": 0.00005,
+					"renderTicks": 15,
+					"knockbackScaling": false
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 6
+						},
+						"newSpeed": 0,
+						"redirect": true
+					},
+					{
+						"type": "expireOnOwnerRetreat",
+						"maxDistance": 0.1
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		}
+	}
+}
