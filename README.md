@@ -1,7 +1,7 @@
 # mod-library
 
 [![Discord](https://img.shields.io/discord/290959441262804992?color=7289Da&label=Discord)](https://discord.gg/eC3yxv5)
-![repo size](https://img.shields.io/github/repo-size/v0Xal/mod-library)
+![repo size](https://img.shields.io/github/repo-size/vooXal/mod-library)
 
 
 Acolytefight Mod Library
