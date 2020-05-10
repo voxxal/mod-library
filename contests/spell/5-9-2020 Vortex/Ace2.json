@@ -1,0 +1,553 @@
+{
+	"Mod": {
+		"name": "Ace2 Vortex Competition Entry",
+		"author": "Ace2",
+		"description": "Entry for voertex competition 1",
+		"titleLeft": "Ace2's",
+		"titleRight": "Vortex Entry!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"w": [
+				[
+					"boost"
+				],
+				[
+					"homing",
+					"boomerang",
+					"drain"
+				],
+				[
+					"vortex5",
+					"whirlwind"
+				],
+				[
+					"link",
+					"grapple"
+				],
+				[
+					"lightning"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"vortex1": {
+			"id": "vortex1",
+			"name": "Vortex",
+			"description": "A vortex!",
+			"effects": [
+				{
+					"icon": "fas fa-hourglass-half",
+					"title": "Silence",
+					"text": "Your enemy will be unable to cast spells for 0.75 seconds."
+				},
+				{
+					"icon": "fas fa-clock",
+					"title": "Recharge",
+					"text": "If it hits, reduces cooldowns for all your spells except Vortex by 4 seconds."
+				}
+			],
+			"action": "projectile",
+			"color": "#0ace00",
+			"icon": "atomicSlashes",
+			"sound": "gravity",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"density": 0.0001,
+				"ccd": false,
+				"attractable": false,
+				"radius": 0.0125,
+				"speed": 0.45,
+				"maxTicks": 300,
+				"damage": 0,
+				"noHit": true,
+				"collideWith": 5,
+				"sensor": true,
+				"gravity": {
+					"impulsePerTick": 0.00016666666666666666,
+					"ticks": 120,
+					"radius": 0.045,
+					"power": 1,
+					"render": {
+						"type": "swirl",
+						"color": "#0ace00cc",
+						"colorize": 0.1,
+						"radius": 0.02,
+						"ticks": 15,
+						"loopTicks": 20,
+						"numParticles": 3,
+						"particleRadius": 0.06666666666666667,
+						"glow": 2,
+						"shine": 0.8,
+						"vanish": 0.2,
+						"bloom": 0.06,
+						"light": 1,
+						"smoke": {
+							"axisMultiplier": 0.4,
+							"isotropicSpeed": 0.09
+						}
+					}
+				},
+				"buffs": [
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 1,
+						"minCooldown": 45
+					},
+					{
+						"type": "cooldown",
+						"against": 12,
+						"owner": true,
+						"maxTicks": 1,
+						"adjustCooldown": -240,
+						"notSpellIds": [
+							"gravity"
+						]
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 1,
+						"redirect": true
+					}
+				],
+				"sound": "gravity",
+				"color": "#0ace00",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#0ace00cc",
+						"colorize": 0.4,
+						"radius": 0.2,
+						"ticks": 605,
+						"loopTicks": 20,
+						"numParticles": 4,
+						"particleRadius": 0.06666666666666667,
+						"glow": 0.8,
+						"shine": 0.8,
+						"vanish": 0.6,
+						"bloom": 0.4,
+						"light": 1,
+						"smoke": {
+							"axisMultiplier": 0.4,
+							"isotropicSpeed": 0.7
+						}
+					}
+				]
+			}
+		},
+		"vortex2": {
+			"id": "vortex2",
+			"name": "Vortex",
+			"description": "A vortex!",
+			"effects": [
+				{
+					"icon": "fas fa-hourglass-half",
+					"title": "Silence",
+					"text": "Your enemy will be unable to cast spells for 0.75 seconds."
+				},
+				{
+					"icon": "fas fa-clock",
+					"title": "Recharge",
+					"text": "If it hits, reduces cooldowns for all your spells except Vortex by 4 seconds."
+				}
+			],
+			"action": "projectile",
+			"color": "#0ace00",
+			"icon": "atomicSlashes",
+			"sound": "gravity",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"density": 0.0001,
+				"ccd": false,
+				"attractable": false,
+				"radius": 0.000125,
+				"speed": 0.45,
+				"maxTicks": 300,
+				"damage": 0,
+				"noHit": true,
+				"collideWith": 5,
+				"sensor": true,
+				"gravity": {
+					"impulsePerTick": 0.00016666666666666666,
+					"ticks": 120,
+					"radius": 0.045,
+					"power": 1,
+					"render": {
+						"type": "swirl",
+						"color": "#0ace00cc",
+						"colorize": 0.1,
+						"radius": 0.02,
+						"ticks": 15,
+						"loopTicks": 20,
+						"numParticles": 3,
+						"particleRadius": 0.06666666666666667,
+						"glow": 2,
+						"shine": 0.8,
+						"vanish": 0.2,
+						"bloom": 0.06,
+						"light": 1,
+						"smoke": {
+							"axisMultiplier": 0.4,
+							"isotropicSpeed": 0.09
+						}
+					}
+				},
+				"buffs": [
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 1,
+						"minCooldown": 45
+					},
+					{
+						"type": "cooldown",
+						"against": 12,
+						"owner": true,
+						"maxTicks": 1,
+						"adjustCooldown": -240,
+						"notSpellIds": [
+							"gravity"
+						]
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "gravity",
+				"color": "#0ace00",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#0ace00cc",
+						"colorize": 0.4,
+						"radius": 0.002,
+						"ticks": 605,
+						"loopTicks": 20,
+						"numParticles": 4,
+						"particleRadius": 0.06666666666666667,
+						"glow": 0.8,
+						"shine": 0.8,
+						"vanish": 0.6,
+						"bloom": 0.4,
+						"light": 1,
+						"smoke": {
+							"axisMultiplier": 0.4,
+							"isotropicSpeed": 0.7
+						}
+					}
+				]
+			}
+		},
+		"vortex3": {
+			"id": "vortex3",
+			"name": "Vortex",
+			"description": "A vortex!",
+			"effects": [
+				{
+					"icon": "fas fa-hourglass-half",
+					"title": "Silence",
+					"text": "Your enemy will be unable to cast spells for 0.75 seconds."
+				},
+				{
+					"icon": "fas fa-clock",
+					"title": "Recharge",
+					"text": "If it hits, reduces cooldowns for all your spells except Vortex by 4 seconds."
+				}
+			],
+			"action": "projectile",
+			"color": "#0ace00",
+			"icon": "atomicSlashes",
+			"sound": "gravity",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 50,
+			"projectile": {
+				"density": 0.0001,
+				"ccd": false,
+				"attractable": true,
+				"radius": 0.0125,
+				"speed": 0.2,
+				"maxTicks": 300,
+				"damage": 0,
+				"noHit": true,
+				"collideWith": 5,
+				"sensor": true,
+				"gravity": {
+					"impulsePerTick": 0.0016666666666666668,
+					"ticks": 120,
+					"radius": 0.085,
+					"power": 2,
+					"render": {
+						"type": "swirl",
+						"color": "#0ace00cc",
+						"colorize": 0.1,
+						"radius": 0.02,
+						"ticks": 15,
+						"loopTicks": 20,
+						"numParticles": 3,
+						"particleRadius": 0.006666666666666667,
+						"glow": 0.4,
+						"shine": 0.4,
+						"vanish": 0.5,
+						"bloom": 0.04,
+						"light": 0.9,
+						"smoke": {
+							"axisMultiplier": 0.3,
+							"isotropicSpeed": 0.07
+						}
+					}
+				},
+				"buffs": [
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 1,
+						"minCooldown": 45
+					},
+					{
+						"type": "cooldown",
+						"against": 12,
+						"owner": true,
+						"maxTicks": 1,
+						"adjustCooldown": -240,
+						"notSpellIds": [
+							"gravity"
+						]
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "gravity",
+				"color": "#0ace00",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#0ace00cc",
+						"colorize": 0.01,
+						"radius": 0.04,
+						"ticks": 15,
+						"loopTicks": 20,
+						"numParticles": 10,
+						"particleRadius": 0.009666666666666667,
+						"glow": 0.4,
+						"shine": 0.4,
+						"vanish": 0.5,
+						"bloom": 0.04,
+						"light": 0.9,
+						"smoke": {
+							"axisMultiplier": 0.3,
+							"isotropicSpeed": 0.07
+						}
+					}
+				]
+			}
+		},
+		"vortex4": {
+			"id": "vortex4",
+			"name": "Vortex",
+			"description": "Release a vortex!",
+			"untargeted": true,
+			"movementCancel": true,
+			"effects": [
+				{
+					"icon": "fas fa-weight-hanging",
+					"title": "Heavy",
+					"text": "Knockback reduced 75% while casting."
+				}
+			],
+			"chargeBuffs": [
+				{
+					"type": "mass",
+					"maxTicks": 30,
+					"channelling": true,
+					"radius": 0.0125,
+					"density": 2.16
+				},
+				{
+					"type": "glide",
+					"maxTicks": 30,
+					"channelling": true,
+					"linearDampingMultiplier": 4
+				}
+			],
+			"detonate": {
+				"damage": 10,
+				"radius": 0.5,
+				"minImpulse": 0.01,
+				"maxImpulse": 0.02,
+				"renderTicks": 30
+			},
+			"chargeTicks": 50,
+			"cooldown": 300,
+			"throttle": false,
+			"unlink": true,
+			"interruptibleAfterTicks": 0,
+			"interruptCancel": {
+				"cooldownTicks": 300
+			},
+			"selfDamage": 0,
+			"minSelfHealth": 1,
+			"icon": "deadlyStrike",
+			"trailTicks": 50,
+			"color": "#ffcc00",
+			"sound": "scourge",
+			"action": "scourge"
+		},
+		"vortex5": {
+			"id": "vortex5",
+			"name": "Spell Vortex",
+			"description": "A freezing vortex to gravitate all of your opponents spells away from you!",
+			"effects": [],
+			"action": "projectile",
+			"color": "#44ffff",
+			"icon": "vortexicon",
+			"sound": "whirlwind",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"chargeTicks": 30,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 0.0001,
+				"radius": 0.06,
+				"speed": 0.1,
+				"maxTicks": 622,
+				"damage": 10,
+				"collideWith": 0,
+				"expireOn": 0,
+				"swappable": false,
+				"sensor": true,
+				"noKnockback": true,
+				"hitInterval": 15,
+				"gravity": {
+					"impulsePerTick": 0.0016666666666666668,
+					"ticks": 622,
+					"radius": 0.07,
+					"power": 1,
+					"render": {
+						"type": "swirl",
+						"color": "rgba(0,0,0,0)",
+						"colorize": 0.1,
+						"radius": 0.02,
+						"ticks": 15,
+						"loopTicks": 20,
+						"numParticles": 3,
+						"particleRadius": 0.006666666666666667,
+						"glow": 0.4,
+						"shine": 0.4,
+						"vanish": 0.5,
+						"bloom": 0.04,
+						"light": 0.9,
+						"collideWith": 0,
+						"smoke": {
+							"axisMultiplier": 0.3,
+							"isotropicSpeed": 0.07
+						}
+					}
+				},
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 4,
+						"categories": 2,
+						"against": 12,
+						"radius": 0.4,
+						"accelerationPerTick": 0.2,
+						"clampSpeed": 0.4
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind",
+						"movementProportion": 0.5,
+						"maxTicks": 120,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"bloom": 0,
+							"vanish": 1
+						}
+					}
+				],
+				"sound": "whirlwind",
+				"color": "#4ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05,
+						"light": 0.5
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.05,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 2,
+						"particleRadius": 0.05,
+						"light": null,
+						"glow": 0.7,
+						"shine": 0.2,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		}
+	},
+	"Icons": {
+		"vortexicon": {
+			"path": "M19.188 17.5v152.063C66.86 258.63 151.98 320.656 248.28 341.092c7.287 2.303 15.034 3.563 23.064 3.563 6.747 0 13.288-.884 19.53-2.53-47.547 33.525-105.556 53.155-168.187 53.155-36.77 0-71.258-7.8-103.5-20.342v35.625c39.863 9.25 78.667 13.034 114.188 10.812 22.572-1.413 43.213-4.7 63.063-10.53-45.634 33.337-107.435 50.03-177.25 49.686v29.44c6.82.457 13.417.874 20.343.874 132.277 0 245.515-77.08 300.283-188.28.174-.357.357-.708.53-1.064.236-.48.463-.953.688-1.438-.046.417-.076.835-.124 1.25-7.255 62.57-34.964 122.59-82.937 170.563-7.697 7.696-15.647 14.944-23.94 21.594h104.595c28.33-57.514 37.687-120.485 29.125-180.72-3.284-23.093-8.64-45.25-16.938-67.188 53.172 71.838 78.54 160.38 71.47 247.907h73.374C492.68 363.235 416.173 252.043 305.406 199c-.273-.13-.538-.276-.812-.406-1.12-.54-2.227-1.045-3.375-1.53-.6-.278-1.183-.573-1.783-.845.102.086.21.16.313.25-4.324-1.73-8.834-3.08-13.5-4 61.317-7.77 125.604 3.935 183.25 37.218 8.896 5.135 17.562 10.86 25.656 16.78v-94.655c-22.682-5.175-45.22-7.668-68.125-7.97-66.77-.874-133.078 18.29-189.186 54.876-9.19 4.476-17.36 10.758-24.063 18.343 24.015-56.973 66.21-107.004 123.69-140.188 49.576-28.623 104.276-41.016 157.686-39V17.5h-118.78c-41.383 17.778-79.457 43.683-111.282 75.656 16.34-27.53 36.19-52.736 58.594-75.656h-42.032c-60.804 67.31-91.872 156.46-87 245.656-.093 1.544-.156 3.09-.156 4.656 0 14.815 4.25 28.65 11.563 40.407-47.44-37.913-83.766-90.83-100.625-153.75-12.45-46.46-12.248-92.975-2.657-136.97H19.188zm252.156 192.188c32.223 0 58.156 25.902 58.156 58.125 0 32.222-25.933 58.156-58.156 58.156-11.938 0-23.007-3.57-32.22-9.69 6.202 3.168 13.23 4.97 20.72 4.97 25.67 0 46.438-20.802 46.437-46.47.003-23.096-16.51-42.202-38.592-45.81 10.03 6.777 17 18.396 17 31.405 0 20.813-17.123 37.313-37.938 37.313-13.864 0-25.89-7.378-32.438-18.532-.72-3.67-1.125-7.457-1.125-11.344 0-32.223 25.934-58.125 58.157-58.125z",
+			"credit": "https://game-icons.net/lorc/originals/angel-outfit.html"
+		}
+	}
+}

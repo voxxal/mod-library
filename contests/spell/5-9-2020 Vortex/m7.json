@@ -1,0 +1,253 @@
+{
+	"Mod": {
+		"name": "COntest",
+		"author": "m7",
+		"description": "Sat, 09 May 2020 22:49:13 GMT",
+		"titleLeft": "m7's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"w": [
+				[
+					"boost"
+				],
+				[
+					"homing",
+					"boomerang",
+					"drain"
+				],
+				[
+					"gravity",
+					"fireball"
+				],
+				[
+					"link",
+					"grapple"
+				],
+				[
+					"lightning"
+				]
+			],
+			"e": [
+				[
+					"armor",
+					"horcrux"
+				],
+				[
+					"shield",
+					"icewall"
+				],
+				[
+					"saber",
+					"dualSaber"
+				],
+				[
+					"phaseOut",
+					"blaze"
+				],
+				[
+					"meteor",
+					"Whirl Pool"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"whirlwind": {
+			"$delete": true
+		},
+		"Whirl Pool": {
+			"id": "Whirl Pool",
+			"name": "Vortex",
+			"description": "Create a large vortex that will attract enemy projectiles and objects.",
+			"action": "projectile",
+			"color": "#44ffff",
+			"chargeTicks": 25,
+			"icon": "boomerangSun",
+			"sound": "whirlwind",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 900,
+			"throttle": true,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 0.0001,
+				"radius": 0.01,
+				"speed": 0.03,
+				"maxTicks": 240,
+				"damage": 0,
+				"collideWith": 1,
+				"expireOn": 0,
+				"swappable": false,
+				"sensor": true,
+				"noKnockback": true,
+				"hitInterval": 15,
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 4,
+						"categories": 8,
+						"against": 12,
+						"radius": 0.17,
+						"accelerationPerTick": 0.055,
+						"clampSpeed": 0.85
+					}
+				],
+				"bffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind",
+						"movementProportion": 0.5,
+						"maxTicks": 120,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"bloom": 0,
+							"vanish": 1
+						}
+					}
+				],
+				"sound": "whirlwind",
+				"color": "#4ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05,
+						"light": 0.5
+					},
+					{
+						"type": "sirl",
+						"color": "#4ff4",
+						"radius": 0.141,
+						"ticks": 1,
+						"loopTicks": 450,
+						"numParticles": 8,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.9,
+						"shine": 0.25,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.12,
+						"ticks": 1,
+						"loopTicks": 440,
+						"numParticles": 8,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.9,
+						"shine": 0.25,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.1,
+						"ticks": 1,
+						"loopTicks": 430,
+						"numParticles": 8,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.9,
+						"shine": 0.25,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.08,
+						"ticks": 1,
+						"loopTicks": 420,
+						"numParticles": 8,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.9,
+						"shine": 0.25,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.06,
+						"ticks": 1,
+						"loopTicks": 410,
+						"numParticles": 8,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.9,
+						"shine": 0.25,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.04,
+						"ticks": 1,
+						"loopTicks": 400,
+						"numParticles": 8,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.9,
+						"shine": 0.25,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.02,
+						"ticks": 1,
+						"loopTicks": 390,
+						"numParticles": 4,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.9,
+						"shine": 0.25,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(173, 216, 230, 0.75)",
+						"radius": 0.135,
+						"minRadius": 0.013
+					},
+					{
+						"type": "projectile",
+						"ticks": 25,
+						"smoke": 2.95
+					},
+					{
+						"type": "strike",
+						"ticks": 0,
+						"flash": false,
+						"growth": 0.1
+					}
+				]
+			}
+		}
+	}
+}
