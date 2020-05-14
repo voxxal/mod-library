@@ -1,0 +1,117 @@
+{
+	"Mod": {
+		"name": "VOTE M7!",
+		"author": "m7",
+		"description": "Wed, 13 May 2020 18:47:59 GMT",
+		"titleLeft": "m7's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Matchmaking": {
+		"MaxBots": 1
+	},
+	"Choices": {
+		"Options": {
+			"f": [
+				[
+					"bump",
+					"scourge"
+				],
+				[
+					"firespray",
+					"iceBomb"
+				],
+				[
+					"mines",
+					"Siphon"
+				],
+				[
+					"halo"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"Siphon": {
+			"id": "Siphon",
+			"name": "Siphon",
+			"description": "Unleash a ray of energy that will siphon the health of your enemies.",
+			"action": "spray",
+			"color": "#90EE90",
+			"icon": "mightyForce",
+			"sound": "triplet",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"movementProportionWhileChannelling": 0,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 3,
+			"lengthTicks": 150,
+			"jitterRatio": 25,
+			"chargeTicks": 30,
+			"projectile": {
+				"density": 0.000001,
+				"radius": 0.0028,
+				"speed": 0.65,
+				"maxTicks": 90,
+				"damage": 0.45,
+				"lifeSteal": 1,
+				"categories": 1,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#ff0088",
+				"buffs": [
+					{
+						"type": "brn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0.8333333333333334,
+							"lifeSteal": 0.3,
+							"noHit": true
+						},
+						"maxTicks": 240,
+						"resetOnGameStart": true,
+						"render": {
+							"Ownercolor": true,
+							"alpha": 0.075,
+							"light": 1,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 1,
+							"bloom": 0.03,
+							"vanish": 1
+						}
+					}
+				],
+				"renderers": [
+					{
+						"type": "ray",
+						"smoke": 1,
+						"intermediatePoints": true,
+						"ticks": 60,
+						"color": "#90EE90",
+						"shine": 0.5,
+						"glow": 4,
+						"bloom": 0,
+						"vanish": 0,
+						"light": null
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.2
+					}
+				]
+			}
+		}
+	}
+}

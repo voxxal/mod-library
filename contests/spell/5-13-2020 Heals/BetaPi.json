@@ -1,0 +1,147 @@
+{
+	"Mod": {
+		"name": "Contest Submission: Heal Spell",
+		"author": "BetaPi",
+		"description": "My submission",
+		"titleLeft": "BetaPi's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			}
+		],
+		"Options": {
+			"a": {
+				"$delete": true
+			},
+			"q": [
+				[
+					"triplet"
+				]
+			],
+			"w": {
+				"$delete": true
+			},
+			"e": {
+				"$delete": true
+			},
+			"r": {
+				"$delete": true
+			},
+			"f": {
+				"$delete": true
+			}
+		}
+	},
+	"Spells": {
+		"triplet": {
+			"name": "Vine Spirit",
+			"description": "One Vine Spirit will be summoned and follow you around. It will collide with enemies and obstacles, and it will start to be destroyed and fade when it does. However, it's life will be transferred into health and be given back to you. To hit someone with it, simply touch the spirit.",
+			"color": "#b6ffa3",
+			"icon": "fireWave",
+			"cooldown": 480,
+			"movementProportionWhileChannelling": 1.5,
+			"numProjectilesPerTick": 20,
+			"projectile": {
+				"density": 2,
+				"radius": 0.0032,
+				"speed": 0.232,
+				"maxTicks": 420,
+				"damage": 15,
+				"lifeSteal": 1,
+				"sound": "homing",
+				"color": "#22ee88",
+				"renderers": [
+					{
+						"type": "bloom",
+						"ticks": 10,
+						"vanish": 1,
+						"light": 0.01,
+						"minGraphics": 2
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"vanish": 1,
+						"light": 0.01,
+						"minGraphics": 2
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"vanish": 1,
+						"light": 0.01
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"radiusMultiplier": 0.25,
+						"ticks": 100,
+						"vanish": 1,
+						"light": 0.1
+					},
+					{
+						"type": "strike",
+						"ticks": 300,
+						"growth": 2,
+						"flash": true,
+						"numParticles": 1
+					}
+				],
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.25,
+						"minDistanceToTarget": 0,
+						"targetType": "self"
+					}
+				],
+				"buffs": {
+					"$delete": true
+				},
+				"selfPassthrough": true
+			}
+		}
+	},
+	"Sounds": {
+		"homing": {
+			"start": [
+				{
+					"volume": 0.25,
+					"stopTime": 5,
+					"attack": 0.25,
+					"decay": 4.5,
+					"highPass": 180,
+					"lowPass": 183,
+					"wave": "brown-noise"
+				},
+				{
+					"stopTime": 5,
+					"attack": 0.5,
+					"decay": 4.5,
+					"startFreq": 290,
+					"stopFreq": 290,
+					"lowPass": 200,
+					"modStartFreq": 2400,
+					"modStopFreq": 2400,
+					"modStartStrength": 800,
+					"modStopStrength": 800,
+					"tremoloFreq": 6,
+					"tremoloStrength": 0.2,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.5
+					]
+				}
+			]
+		}
+	}
+}
