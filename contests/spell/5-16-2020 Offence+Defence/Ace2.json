@@ -1,0 +1,86 @@
+{
+	"Mod": {
+		"name": "Ace2's Offense Defense Contest Submission",
+		"author": "Ace2",
+		"description": "Contest Submission",
+		"titleLeft": "Ace2's",
+		"titleRight": "Offesne/Defense Contest Entry",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"thrust",
+					"offensedefense1"
+				],
+				[
+					"teleport",
+					"swap"
+				],
+				[
+					"voidRush",
+					"vanish"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"offensedefense1": {
+			"id": "offensedefense1",
+			"name": "Armored Tackle",
+			"description": "Accelerate quickly, knocking away anything in your path.",
+			"effects": [
+				{
+					"icon": "fas fa-briefcase-medical",
+					"title": "Cleanse",
+					"text": "Clears all positive and negative effects."
+				},
+				{
+					"icon": "fas fa-clock",
+					"title": "Void recharge",
+					"text": "Cools down 2x faster when in the void."
+				}
+			],
+			"range": 0.5,
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 622,
+			"throttle": false,
+			"debuff": true,
+			"damageTemplate": {
+				"damage": 20
+			},
+			"speed": 1.5,
+			"icon": "fireDash",
+			"color": "#800000",
+			"action": "thrust",
+			"sound": "thrust",
+			"buffs": [
+				{
+					"type": "armor",
+					"proportion": -0.2
+				},
+				{
+					"type": "mass",
+					"radius": 0.018960000000000005,
+					"density": 122,
+					"maxTicks": 22,
+					"appendCollideWith": 16,
+					"render": {
+						"color": "#800000",
+						"heroColor": false,
+						"ticks": 8,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.019750000000000004,
+						"glow": 1.2,
+						"shine": 1.2,
+						"bloom": 0.06,
+						"light": 1.2,
+						"decay": true
+					}
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,115 @@
+{
+	"Mod": {
+		"name": "voxal.",
+		"author": "vox.",
+		"description": "Sat, 16 May 2020 20:43:57 GMT",
+		"titleLeft": "vox.'s",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"e": [
+				[
+					"armor",
+					"horcrux"
+				],
+				[
+					"shield",
+					"icewall",
+					"shrinking"
+				],
+				[
+					"saber",
+					"dualSaber"
+				],
+				[
+					"phaseOut",
+					"blaze"
+				],
+				[
+					"meteor",
+					"meteorite"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"shrinking": {
+			"id": "shrinking",
+			"name": "shrinking Shield",
+			"description": "Press for a shield and hold for a small projectile that deals some damage",
+			"action": "charge",
+			"color": "#00f",
+			"icon": "fireRay",
+			"sound": "blast",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"chargeTicks": 20,
+			"release": {
+				"maxChargeTicks": 20
+			},
+			"retarget": true,
+			"movementProportionWhileCharging": 0.5,
+			"chargeDamage": {
+				"initialMultiplier": 0,
+				"ticks": 20
+			},
+			"chargeRadius": {
+				"initialMultiplier": 15,
+				"ticks": 20
+			},
+			"chargeImpulse": {
+				"initialMultiplier": 0,
+				"ticks": 120
+			},
+			"projectile": {
+				"categories": 6,
+				"attractable": true,
+				"collideWith": 3,
+				"expireOn": 0,
+				"density": 0.0001,
+				"radius": 0.005,
+				"speed": 0.5,
+				"lifeSteal": 0.3,
+				"maxTicks": 200,
+				"swappable": true,
+				"damage": 25,
+				"sound": "blast",
+				"color": "#0ff",
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 30,
+							"atCursor": true
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"color": "rgba(0,0,255,0.1)",
+						"shine": 1,
+						"smoke": 0.15,
+						"light": 0.8,
+						"vanish": 0.25
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"numParticles": 10,
+						"color": "#00f",
+						"flash": true
+					}
+				]
+			}
+		}
+	}
+}
