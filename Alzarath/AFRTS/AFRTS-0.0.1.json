@@ -1,0 +1,187 @@
+{
+	"Mod": {
+		"name": "AFRTS",
+		"author": "Alzarath",
+		"description": "Sat, 14 Mar 2020 19:07:36 GMT",
+		"titleRight": "RTS",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"f": [
+				[
+					"selectBase"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"commander": {
+			"id": "commander",
+			"name": "Commander",
+			"description": "As a commander, you construct a base that will send troops to destroy your enemy",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"selectBase": {
+			"id": "selectBase",
+			"name": "Select Base",
+			"description": "Select a base.",
+			"effects": [
+				{
+					"icon": "fas fa-briefcase-medical",
+					"title": "Cleanse",
+					"text": "Clears all positive and negative effects."
+				}
+			],
+			"action": "spray",
+			"color": "#23e3ff",
+			"icon": "angelOutfit",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 450,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"interruptibleAfterTicks": 0,
+			"strikeCancel": {},
+			"numProjectilesPerTick": 5,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 1,
+			"buffs": [
+				{
+					"type": "movement",
+					"maxTicks": 600,
+					"movementProportion": 0,
+					"render": {
+						"color": "#8800ff",
+						"heroColor": true,
+						"ticks": 30,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"shine": 0.5,
+						"glow": 0.2,
+						"vanish": 1,
+						"decay": true
+					}
+				}
+			],
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.004,
+				"speed": 2,
+				"maxTicks": 6000,
+				"minTicks": 1,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"hitInterval": 30,
+				"categories": 2,
+				"collideWith": 192,
+				"sense": 2,
+				"expireOn": 65519,
+				"expireAgainstObjects": 65534,
+				"conveyable": true,
+				"destructible": {},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"newSpeed": 0,
+						"redirect": true
+					}
+				],
+				"sound": "mines",
+				"color": "#ff009c",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true,
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"selfColor": true,
+						"shine": 0,
+						"glow": 0.2,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 3,
+						"selfColor": true,
+						"noPartialRadius": true
+					}
+				]
+			}
+		},
+		"constructWorker": {
+			"id": "constructWorker",
+			"name": "Construct Worker",
+			"description": "Create a worker that will gather a resource at the target location",
+			"action": "projectile",
+			"color": "#22ee88",
+			"icon": "energyBreath",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"throttle": true,
+			"projectile": {
+				"categories": 576,
+				"sound": "drain",
+				"density": 2,
+				"radius": 0.002,
+				"speed": 0.1,
+				"maxTicks": 120,
+				"damage": 5,
+				"lifeSteal": 0,
+				"color": "#22ee88",
+				"expireOn": 258,
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 15,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"radiusMultiplier": 0.25,
+						"ticks": 45,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"growth": 2,
+						"flash": true,
+						"numParticles": 4
+					}
+				]
+			}
+		}
+	}
+}

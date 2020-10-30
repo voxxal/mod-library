@@ -1,0 +1,1880 @@
+{
+	"Mod": {
+		"name": "Unreal Acolytes",
+		"author": "Alzarath",
+		"description": "Converts Acolyte Fight spells into weapons reminiscent of Unreal Tournament",
+		"titleLeft": "Unreal",
+		"titleRight": "Acolytes!",
+		"subtitleLeft": "Probably not",
+		"subtitleRight": "copyright-infringing"
+	},
+	"World": {
+		"InitialRadius": 0.85,
+		"HeroLayoutProportion": 0.375,
+		"SecondsToShrink": 50000
+	},
+	"Hero": {
+		"MoveSpeedPerSecond": 0.18,
+		"MaxSpeed": 2
+	},
+	"ObstacleTemplates": {
+		"invWall": {
+			"health": 50000,
+			"static": true,
+			"undamageable": true,
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "bloom",
+					"color": "#ccc",
+					"strikeOnly": true,
+					"bloom": 0.05
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#ddd",
+					"deadColor": "#c33"
+				},
+				{
+					"type": "solid",
+					"color": "#999",
+					"deadColor": "#822",
+					"expand": -0.003
+				}
+			]
+		}
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "a",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			},
+			null,
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "e",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "r",
+				"barSize": 1,
+				"wheelSize": 0.75
+			}
+		],
+		"Options": {
+			"a": [
+				[
+					"voidRush"
+				]
+			],
+			"q": [
+				[
+					"shockRifle",
+					"bioRifle"
+				]
+			],
+			"w": [
+				[
+					"shockRifleSecondary",
+					"bioRifleSecondary"
+				]
+			],
+			"e": [
+				[
+					"flakCannon",
+					"ripper",
+					"stingerMinigun",
+					"lightningGun"
+				]
+			],
+			"r": [
+				[
+					"flakCannonSecondary",
+					"ripperSecondary",
+					"stingerMinigunSecondary",
+					"lightningGunSecondary"
+				]
+			],
+			"f": {
+				"$delete": true
+			}
+		}
+	},
+	"Spells": {
+		"shockRifleSecondary": {
+			"id": "shockRifleSecondary",
+			"name": "Plasma Charge",
+			"description": "Unstable energy projectile, expands radially.",
+			"effects": [
+				{
+					"icon": "fas fa-sync",
+					"title": "Synergy",
+					"text": "Detonated by Shock Rifle for massive damage."
+				}
+			],
+			"action": "projectile",
+			"color": "#9900ff",
+			"icon": "burningDot",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 120,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"radius": 0.0075,
+				"speed": 0.22,
+				"maxTicks": 240,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"detonate": {
+					"against": 65533,
+					"damage": 10,
+					"lifeSteal": 0.3,
+					"radius": 0.03,
+					"minImpulse": 0.000125,
+					"maxImpulse": 0.000125,
+					"renderTicks": 10
+				},
+				"sound": "shockRifleSecondary",
+				"color": "#9900ff",
+				"expireOn": 65469,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 64
+						},
+						"projectile": {
+							"density": 5,
+							"radius": 0.0075,
+							"speed": 0,
+							"maxTicks": 1,
+							"damage": 0,
+							"lifeSteal": 0.3,
+							"categories": 130,
+							"expireAfterCursorTicks": 0,
+							"detonate": {
+								"against": 65535,
+								"damage": 20,
+								"lifeSteal": 0.3,
+								"radius": 0.06,
+								"minImpulse": 0.00025,
+								"maxImpulse": 0.00025,
+								"renderTicks": 10
+							},
+							"sound": "flamestrike",
+							"color": "#9900ff",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 18,
+									"smoke": 0.4,
+									"fade": "#333"
+								},
+								{
+									"type": "reticule",
+									"color": "rgba(128, 32, 0, 0.1)",
+									"radius": 0.03
+								},
+								{
+									"type": "ray",
+									"ticks": 18
+								},
+								{
+									"type": "strike",
+									"ticks": 18,
+									"flash": true,
+									"numParticles": 5
+								}
+							]
+						},
+						"expire": true
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 18,
+						"smoke": 0.4,
+						"fade": "#333"
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(153, 0, 255, 0.1)",
+						"radius": 0.03
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(153, 32, 0, 0.025)",
+						"radius": 0.06
+					},
+					{
+						"type": "ray",
+						"ticks": 18
+					},
+					{
+						"type": "strike",
+						"ticks": 18,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"shockRifle": {
+			"id": "shockRifle",
+			"name": "Shock Rifle",
+			"description": "Lightning-fast burst of focused energy.",
+			"comments": "0x40 is the Shock Rifle projectile. Used to detonate the Plasma Charge",
+			"action": "projectile",
+			"color": "#9900ff",
+			"icon": "lightningHelix",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"categories": 66,
+				"density": 1,
+				"radius": 0.0025,
+				"speed": 3,
+				"maxTicks": 30,
+				"collideWith": 65533,
+				"swappable": false,
+				"damage": 8,
+				"sound": "shockRifle",
+				"color": "#9900ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.01
+					}
+				]
+			}
+		},
+		"flakCannon": {
+			"id": "flakCannon",
+			"name": "Flak Cannon",
+			"description": "Shoot a burst of shrapnel in a short arc. Get closer to focus all your damage onto one target.",
+			"action": "spray",
+			"color": "#ff9944",
+			"icon": "bubblingBeam",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"throttle": true,
+			"numProjectilesPerTick": 2,
+			"intervalTicks": 1,
+			"lengthTicks": 4,
+			"jitterRatio": 0.125,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"collideWith": 65535,
+				"expireOn": 65511,
+				"radius": 0.002,
+				"speed": 0.8,
+				"maxTicks": 30,
+				"damage": 4,
+				"lifeSteal": 0.3,
+				"color": "#ff9944",
+				"sound": "flakCannon",
+				"soundHit": "flakShard",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.15,
+						"vanish": 1,
+						"bloom": 0.01
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 7,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 1
+					}
+				]
+			}
+		},
+		"flakCannonSecondary": {
+			"id": "flakCannonSecondary",
+			"name": "Flak Shell",
+			"description": "An explosive projectile that launches shrapnel in all directions on impact.",
+			"action": "projectile",
+			"color": "#ff9944",
+			"icon": "burningDot",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"throttle": true,
+			"projectile": {
+				"density": 5,
+				"radius": 0.005,
+				"speed": 0.35,
+				"maxTicks": 120,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAfterCursorTicks": 0,
+				"detonate": {
+					"damage": 40,
+					"lifeSteal": 0.3,
+					"radius": 0.04,
+					"minImpulse": 0.00005,
+					"maxImpulse": 0.00005,
+					"renderTicks": 10
+				},
+				"sound": "flakCannon",
+				"color": "#ff9944",
+				"expireOn": 0,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"atCursor": true,
+							"afterTicks": 120
+						},
+						"projectile": {
+							"density": 1,
+							"ccd": false,
+							"collideWith": 65535,
+							"expireOn": 65511,
+							"radius": 0.002,
+							"speed": 0.8,
+							"maxTicks": 30,
+							"damage": 4,
+							"lifeSteal": 0.3,
+							"color": "#ff9944",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.02
+								},
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.15,
+									"vanish": 1,
+									"bloom": 0.01
+								},
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 7,
+									"vanish": 1
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 1
+								}
+							],
+							"soundHit": "flakShard"
+						},
+						"numProjectiles": 5,
+						"spread": 0.8,
+						"expire": true
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 65519
+						},
+						"projectile": {
+							"density": 1,
+							"ccd": false,
+							"collideWith": 65535,
+							"expireOn": 65511,
+							"radius": 0.002,
+							"speed": 0.8,
+							"maxTicks": 30,
+							"damage": 4,
+							"lifeSteal": 0.3,
+							"color": "#ff9944",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.02
+								},
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.15,
+									"vanish": 1,
+									"bloom": 0.01
+								},
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 7,
+									"vanish": 1
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 1
+								}
+							],
+							"soundHit": "flakShard"
+						},
+						"numProjectiles": 5,
+						"spread": 0.8,
+						"expire": true
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(255, 153, 68, 0.1)",
+						"radius": 0.025
+					},
+					{
+						"type": "projectile",
+						"ticks": 18,
+						"smoke": 0.4,
+						"fade": "#333"
+					},
+					{
+						"type": "ray",
+						"ticks": 18
+					},
+					{
+						"type": "strike",
+						"ticks": 18,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"ripper": {
+			"id": "ripper",
+			"name": "Ripper",
+			"description": "Ricocheting blades.",
+			"action": "projectile",
+			"color": "#999999",
+			"icon": "divert",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 150,
+			"throttle": true,
+			"projectile": {
+				"density": 3,
+				"radius": 0.005,
+				"speed": 0.5,
+				"fixedSpeed": true,
+				"bumpable": true,
+				"maxTicks": 300,
+				"hitInterval": 15,
+				"damage": 20,
+				"lifeSteal": 0.3,
+				"collideWith": 29,
+				"expireOn": 3,
+				"sound": "ripper",
+				"color": "#999999",
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"smoke": 0,
+						"vanish": 0.5,
+						"bloom": 0.01
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ticks": 15,
+						"flash": true,
+						"growth": 1
+					}
+				]
+			}
+		},
+		"ripperSecondary": {
+			"id": "ripperSecondary",
+			"name": "Explosive Disc",
+			"description": "Exploding blades.",
+			"action": "projectile",
+			"color": "#999999",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 180,
+			"throttle": true,
+			"projectile": {
+				"density": 3,
+				"radius": 0.005,
+				"speed": 0.5,
+				"fixedSpeed": true,
+				"bumpable": true,
+				"maxTicks": 180,
+				"hitInterval": 15,
+				"damage": 10,
+				"lifeSteal": 0.3,
+				"sound": "ripper",
+				"color": "#999999",
+				"detonate": {
+					"against": 65533,
+					"damage": 10,
+					"lifeSteal": 0.3,
+					"radius": 0.02,
+					"minImpulse": 0.000125,
+					"maxImpulse": 0.000125,
+					"renderTicks": 10,
+					"sound": "flamestrike"
+				},
+				"renderers": [
+					{
+						"type": "bloom",
+						"selfColor": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"smoke": 0.05,
+						"vanish": 0.5,
+						"bloom": 0.01
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(153, 153, 153, 0.1)",
+						"radius": 0.02
+					},
+					{
+						"type": "strike",
+						"selfColor": true,
+						"ticks": 15,
+						"flash": true,
+						"growth": 1
+					}
+				]
+			}
+		},
+		"bioRifle": {
+			"id": "bioRifle",
+			"name": "Bio Rifle",
+			"description": "Fire a small toxic blob that persists for a while after placement and damages enemies that touch it",
+			"comments": "0x80 is x1; 0x100 is x2; 0x200 is x3; 0x400 is x4",
+			"effects": [
+				{
+					"icon": "fas fa-sync",
+					"title": "Synergy",
+					"text": "Impacting with another toxic blob will merge them into a larger blob."
+				}
+			],
+			"action": "projectile",
+			"sound": "horcrux",
+			"color": "#22ff66",
+			"icon": "unburningEye",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 45,
+			"throttle": true,
+			"projectile": {
+				"categories": 2,
+				"density": 1,
+				"restitution": 0,
+				"radius": 0.005,
+				"speed": 0.35,
+				"maxTicks": 600,
+				"minTicks": 1,
+				"damage": 4,
+				"lifeSteal": 1,
+				"expireOn": 1,
+				"conveyable": true,
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 8
+						},
+						"projectile": {
+							"categories": 130,
+							"density": 1,
+							"restitution": 0,
+							"radius": 0.005,
+							"speed": 0,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 4,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"expire": true
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 120,
+							"atCursor": true
+						},
+						"projectile": {
+							"categories": 130,
+							"density": 1,
+							"restitution": 0,
+							"radius": 0.005,
+							"speed": 0,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 4,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"expire": true
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 128
+						},
+						"projectile": {
+							"categories": 258,
+							"density": 2,
+							"restitution": 0,
+							"radius": 0.01,
+							"speed": 0,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 8,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"expire": true
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 256
+						},
+						"projectile": {
+							"categories": 514,
+							"density": 4,
+							"restitution": 0,
+							"radius": 0.015,
+							"speed": 0,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 16,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"expire": true
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 512
+						},
+						"projectile": {
+							"categories": 1026,
+							"density": 8,
+							"restitution": 0,
+							"radius": 0.02,
+							"speed": 0,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 32,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"behaviours": [
+								{
+									"type": "homing",
+									"targetType": "cursor",
+									"trigger": {
+										"afterTicks": 120,
+										"atCursor": true
+									},
+									"newSpeed": 0,
+									"redirect": true
+								},
+								{
+									"type": "homing",
+									"targetType": "cursor",
+									"trigger": {
+										"collideWith": 8
+									},
+									"newSpeed": 0,
+									"redirect": true
+								}
+							],
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"expire": true
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 1024
+						},
+						"projectile": {
+							"categories": 2,
+							"density": 1,
+							"restitution": 0,
+							"radius": 0.005,
+							"speed": 0.35,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 4,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 8
+									},
+									"projectile": {
+										"categories": 130,
+										"density": 1,
+										"restitution": 0,
+										"radius": 0.005,
+										"speed": 0,
+										"maxTicks": 300,
+										"minTicks": 1,
+										"damage": 4,
+										"lifeSteal": 1,
+										"destructible": {},
+										"conveyable": true,
+										"shieldTakesOwnership": false,
+										"expireOn": 65511,
+										"sound": "horcrux",
+										"color": "#22ff66",
+										"renderers": [
+											{
+												"type": "bloom"
+											},
+											{
+												"type": "projectile",
+												"ticks": 10,
+												"glow": 0.2,
+												"smoke": 0.3
+											},
+											{
+												"type": "strike",
+												"ticks": 10,
+												"flash": true,
+												"growth": 1.25,
+												"numParticles": 5
+											}
+										]
+									},
+									"expire": true
+								},
+								{
+									"type": "spawn",
+									"trigger": {
+										"afterTicks": 40
+									},
+									"projectile": {
+										"categories": 130,
+										"density": 1,
+										"restitution": 0,
+										"radius": 0.005,
+										"speed": 0,
+										"maxTicks": 300,
+										"minTicks": 1,
+										"damage": 14,
+										"lifeSteal": 1,
+										"destructible": {},
+										"conveyable": true,
+										"shieldTakesOwnership": false,
+										"expireOn": 65511,
+										"sound": "horcrux",
+										"color": "#22ff66",
+										"renderers": [
+											{
+												"type": "bloom"
+											},
+											{
+												"type": "projectile",
+												"ticks": 10,
+												"glow": 0.2,
+												"smoke": 0.3
+											},
+											{
+												"type": "strike",
+												"ticks": 10,
+												"flash": true,
+												"growth": 1.25,
+												"numParticles": 5
+											}
+										]
+									},
+									"expire": true
+								}
+							],
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"numProjectiles": 8,
+						"spread": 0.9,
+						"expire": true
+					}
+				],
+				"sound": "horcrux",
+				"color": "#22ff66",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"glow": 0.2,
+						"smoke": 0.3
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 1.25,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"bioRifleSecondary": {
+			"id": "bioRifleSecondary",
+			"name": "Charged Bio Rifle",
+			"description": "Charge up and fire a large toxic blob that detonates into a large number of smaller blobs.",
+			"comments": "0x80 is x1; 0x100 is x2; 0x200 is x3; 0x400 is x4",
+			"action": "charge",
+			"sound": "blast",
+			"color": "#22ff66",
+			"icon": "burningEye",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"throttle": true,
+			"chargeTicks": 120,
+			"release": {
+				"maxChargeTicks": 120,
+				"interrupt": true
+			},
+			"retarget": true,
+			"movementProportionWhileCharging": 0.5,
+			"projectile": {
+				"categories": 2,
+				"density": 8,
+				"restitution": 0,
+				"radius": 0.02,
+				"speed": 0.35,
+				"maxTicks": 600,
+				"minTicks": 1,
+				"damage": 64,
+				"lifeSteal": 1,
+				"expireOn": 1,
+				"conveyable": true,
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 65534
+						},
+						"projectile": {
+							"categories": 2,
+							"density": 1,
+							"restitution": 0,
+							"radius": 0.005,
+							"speed": 0.35,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 4,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"afterTicks": 15
+									},
+									"projectile": {
+										"categories": 130,
+										"density": 1,
+										"restitution": 0,
+										"radius": 0.005,
+										"speed": 0,
+										"maxTicks": 300,
+										"minTicks": 1,
+										"damage": 4,
+										"lifeSteal": 1,
+										"destructible": {},
+										"conveyable": true,
+										"shieldTakesOwnership": false,
+										"expireOn": 65511,
+										"sound": "horcrux",
+										"color": "#22ff66",
+										"renderers": [
+											{
+												"type": "bloom"
+											},
+											{
+												"type": "projectile",
+												"ticks": 10,
+												"glow": 0.2,
+												"smoke": 0.3
+											},
+											{
+												"type": "strike",
+												"ticks": 10,
+												"flash": true,
+												"growth": 1.25,
+												"numParticles": 5
+											}
+										]
+									},
+									"expire": true
+								},
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 8
+									},
+									"projectile": {
+										"categories": 130,
+										"density": 1,
+										"restitution": 0,
+										"radius": 0.005,
+										"speed": 0,
+										"maxTicks": 300,
+										"minTicks": 1,
+										"damage": 4,
+										"lifeSteal": 1,
+										"destructible": {},
+										"conveyable": true,
+										"shieldTakesOwnership": false,
+										"expireOn": 65511,
+										"sound": "horcrux",
+										"color": "#22ff66",
+										"renderers": [
+											{
+												"type": "bloom"
+											},
+											{
+												"type": "projectile",
+												"ticks": 10,
+												"glow": 0.2,
+												"smoke": 0.3
+											},
+											{
+												"type": "strike",
+												"ticks": 10,
+												"flash": true,
+												"growth": 1.25,
+												"numParticles": 5
+											}
+										]
+									},
+									"expire": true
+								}
+							],
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"numProjectiles": 4,
+						"spread": 0.45,
+						"expire": false
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 120,
+							"atCursor": true
+						},
+						"projectile": {
+							"categories": 2,
+							"density": 1,
+							"restitution": 0,
+							"radius": 0.005,
+							"speed": 0.35,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 4,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"afterTicks": 15
+									},
+									"projectile": {
+										"categories": 130,
+										"density": 1,
+										"restitution": 0,
+										"radius": 0.005,
+										"speed": 0,
+										"maxTicks": 300,
+										"minTicks": 1,
+										"damage": 4,
+										"lifeSteal": 1,
+										"destructible": {},
+										"conveyable": true,
+										"shieldTakesOwnership": false,
+										"expireOn": 65511,
+										"sound": "horcrux",
+										"color": "#22ff66",
+										"renderers": [
+											{
+												"type": "bloom"
+											},
+											{
+												"type": "projectile",
+												"ticks": 10,
+												"glow": 0.2,
+												"smoke": 0.3
+											},
+											{
+												"type": "strike",
+												"ticks": 10,
+												"flash": true,
+												"growth": 1.25,
+												"numParticles": 5
+											}
+										]
+									},
+									"expire": true
+								},
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 8
+									},
+									"projectile": {
+										"categories": 130,
+										"density": 1,
+										"restitution": 0,
+										"radius": 0.005,
+										"speed": 0,
+										"maxTicks": 300,
+										"minTicks": 1,
+										"damage": 4,
+										"lifeSteal": 1,
+										"destructible": {},
+										"conveyable": true,
+										"shieldTakesOwnership": false,
+										"expireOn": 65511,
+										"sound": "horcrux",
+										"color": "#22ff66",
+										"renderers": [
+											{
+												"type": "bloom"
+											},
+											{
+												"type": "projectile",
+												"ticks": 10,
+												"glow": 0.2,
+												"smoke": 0.3
+											},
+											{
+												"type": "strike",
+												"ticks": 10,
+												"flash": true,
+												"growth": 1.25,
+												"numParticles": 5
+											}
+										]
+									},
+									"expire": true
+								}
+							],
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"numProjectiles": 4,
+						"spread": 0.45,
+						"expire": false
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 65535
+						},
+						"projectile": {
+							"categories": 1026,
+							"density": 8,
+							"restitution": 0,
+							"radius": 0.015,
+							"speed": 0,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 32,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"expire": true
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 120,
+							"atCursor": true
+						},
+						"projectile": {
+							"categories": 1026,
+							"density": 8,
+							"restitution": 0,
+							"radius": 0.02,
+							"speed": 0,
+							"maxTicks": 300,
+							"minTicks": 1,
+							"damage": 32,
+							"lifeSteal": 1,
+							"destructible": {},
+							"conveyable": true,
+							"shieldTakesOwnership": false,
+							"expireOn": 65511,
+							"sound": "horcrux",
+							"color": "#22ff66",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 10,
+									"glow": 0.2,
+									"smoke": 0.3
+								},
+								{
+									"type": "strike",
+									"ticks": 10,
+									"flash": true,
+									"growth": 1.25,
+									"numParticles": 5
+								}
+							]
+						},
+						"expire": true
+					}
+				],
+				"sound": "horcrux",
+				"color": "#22ff66",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"glow": 0.2,
+						"smoke": 0.3
+					},
+					{
+						"type": "strike",
+						"ticks": 10,
+						"flash": true,
+						"growth": 1.25,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"lightningGun": {
+			"id": "lightningGun",
+			"name": "Lightning Gun",
+			"description": "Long range, very powerful, accurate.",
+			"action": "projectile",
+			"color": "#ffcc00",
+			"icon": "crosshair",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"density": 0.5,
+				"radius": 0.0025,
+				"speed": 5,
+				"maxTicks": 30,
+				"collideWith": 65533,
+				"swappable": false,
+				"damage": 30,
+				"sound": "lightning",
+				"color": "#6666ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.01
+					}
+				]
+			}
+		},
+		"lightningGunSecondary": {
+			"id": "lightningGunSecondary",
+			"name": "Burst Fire",
+			"description": "Rapidly fire a burst of inaccurate shots.",
+			"action": "spray",
+			"color": "#ffcc00",
+			"icon": "randomCrosshair",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"chargeTicks": 30,
+			"throttle": true,
+			"intervalTicks": 8,
+			"lengthTicks": 24,
+			"jitterRatio": 0.1,
+			"projectile": {
+				"density": 0.5,
+				"radius": 0.0025,
+				"speed": 5,
+				"maxTicks": 30,
+				"collideWith": 65533,
+				"swappable": false,
+				"damage": 30,
+				"sound": "lightning",
+				"color": "#6666ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"detonate": 0.01
+					}
+				]
+			}
+		},
+		"stingerMinigun": {
+			"id": "stingerMinigun",
+			"name": "Stinger Minigun",
+			"description": "Fire a rapid volley of projectiles in a direction.",
+			"effects": [
+				{
+					"icon": "fas fa-hand-paper",
+					"title": "Interruptible",
+					"text": "If you take an enemy hit, Acolyte Beam will be interrupted."
+				}
+			],
+			"action": "spray",
+			"sound": "kamehameha",
+			"color": "#44ddff",
+			"icon": "glowingHands",
+			"maxAngleDiffInRevs": 0.0001,
+			"chargeTicks": 18,
+			"cooldown": 480,
+			"throttle": true,
+			"revsPerTickWhileCharging": 0,
+			"revsPerTickWhileChannelling": 0.0025,
+			"movementCancel": true,
+			"strikeCancel": {
+				"cooldownTicks": 300
+			},
+			"interruptibleAfterTicks": 0,
+			"interruptCancel": {
+				"cooldownTicks": 300,
+				"maxChannelingTicks": 0
+			},
+			"jitterRatio": 0,
+			"intervalTicks": 5,
+			"lengthTicks": 180,
+			"projectile": {
+				"density": 0.0001,
+				"attractable": false,
+				"radius": 0.0025,
+				"speed": 3,
+				"maxTicks": 30,
+				"damage": 2,
+				"lifeSteal": 0.3,
+				"categories": 6,
+				"swappable": false,
+				"destroying": true,
+				"sound": "kamehameha",
+				"color": "#44ddff",
+				"renderers": [
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 5,
+						"glow": 0.1,
+						"bloom": 0.01
+					}
+				]
+			}
+		},
+		"stingerMinigunSecondary": {
+			"id": "stingerMinigunSecondary",
+			"name": "Stinger Minigun",
+			"description": "Fire a slower volley of powerful projectiles in a direction.",
+			"effects": [
+				{
+					"icon": "fas fa-hand-paper",
+					"title": "Interruptible",
+					"text": "If you take an enemy hit, Acolyte Beam will be interrupted."
+				}
+			],
+			"action": "spray",
+			"sound": "kamehameha",
+			"color": "#44ddff",
+			"icon": "glowingHands",
+			"maxAngleDiffInRevs": 0.0001,
+			"chargeTicks": 18,
+			"cooldown": 480,
+			"throttle": true,
+			"revsPerTickWhileCharging": 0,
+			"revsPerTickWhileChannelling": 0.0025,
+			"movementCancel": true,
+			"strikeCancel": {
+				"cooldownTicks": 300
+			},
+			"interruptibleAfterTicks": 0,
+			"interruptCancel": {
+				"cooldownTicks": 300,
+				"maxChannelingTicks": 0
+			},
+			"jitterRatio": 0,
+			"intervalTicks": 12,
+			"lengthTicks": 180,
+			"projectile": {
+				"density": 0.0001,
+				"attractable": false,
+				"radius": 0.005,
+				"speed": 3,
+				"maxTicks": 30,
+				"damage": 8,
+				"lifeSteal": 0.3,
+				"categories": 6,
+				"swappable": false,
+				"destroying": true,
+				"sound": "kamehameha",
+				"color": "#44ddff",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 1
+					}
+				]
+			}
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"$delete": true
+		},
+		"cold": {
+			"$delete": true
+		},
+		"octogon": {
+			"$delete": true
+		},
+		"return": {
+			"$delete": true
+		},
+		"double": {
+			"$delete": true
+		},
+		"ring": {
+			"$delete": true
+		},
+		"exit": {
+			"$delete": true
+		},
+		"heal": {
+			"$delete": true
+		},
+		"snowflake": {
+			"$delete": true
+		},
+		"inside5": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		},
+		"pepper": {
+			"$delete": true
+		},
+		"mirrors": {
+			"$delete": true
+		},
+		"innerStar": {
+			"$delete": true
+		},
+		"mirrorhenge": {
+			"$delete": true
+		},
+		"spiral": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		},
+		"squarena": {
+			"color": "#192c36",
+			"background": "#121c21",
+			"obstacles": [
+				{
+					"type": "volcano",
+					"numObstacles": 4,
+					"layoutRadius": 0.075,
+					"layoutAngleOffsetInRevs": 0.125,
+					"numPoints": 4,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0
+				},
+				{
+					"type": "invWall",
+					"numObstacles": 8,
+					"layoutRadius": 0.25,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.009,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.125,
+					"pattern": [
+						1,
+						1,
+						1,
+						0
+					]
+				},
+				{
+					"type": "invWall",
+					"numObstacles": 4,
+					"layoutRadius": 0.4985,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 0.009,
+					"orientationAngleOffsetInRevs": 0.5,
+					"angularWidthInRevs": 0.25
+				}
+			],
+			"numPoints": 4
+		}
+	},
+	"Sounds": {
+		"flakCannon": {
+			"start": [
+				{
+					"stopTime": 1.5,
+					"attack": 0.015,
+					"decay": 1.2,
+					"startFreq": 100,
+					"stopFreq": 0.01,
+					"lowPass": 200,
+					"wave": "triangle",
+					"ratios": [
+						3,
+						1.8,
+						1.6,
+						1.4,
+						1.2,
+						1
+					]
+				}
+			]
+		},
+		"flakShard-hit": {
+			"start": [
+				{
+					"stopTime": 0.25,
+					"attack": 0.125,
+					"decay": 0.25,
+					"startFreq": 3000,
+					"stopFreq": 2000,
+					"lowPass": 1000,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.5,
+						1.25,
+						1.125,
+						1
+					]
+				}
+			]
+		},
+		"shockRifleSecondary": {
+			"start": [
+				{
+					"stopTime": 0.75,
+					"attack": 0.25,
+					"decay": 0.8,
+					"highPass": 2500,
+					"lowPass": 2510,
+					"wave": "brown-noise"
+				},
+				{
+					"stopTime": 2,
+					"attack": 0.25,
+					"decay": 1.75,
+					"startFreq": 1000,
+					"stopFreq": 1003,
+					"lowPass": 300,
+					"tremoloFreq": 2,
+					"tremoloStrength": 0.2,
+					"wave": "square",
+					"ratios": [
+						1.5
+					]
+				}
+			]
+		},
+		"shockRifle": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.5,
+					"attack": 0.05,
+					"decay": 0.2,
+					"startFreq": 1200,
+					"stopFreq": 1200,
+					"lowPass": 300,
+					"tremoloFreq": 2,
+					"tremoloStrength": 0.2,
+					"wave": "square",
+					"ratios": [
+						1
+					]
+				}
+			]
+		},
+		"ripper": {
+			"start": [
+				{
+					"stopTime": 0.5,
+					"attack": 0.1,
+					"decay": 0.4,
+					"startFreq": 4900,
+					"stopFreq": 4100,
+					"lowPass": 3500,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.33,
+						1.5
+					]
+				}
+			]
+		},
+		"ripper-hit": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.5,
+					"attack": 0.001,
+					"decay": 0.49,
+					"startFreq": 4100,
+					"stopFreq": 4500,
+					"lowPass": 3500,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.33,
+						1.5
+					]
+				}
+			]
+		}
+	},
+	"Visuals": {
+		"CameraPanRate": 0.0325,
+		"CameraZoomRate": 0.0325,
+		"CameraSmoothRate": 0.25,
+		"CameraCenterTolerance": 0.025
+	},
+	"Icons": {
+		"unburningEye": {
+			"path": "m 264.77939,88.925919 c -88.23095,0 -159.49335,71.266321 -159.49335,159.498581 0,88.23225 71.26632,159.49596 159.49335,159.49596 88.23094,0 159.49857,-71.26371 159.49857,-159.49596 0,-88.22964 -71.26632,-159.497271 -159.49727,-159.497271 z m 0,70.275861 c 61.39174,0 111.43758,50.04584 111.43758,111.43628 0,61.39043 -50.04584,111.39446 -111.43628,111.39446 -61.38782,0 -111.39446,-50.00403 -111.39446,-111.39446 0,-61.39044 50.00664,-111.43367 111.39446,-111.43367 z m 0,24.41923 c -48.19036,0 -86.97262,38.82408 -86.97262,87.01705 0,48.19035 38.78226,86.97522 86.97262,86.97522 48.19296,0 87.01834,-38.78226 87.01834,-86.97522 0,-48.19036 -38.82407,-87.01705 -87.01704,-87.01705 z m 0,24.37742 c 34.56168,0 62.5586,28.03743 62.5586,62.59781 0,34.56168 -27.99692,62.5573 -62.5573,62.5573 -34.55776,0 -62.5965,-27.99562 -62.5965,-62.5573 0,-10.98918 2.86163,-21.31848 7.84008,-30.29799 2.40429,16.11659 16.28907,28.50261 33.07599,28.50261 18.47645,0 33.44186,-15.00852 33.44186,-33.48367 0,-11.26358 -5.55339,-21.21525 -14.08601,-27.27694 0.77094,-0.0288 1.54842,-0.0418 2.32589,-0.0418 z",
+			"credit": "https://game-icons.net/1x1/lorc/burning-eye.html"
+		},
+		"crosshair": {
+			"path": "M247 32v23.21C143.25 59.8 59.798 143.25 55.21 247H32v18h23.21C59.8 368.75 143.25 452.202 247 456.79V480h18v-23.21C368.75 452.2 452.202 368.75 456.79 265H480v-18h-23.21C452.2 143.25 368.75 59.798 265 55.21V32h-18zm0 41.223V128h18V73.223C359 77.76 434.24 153 438.777 247H384v18h54.777C434.24 359 359 434.24 265 438.777V384h-18v54.777C153 434.24 77.76 359 73.223 265H128v-18H73.223C77.76 153 153 77.76 247 73.223zM247 224v23h-23v18h23v23h18v-23h23v-18h-23v-23h-18z",
+			"credit": "https://game-icons.net/1x1/delapouite/crosshair.html"
+		},
+		"randomCrosshair": {
+			"path": "M247 16v23.2C134.4 43.81 43.81 134.4 39.2 247H16v18h23.2c4.61 112.6 95.2 203.2 207.8 207.8V496h18v-23.2c112.6-4.6 203.2-95.2 207.8-207.8H496v-18h-23.2C468.2 134.4 377.6 43.81 265 39.2V16h-18zm0 41.21V80h18V57.21C367.8 61.78 450.2 144.2 454.8 247H432v18h22.8c-4.6 102.8-87 185.2-189.8 189.8V432h-18v22.8c-102.8-4.6-185.22-87-189.79-189.8H80v-18H57.21C61.78 144.2 144.2 61.78 247 57.21zm8.9 38.12c-5 0-9.5 1.1-12.9 2.9L126.8 165.3c-7.3 4.1-7.3 10.9 0 15.2L243 247.4c7.2 4.3 18.5 4.3 25.7 0l115.9-66.9c7.4-4.3 7.4-11.1 0-15.2L268.7 98.23c-3.4-1.8-8.3-2.9-12.8-2.9zm-89 62.57c6 .1 11.7 1.6 16 4.1 8 5.7 7.3 14.1-1.5 19.4-9 5.2-23.1 5.6-32.7.8-14.9-9.3-3.4-24.7 18.2-24.3zm178.6.1h2c6 .2 11.7 1.8 15.9 4.2 8.3 5.7 7.7 14.3-1.2 19.6-9.1 5.3-23.4 5.6-33 .7-15-9-4.5-24.1 16.3-24.5zm-89 0c21.4.2 31.8 15.5 16.8 24.5-9.3 6.2-25.2 6.4-35.1.6-9.8-5.8-9.6-15.3.6-20.9 4.7-2.7 11.1-4.3 17.7-4.2zm-141 41c-4.5 0-7.5 3-7.5 9.2v119.7c0 8.4 5.8 18.3 13.2 22.6l111.4 64.4c7.2 4.1 12.9.7 12.9-7.6V287.6c0-8.3-5.7-18.4-12.9-22.5l-111.5-64.5c-2.2-1.1-4.1-1.5-5.6-1.6zm281.3 0c-1.6.1-3.7.5-5.8 1.6l-111.5 64.5c-7.2 4.1-12.9 14.2-12.9 22.5v119.7c0 8.3 5.7 11.7 12.9 7.6L391 350.5c7-4.3 13-14.2 13-22.6V208.2c0-6.2-3-9.2-7.2-9.2zm-185 65.5c11.2.4 24.7 17.3 24.5 31.5.4 11-7.4 15.5-17.2 9.9-9.7-5.7-17.5-19.4-16.9-29.8 0-6.8 3.2-11.2 8.5-11.6h1.1zm130.9 21.8h1.1c5.2.4 8.5 4.8 8.5 11.5-.1 10.5-7.7 23.3-17.1 28.8-9.5 5.5-17.1 1.5-17.2-8.9-.1-14.2 13.5-31.3 24.7-31.4zm-216.9 22.5c11.4-.5 25.5 16.8 25.5 31.3.4 11.1-7.4 15.6-17.2 10.1-9.7-5.7-17.5-19.3-17-29.8 0-6.9 3.3-11.3 8.7-11.6z",
+			"credit": "https://game-icons.net/1x1/delapouite/dice-target.html"
+		}
+	}
+}
