@@ -1,0 +1,4135 @@
+{
+	"Mod": {
+		"name": "lightstealer v2.4.9",
+		"author": "meso",
+		"description": "Gensoyko arena kinda balance.",
+		"titleLeft": "Lightstealer",
+		"titleRight": "V2",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Matchmaking": {
+		"MaxBots": 1,
+		"EnableSingles": false,
+		"EnableSplitting": false,
+		"PvE": true,
+		"AllowBotTeams": true,
+		"AllowUnevenTeams": true,
+		"TeamsMinGames": 0
+	},
+	"World": {
+		"InitialRadius": 0.74,
+		"LavaBuffs": [
+			{
+				"type": "mass",
+				"channelling": false,
+				"cleansable": false,
+				"maxTicks": 40,
+				"radius": 0.00018,
+				"render": {
+					"color": "#fff",
+					"ticks": 120,
+					"emissionRadiusFactor": 1,
+					"particleRadius": 0.011750000000000003,
+					"glow": 0.2,
+					"shine": 0.03,
+					"light": 1,
+					"bloom": 0.03,
+					"alpha": 0.05,
+					"decay": true,
+					"vanish": 1
+				},
+				"appendCollideWith": 512,
+				"sense": 512
+			}
+		],
+		"SecondsToShrink": 90000,
+		"BotName": "Chroma King",
+		"DefaultGameStartMessage": "Vanquish the Tyrant.",
+		"LavaDamagePerSecond": 0
+	},
+	"ObstacleTemplates": {
+		"right": {
+			"$delete": true
+		},
+		"left": {
+			"health": 23232350,
+			"collideWith": 2048,
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(129, 129, 129, 0.1)",
+					"deadColor": "rgba(129, 129, 129, 0.1)",
+					"light": 0.1
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(255, 255, 255, 0.25)",
+					"particleRadius": 0.002,
+					"bloom": 0.01,
+					"glow": 0.025,
+					"vanish": 1,
+					"ticks": 45,
+					"interval": 6,
+					"speed": 0,
+					"conveyor": 1,
+					"light": 1
+				}
+			]
+		},
+		"light": {
+			"health": 50,
+			"collideWith": 1024,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15,
+				"flash": true
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(255, 228, 0, 0.9)",
+					"deadColor": "rgba(255, 228, 0, 0.25)",
+					"glow": 0.2,
+					"light": 0.1
+				},
+				{
+					"type": "smoke",
+					"color": "rgba(255, 228, 0, 1)",
+					"particleRadius": 0.01,
+					"fade": "rgba(0, 0, 0, 0)",
+					"bloom": 0.01,
+					"glow": 0.05,
+					"ticks": 30,
+					"interval": 8,
+					"speed": 0.1
+				}
+			],
+			"hitInterval": 15,
+			"buffs": []
+		},
+		"void": {
+			"health": 50,
+			"sensor": true,
+			"collideWith": 1,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(29, 29, 29, 1)",
+					"deadColor": "rgba(29, 29, 29, 1)"
+				},
+				{
+					"type": "solid",
+					"color": "rgba(15, 15, 15, 1)",
+					"deadColor": "rgba(15, 15, 15, 1)",
+					"expand": -0.003
+				}
+			],
+			"hitInterval": 20,
+			"buffs": [
+				{
+					"type": "mass",
+					"channelling": false,
+					"cleansable": false,
+					"maxTicks": 40,
+					"radius": 0.00018,
+					"render": {
+						"color": "#fff",
+						"ticks": 120,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.011750000000000003,
+						"glow": 0.2,
+						"shine": 0.03,
+						"light": 1,
+						"bloom": 0.03,
+						"alpha": 0.05,
+						"decay": true,
+						"vanish": 1
+					},
+					"appendCollideWith": 512,
+					"sense": 512
+				},
+				{
+					"type": "burn",
+					"maxTicks": 21,
+					"collideWith": 1,
+					"packet": {
+						"damage": 4.16,
+						"lifeSteal": 0.3,
+						"noKnockback": true,
+						"noHit": true,
+						"isLava": true,
+						"source": "leava"
+					},
+					"hitInterval": 20,
+					"stack": "ew",
+					"maxStacks": 1,
+					"render": {}
+				}
+			]
+		},
+		"wall": {
+			"health": 50000,
+			"collideWith": 65535,
+			"static": true,
+			"strike": {
+				"ticks": 10,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "bloom",
+					"color": "#888",
+					"bloom": 0.05,
+					"strikeOnly": true
+				},
+				{
+					"type": "solid",
+					"color": "#1118",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#ccc",
+					"gradient": 0.2
+				},
+				{
+					"type": "solid",
+					"color": "#777",
+					"deadColor": "#111",
+					"gradient": 0.3,
+					"expand": -0.003
+				}
+			],
+			"mirror": true
+		}
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "a",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			},
+			null,
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "e",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "r",
+				"barSize": 1,
+				"wheelSize": 0.75
+			}
+		],
+		"Options": {
+			"a": [
+				[
+					"clericpassive",
+					"traitorpassive"
+				],
+				[
+					"lancerpassive",
+					"tricksterpassive"
+				],
+				[
+					"tankpassive",
+					"druidpassive"
+				],
+				[
+					"manipulatorpassive"
+				]
+			],
+			"q": [
+				[
+					"clericq",
+					"traitorq"
+				],
+				[
+					"lancerq",
+					"tricksterq"
+				],
+				[
+					"tankq",
+					"druidq"
+				],
+				[
+					"manipulatorq"
+				]
+			],
+			"w": [
+				[
+					"clericw",
+					"traitorw"
+				],
+				[
+					"lancerw",
+					"tricksterw"
+				],
+				[
+					"tanke",
+					"druidw"
+				],
+				[
+					"manipulatorw"
+				]
+			],
+			"e": [
+				[
+					"clerice",
+					"traitore"
+				],
+				[
+					"lancere",
+					"trickstere"
+				],
+				[
+					"tankw",
+					"druide"
+				]
+			],
+			"r": [
+				[
+					"clericr",
+					"traitorr"
+				],
+				[
+					"lancerr",
+					"tricksterr"
+				],
+				[
+					"tankr",
+					"druidr"
+				],
+				[
+					"manipulatorr"
+				]
+			],
+			"f": {
+				"$delete": true
+			}
+		}
+	},
+	"Spells": {
+		"clericpassive": {
+			"id": "clericpassive",
+			"description": "Heal and deal powerful burst damage.",
+			"action": "buff",
+			"icon": "priest1",
+			"color": "#f0f",
+			"name": "cleric",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "mass",
+					"passive": true,
+					"mass": 1,
+					"restrictCollideWith": 65023,
+					"radius": 0.00018,
+					"density": 1,
+					"render": {
+						"color": "#f0f",
+						"ticks": 40,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.008750000000000003,
+						"glow": 0.2,
+						"shine": 0.3,
+						"light": 1,
+						"bloom": 0.03,
+						"alpha": 0.5,
+						"decay": true,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 1.17
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 0.9
+				}
+			]
+		},
+		"clericq": {
+			"id": "clericq",
+			"name": "Holy Fire",
+			"description": "Burns! Stacks a lot.",
+			"action": "spray",
+			"color": "#f0f",
+			"icon": "crossedSlashes",
+			"sound": "triplet",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 3,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.04,
+			"projectile": {
+				"density": 0.25,
+				"radius": 0.0025,
+				"speed": 0.75,
+				"maxTicks": 90,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"expireOn": 65535,
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.3,
+						"maxSpeed": 2.6
+					}
+				],
+				"color": "#881188",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1,
+						"light": 0.9,
+						"bloom": 0.015
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"maxStacks": 40,
+						"hitInterval": 20,
+						"packet": {
+							"damage": 0.51,
+							"lifeSteal": 0.3,
+							"noHit": true
+						},
+						"maxTicks": 120,
+						"render": {
+							"color": "#881188",
+							"alpha": 1,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				]
+			}
+		},
+		"clericw": {
+			"id": "clericw",
+			"name": "Divine Heal",
+			"description": "Heals people around you and gives a moderate speed boost.",
+			"action": "spray",
+			"color": "#f0f",
+			"icon": "atomicSlashes",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 860,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.4,
+			"projectile": {
+				"density": 7,
+				"radius": 0.0025,
+				"speed": 0,
+				"maxTicks": 661,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "drain",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"radius": 0.14,
+						"tickInterval": 1,
+						"against": 3,
+						"buffs": [
+							{
+								"type": "movement",
+								"stack": "horcrux",
+								"maxTicks": 10,
+								"against": 3,
+								"movementProportion": 4,
+								"render": {
+									"color": "#ffeeff",
+									"alpha": 0.3,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625
+								}
+							},
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"against": 1,
+								"maxStacks": 1,
+								"stack": "damage",
+								"hitInterval": 1,
+								"packet": {
+									"damage": -0.15,
+									"isLava": true,
+									"lifeSteal": 0,
+									"noHit": true
+								},
+								"maxTicks": 5,
+								"resetOnGameStart": true,
+								"render": {
+									"color": "#ff0088",
+									"alpha": 0.075,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 0.2
+								}
+							},
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"against": 2,
+								"maxStacks": 1,
+								"stack": "damage",
+								"hitInterval": 1,
+								"packet": {
+									"damage": -0.05,
+									"isLava": true,
+									"lifeSteal": 0,
+									"noHit": true
+								},
+								"maxTicks": 5,
+								"resetOnGameStart": true,
+								"render": {
+									"color": "#ff0088",
+									"alpha": 0.075,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 0.2
+								}
+							}
+						]
+					}
+				],
+				"color": "#880088",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(0, 0, 0, 0.05)",
+						"radius": 0.14,
+						"minRadius": 0.036
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(1, 0, 1, 0.05)",
+						"radius": 0.04,
+						"minRadius": 0.036
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"smoke": 0.05,
+						"vanish": 1,
+						"light": 0.9
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"buffs": []
+			}
+		},
+		"clerice": {
+			"id": "clerice",
+			"name": "Blood Sacrifice",
+			"description": "Sacrfice your party's health to get a moderate boost in attack.",
+			"action": "spray",
+			"color": "#f0f",
+			"icon": "boltSaw",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 860,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.4,
+			"projectile": {
+				"density": 7,
+				"radius": 0.0025,
+				"speed": 0,
+				"maxTicks": 661,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "grapple",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"radius": 0.54,
+						"tickInterval": 9,
+						"against": 3,
+						"buffs": [
+							{
+								"type": "lifeSteal",
+								"maxTicks": 10,
+								"maxStacks": 1,
+								"stack": "buff",
+								"against": 1,
+								"damageMultiplier": 2
+							},
+							{
+								"type": "lifeSteal",
+								"maxTicks": 10,
+								"maxStacks": 1,
+								"stack": "buff2",
+								"against": 2,
+								"damageMultiplier": 1.2
+							},
+							{
+								"type": "burn",
+								"collideWith": 65535,
+								"against": 3,
+								"maxStacks": 1,
+								"stack": "damag1e",
+								"hitInterval": 3,
+								"packet": {
+									"damage": 0.1,
+									"lifeSteal": 0,
+									"noHit": true
+								},
+								"maxTicks": 10,
+								"resetOnGameStart": true,
+								"render": {
+									"color": "#ff00aa",
+									"alpha": 0.075,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 0.2
+								}
+							}
+						]
+					}
+				],
+				"color": "#880088",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"smoke": 0.05,
+						"color": "rgba(255,10,200,1)",
+						"vanish": 1,
+						"light": 0.9
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(255, 64, 255, 0.25)",
+						"radius": 0.51,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 8,
+						"particleRadius": 0.04,
+						"light": 1,
+						"glow": 0.7,
+						"shine": 0.2,
+						"smoke": 1.3,
+						"fade": "#144",
+						"vanish": 1
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"buffs": []
+			}
+		},
+		"clericr": {
+			"id": "clericr",
+			"name": "Godly Control",
+			"description": "Creates a small area where you have no cooldowns and pushes projectiles away.",
+			"action": "projectile",
+			"color": "#f0f",
+			"icon": "fireRay",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 700,
+			"throttle": true,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 0.0001,
+				"radius": 0.02,
+				"speed": 0.15,
+				"maxTicks": 60,
+				"damage": 0,
+				"collideWith": 1,
+				"expireOn": 0,
+				"swappable": false,
+				"sensor": true,
+				"noKnockback": true,
+				"hitInterval": 15,
+				"behaviours": [
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"radius": 0.14,
+						"tickInterval": 1,
+						"against": 3,
+						"buffs": [
+							{
+								"type": "cooldown",
+								"against": 1,
+								"maxTicks": 2400,
+								"adjustCooldown": -20,
+								"notSpellIds": [
+									"clericr"
+								]
+							},
+							{
+								"type": "cooldown",
+								"against": 2,
+								"maxTicks": 2400,
+								"adjustCooldown": -5,
+								"notSpellIds": [
+									"clericr"
+								]
+							},
+							{
+								"type": "armor",
+								"maxTicks": 160,
+								"against": 3,
+								"stack": "god",
+								"maxStacks": 1,
+								"proportion": -0.5
+							}
+						]
+					},
+					{
+						"type": "attract",
+						"collideLike": 65526,
+						"categories": 65526,
+						"against": 12,
+						"radius": 0.24,
+						"accelerationPerTick": -0.05,
+						"clampSpeed": 0.4
+					}
+				],
+				"buffs": [],
+				"sound": "whirlwind",
+				"color": "#ff44ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(255, 155, 255, 0.00025)",
+						"radius": 0.01,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 2,
+						"particleRadius": 0.12,
+						"shine": 0.02,
+						"smoke": 1.3,
+						"fade": "#144",
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"lancerpassive": {
+			"id": "lancerpassive",
+			"description": "Methodical offense with powerful edge guarding tools.",
+			"action": "buff",
+			"icon": "waveStrike",
+			"name": "lancer",
+			"color": "#0ff",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "mass",
+					"passive": true,
+					"mass": 0.001,
+					"radius": 0.00018,
+					"restrictCollideWith": 65023,
+					"density": 0.1,
+					"render": {
+						"color": "#00ffff",
+						"ticks": 15,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.008750000000000003,
+						"glow": 0.6,
+						"shine": 0.3,
+						"light": 2,
+						"bloom": 0.1,
+						"alpha": 0.5,
+						"decay": true,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 1.32
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 2
+				}
+			]
+		},
+		"lancerq": {
+			"id": "lancerq",
+			"name": "Space Blade",
+			"description": "Boosts speed and deals low damage. High lifesteal.",
+			"untargeted": true,
+			"unlink": true,
+			"takesOwnership": true,
+			"blocksTeleporters": false,
+			"shiftMultiplier": 2,
+			"speedMultiplier": 2,
+			"maxSpeed": 0.5,
+			"maxTurnRatePerTickInRevs": 0.1,
+			"damageMultiplier": 1,
+			"angleOffsetsInRevs": [
+				0
+			],
+			"width": 0.001,
+			"length": 0.075,
+			"movementProportionWhileChannelling": 5,
+			"interruptibleAfterTicks": 20,
+			"cooldown": 90,
+			"throttle": false,
+			"icon": "waveStrike",
+			"maxTicks": 20,
+			"channelling": true,
+			"categories": 16,
+			"collidesWith": 3,
+			"damageTemplate": {
+				"lifeSteal": 0.1,
+				"damage": 10
+			},
+			"hitBuffs": [
+				{
+					"type": "delink"
+				}
+			],
+			"trailTicks": 5,
+			"color": "#00ffff",
+			"light": 1,
+			"shine": 0.1,
+			"glow": 0.3,
+			"bloom": 0.03,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"bloom": 0.03
+			},
+			"sound": "saber",
+			"action": "saber"
+		},
+		"lancerw": {
+			"id": "lancerw",
+			"name": "Weakening Meteors",
+			"description": "A spray of meteors that drastically reduce enemy damage output and deal strong damage.",
+			"action": "spray",
+			"color": "#0ff",
+			"icon": "crossedSlashes",
+			"sound": "triplet",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 160,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 16,
+			"intervalTicks": 1,
+			"recoil": 2.1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.14,
+			"projectile": {
+				"density": 7,
+				"radius": 0.0025,
+				"speed": 1,
+				"maxTicks": 61,
+				"damage": 2,
+				"lifeSteal": 0.1,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"behaviours": [],
+				"color": "#008888",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"smoke": 0.05,
+						"vanish": 1,
+						"light": 0.9,
+						"bloom": 0.0015
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"buffs": [
+					{
+						"type": "lifeSteal",
+						"maxTicks": 20,
+						"against": 12,
+						"damageMultiplier": 0.14
+					},
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"lifeSteal": 1,
+						"stack": "weaken",
+						"hitInterval": 9,
+						"packet": {
+							"damage": 0.1,
+							"lifeSteal": 0.1,
+							"noHit": true
+						},
+						"maxTicks": 90,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#088",
+							"alpha": 0.075,
+							"light": 1,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 1,
+							"bloom": 0.03,
+							"vanish": 1
+						}
+					}
+				]
+			}
+		},
+		"lancere": {
+			"id": "lancere",
+			"description": "Dash briefly, spawning a chasing projectile. Gives moderate collision immunity.",
+			"action": "thrust",
+			"color": "#0ff",
+			"name": "Galaxy Rift",
+			"sound": "thrust",
+			"icon": "thunderball",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"channelling": true,
+					"maxTicks": 60,
+					"radius": 0.005,
+					"restrictCollideWith": 0,
+					"appendCollideWith": 0,
+					"sense": 0,
+					"render": {
+						"color": "#f0c",
+						"selfColor": true,
+						"numParticles": 0,
+						"particleRadius": 0,
+						"ticks": 1,
+						"bloom": 0.03,
+						"glow": 0.5,
+						"decay": true
+					}
+				}
+			],
+			"throttle": false,
+			"projectileInterval": 1,
+			"range": 0.0005,
+			"speed": 0.4,
+			"followCursor": false,
+			"damageTemplate": {
+				"damage": 0,
+				"lifeSteal": 1
+			},
+			"projectile": {
+				"density": 0,
+				"radius": 0.013,
+				"expireOn": 1,
+				"speed": 0.032,
+				"maxTicks": 420,
+				"collideWith": 65535,
+				"damage": 1,
+				"selfPassthrough": false,
+				"lifeSteal": 0.1,
+				"categories": 2,
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.1,
+						"maxSpeed": 1.6
+					},
+					{
+						"type": "homing",
+						"maxTurnProportion": 0.11
+					},
+					{
+						"type": "accelerate",
+						"accelerationPerSecond": 0.1,
+						"maxSpeed": 1.6,
+						"trigger": {
+							"collideWith": 16
+						}
+					}
+				],
+				"soundHit": "standard",
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind",
+						"movementProportion": 0,
+						"maxTicks": 30,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 0,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"bloom": 0,
+							"vanish": 1
+						}
+					}
+				],
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0,
+					"radius": 0.036,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 10
+				},
+				"color": "#08f",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"light": 0.1,
+						"ticks": 10,
+						"intermediateInterpolations": 5,
+						"smoke": 0.05
+					}
+				]
+			}
+		},
+		"lancerr": {
+			"id": "lancerr",
+			"name": "Spatial Distorions",
+			"description": "Pull all enemy projctiles in. Gives lots of invincibility.",
+			"action": "projectile",
+			"color": "#00ffff",
+			"icon": "divert",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 700,
+			"buffs": [
+				{
+					"type": "armor",
+					"owner": true,
+					"maxTicks": 160,
+					"proportion": -2
+				}
+			],
+			"throttle": true,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 0.0001,
+				"radius": 0.34,
+				"speed": 0,
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.1,
+					"radius": 0.16,
+					"minImpulse": 0.00005,
+					"maxImpulse": 0.00005,
+					"renderTicks": 10
+				},
+				"maxTicks": 240,
+				"damage": 0,
+				"collideWith": 65535,
+				"expireOn": 0,
+				"swappable": false,
+				"sensor": true,
+				"noKnockback": true,
+				"hitInterval": 15,
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 2,
+						"categories": 2,
+						"against": 12,
+						"radius": 0.34,
+						"accelerationPerTick": 1,
+						"clampSpeed": 0.000001
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind",
+						"movementProportion": 0,
+						"maxTicks": 30,
+						"against": 12,
+						"render": {
+							"color": "rgba(64, 255, 255, 1)",
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 0,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"bloom": 0,
+							"vanish": 1
+						}
+					}
+				],
+				"sound": "whirlwind",
+				"color": "#44ffff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(0, 20, 20, 0.00005)",
+						"radius": 0.01,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 5,
+						"particleRadius": 0.22,
+						"shine": 0.2,
+						"light": 0.4,
+						"smoke": 1.3,
+						"fade": "#144",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(0, 20, 20, 1)",
+						"radius": 0.21,
+						"ticks": 20,
+						"loopTicks": 120,
+						"numParticles": 50,
+						"particleRadius": 0.01,
+						"shine": 0.2,
+						"light": 0.4,
+						"smoke": 1.3,
+						"fade": "#144",
+						"vanish": 1
+					}
+				]
+			}
+		},
+		"tankpassive": {
+			"id": "tankpassive",
+			"description": "Snipe from afar with powerful set up.",
+			"action": "buff",
+			"icon": "mightyForce",
+			"name": "tank",
+			"color": "#f80",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "burn",
+					"passive": true,
+					"against": 3,
+					"maxStacks": 1,
+					"restrictCollideWith": 65023,
+					"stack": "damage",
+					"hitInterval": 10,
+					"packet": {
+						"damage": -0.2,
+						"isLava": true,
+						"lifeSteal": 0,
+						"noHit": true
+					},
+					"render": {
+						"color": "#ffff00",
+						"alpha": 0.175,
+						"ticks": 15,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.00625,
+						"shine": 0.2,
+						"glow": 0.2
+					}
+				},
+				{
+					"type": "mass",
+					"passive": true,
+					"mass": 4,
+					"radius": 0.00018,
+					"restrictCollideWith": 65023,
+					"density": 2,
+					"render": {
+						"color": "#ffff00",
+						"ticks": 80,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.002750000000000003,
+						"glow": 0.2,
+						"shine": 0.3,
+						"light": 2,
+						"bloom": 0.03,
+						"alpha": 0.25,
+						"decay": true,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.8
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1
+				}
+			]
+		},
+		"tanke": {
+			"id": "tanke",
+			"description": "Create a sunburst that blocks mosts attacks. Notable knockback.",
+			"action": "spray",
+			"name": "Protective Strike",
+			"color": "#ffff00",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 180,
+			"intervalTicks": 1,
+			"lengthTicks": 6,
+			"jitterRatio": 0.43,
+			"throttle": true,
+			"projectile": {
+				"density": 5000000000000,
+				"square": true,
+				"ccd": false,
+				"attractable": false,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 128
+						},
+						"numProjectiles": 2,
+						"expire": true,
+						"spread": 0.1,
+						"projectile": {
+							"density": 5000000000000,
+							"square": true,
+							"ccd": false,
+							"attractable": false,
+							"behaviours": [
+								{
+									"type": "homing",
+									"newSpeed": 0.6,
+									"redirect": true,
+									"trigger": {
+										"collideWith": 64
+									},
+									"targetType": "follow"
+								},
+								{
+									"type": "homing",
+									"maxTurnProportion": 0.01
+								}
+							],
+							"swappable": true,
+							"linkable": true,
+							"radius": 0.009,
+							"detonate": {
+								"damage": 0,
+								"radius": 0.05,
+								"minImpulse": 0.0004,
+								"maxImpulse": 0.001,
+								"renderTicks": 30
+							},
+							"speed": 0.3,
+							"expireOn": 65439,
+							"selfPassthrough": true,
+							"speedDecayPerTick": 0.5,
+							"restitution": 0,
+							"sound": "meteorite",
+							"minTicks": 10,
+							"maxTicks": 120,
+							"hitInterval": 120,
+							"damage": 1,
+							"shieldTakesOwnership": false,
+							"categories": 6,
+							"collideWith": 65519,
+							"color": "#ffff00",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.04
+								},
+								{
+									"type": "projectile",
+									"ticks": 12,
+									"light": 2,
+									"shine": 0.1,
+									"smoke": 0.5,
+									"fade": "#333"
+								},
+								{
+									"type": "strike",
+									"ticks": 12,
+									"flash": true,
+									"growth": 0.1
+								}
+							]
+						}
+					},
+					{
+						"type": "homing",
+						"newSpeed": 0.6,
+						"redirect": true,
+						"trigger": {
+							"collideWith": 64
+						},
+						"targetType": "follow"
+					},
+					{
+						"type": "homing",
+						"maxTurnProportion": 0.01
+					}
+				],
+				"swappable": true,
+				"linkable": true,
+				"radius": 0.018,
+				"detonate": {
+					"damage": 0,
+					"radius": 0.05,
+					"minImpulse": 0.0004,
+					"maxImpulse": 0.001,
+					"renderTicks": 30
+				},
+				"speed": 0.13,
+				"selfPassthrough": true,
+				"speedDecayPerTick": 0.5,
+				"restitution": 0,
+				"sound": "meteorite",
+				"minTicks": 1,
+				"maxTicks": 220,
+				"hitInterval": 120,
+				"expireOn": 65439,
+				"damage": 1,
+				"shieldTakesOwnership": false,
+				"categories": 6,
+				"collideWith": 65519,
+				"color": "#ffff00",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.04
+					},
+					{
+						"type": "projectile",
+						"ticks": 12,
+						"light": 2,
+						"shine": 0.1,
+						"smoke": 0.5,
+						"fade": "#333"
+					},
+					{
+						"type": "strike",
+						"ticks": 12,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"tankq": {
+			"id": "tankq",
+			"description": "A burst of sun that can silence foes. Shortly after, targets are more effected by knockback.",
+			"name": "Light Beam",
+			"action": "projectile",
+			"color": "#ffff00",
+			"icon": "sonicLightning",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 70,
+			"chargeTicks": 3,
+			"throttle": true,
+			"projectile": {
+				"density": 0.0101,
+				"radius": 0.0132,
+				"speed": 0.8,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 128
+						},
+						"numProjectiles": 9,
+						"spread": 0.1,
+						"projectile": {
+							"density": 10,
+							"radius": 0.0066,
+							"speed": 0.8,
+							"behaviours": [
+								{
+									"type": "homing",
+									"newSpeed": 1.6,
+									"redirect": true,
+									"trigger": {
+										"collideWith": 64
+									},
+									"targetType": "follow"
+								}
+							],
+							"maxTicks": 60,
+							"damage": 2,
+							"source": "repeater",
+							"lifeSteal": 0.3,
+							"collideWith": 65533,
+							"expireOn": 65519,
+							"partialDamage": {
+								"initialMultiplier": 0.1,
+								"ticks": 24
+							},
+							"buffs": [
+								{
+									"type": "cooldown",
+									"against": 12,
+									"maxTicks": 240000,
+									"adjustCooldown": 20
+								},
+								{
+									"type": "armor",
+									"maxTicks": 120,
+									"against": 12,
+									"proportion": 0.1,
+									"stack": "repeater",
+									"source": "repeater",
+									"maxStacks": 2,
+									"resetOnGameStart": true,
+									"render": {
+										"color": "#ff0",
+										"alpha": 1,
+										"ticks": 1,
+										"emissionRadiusFactor": 0,
+										"particleRadius": 0,
+										"shine": 0.2,
+										"glow": 0.4,
+										"bloom": 0.02,
+										"bloomLow": 0.02,
+										"decay": true,
+										"light": 0.5
+									}
+								}
+							],
+							"sound": null,
+							"color": "#ffff00",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 18,
+									"intermediateInterpolations": 5,
+									"noPartialRadius": true
+								},
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 12,
+									"glow": 0.3,
+									"radiusMultiplier": 0.25
+								},
+								{
+									"type": "strike",
+									"ticks": 18,
+									"flash": true,
+									"growth": 1,
+									"numParticles": 5
+								}
+							]
+						}
+					},
+					{
+						"type": "homing",
+						"newSpeed": 1.6,
+						"redirect": true,
+						"trigger": {
+							"collideWith": 64
+						},
+						"targetType": "follow"
+					}
+				],
+				"maxTicks": 60,
+				"damage": 2,
+				"source": "repeater",
+				"lifeSteal": 0.3,
+				"collideWith": 65533,
+				"expireOn": 65519,
+				"partialDamage": {
+					"initialMultiplier": 0.1,
+					"ticks": 24
+				},
+				"buffs": [
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 24000,
+						"adjustCooldown": 120
+					},
+					{
+						"type": "glide",
+						"maxTicks": 80,
+						"against": 12,
+						"linearDampingMultiplier": 0.0004,
+						"render": {
+							"color": "#ff0",
+							"alpha": 1,
+							"ticks": 120,
+							"emissionRadiusFactor": 0,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.4,
+							"bloom": 0.02,
+							"bloomLow": 0.02,
+							"decay": true,
+							"light": 0.5
+						}
+					}
+				],
+				"sound": "repeater",
+				"color": "#ffff00",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 18,
+						"intermediateInterpolations": 5,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 12,
+						"glow": 0.3,
+						"radiusMultiplier": 0.25
+					},
+					{
+						"type": "strike",
+						"ticks": 18,
+						"flash": true,
+						"growth": 1,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"tankr": {
+			"id": "tankr",
+			"name": "Prism Diffuse",
+			"description": "Stop all enemy projectiles in your path! Makes tank projectiles more potent.",
+			"action": "projectile",
+			"color": "#ffff00",
+			"icon": "mineExplosion",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 700,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"radius": 1.503,
+				"speed": 2,
+				"expireAfterCursorTicks": 1,
+				"maxTicks": 106,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"expireOn": 0,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"expire": true
+						},
+						"projectile": {
+							"categories": 128,
+							"ccd": false,
+							"density": 0.0001,
+							"radius": 0.07,
+							"speed": 0.9,
+							"maxTicks": 300,
+							"minTicks": 300,
+							"damage": 0,
+							"hitInterval": 1,
+							"sense": 65535,
+							"collideWith": 0,
+							"expireOn": 0,
+							"swappable": false,
+							"sensor": true,
+							"noKnockback": true,
+							"behaviours": [
+								{
+									"type": "homing",
+									"targetType": "cursor",
+									"trigger": {
+										"afterTicks": 6
+									},
+									"newSpeed": 0,
+									"redirect": true
+								},
+								{
+									"type": "attract",
+									"collideLike": 65526,
+									"categories": 65526,
+									"against": 12,
+									"radius": 0.07,
+									"accelerationPerTick": 1e-23,
+									"clampSpeed": 1e-21
+								}
+							],
+							"buffs": [],
+							"sound": "whirlwind",
+							"color": "#ffff44",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.05
+								},
+								{
+									"type": "swirl",
+									"color": "rgba(50, 50, 0, 0.00005)",
+									"radius": 0.05,
+									"ticks": 20,
+									"loopTicks": 120,
+									"numParticles": 6,
+									"particleRadius": 0.02,
+									"shine": 0.2,
+									"light": 0.4,
+									"smoke": 1.3,
+									"fade": "#441",
+									"vanish": 1
+								},
+								{
+									"type": "swirl",
+									"color": "rgba(50, 50, 0, 0.00005)",
+									"radius": 0.01,
+									"ticks": 40,
+									"loopTicks": 1111,
+									"numParticles": 2,
+									"particleRadius": 0.06,
+									"shine": 0.2,
+									"light": 0.4,
+									"smoke": 1.3,
+									"fade": "#441",
+									"vanish": 1
+								}
+							]
+						},
+						"numProjectiles": 2,
+						"spread": 0.1
+					}
+				],
+				"color": "#44ffcc",
+				"renderers": [],
+				"sensor": true,
+				"collideWith": 0
+			}
+		},
+		"tankw": {
+			"id": "tankw",
+			"name": "Prism Focus",
+			"description": "Deals minor burn damage and speeds up tank projectiles, focusing them to where you aim.",
+			"action": "projectile",
+			"color": "#ffff00",
+			"icon": "fireWave",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 700,
+			"throttle": true,
+			"projectile": {
+				"categories": 64,
+				"ccd": false,
+				"density": 0.0001,
+				"radius": 0.14,
+				"speed": 0.05,
+				"maxTicks": 300,
+				"minTicks": 300,
+				"damage": 0,
+				"hitInterval": 1,
+				"sense": 65535,
+				"collideWith": 0,
+				"expireOn": 0,
+				"swappable": false,
+				"sensor": true,
+				"noKnockback": true,
+				"behaviours": [],
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 12,
+						"stack": "attack",
+						"maxStacks": 1,
+						"hitInterval": 1,
+						"packet": {
+							"damage": 0.1333333333333334,
+							"lifeSteal": 0.3,
+							"noHit": true
+						},
+						"maxTicks": 121,
+						"render": {
+							"color": "#881",
+							"alpha": 1,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				],
+				"sound": "whirlwind",
+				"color": "#ffff44",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(50, 50, 0, 0.00005)",
+						"radius": 0.1,
+						"ticks": 20,
+						"loopTicks": 12,
+						"numParticles": 2,
+						"particleRadius": 0.02,
+						"shine": 0.2,
+						"light": 0.4,
+						"smoke": 1.3,
+						"fade": "#441",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(250, 250, 0, 0.1)",
+						"radius": 0.1,
+						"ticks": 20,
+						"loopTicks": 120,
+						"numParticles": 1,
+						"particleRadius": 0.02,
+						"shine": 0.2,
+						"light": 1,
+						"smoke": 1.3,
+						"fade": "#441",
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"tricksterpassive": {
+			"id": "tricksterpassive",
+			"description": "Tricky, combo oriented movement class.",
+			"action": "buff",
+			"icon": "crownedExplosion",
+			"color": "#f33",
+			"passive": true,
+			"name": "trickster",
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "mass",
+					"passive": true,
+					"mass": 1,
+					"radius": 0.00018,
+					"restrictCollideWith": 65023,
+					"density": 0.1,
+					"render": {
+						"color": "#f22",
+						"ticks": 12,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.011750000000000003,
+						"glow": 0.2,
+						"shine": 0.03,
+						"light": 1,
+						"bloom": 0.03,
+						"alpha": 0.05,
+						"decay": true,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.85
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 2
+				}
+			]
+		},
+		"tricksterq": {
+			"id": "tricksterq",
+			"description": "A close ranged grab. Refreshes saber cooldown.",
+			"name": "Tricky Grapple",
+			"action": "projectile",
+			"color": "#f33",
+			"icon": "deadlyStrike",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 140,
+			"chargeTicks": 6,
+			"throttle": true,
+			"projectile": {
+				"density": 10,
+				"radius": 0.0232,
+				"ccd": true,
+				"speed": 1.48,
+				"collideWith": 65535,
+				"behaviours": [],
+				"maxTicks": 20,
+				"damage": 6,
+				"lifeSteal": 3.3,
+				"source": "repeater",
+				"expireOn": 9,
+				"link": {
+					"linkWith": 65535,
+					"selfFactor": 1,
+					"targetFactor": 0,
+					"impulsePerTick": 0.00002,
+					"sidewaysImpulsePerTick": 0.00002,
+					"massInvariant": true,
+					"minDistance": 0.025,
+					"maxDistance": 0.075,
+					"linkTicks": 60,
+					"render": {
+						"type": "link",
+						"color": "#f06",
+						"colorize": 0.3,
+						"width": 0.0015,
+						"toWidth": 0.003,
+						"glow": 0.3,
+						"bloom": 0.01,
+						"shine": 0.25,
+						"shadow": 0.5,
+						"light": true
+					}
+				},
+				"buffs": [
+					{
+						"collideWith": 65535,
+						"owner": true,
+						"type": "glide",
+						"maxTicks": 20,
+						"linkOwner": true,
+						"linearDampingMultiplier": 0.1
+					},
+					{
+						"collideWith": 1,
+						"type": "glide",
+						"maxTicks": 20,
+						"linkVictim": true,
+						"linearDampingMultiplier": 1000
+					},
+					{
+						"type": "cooldown",
+						"owner": true,
+						"maxTicks": 1,
+						"against": 4,
+						"spellId": "trickstere",
+						"maxCooldown": 0
+					}
+				],
+				"sound": "fireball",
+				"color": "#ff2200",
+				"renderers": [
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 12,
+						"light": null,
+						"glow": 0.03,
+						"radiusMultiplier": 0.25
+					}
+				]
+			}
+		},
+		"tricksterw": {
+			"id": "tricksterw",
+			"description": "Snipe someone and get nearby. Refreshes grapple cooldown.",
+			"name": "Snipe",
+			"action": "projectile",
+			"color": "#f33",
+			"icon": "sonicLightning",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 240,
+			"chargeTicks": 6,
+			"throttle": true,
+			"projectile": {
+				"density": 10,
+				"radius": 0.0032,
+				"speed": 0.98,
+				"ccd": true,
+				"collideWith": 1,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 1
+						},
+						"numProjectiles": 8,
+						"spread": 2,
+						"projectile": {
+							"density": 10,
+							"radius": 0.0132,
+							"collideWith": 0,
+							"speed": 0.18,
+							"sense": 1,
+							"behaviours": [],
+							"maxTicks": 20,
+							"damage": 1,
+							"source": "repeater",
+							"lifeSteal": 0.3,
+							"expireOn": 0,
+							"buffs": [
+								{
+									"type": "cooldown",
+									"owner": true,
+									"maxTicks": 1,
+									"against": 4,
+									"spellId": "tricksterq",
+									"maxCooldown": 0
+								}
+							],
+							"color": "#ff2200",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 18,
+									"light": null,
+									"noPartialRadius": true
+								},
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 12,
+									"light": null,
+									"glow": 0.03,
+									"radiusMultiplier": 0.25
+								},
+								{
+									"type": "strike",
+									"ticks": 18,
+									"flash": true,
+									"growth": 1,
+									"numParticles": 5
+								}
+							]
+						}
+					}
+				],
+				"maxTicks": 20,
+				"damage": 2,
+				"source": "repeater",
+				"lifeSteal": 0.3,
+				"expireOn": 0,
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.04,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"swapWith": 256,
+					"renderTicks": 15
+				},
+				"buffs": [
+					{
+						"type": "glide",
+						"cleansable": false,
+						"maxTicks": 60,
+						"linearDampingMultiplier": 1000
+					}
+				],
+				"sound": "repeater",
+				"color": "#ff2200",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 18,
+						"light": null,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 12,
+						"light": null,
+						"glow": 0.03,
+						"radiusMultiplier": 0.25
+					},
+					{
+						"type": "strike",
+						"ticks": 18,
+						"flash": true,
+						"growth": 1,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"trickstere": {
+			"id": "trickstere",
+			"name": "Launcher",
+			"description": "Launch someone away, or parry a projectile.",
+			"untargeted": true,
+			"unlink": true,
+			"takesOwnership": true,
+			"blocksTeleporters": false,
+			"shiftMultiplier": 1.2,
+			"speedMultiplier": 1.2,
+			"maxSpeed": 0.5,
+			"maxTurnRatePerTickInRevs": 0.51,
+			"damageMultiplier": 5,
+			"angleOffsetsInRevs": [
+				0,
+				0.5
+			],
+			"width": 0.001,
+			"length": 0.075,
+			"movementProportionWhileChannelling": 1,
+			"interruptibleAfterTicks": 1,
+			"cooldown": 490,
+			"throttle": false,
+			"icon": "waveStrike",
+			"maxTicks": 60,
+			"channelling": true,
+			"categories": 16,
+			"collidesWith": 3,
+			"damageTemplate": {
+				"lifeSteal": 1,
+				"damage": 10
+			},
+			"hitBuffs": [
+				{
+					"type": "delink"
+				}
+			],
+			"trailTicks": 50,
+			"color": "#f00",
+			"light": 1,
+			"shine": 0.1,
+			"glow": 1.3,
+			"bloom": 0.03,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"bloom": 0.03
+			},
+			"sound": "saber",
+			"action": "saber"
+		},
+		"tricksterr": {
+			"id": "tricksterr",
+			"name": "Destroyer",
+			"description": "Pull them in!",
+			"untargeted": true,
+			"movementCancel": true,
+			"chargeBuffs": [
+				{
+					"type": "mass",
+					"maxTicks": 30,
+					"channelling": true,
+					"radius": 0.0125,
+					"density": 2.16
+				},
+				{
+					"type": "glide",
+					"maxTicks": 30,
+					"channelling": true,
+					"linearDampingMultiplier": 4
+				}
+			],
+			"detonate": {
+				"damage": 1,
+				"radius": 1.05,
+				"minImpulse": -0.001,
+				"maxImpulse": -0.002,
+				"renderTicks": 0
+			},
+			"chargeTicks": 12,
+			"cooldown": 300,
+			"throttle": false,
+			"unlink": true,
+			"interruptibleAfterTicks": 0,
+			"interruptCancel": {
+				"cooldownTicks": 1
+			},
+			"selfDamage": 10,
+			"minSelfHealth": 1,
+			"icon": "deadlyStrike",
+			"trailTicks": 30,
+			"color": "#f00",
+			"sound": "gravity",
+			"action": "scourge"
+		},
+		"traitorpassive": {
+			"id": "traitorpassive",
+			"description": "Rescue those out of the void, only to kill them later.",
+			"action": "buff",
+			"icon": "priest",
+			"color": "#009",
+			"name": "traitor",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "burn",
+					"passive": true,
+					"against": 3,
+					"maxStacks": 1,
+					"restrictCollideWith": 65023,
+					"stack": "ewewew",
+					"hitInterval": 9,
+					"packet": {
+						"damage": 0.5,
+						"isLava": true,
+						"lifeSteal": 0,
+						"noHit": true
+					},
+					"render": {}
+				},
+				{
+					"type": "mass",
+					"passive": true,
+					"mass": 1,
+					"restrictCollideWith": 65023,
+					"radius": 0.00018,
+					"density": 0.1,
+					"render": {
+						"color": "#00a",
+						"ticks": 140,
+						"emissionRadiusFactor": 0.16,
+						"particleRadius": 0.008750000000000003,
+						"glow": 1.2,
+						"shine": -2,
+						"light": 1,
+						"bloom": 0.03,
+						"alpha": 0.5,
+						"decay": true,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"proportion": -0.9,
+					"source": "lava",
+					"passive": true,
+					"render": {
+						"color": "#00a",
+						"ticks": 40,
+						"emissionRadiusFactor": 0.16,
+						"particleRadius": 0.008750000000000003,
+						"glow": 1.2,
+						"shine": 0.2,
+						"light": 1,
+						"bloom": 0.03,
+						"alpha": 0.5,
+						"decay": true,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.17
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.1
+				}
+			]
+		},
+		"traitorq": {
+			"id": "traitorq",
+			"name": "Void Rescue",
+			"description": "Deals low damage. If the opponent is in the void, grab them back and deal moderate damage.",
+			"action": "spray",
+			"color": "#008",
+			"icon": "andromedaChain",
+			"sound": "blast",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 4,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.04,
+			"projectile": {
+				"density": 0.0025,
+				"radius": 0.0025,
+				"speed": 1.75,
+				"maxTicks": 90,
+				"sound": "blast",
+				"ccd": true,
+				"damage": 4,
+				"categories": 2,
+				"lifeSteal": 0.3,
+				"expireAgainstObjects": 65534,
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"numProjectiles": 1,
+						"spread": 0,
+						"expire": false,
+						"projectile": {
+							"density": 1,
+							"radius": 0.025,
+							"speed": 1.75,
+							"restitution": 0,
+							"ccd": true,
+							"maxTicks": 90,
+							"damage": 5,
+							"collideWith": 1,
+							"categories": 512,
+							"expireOn": 1,
+							"shieldTakesOwnership": false,
+							"link": {
+								"linkWith": 65535,
+								"impulsePerTick": 0.001,
+								"selfFactor": 0,
+								"targetFactor": 1,
+								"minDistance": 0.025,
+								"maxDistance": 1.1,
+								"linkTicks": 20,
+								"render": {
+									"type": "link",
+									"color": "#4444ff",
+									"colorize": 0.3,
+									"width": 0.0015,
+									"toWidth": 0.003,
+									"glow": 0.4,
+									"bloom": 0.005,
+									"shine": 0.25,
+									"shadow": 0.5,
+									"light": true,
+									"strike": {
+										"ticks": 15,
+										"flash": true,
+										"growth": 2
+									}
+								}
+							},
+							"behaviours": [],
+							"sound": "null",
+							"color": "#4444ff",
+							"renderers": [
+								{
+									"type": "strike",
+									"ticks": 8,
+									"flash": true,
+									"numParticles": 2
+								}
+							]
+						}
+					}
+				],
+				"color": "#118",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1,
+						"light": 0.9,
+						"bloom": 0.015
+					},
+					{
+						"type": "ray",
+						"ticks": 8,
+						"vanish": 0.5
+					}
+				],
+				"buffs": []
+			}
+		},
+		"traitorw": {
+			"id": "traitorw",
+			"name": "Void Pool",
+			"description": "Hehe void pool",
+			"action": "spray",
+			"color": "#01f",
+			"icon": "crownedExplosion",
+			"sound": "iceBomb-channelling",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 460,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.4,
+			"projectile": {
+				"density": 7,
+				"radius": 0.009,
+				"speed": 0,
+				"maxTicks": 561,
+				"expireOn": 0,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"collideWith": 0,
+				"categories": 2,
+				"expireAgainstObjects": 0,
+				"sound": "iceBomb-channelling",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 120
+						},
+						"spread": 4,
+						"numProjectiles": 6,
+						"projectile": {
+							"density": 7,
+							"radius": 0.009,
+							"speed": 0.3,
+							"maxTicks": 441,
+							"expireOn": 0,
+							"damage": 0,
+							"lifeSteal": 0.3,
+							"collideWith": 0,
+							"categories": 2,
+							"expireAgainstObjects": 0,
+							"sound": "triplet",
+							"soundHit": "standard",
+							"behaviours": [
+								{
+									"type": "accelerate",
+									"accelerationPerSecond": -0.19,
+									"maxSpeed": 0.6
+								},
+								{
+									"type": "aura",
+									"trigger": {
+										"afterTicks": 1
+									},
+									"radius": 0.09,
+									"tickInterval": 19,
+									"against": 12,
+									"buffs": [
+										{
+											"type": "burn",
+											"collideWith": 9,
+											"against": 12,
+											"maxStacks": 1,
+											"stack": "tlava",
+											"hitInterval": 20,
+											"packet": {
+												"damage": 4.16,
+												"isLava": true,
+												"lifeSteal": 0.3,
+												"noHit": true
+											},
+											"maxTicks": 21,
+											"resetOnGameStart": true
+										},
+										{
+											"type": "mass",
+											"cleansable": false,
+											"maxTicks": 20,
+											"against": 12,
+											"radius": 0.00018,
+											"render": {
+												"color": "#fff",
+												"ticks": 120,
+												"emissionRadiusFactor": 1,
+												"particleRadius": 0.011750000000000003,
+												"glow": 0.2,
+												"shine": 0.03,
+												"light": 1,
+												"bloom": 0.03,
+												"alpha": 0.05,
+												"decay": true,
+												"vanish": 1
+											},
+											"appendCollideWith": 512,
+											"sense": 512
+										}
+									]
+								}
+							],
+							"color": "#880088",
+							"renderers": [
+								{
+									"type": "polygon",
+									"color": "rgba(29, 29, 29, 1)",
+									"numPoints": 15,
+									"light": null,
+									"radiusMultiplier": 10.25,
+									"revolutionInterval": 1,
+									"ticks": 1,
+									"shine": 0
+								},
+								{
+									"type": "polygon",
+									"color": "rgba(15, 15, 15, 1)",
+									"numPoints": 15,
+									"light": null,
+									"radiusMultiplier": 10,
+									"revolutionInterval": 1,
+									"ticks": 1,
+									"shine": 0
+								}
+							],
+							"buffs": []
+						}
+					},
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"radius": 0.09,
+						"tickInterval": 19,
+						"against": 12,
+						"buffs": [
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"against": 12,
+								"maxStacks": 1,
+								"stack": "tlava",
+								"hitInterval": 20,
+								"packet": {
+									"damage": 4.16,
+									"isLava": true,
+									"lifeSteal": 0,
+									"noHit": true
+								},
+								"maxTicks": 21,
+								"resetOnGameStart": true
+							},
+							{
+								"type": "mass",
+								"cleansable": false,
+								"maxTicks": 20,
+								"against": 12,
+								"radius": 0.00018,
+								"render": {
+									"color": "#fff",
+									"ticks": 120,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.011750000000000003,
+									"glow": 0.2,
+									"shine": 0.03,
+									"light": 1,
+									"bloom": 0.03,
+									"alpha": 0.05,
+									"decay": true,
+									"vanish": 1
+								},
+								"appendCollideWith": 512,
+								"sense": 512
+							}
+						]
+					}
+				],
+				"color": "#880088",
+				"renderers": [
+					{
+						"type": "polygon",
+						"color": "rgba(29, 29, 29, 1)",
+						"numPoints": 15,
+						"light": null,
+						"radiusMultiplier": 10.25,
+						"revolutionInterval": 1,
+						"ticks": 1,
+						"shine": 0
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(15, 15, 15, 1)",
+						"numPoints": 15,
+						"light": null,
+						"radiusMultiplier": 10,
+						"revolutionInterval": 1,
+						"ticks": 1,
+						"shine": 0
+					}
+				],
+				"buffs": []
+			}
+		},
+		"traitore": {
+			"id": "traitore",
+			"name": "Void Path",
+			"description": "Dash, leaving a trail of void.",
+			"untargeted": true,
+			"cooldown": 360,
+			"throttle": false,
+			"icon": "fireWave",
+			"color": "#02f",
+			"action": "thrust",
+			"sound": "blaze",
+			"range": 0.89,
+			"speed": 1.8,
+			"followCursor": false,
+			"damageTemplate": {
+				"damage": 0,
+				"lifeSteal": 0.3
+			},
+			"buffs": [],
+			"projectileInterval": 5,
+			"projectile": {
+				"density": 7,
+				"radius": 0.007,
+				"speed": 0,
+				"maxTicks": 361,
+				"expireOn": 0,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"collideWith": 0,
+				"categories": 2,
+				"expireAgainstObjects": 0,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"radius": 0.07,
+						"tickInterval": 19,
+						"against": 12,
+						"buffs": [
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"against": 12,
+								"maxStacks": 1,
+								"stack": "tlava",
+								"hitInterval": 20,
+								"packet": {
+									"damage": 4.16,
+									"isLava": true,
+									"lifeSteal": 0.3,
+									"noHit": true
+								},
+								"maxTicks": 21,
+								"resetOnGameStart": true
+							},
+							{
+								"type": "mass",
+								"cleansable": false,
+								"maxTicks": 20,
+								"against": 12,
+								"radius": 0.00018,
+								"render": {
+									"color": "#fff",
+									"ticks": 120,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.011750000000000003,
+									"glow": 0.2,
+									"shine": 0.03,
+									"light": 1,
+									"bloom": 0.03,
+									"alpha": 0.05,
+									"decay": true,
+									"vanish": 1
+								},
+								"appendCollideWith": 512,
+								"sense": 512
+							}
+						]
+					}
+				],
+				"color": "#880088",
+				"renderers": [
+					{
+						"type": "polygon",
+						"color": "rgba(29, 29, 29, 1)",
+						"numPoints": 4,
+						"light": null,
+						"radiusMultiplier": 10.25,
+						"revolutionInterval": 400,
+						"ticks": 1,
+						"shine": 0
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(15, 15, 15, 1)",
+						"numPoints": 4,
+						"light": null,
+						"radiusMultiplier": 10,
+						"revolutionInterval": 400,
+						"ticks": 1,
+						"shine": 0
+					}
+				],
+				"buffs": []
+			}
+		},
+		"traitorr": {
+			"id": "traitorr",
+			"name": "Crippling Shot",
+			"description": "Cripples those in the void. Greatly heals. Be careful.",
+			"action": "spray",
+			"color": "#000088",
+			"icon": "crossedSlashes",
+			"chargeTicks": 10,
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 360,
+			"recoil": 1.3,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 4,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.014,
+			"projectile": {
+				"density": 0.25,
+				"radius": 0.0025,
+				"speed": 4.75,
+				"maxTicks": 90,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"expireAgainstObjects": 65534,
+				"sound": "lightning",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"numProjectiles": 1,
+						"spread": 0,
+						"expire": false,
+						"projectile": {
+							"density": 0.25,
+							"radius": 0.0135,
+							"speed": 4.75,
+							"buffs": [
+								{
+									"type": "movement",
+									"stack": "whirlwind",
+									"movementProportion": 0,
+									"maxTicks": 200,
+									"against": 12,
+									"render": {
+										"color": "rgba(64, 64, 255, 0.31)",
+										"alpha": 0.3,
+										"ticks": 15,
+										"emissionRadiusFactor": 2,
+										"particleRadius": 0.01,
+										"shine": 0.2,
+										"glow": 0.7,
+										"bloom": 0,
+										"vanish": 1
+									}
+								},
+								{
+									"type": "movement",
+									"stack": "whirlwind1",
+									"movementProportion": 0.5,
+									"maxTicks": 1200,
+									"against": 12,
+									"render": {
+										"color": "rgba(64, 64, 255, 0.31)",
+										"alpha": 0.3,
+										"ticks": 15,
+										"emissionRadiusFactor": 2,
+										"particleRadius": 0.01,
+										"shine": 0.2,
+										"glow": 0.7,
+										"bloom": 0,
+										"vanish": 1
+									}
+								},
+								{
+									"type": "movement",
+									"stack": "whirlwind2",
+									"movementProportion": 0.75,
+									"maxTicks": 2400,
+									"against": 12,
+									"render": {
+										"color": "rgba(64, 64, 255, 0.31)",
+										"alpha": 0.3,
+										"ticks": 15,
+										"emissionRadiusFactor": 2,
+										"particleRadius": 0.01,
+										"shine": 0.2,
+										"glow": 0.7,
+										"bloom": 0,
+										"vanish": 1
+									}
+								},
+								{
+									"type": "cooldown",
+									"against": 12,
+									"maxTicks": 2400,
+									"adjustCooldown": 200
+								}
+							],
+							"maxTicks": 90,
+							"damage": 10,
+							"lifeSteal": 0.3,
+							"categories": 512,
+							"expireAgainstObjects": 0,
+							"sound": "lightning",
+							"soundHit": "standard",
+							"renderers": [
+								{
+									"type": "ray",
+									"ticks": 80,
+									"light": 0.2,
+									"intermediatePoints": true,
+									"vanish": 0.5
+								}
+							]
+						}
+					}
+				],
+				"color": "#008",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"smoke": 0.05,
+						"vanish": 1,
+						"light": 0.9,
+						"bloom": 0.015
+					},
+					{
+						"type": "ray",
+						"ticks": 80,
+						"intermediatePoints": true,
+						"vanish": 0.5
+					},
+					{
+						"type": "strike",
+						"ticks": 8,
+						"flash": true,
+						"numParticles": 2
+					}
+				],
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 15,
+						"maxStacks": 1,
+						"stack": "letsago",
+						"hitInterval": 1,
+						"packet": {
+							"damage": -111,
+							"isLava": true,
+							"noHit": true
+						},
+						"maxTicks": 2,
+						"render": {
+							"color": "#00f",
+							"alpha": 1,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 0.2
+						}
+					}
+				]
+			}
+		},
+		"druidpassive": {
+			"id": "druidpassive",
+			"description": "Rush in with careful positioning.",
+			"action": "buff",
+			"icon": "druid",
+			"name": "druid",
+			"color": "#0f0",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "burn",
+					"passive": true,
+					"against": 3,
+					"maxStacks": 1,
+					"restrictCollideWith": 65023,
+					"stack": "ewewew",
+					"hitInterval": 3,
+					"packet": {
+						"damage": 0.5,
+						"isLava": true,
+						"lifeSteal": 0,
+						"noHit": true
+					},
+					"render": {
+						"color": "#4f4",
+						"alpha": 0.175,
+						"ticks": 15,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.00625,
+						"shine": 0.2,
+						"glow": 0.2
+					}
+				},
+				{
+					"type": "mass",
+					"passive": true,
+					"mass": 4,
+					"radius": 0.00018,
+					"restrictCollideWith": 65023,
+					"density": 2,
+					"render": {
+						"color": "#0e0",
+						"ticks": 80,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.002750000000000003,
+						"glow": 0.2,
+						"shine": 0.3,
+						"light": 2,
+						"bloom": 0.03,
+						"alpha": 0.25,
+						"decay": true,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 0.38
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 1.3
+				}
+			]
+		},
+		"druidq": {
+			"id": "druidq",
+			"description": "A quick blast  of life.",
+			"name": "Overgrowth",
+			"action": "projectile",
+			"color": "#0f0",
+			"icon": "sonicLightning",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 70,
+			"chargeTicks": 3,
+			"throttle": true,
+			"projectile": {
+				"categories": 1026,
+				"density": 0.0101,
+				"radius": 0.0132,
+				"sensor": true,
+				"speed": 0.8,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 8
+						},
+						"numProjectiles": 12,
+						"expire": true,
+						"spread": 0.12,
+						"projectile": {
+							"density": 10,
+							"sensor": true,
+							"radius": 0.0026,
+							"categories": 1026,
+							"speed": 0.48,
+							"behaviours": [
+								{
+									"type": "homing",
+									"maxTurnProportion": 0.01
+								}
+							],
+							"maxTicks": 60,
+							"damage": 2,
+							"source": "repeater",
+							"lifeSteal": 2.3,
+							"collideWith": 1,
+							"expireOn": 1,
+							"buffs": [],
+							"sound": "drain1",
+							"color": "#070",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 18,
+									"noPartialRadius": true
+								},
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 12,
+									"glow": 0.3,
+									"radiusMultiplier": 0.25
+								},
+								{
+									"type": "strike",
+									"ticks": 18,
+									"flash": true,
+									"growth": 1,
+									"numParticles": 5
+								}
+							]
+						}
+					},
+					{
+						"type": "homing",
+						"newSpeed": 1.6,
+						"redirect": true,
+						"trigger": {
+							"collideWith": 64
+						},
+						"targetType": "follow"
+					}
+				],
+				"maxTicks": 60,
+				"damage": 10,
+				"source": "repeater",
+				"lifeSteal": 2.3,
+				"collideWith": 65535,
+				"expireOn": 1,
+				"buffs": [],
+				"sound": "repeater",
+				"color": "#070",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 18,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 12,
+						"glow": 0.3,
+						"radiusMultiplier": 0.25
+					},
+					{
+						"type": "strike",
+						"ticks": 18,
+						"flash": true,
+						"growth": 1,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"druidw": {
+			"id": "druidw",
+			"description": "Bloom a large flower, dealing poison damage.",
+			"name": "Bloom",
+			"action": "spray",
+			"color": "#0f0",
+			"icon": "dna1",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 570,
+			"chargeTicks": 3,
+			"throttle": true,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 10,
+			"lengthTicks": 30,
+			"jitterRatio": 2.7,
+			"projectile": {
+				"categories": 1026,
+				"density": 0.0101,
+				"radius": 0.0132,
+				"sensor": true,
+				"speed": 0.8,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"maxTicks": 50,
+						"maxTurnProportion": 0.1,
+						"expireWithinRevs": 0.01
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 8
+						},
+						"numProjectiles": 20,
+						"expire": false,
+						"spread": 0.2,
+						"projectile": {
+							"categories": 1026,
+							"density": 0.0101,
+							"radius": 0.0132,
+							"sensor": true,
+							"speed": 0.8,
+							"behaviours": [
+								{
+									"type": "homing",
+									"maxTicks": 20,
+									"maxTurnProportion": 0.1,
+									"expireWithinRevs": 0.01
+								}
+							],
+							"maxTicks": 60,
+							"damage": 1.25,
+							"source": "repeater",
+							"lifeSteal": 2.3,
+							"collideWith": 65535,
+							"expireOn": 1,
+							"buffs": [],
+							"color": "#707",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 18,
+									"noPartialRadius": true
+								},
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 12,
+									"glow": 0.3,
+									"radiusMultiplier": 0.25
+								},
+								{
+									"type": "link",
+									"color": "#040",
+									"colorize": 0.1,
+									"width": 0.0015,
+									"toWidth": 0.003,
+									"glow": 0.4,
+									"bloom": 0.005,
+									"shadow": 0.5,
+									"shine": 0.25,
+									"light": true
+								},
+								{
+									"type": "strike",
+									"ticks": 18,
+									"flash": true,
+									"growth": 1,
+									"numParticles": 5
+								}
+							]
+						}
+					}
+				],
+				"maxTicks": 60,
+				"damage": 5,
+				"source": "repeater",
+				"lifeSteal": 2.3,
+				"collideWith": 65535,
+				"expireOn": 1,
+				"buffs": [],
+				"sound": "homing",
+				"color": "#707",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 18,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 12,
+						"glow": 0.3,
+						"radiusMultiplier": 0.25
+					},
+					{
+						"type": "link",
+						"color": "#040",
+						"colorize": 0.1,
+						"width": 0.0015,
+						"toWidth": 0.003,
+						"glow": 0.4,
+						"bloom": 0.005,
+						"shadow": 0.5,
+						"shine": 0.25,
+						"light": true
+					},
+					{
+						"type": "strike",
+						"ticks": 18,
+						"flash": true,
+						"growth": 1,
+						"numParticles": 5
+					}
+				]
+			}
+		},
+		"druide": {
+			"id": "druide",
+			"name": "Photosynthesis",
+			"description": "Heal.",
+			"action": "projectile",
+			"color": "#0f0",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 700,
+			"throttle": true,
+			"projectile": {
+				"categories": 8,
+				"ccd": false,
+				"density": 0.0001,
+				"radius": 0.09,
+				"speed": 0,
+				"maxTicks": 60,
+				"minTicks": 60,
+				"damage": 0,
+				"hitInterval": 1,
+				"sense": 65535,
+				"collideWith": 0,
+				"expireOn": 0,
+				"swappable": false,
+				"sensor": true,
+				"noKnockback": true,
+				"behaviours": [
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"radius": 0.09,
+						"tickInterval": 1,
+						"against": 3,
+						"buffs": [
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"against": 3,
+								"maxStacks": 1,
+								"stack": "damage",
+								"hitInterval": 1,
+								"packet": {
+									"damage": -1.55,
+									"isLava": true,
+									"lifeSteal": 0,
+									"noHit": true
+								},
+								"maxTicks": 5,
+								"resetOnGameStart": true,
+								"render": {
+									"color": "#ff0088",
+									"alpha": 0.075,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 0.2
+								}
+							}
+						]
+					}
+				],
+				"buffs": [],
+				"sound": "whirlwind",
+				"color": "#ffff44",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(50, 50, 0, 0.00005)",
+						"radius": 0.04,
+						"ticks": 20,
+						"loopTicks": 6,
+						"numParticles": 2,
+						"particleRadius": 0.06,
+						"shine": 0.2,
+						"light": 0.4,
+						"smoke": 1.3,
+						"fade": "#441",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "rgba(50, 50, 0, 0.00005)",
+						"radius": 0.04,
+						"ticks": 20,
+						"loopTicks": 12,
+						"numParticles": 2,
+						"particleRadius": 0.02,
+						"shine": 0.2,
+						"light": 0.4,
+						"smoke": 1.3,
+						"fade": "#441",
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"growth": 0.1
+					}
+				]
+			}
+		},
+		"druidr": {
+			"id": "druidr",
+			"name": "Lifebringer",
+			"description": "Teleport, leaving life in your wake.",
+			"effects": [],
+			"action": "projectile",
+			"color": "#0f0",
+			"icon": "bodySwapping",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"throttle": false,
+			"debuff": true,
+			"projectile": {
+				"density": 0.001,
+				"radius": 0.01,
+				"speed": 2.8,
+				"maxTicks": 15,
+				"damage": 0,
+				"categories": 2,
+				"collideWith": 29,
+				"expireOn": 65535,
+				"expireOnMirror": true,
+				"expireAfterCursorTicks": 0,
+				"swappable": false,
+				"shieldTakesOwnership": false,
+				"sensor": true,
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.04,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"swapWith": 256,
+					"renderTicks": 15
+				},
+				"behaviours": [
+					{
+						"type": "expireOnOwnerDeath"
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"numProjectiles": 80,
+						"expire": false,
+						"spread": 2,
+						"projectile": {
+							"categories": 1026,
+							"density": 0.0101,
+							"radius": 0.0072,
+							"sensor": true,
+							"speed": 0.08,
+							"behaviours": [
+								{
+									"type": "accelerate",
+									"trigger": {
+										"afterTicks": 60
+									},
+									"accelerationPerSecond": 0.43,
+									"maxSpeed": 1.6
+								}
+							],
+							"maxTicks": 180,
+							"damage": 2.5,
+							"source": "repeater",
+							"lifeSteal": 2.3,
+							"collideWith": 65535,
+							"expireOn": 0,
+							"buffs": [],
+							"color": "#707",
+							"renderers": [
+								{
+									"type": "bloom"
+								},
+								{
+									"type": "projectile",
+									"ticks": 18,
+									"noPartialRadius": true
+								},
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 12,
+									"glow": 0.3,
+									"radiusMultiplier": 0.25
+								},
+								{
+									"type": "strike",
+									"ticks": 18,
+									"flash": true,
+									"growth": 1,
+									"numParticles": 5
+								}
+							]
+						}
+					}
+				],
+				"buffs": [],
+				"sound": "swap",
+				"color": "#75e7ff",
+				"renderers": []
+			}
+		},
+		"manipulatorpassive": {
+			"id": "manipulatorpassive",
+			"description": "Fight from the sidelines and harvest what is yours. Select any E for usage",
+			"action": "buff",
+			"icon": "reaper",
+			"color": "#333",
+			"name": "Reaper",
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "mass",
+					"passive": true,
+					"mass": 1,
+					"restrictCollideWith": 65023,
+					"radius": 0.00018,
+					"density": 0.1
+				},
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": 3,
+					"render": {
+						"color": "#aaa",
+						"ticks": 40,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.018750000000000003,
+						"glow": 0.2,
+						"shine": -1.3,
+						"light": null,
+						"bloom": 0.03,
+						"alpha": 0.5,
+						"decay": true,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "movement",
+					"passive": true,
+					"movementProportion": 2
+				}
+			]
+		},
+		"manipulatorq": {
+			"id": "manipulatorq",
+			"name": "Haunt",
+			"description": "Spirits rise from the dead.",
+			"icon": "fireWave",
+			"action": "thrust",
+			"sound": "blaze",
+			"range": 0.19,
+			"speed": 0.8,
+			"followCursor": true,
+			"damageTemplate": {
+				"damage": 10,
+				"lifeSteal": 0.3
+			},
+			"cooldown": 50,
+			"throttle": true,
+			"projectileInterval": 10,
+			"projectile": {
+				"density": 1,
+				"ccd": false,
+				"radius": 0.004,
+				"speed": 0.2,
+				"maxTicks": 270,
+				"minTicks": 1,
+				"categories": 2050,
+				"damage": 12,
+				"lifeSteal": 0.3,
+				"hitInterval": 1,
+				"source": "mines",
+				"expireOn": 1,
+				"conveyable": true,
+				"buffs": [],
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.015,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
+					"renderTicks": 15
+				},
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 8192
+						},
+						"numProjectiles": 3,
+						"spread": 0.2,
+						"expire": false,
+						"projectile": {
+							"density": 0.25,
+							"radius": 0.0025,
+							"speed": 0.75,
+							"maxTicks": 90,
+							"damage": 0,
+							"lifeSteal": 0.3,
+							"categories": 2,
+							"expireAgainstObjects": 65534,
+							"behaviours": [
+								{
+									"type": "accelerate",
+									"accelerationPerSecond": 0.3,
+									"maxSpeed": 1.6
+								},
+								{
+									"type": "homing",
+									"redirect": true,
+									"maxTurnProportion": 0.85,
+									"targetType": "follow"
+								}
+							],
+							"color": "#888888",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.02
+								},
+								{
+									"type": "projectile",
+									"ticks": 15,
+									"smoke": 0.05,
+									"vanish": 1,
+									"light": 0.9,
+									"bloom": 0.015
+								},
+								{
+									"type": "ray",
+									"ticks": 8,
+									"vanish": 0.5
+								},
+								{
+									"type": "strike",
+									"ticks": 8,
+									"flash": true,
+									"numParticles": 2
+								}
+							],
+							"buffs": [
+								{
+									"type": "burn",
+									"collideWith": 9,
+									"against": 4,
+									"maxStacks": 3,
+									"stack": "attack",
+									"hitInterval": 17,
+									"packet": {
+										"damage": 0.61,
+										"lifeSteal": 0.3,
+										"noHit": true
+									},
+									"maxTicks": 121,
+									"render": {
+										"color": "#888",
+										"alpha": 1,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.00625,
+										"shine": 0.2,
+										"glow": 0.2
+									}
+								}
+							]
+						}
+					}
+				],
+				"sound": "mines",
+				"color": "#ccc",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 5,
+						"light": 1,
+						"colorize": 0.1,
+						"bloom": 0.01,
+						"shine": 0,
+						"glow": 0.2,
+						"shadow": 0.3,
+						"noPartialRadius": true
+					},
+					{
+						"type": "ray",
+						"intermediatePoints": true,
+						"ticks": 30,
+						"noPartialRadius": true,
+						"maxTicks": 6
+					}
+				]
+			}
+		},
+		"manipulatore": {
+			"id": "manipulatore",
+			"name": "Null",
+			"description": "Manipulators can pick a separate E. Please do not pick this.",
+			"action": "projectile",
+			"color": "#ccc",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 400,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"radius": 1.503,
+				"speed": 0,
+				"maxTicks": 6,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"expireOn": 0,
+				"behaviours": [],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#44ffcc",
+				"renderers": [],
+				"sensor": true,
+				"collideWith": 65535
+			}
+		},
+		"manipulatorr": {
+			"id": "manipulatorr",
+			"name": "Exorcism",
+			"description": "Spirits have figured out how to reverse exorcisms, apparently.",
+			"action": "projectile",
+			"color": "#ccc",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 400,
+			"throttle": true,
+			"projectile": {
+				"density": 25,
+				"radius": 1.503,
+				"speed": 0,
+				"maxTicks": 6,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"expireOn": 0,
+				"behaviours": [],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#44ffcc",
+				"renderers": [],
+				"sensor": true,
+				"collideWith": 65535,
+				"categories": 8192
+			}
+		},
+		"manipulatorw": {
+			"id": "manipulatorw",
+			"name": "Scythe",
+			"description": "Harvest people for high lifesteal.",
+			"untargeted": true,
+			"unlink": true,
+			"takesOwnership": true,
+			"blocksTeleporters": false,
+			"shiftMultiplier": 0.002,
+			"speedMultiplier": 0.002,
+			"maxSpeed": 0.5,
+			"maxTurnRatePerTickInRevs": 0.1,
+			"damageMultiplier": 1,
+			"angleOffsetsInRevs": [
+				0
+			],
+			"width": 0.001,
+			"length": 0.155,
+			"movementProportionWhileChannelling": 5,
+			"interruptibleAfterTicks": 20,
+			"cooldown": 290,
+			"throttle": false,
+			"icon": "waveStrike",
+			"maxTicks": 20,
+			"channelling": true,
+			"categories": 16,
+			"collidesWith": 3,
+			"damageTemplate": {
+				"lifeSteal": 3,
+				"damage": 20
+			},
+			"hitBuffs": [
+				{
+					"type": "delink"
+				}
+			],
+			"trailTicks": 5,
+			"color": "#ccc",
+			"light": 1,
+			"shine": 0.1,
+			"glow": 0.3,
+			"bloom": 0.03,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"bloom": 0.03
+			},
+			"sound": "saber",
+			"action": "saber"
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"color": "#111",
+			"background": "#0f0f0f",
+			"obstacles": [
+				{
+					"type": "left",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"numPoints": 6,
+					"extent": 1.1025
+				},
+				{
+					"type": "void",
+					"numObstacles": 6,
+					"layoutRadius": 0.575,
+					"layoutAngleOffsetInRevs": 0.25,
+					"numPoints": 4,
+					"extent": 0.0625,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1666667
+				},
+				{
+					"type": "light",
+					"numObstacles": 6,
+					"layoutRadius": 0.675,
+					"numPoints": 4,
+					"layoutAngleOffsetInRevs": 0.25,
+					"extent": 0.0125,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1666667
+				},
+				{
+					"type": "wall",
+					"numObstacles": 6,
+					"layoutRadius": 0.275,
+					"numPoints": 4,
+					"layoutAngleOffsetInRevs": 0.25,
+					"extent": 0.0125,
+					"pattern": [
+						0,
+						1
+					],
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1666667
+				},
+				{
+					"type": "light",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"numPoints": 6,
+					"extent": 0.1025
+				}
+			],
+			"numPoints": 6
+		},
+		"cold": {
+			"$delete": true
+		},
+		"octogon": {
+			"$delete": true
+		},
+		"return": {
+			"$delete": true
+		},
+		"double": {
+			"$delete": true
+		},
+		"ring": {
+			"$delete": true
+		},
+		"exit": {
+			"$delete": true
+		},
+		"heal": {
+			"$delete": true
+		},
+		"snowflake": {
+			"$delete": true
+		},
+		"inside5": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		},
+		"pepper": {
+			"$delete": true
+		},
+		"mirrors": {
+			"$delete": true
+		},
+		"innerStar": {
+			"$delete": true
+		},
+		"mirrorhenge": {
+			"$delete": true
+		},
+		"spiral": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		},
+		"circle1": {
+			"color": "#111",
+			"background": "#0f0f0f",
+			"obstacles": [
+				{
+					"type": "left",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"numPoints": 6,
+					"extent": 1.1025
+				},
+				{
+					"type": "void",
+					"numObstacles": 6,
+					"layoutRadius": 0.575,
+					"layoutAngleOffsetInRevs": 0.25,
+					"numPoints": 4,
+					"extent": 0.0625,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1666667
+				},
+				{
+					"type": "light",
+					"numObstacles": 6,
+					"layoutRadius": 0.675,
+					"numPoints": 4,
+					"layoutAngleOffsetInRevs": 0.25,
+					"extent": 0.0125,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1666667
+				},
+				{
+					"type": "wall",
+					"numObstacles": 6,
+					"layoutRadius": 0.275,
+					"numPoints": 4,
+					"layoutAngleOffsetInRevs": 0.25,
+					"extent": 0.0125,
+					"pattern": [
+						1,
+						0
+					],
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1666667
+				},
+				{
+					"type": "light",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"numPoints": 6,
+					"extent": 0.1025
+				}
+			],
+			"numPoints": 6
+		}
+	},
+	"Sounds": {
+		"gravity": {
+			"start": [
+				{
+					"stopTime": 0.1,
+					"attack": 0.25,
+					"decay": 7.75,
+					"startFreq": 410,
+					"stopFreq": 415,
+					"lowPass": 100,
+					"tremoloFreq": 12,
+					"tremoloStrength": 0.3,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.33,
+						1.4,
+						1.5
+					]
+				}
+			],
+			"cutoffEarly": false
+		},
+		"blast": {
+			"start": [
+				{
+					"stopTime": 1,
+					"attack": 0.1,
+					"decay": 0.9,
+					"volume": 0.5,
+					"highPass": 100,
+					"lowPass": 500,
+					"wave": "brown-noise"
+				},
+				{
+					"stopTime": 1,
+					"attack": 0.1,
+					"volume": 0.5,
+					"decay": 0.9,
+					"highPass": 8000,
+					"lowPass": 9000,
+					"wave": "brown-noise"
+				}
+			]
+		},
+		"meteorite": {
+			"start": [
+				{
+					"stopTime": 1,
+					"attack": 0.1,
+					"decay": 0.9,
+					"volume": 0.1,
+					"startFreq": 20,
+					"stopFreq": 1,
+					"highPass": 150,
+					"lowPass": 300,
+					"wave": "square",
+					"ratios": [
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"sustain": [
+				{
+					"stopTime": 2,
+					"attack": 0.5,
+					"decay": 1,
+					"startFreq": 1,
+					"volume": 0.1,
+					"stopFreq": 10,
+					"highPass": 150,
+					"lowPass": 200,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.5,
+						2,
+						2.1,
+						2.16,
+						3.5,
+						6.7,
+						8.2
+					]
+				}
+			]
+		},
+		"gravity-charging": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"stopTime": 1.1,
+					"attack": 0.25,
+					"decay": 7.75,
+					"startFreq": 410,
+					"stopFreq": 415,
+					"lowPass": 100,
+					"tremoloFreq": 12,
+					"tremoloStrength": 0.3,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.33,
+						1.4,
+						1.5
+					]
+				}
+			]
+		},
+		"repeater1": {
+			"start": [
+				{
+					"stopTime": 1,
+					"volume": 0.1,
+					"attack": 0.1,
+					"decay": 0.9,
+					"startFreq": 2000,
+					"stopFreq": 2000,
+					"lowPass": 1000,
+					"wave": "triangle",
+					"tremoloFreq": 15,
+					"tremoloStrength": 0.4,
+					"ratios": [
+						1,
+						1.5
+					]
+				},
+				{
+					"volume": 0.1,
+					"stopTime": 1,
+					"attack": 0.25,
+					"decay": 0.75,
+					"highPass": 2000,
+					"lowPass": 2000,
+					"wave": "brown-noise"
+				}
+			]
+		},
+		"drain1": {
+			"start": [
+				{
+					"stopTime": 2,
+					"attack": 0.25,
+					"decay": 1.75,
+					"highPass": 2500,
+					"volume": 0.1,
+					"lowPass": 2510,
+					"wave": "brown-noise"
+				},
+				{
+					"stopTime": 2,
+					"attack": 0.25,
+					"decay": 1.75,
+					"startFreq": 1100,
+					"stopFreq": 1103,
+					"lowPass": 300,
+					"volume": 0.1,
+					"tremoloFreq": 10,
+					"tremoloStrength": 0.2,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.34,
+						1.5
+					]
+				}
+			]
+		},
+		"triplet": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.5,
+					"attack": 0.25,
+					"decay": 0.25,
+					"highPass": 732,
+					"lowPass": 738,
+					"wave": "brown-noise"
+				}
+			]
+		}
+	},
+	"Visuals": {
+		"WorldHexMask": 1,
+		"WorldHexInterval": 1
+	},
+	"Icons": {
+		"reaper": {
+			"path": "M256 23c-16.076 0-32.375 3.73-48.178 10.24-2.126 6.525-3.877 14.76-4.877 23.754-1.31 11.79-1.73 24.706-1.87 36.819 33.864-3.704 75.986-3.704 109.85 0-.14-12.113-.56-25.03-1.87-36.82-1-8.992-2.75-17.228-4.877-23.753C288.375 26.73 272.076 23 256 23zm100.564 19.332c9.315 7.054 18.107 14.878 26.282 23.234 1.53-6.65 4.69-12.696 9.03-17.695zm-170.03 1.49c-34.675 20.22-65.047 52.714-82.552 86.334-33.08 63.536-39.69 156.956-.53 214.8C132.786 388.278 200.276 405 256 405c55.725 0 123.215-16.72 152.547-60.045 39.162-57.843 32.55-151.263-.53-214.8-17.504-33.62-47.876-66.112-82.55-86.333.578 3.65 1.057 7.388 1.478 11.184 1.522 13.694 1.912 28.197 2.014 41.267C347.664 99.427 362 104 368 110c32 32 75.537 134.695 16 224-37.654 56.48-218.346 56.48-256 0-59.537-89.305-16-192 16-224 6-6 20.335-10.573 39.04-13.727.103-13.07.493-27.573 2.015-41.267.42-3.796.9-7.534 1.478-11.184zM64 48c-8.837 0-16 7.163-16 16a16 16 0 0 0 7 13.227V145.5L73 132V77.21A16 16 0 0 0 80 64c0-8.837-7.163-16-16-16zm358.81 3.68c-12.81 0-23 10.19-23 23s10.19 23 23 23 23-10.19 23-23-10.19-23-23-23zm25.272 55.205c-6.98 5.497-15.758 8.795-25.27 8.795-.745 0-1.48-.027-2.214-.067a216.57 216.57 0 0 1 2.38 4.37l29.852 22.39zm-238.822 2.5c-17.257.09-37.256 3.757-53.233 16.12-26.634 20.608-43.034 114.763-33.49 146.763 16.584-61.767 31.993-124.02 107.92-161.274a133.445 133.445 0 0 0-21.197-1.61zm-135.055 44.21L40.15 179.138l-14.48 72.408 38.18 45.814c-10.947-46.523-5.776-98.723 10.355-143.764zm363.59 0c16.13 45.042 21.302 97.242 10.355 143.764l38.18-45.815-14.48-72.408zM106.645 375.93c-3.583 1.17-7.252 3.406-10.282 6.435-4.136 4.136-6.68 9.43-7.164 14.104.21.364.603 1.157 1.73 2.162 2.453 2.188 6.693 5.17 12.127 8.358 10.867 6.38 26.55 13.757 44.205 20.623 21.177 8.237 45.35 15.704 67.738 20.38v-27.61c-39.47-5.12-79.897-18.325-108.355-44.452zm298.71 0C376.897 402.055 336.47 415.26 297 420.38v27.61c22.387-4.676 46.56-12.143 67.738-20.38 17.655-6.865 33.338-14.243 44.205-20.622 5.434-3.19 9.674-6.17 12.127-8.36 1.127-1.004 1.52-1.797 1.73-2.16-.482-4.675-3.027-9.97-7.163-14.105-3.03-3.03-6.7-5.264-10.282-6.435zM77.322 410.602L18 450.15V494h37v-18h18v18h366v-18h18v18h37v-43.85l-59.322-39.548c-.537.488-1.08.97-1.623 1.457-3.922 3.497-8.932 6.89-14.998 10.452-12.133 7.12-28.45 14.743-46.795 21.877C334.572 458.656 290.25 471 256 471s-78.572-12.343-115.262-26.61c-18.345-7.135-34.662-14.757-46.795-21.878-6.066-3.56-11.076-6.955-14.998-10.453-.543-.487-1.086-.97-1.623-1.458zM233 422.184v28.992c8.236 1.162 16.012 1.824 23 1.824 6.988 0 14.764-.662 23-1.824v-28.992c-7.82.555-15.523.816-23 .816s-15.18-.26-23-.816z",
+			"credit": "https://game-icons.net/1x1/delapouite/astronaut-helmet.html"
+		},
+		"priest": {
+			"path": "M250.116 18.434c-21.698 17.475-34.874 41.798-40.662 66.08-6.197 25.996-3.26 51.55 4.283 65.933 11.52.242 23.125.648 34.8 1.563-8.81-40.373-2.126-89.404 1.58-133.576zm68.355 4.923C294.65 37.804 278.37 60.17 269.416 83.47a123.497 123.497 0 0 0-6.647 24.72c.074 16.748 1.38 32.34 4.84 45.82 10.647 1.416 21.34 3.402 32.066 6.197-4.84-42.216 8.912-91.915 18.797-136.85zM182.775 153.18c-31.763 13.23-57.732 27.296-78.81 43.875 28.11-8.497 56.824-15.818 102.097-17.15-7.178-12.547-15.062-21.795-23.286-26.725zm38.4 15.502c10.794 18.304 18.826 41.812 25.327 67.76 9.307 37.146 14.9 79.952 17.58 121.413l1.018 5.08c7.72-15.142 14.97-27.61 25.328-37.404 15.293-14.455 36.532-21.586 71-23.77l84.438-5.35c1.69-2.71 3.858-5.01 6.168-6.873 4.113-3.317 8.825-5.766 13.715-7.906 7.636-3.34 15.298-5.73 21.615-7.755l1.523-13.838-121.02-26.03-30.26-40.046c-38.31-20.025-76.89-24.05-116.432-25.278zm-6.328 29.04c-66.34.764-94.654 13.857-139.322 26.753a177.685 177.685 0 0 0-16.748 23.738c45.876-12.584 87.697-26.7 141.912-26.723 7.77-.003 16.19.36 23.166.854-2.76-8.835-5.777-17.082-9.008-24.62zm106.356 2.41l27.596 38.24-57.56-16.208c-10.734-8.355 2.357-15.547 29.964-22.03zm-121.41 39.352c-56.6.183-98.923 16.695-151.95 30.272-3.154 7.264-6.003 14.94-8.562 23.078 53.346-16.353 103.037-28.704 152.973-29.066 14.097-.103 28.217.765 42.443 2.752-1.708-8.837-3.586-17.438-5.654-25.694-10.206-.94-19.93-1.372-29.25-1.342zm-7.53 42.3c-50.43.405-101.55 13.782-158.613 31.644a362.882 362.882 0 0 0-4.017 19.433c-2.148 12.008-5.22 31.55-6.207 47.923-.493 8.186-.41 15.644.32 20.383.32 2.08.76 3.28 1.028 3.916 4.03 1.25 7.358 2.784 10.762 3.897 1.452-10.58 2.124-22.613 2.83-32.06.79-10.542 1.645-21.19 2.84-29.723.597-4.267 1.248-7.967 2.205-11.24.48-1.637.998-3.166 1.952-4.87.954-1.706 2.372-4.194 6.35-5.513 60.973-20.214 121.89 3.492 159.36 53.875l2.173 2.917-13.406 103.62 36.833 7.58 11.025-99.967c-.935-35.195-4.04-73.118-9.703-108.383-15.28-2.483-30.476-3.556-45.733-3.434zm97.98 72.97c-6.276 10.178-12.568 23.234-20.775 39.652l-1.072 2.145 21.63 96.046 31.9-4.678z",
+			"credit": "https://game-icons.net/1x1/delapouite/anubis.html"
+		},
+		"priest1": {
+			"path": "M478.6 22.09c-11.2 11.31-19.5 24.46-26.3 38.48l25 37.39c4.4-3.16 9.9-6.06 16.9-8.54-20.7-10.02-26.7-29.08-10.3-44.81zm-445.2.59L28.1 45.2c16.4 15.73 10.4 34.79-10.3 44.81 6.7 2.39 12.03 5.16 16.41 8.18l25.13-37.72C52.66 46.71 44.39 33.8 33.4 22.68zm187 4.16l-17.2 5.26 9.1 29.74c5.4-2.42 11.1-4.42 17-5.95zm70.8 0l-8.9 29.05c5.9 1.53 11.6 3.53 17 5.95l9.1-29.74zm-141 28.27l-12.8 12.72 28.8 28.89c1-1.11 1.9-2.2 2.9-3.28 3.1-3.36 6.3-6.6 9.7-9.68zm211.2 0l-28.6 28.65c3.4 3.08 6.6 6.32 9.7 9.68 1 1.06 1.9 2.14 2.8 3.22l28.9-28.83zM255.8 70.47c-29 0-54.7 14.55-73.3 35.03-16.1 17.7-26.5 39.8-29 59h204.6c-2.5-19.2-12.9-41.3-29-59-18.6-20.48-44.3-35.03-73.3-35.03zM61.38 89.87L40.52 121.1c-7.14 61 8.68 105.3 31.39 126.3C83.38 258 96.3 262.9 110 262c13.7-.8 28.6-7.6 43.4-22.4l11.9-11.9 3.3 16.5c7.8 38.7 23.2 69.4 40.2 90.1 16.9 20.7 35.5 30.7 47 30.7s30.1-10 47-30.7c17-20.7 32.4-51.4 40.2-90.1l3.3-16.5 11.9 11.9c14.8 14.8 29.7 21.6 43.4 22.4 13.7.9 26.6-4 38.1-14.6 22.7-21 38.5-65.3 31.4-126.3l-20.9-31.23c-15.4 40.03-35.1 68.73-63.4 87.63-13 8.6-27.5 15.1-44 19.7-4.2 17.9-14.7 38.6-27.5 57.8-8.3 12.5-17.7 24-27.5 32.7-9.9 8.8-20.2 15.3-32 15.3s-22.1-6.5-32-15.3c-9.8-8.7-19.2-20.2-27.5-32.7-12.8-19.2-23.3-39.9-27.5-57.8-16.5-4.6-31-11.1-44-19.7-28.28-18.9-47.97-47.6-63.42-87.63zM114.6 117l-5.6 17 30.5 10.1c1.8-5.5 4-11.1 6.6-16.6zm282.4 0l-31.5 10.5c2.6 5.5 4.8 11.1 6.6 16.6l30.5-10.1zm-177.5 65.5c5.7 17.9 20.2 30 36.3 30 16.1 0 30.6-12.1 36.3-30zm-30 19.5c4.7 13 12.4 29 21.8 43 7.7 11.5 16.3 22 24.5 29.3 8.1 7.2 15.8 10.7 20 10.7 4.2 0 11.9-3.5 20-10.7 8.2-7.3 16.8-17.8 24.5-29.3 9.4-14 17.1-30 21.8-43-6.7 1.2-13.7 2.2-21 2.9-10.3 15.4-26.5 25.6-45.3 25.6-18.8 0-35-10.2-45.3-25.6-7.3-.7-14.3-1.7-21-2.9zm-4.6 130.3c-14.8 56.6-37.6 115.1-57 156.7 48.5-10.6 80.3-10.3 118.9.9V382.1c-17.7-3.4-35.7-16.5-52-36.4-3.4-4.2-6.7-8.6-9.9-13.4zm141.8 0c-3.2 4.8-6.5 9.2-9.9 13.4-16.3 19.9-34.3 33-52 36.4v107.8c38.6-11.2 70.4-11.5 118.9-.9-19.4-41.6-42.2-100.1-57-156.7z",
+			"credit": "https://game-icons.net/1x1/delapouite/sun-priest.html"
+		},
+		"druid": {
+			"path": "M44.094 71.03C39.67 125.24 76.33 159.79 184.97 214.188 128.61 204.07 74.66 182.808 23.124 150.47v.03c7.09 53.776 49.718 75.458 166.063 93.28-56.77 8.355-113.546 5.1-170.313-9.718 17.55 48.114 61.012 56.474 169.22 38.813-50.19 23.392-102.518 36.867-157 40.47 27.647 41.79 72.765 34.776 178.53-20.158 2.372 3.08 5.015 5.913 7.938 8.47L163 365.436l11.188 40.844 38.625-11.155 17.718-84.813c5.557 2.716 11.617 4.56 17.97 5.407l-17.625 84.217 26.656 31.094 28.408-32.155-19.063-83.594c6.32-1.156 12.297-3.33 17.75-6.342l19.97 87.593 36.78 11.5 10.156-43.186-55.436-64.156c2.592-2.383 4.96-4.976 7.094-7.782 106.15 55.19 151.367 62.3 179.062 20.438-54.483-3.602-106.81-17.077-157-40.47 108.207 17.662 151.67 9.302 169.22-38.812-56.758 14.816-113.524 18.067-170.283 9.72 116.344-17.824 158.94-39.506 166.032-93.282v-.03c-51.547 32.342-105.476 53.6-161.845 63.718 108.64-54.397 145.297-88.95 140.875-143.157-52.904 58.692-112.837 102.316-179.844 130.845 4.598-6.468 7.28-14.398 7.28-22.938.002-21.868-17.724-39.593-39.592-39.593-21.87 0-39.594 17.725-39.594 39.594 0 8.757 2.842 16.88 7.656 23.437-67.49-28.517-127.842-72.302-181.062-131.344zM236.22 222.5l20.905 45.563 20.563-44.782c11.325 7.093 18.812 19.662 18.812 34.095 0 22.32-17.9 40.188-40.22 40.188-22.318 0-40.217-17.87-40.217-40.188 0-14.993 8.088-27.957 20.156-34.875z",
+			"credit": "https://game-icons.net/1x1/lorc/freedom-dove.html"
+		}
+	},
+	"Tips": [
+		"Druids should aim to control the center. The edge light sources are less useful.",
+		"Blood Sacrifice is a large boost in damage, but the self-damage can catch you off guard. Remember to heal!",
+		"Light Beam makes the opponent more slippery. Try comboing it into other spells!",
+		"Galaxy Rift accelerates. Keep a distance while casting for max knockback!",
+		"Grabbing someone can be risky if they're attacking, so try catching them off guard first.",
+		"Be careful with crippling shot. It's hard to aim, but you get a lot of reward if they're in the void.",
+		"Reaper's spirits have a slight bias to turning counter clockwise. Be sure to adjust accordingly."
+	]
+}
