@@ -1,0 +1,317 @@
+{
+	"Mod": {
+		"name": "water pool + waves",
+		"author": "emso",
+		"description": "Sat, 21 Nov 2020 01:51:32 GMT",
+		"titleLeft": "emso's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"World": {
+		"LavaDamage": {
+			"damage": 0
+		},
+		"SecondsToShrink": 9000
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"empower"
+				]
+			],
+			"q": [
+				[
+					"waterq"
+				]
+			],
+			"w": [
+				[
+					"waterw"
+				]
+			],
+			"r": [
+				[
+					"supernova",
+					"rocket"
+				],
+				[
+					"bouncer",
+					"repeater"
+				],
+				[
+					"kamehameha",
+					"blast"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"difire": {
+			"$delete": true
+		},
+		"empower": {
+			"buffs": [
+				{
+					"type": "lifeSteal",
+					"passive": true,
+					"damageMultiplier": 1
+				},
+				{
+					"type": "mass",
+					"passive": true,
+					"radius": 0.0125,
+					"density": 1,
+					"restrictCollideWith": 65407
+				}
+			]
+		},
+		"waterq": {
+			"id": "waterq",
+			"name": "Waves",
+			"description": "Wash away the competition. Deals damage. Freezes enemies in the water.",
+			"action": "spray",
+			"color": "#aaf",
+			"icon": "crossedSlashes",
+			"sound": "triplet",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 90,
+			"throttle": true,
+			"movementProportionWhileChannelling": 0,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 2,
+			"projectile": {
+				"density": 0.0001,
+				"radius": 0.03,
+				"speed": 0.25,
+				"maxTicks": 150,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 128,
+				"expireAgainstObjects": 0,
+				"sound": null,
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "attract",
+						"collideLike": 64,
+						"categories": 64,
+						"against": 1,
+						"radius": 0.14,
+						"accelerationPerTick": 0.1,
+						"clampSpeed": 0.4
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"numProjectiles": 8,
+						"spread": 4,
+						"projectile": {
+							"density": 7,
+							"radius": 0.0025,
+							"speed": 1.75,
+							"maxTicks": 150,
+							"expireOn": 1,
+							"sensor": true,
+							"minTicks": 20,
+							"selfPassthrough": true,
+							"damage": 2,
+							"lifeSteal": 0.3,
+							"categories": 66,
+							"sound": "triplet",
+							"soundHit": "standard",
+							"behaviours": [],
+							"color": "#08f",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 15,
+									"smoke": 0.05,
+									"vanish": 1
+								},
+								{
+									"type": "ray",
+									"ticks": 8,
+									"vanish": 0.5
+								},
+								{
+									"type": "strike",
+									"ticks": 8,
+									"flash": true,
+									"numParticles": 2
+								}
+							],
+							"buffs": [
+								{
+									"type": "movement",
+									"stack": "drown",
+									"movementProportion": 0.95,
+									"maxTicks": 120,
+									"against": 12,
+									"maxStacks": 10,
+									"render": {
+										"color": "rgba(64, 255, 255, 0.1)",
+										"alpha": 0.13,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.01,
+										"shine": 0.2,
+										"bloom": 0,
+										"vanish": 1
+									}
+								}
+							]
+						}
+					}
+				],
+				"color": "#44f",
+				"renderers": [],
+				"buffs": [
+					{
+						"type": "cooldown",
+						"against": 12,
+						"maxTicks": 1,
+						"minCooldown": 45
+					},
+					{
+						"type": "movement",
+						"stack": "drowne",
+						"movementProportion": 0,
+						"maxTicks": 45,
+						"against": 12,
+						"maxStacks": 1,
+						"render": {
+							"color": "rgba(64, 255, 255, 0.1)",
+							"alpha": 0.13,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"bloom": 0,
+							"vanish": 1
+						}
+					}
+				],
+				"selfPassthrough": true,
+				"sensor": true,
+				"ccd": false,
+				"collideWith": 1,
+				"expireOn": 0,
+				"swappable": false,
+				"noKnockback": true,
+				"hitInterval": 15
+			}
+		},
+		"waterw": {
+			"id": "waterw",
+			"name": "Water",
+			"description": "Creates a pool of water.",
+			"action": "spray",
+			"color": "#01f",
+			"icon": "crownedExplosion",
+			"sound": "iceBomb-channelling",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 120,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 0.4,
+			"projectile": {
+				"density": 7,
+				"radius": 0.009,
+				"speed": 0.1,
+				"maxTicks": 561,
+				"expireOn": 0,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"collideWith": 0,
+				"categories": 2,
+				"expireAgainstObjects": 0,
+				"sound": "iceBomb-channelling",
+				"soundHit": "standard",
+				"behaviours": [
+					{
+						"type": "aura",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"radius": 0.09,
+						"tickInterval": 19,
+						"against": 15,
+						"buffs": [
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"against": 12,
+								"maxStacks": 1,
+								"stack": "water",
+								"hitInterval": 20,
+								"packet": {
+									"damage": 4.16,
+									"isLava": true,
+									"lifeSteal": 0,
+									"noHit": true
+								},
+								"maxTicks": 21,
+								"resetOnGameStart": true
+							},
+							{
+								"type": "mass",
+								"cleansable": false,
+								"maxTicks": 20,
+								"against": 15,
+								"radius": 0.00018,
+								"render": {
+									"color": "#fff",
+									"ticks": 120,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.011750000000000003,
+									"glow": 0.2,
+									"shine": 0.03,
+									"light": 1,
+									"bloom": 0.03,
+									"alpha": 0.05,
+									"decay": true,
+									"vanish": 1
+								},
+								"appendCollideWith": 128,
+								"sense": 128
+							}
+						]
+					}
+				],
+				"color": "#880088",
+				"renderers": [
+					{
+						"type": "polygon",
+						"color": "rgba(29, 29, 255, 0.1)",
+						"numPoints": 15,
+						"light": null,
+						"radiusMultiplier": 10.25,
+						"revolutionInterval": 1,
+						"ticks": 1,
+						"shine": 0
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(15, 15, 255, 0.1)",
+						"numPoints": 15,
+						"light": null,
+						"radiusMultiplier": 10,
+						"revolutionInterval": 1,
+						"ticks": 1,
+						"shine": 0
+					}
+				],
+				"buffs": []
+			}
+		}
+	}
+}
