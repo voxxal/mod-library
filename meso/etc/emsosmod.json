@@ -1,0 +1,34 @@
+{
+	"Mod": {
+		"name": "emso's mod",
+		"author": "emso",
+		"description": "Sun, 22 Nov 2020 19:38:06 GMT",
+		"titleLeft": "emso's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Spells": {
+		"difire": {
+			"numProjectilesPerTick": 3,
+			"jitterRatio": 0.4,
+			"projectile": {
+				"speed": 0.6,
+				"damage": 14,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "cursor",
+						"revolutionsPerSecond": 0.0051,
+						"expireWithinRevs": 0.015,
+						"minDistanceToTarget": 0.674,
+						"maxDistanceToTarget": 0.675,
+						"maxTicks": 10
+					}
+				],
+				"color": "#8ff",
+				"buffs": []
+			}
+		}
+	}
+}
