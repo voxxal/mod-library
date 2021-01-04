@@ -223,13 +223,7 @@
 						"vanish": 1,
 						"ownerColor": true
 					},
-					{
-						"type": "ray",
-						"ticks": 8,
-						"shadow": 1,
-						"vanish": 0.5,
-						"ownerColor": true
-					},
+				
 					{
 						"type": "strike",
 						"ticks": 30,
