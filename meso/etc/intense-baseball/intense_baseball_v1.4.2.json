@@ -245,7 +245,7 @@
 							"collideWith": 1,
 							"expire": true
 						},
-						"numProjectiles": 50,
+						"numProjectiles": 10,
 						"spread": 2,
 						"expire": true,
 						"projectile": {
@@ -253,7 +253,7 @@
 							"radius": 0.002,
 							"speed": 0.45,
 							"maxTicks": 10,
-							"damage": 0.1,
+							"damage": 0.5,
 							"lifeSteal": 0,
 							"categories": 2,
 							"sensor": true,
