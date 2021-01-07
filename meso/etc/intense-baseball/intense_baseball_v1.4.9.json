@@ -1,0 +1,1830 @@
+{
+	"Mod": {
+		"name": "intense_baseball_v1.4.9",
+		"author": "mesow",
+		"description": "batter up with a multitude of balls!"
+	},
+	"Matchmaking": {
+		"MaxBots": 1,
+		"NumGamesToMaxBotDifficulty": 1
+	},
+	"World": {
+		"LavaDamage": {
+			"damage": 0.1,
+			"lifeSteal": 0
+		},
+		"SecondsToShrink": 240,
+		"MaxLifeSteal": 0,
+		"LavaDamagePerSecond": 0
+	},
+	"Hero": {
+		"LifeStealMitigationPerOpponent": 0,
+		"CooldownMitigationPerOpponent": 0,
+		"MaxHealth": 10
+	},
+	"ObstacleTemplates": {
+		"explosive": {
+			"linearDamping": 0,
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#0fc",
+					"deadColor": "#0fc"
+				},
+				{
+					"type": "solid",
+					"color": "#4c9",
+					"deadColor": "#4c9",
+					"expand": -0.002
+				}
+			],
+			"detonate": {
+				"minImpulse": 0.0022,
+				"maxImpulse": 0.0025
+			},
+			"collideWith": 17
+		},
+		"lightweight": {
+			"health": 499,
+			"density": 1000000000,
+			"linearDamping": 1.1,
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "bloom",
+					"color": "#0cf8",
+					"bloom": 0.05,
+					"strikeOnly": true
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#fff",
+					"gradient": 0.2
+				},
+				{
+					"type": "solid",
+					"color": "#aaa",
+					"gradient": 0.03,
+					"expand": -0.003
+				}
+			],
+			"mirror": true
+		},
+		"mirror": {
+			"health": 500,
+			"undamageable": true
+		},
+		"healing": {
+			"health": 5000,
+			"strike": {
+				"flash": false
+			},
+			"selfDamage": 0,
+			"decayPerSecond": 0,
+			"render": [
+				{
+					"type": "solid",
+					"expand": 0.005,
+					"color": "#033e",
+					"deadColor": "#0224",
+					"glow": 0.2
+				},
+				{
+					"type": "solid",
+					"color": "#022e",
+					"deadColor": "#0224",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "#0f9",
+					"particleRadius": 0.005,
+					"fade": "#0000",
+					"bloom": 0.01,
+					"glow": 0.05,
+					"ticks": 30,
+					"interval": 8,
+					"speed": 0.1
+				}
+			],
+			"buffs": [
+				{
+					"type": "cooldown",
+					"against": 15,
+					"maxTicks": 10,
+					"spellId": "saber",
+					"minCooldown": 45,
+					"render": {
+						"color": "#022",
+						"alpha": 1,
+						"light": 1,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.005,
+						"shine": 0.2,
+						"glow": 1,
+						"vanish": 1
+					}
+				}
+			]
+		},
+		"outward": {
+			"health": 5000,
+			"collideWith": 65534,
+			"conveyor": {
+				"lateralSpeed": 0.15
+			}
+		},
+		"explosive1": {
+			"health": 50,
+			"density": 10,
+			"linearDamping": 0,
+			"circularHitbox": true,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#f0c",
+					"deadColor": "#f0c"
+				},
+				{
+					"type": "solid",
+					"color": "#c49",
+					"deadColor": "#c49",
+					"expand": -0.002
+				}
+			],
+			"expireOn": 1,
+			"detonate": {
+				"damage": 0,
+				"minImpulse": 0.0022,
+				"maxImpulse": 0.0025,
+				"radius": 0.05,
+				"renderTicks": 30,
+				"sound": "explosive"
+			},
+			"collideWith": 17
+		},
+		"purple": {
+			"health": 5000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15,
+				"flash": false
+			},
+			"hitInterval": 15,
+			"selfDamage": 0,
+			"decayPerSecond": 0,
+			"render": [
+				{
+					"type": "solid",
+					"expand": 0.005,
+					"color": "#303e",
+					"deadColor": "#2024",
+					"glow": 0.2
+				},
+				{
+					"type": "solid",
+					"color": "#202e",
+					"deadColor": "#2024",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "#f09",
+					"particleRadius": 0.0025,
+					"fade": "#0000",
+					"bloom": 0.01,
+					"glow": 0.05,
+					"ticks": 30,
+					"interval": 8,
+					"speed": 0.1
+				}
+			],
+			"buffs": [
+				{
+					"type": "cooldown",
+					"against": 15,
+					"maxTicks": 10,
+					"notSpellIds": [
+						"saber"
+					],
+					"adjustCooldown": 21,
+					"render": {
+						"color": "#022",
+						"alpha": 1,
+						"light": 1,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.005,
+						"shine": 0.2,
+						"glow": 1,
+						"vanish": 1
+					}
+				}
+			]
+		},
+		"explosive2": {
+			"health": 50,
+			"density": 10,
+			"linearDamping": 0,
+			"circularHitbox": true,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#fc0",
+					"deadColor": "#fc0"
+				},
+				{
+					"type": "solid",
+					"color": "#c94",
+					"deadColor": "#c94",
+					"expand": -0.002
+				}
+			],
+			"expireOn": 1,
+			"detonate": {
+				"damage": 0,
+				"minImpulse": 0.0012,
+				"maxImpulse": 0.0015,
+				"radius": 0.05,
+				"renderTicks": 30,
+				"sound": "explosive"
+			},
+			"collideWith": 17
+		}
+	},
+	"Choices": {
+		"Keys": [
+			{
+				"btn": "a",
+				"weight": 1
+			},
+			{
+				"btn": "q",
+				"weight": 1
+			},
+			{
+				"btn": "w",
+				"weight": 1
+			},
+			{
+				"btn": "e",
+				"weight": 1
+			},
+			{
+				"btn": "r",
+				"weight": 1
+			},
+			{
+				"btn": "f",
+				"weight": 1
+			}
+		],
+		"Options": {
+			"a": [
+				[
+					"triplet",
+					"shatter"
+				]
+			],
+			"q": [
+				[
+					"light curveball",
+					"e"
+				]
+			],
+			"w": [
+				[
+					"deflect",
+					"swx"
+				]
+			],
+			"e": [
+				[
+					"saber"
+				]
+			],
+			"r": [
+				[
+					"spello",
+					"varie"
+				]
+			],
+			"f": [
+				[
+					"whirlwind",
+					"fere"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"triplet": {
+			"name": "Shrapnel Baseball",
+			"description": "A baseball that explodes if hit.",
+			"cooldown": 240,
+			"numProjectilesPerTick": 1,
+			"jitterRatio": 1,
+			"projectile": {
+				"radius": 0.012,
+				"speed": 0.15,
+				"maxTicks": 9000,
+				"lifeSteal": 0,
+				"expireAgainstObjects": 0,
+				"renderers": [
+					{
+						"type": "reticule",
+						"color": "rgba(136, 136, 136, 0.15)",
+						"radius": 0.041,
+						"minRadius": 0.0406,
+						"shrinkTicks": 60,
+						"repeat": true
+					},
+					{
+						"type": "bloom",
+						"radius": 0.02,
+						"ownerColor": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"shadow": 1,
+						"smoke": 0.05,
+						"vanish": 1,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 2,
+						"ownerColor": true
+					}
+				],
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 1,
+							"expire": true
+						},
+						"numProjectiles": 10,
+						"spread": 0.32,
+						"expire": true,
+						"projectile": {
+							"density": 10,
+							"radius": 0.002,
+							"speed": 0.45,
+							"maxTicks": 10,
+							"damage": 0.6,
+							"sensor": true,
+							"lifeSteal": 0,
+							"categories": 2,
+							"sound": "triplet",
+							"soundHit": "standard",
+							"color": "#ff0088",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.02,
+									"ownerColor": true
+								},
+								{
+									"type": "projectile",
+									"ticks": 15,
+									"shadow": 1,
+									"smoke": 0.05,
+									"vanish": 1,
+									"ownerColor": true
+								},
+								{
+									"type": "ray",
+									"ticks": 8,
+									"shadow": 1,
+									"vanish": 0.5,
+									"ownerColor": true
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 2,
+									"ownerColor": true
+								}
+							],
+							"behaviours": [],
+							"buffs": [],
+							"attractable": false
+						}
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.0325
+					}
+				],
+				"buffs": [],
+				"collideWith": 17,
+				"conveyable": true
+			}
+		},
+		"whirlwind": {
+			"name": "Chilling Baseball",
+			"description": "Slowing aura. Freezes opponents. Gives opponents frostbite on contact.",
+			"effects": [
+				{
+					"icon": "fas fa-angry",
+					"title": "Frostbite",
+					"text": "Greatly reduced knockback but increased damage."
+				}
+			],
+			"cooldown": 650,
+			"projectile": {
+				"radius": 0.004,
+				"maxTicks": 12000,
+				"damage": 0.5,
+				"collideWith": 65535,
+				"expireOn": 1,
+				"sensor": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.05
+					},
+					{
+						"type": "attract",
+						"collideLike": 65535,
+						"categories": 2,
+						"against": 15,
+						"radius": 0.154,
+						"accelerationPerTick": 0.1,
+						"clampSpeed": 0.1
+					},
+					{
+						"type": "aura",
+						"against": 14,
+						"radius": 0.154,
+						"tickInterval": 30,
+						"buffs": [
+							{
+								"type": "movement",
+								"stack": "whirlwind",
+								"maxStacks": 10,
+								"movementProportion": 0.8,
+								"maxTicks": 31,
+								"against": 14,
+								"render": {
+									"color": "rgba(255, 255, 255, 1)",
+									"alpha": 0.03,
+									"heroColor": true,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.01,
+									"shine": 0.2,
+									"glow": 0.7,
+									"bloom": 0,
+									"vanish": 1
+								}
+							}
+						]
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind1",
+						"maxStacks": 1,
+						"movementProportion": 0.8,
+						"maxTicks": 121,
+						"against": 14,
+						"render": {}
+					},
+					{
+						"type": "mass",
+						"stack": "frostbite",
+						"maxTicks": 120,
+						"radius": 0.0125,
+						"density": 1000000,
+						"render": {
+							"color": "rgba(234, 0, 0, 0.2)",
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"bloom": 0,
+							"vanish": 1
+						}
+					},
+					{
+						"type": "armor",
+						"stack": "frostbite",
+						"maxTicks": 120,
+						"proportion": 1.25
+					}
+				],
+				"renderers": [
+					{
+						"type": "bloom",
+						"ownerColor": true,
+						"light": 0.5
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.01,
+						"ticks": 20,
+						"ownerColor": true,
+						"loopTicks": 13,
+						"numParticles": 3,
+						"particleRadius": 0.05,
+						"light": 0.005,
+						"glow": 0.7,
+						"shine": 0.2,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(234, 123, 136, 0.5)",
+						"numPoints": 5,
+						"radiusMultiplier": 2.45,
+						"light": 1,
+						"ownerColor": true,
+						"revolutionInterval": 60,
+						"ticks": 10
+					},
+					{
+						"type": "ray",
+						"ticks": 15,
+						"smoke": 0.05,
+						"ownerColor": true,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"ownerColor": true,
+						"growth": 0.1
+					}
+				],
+				"conveyable": true
+			}
+		},
+		"grapple": {
+			"projectile": {
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 20
+						},
+						"numProjectiles": 3,
+						"spread": 2.1,
+						"projectile": {
+							"damage": 0,
+							"density": 0.1,
+							"conveyable": true,
+							"radius": 0.005,
+							"speed": 0.152,
+							"maxTicks": 12000,
+							"collideWith": 65535,
+							"expireOn": 1,
+							"shieldTakesOwnership": true,
+							"partialDamage": {
+								"initialMultiplier": 1,
+								"ticks": 60
+							},
+							"detonate": {
+								"damage": 0,
+								"partialRadius": true,
+								"radius": 0.025,
+								"minImpulse": 0.0016,
+								"maxImpulse": 0.002,
+								"renderTicks": 10
+							},
+							"behaviours": [
+								{
+									"type": "homing"
+								}
+							],
+							"sound": "rocket",
+							"color": "#ff9a00",
+							"renderers": [
+								{
+									"type": "swirl",
+									"color": "#4ff4",
+									"radius": 0.011,
+									"ticks": 10,
+									"ownerColor": true,
+									"loopTicks": 130,
+									"numParticles": 4,
+									"particleRadius": 0.0051,
+									"light": null,
+									"fade": "#1440",
+									"vanish": 1
+								},
+								{
+									"type": "swirl",
+									"color": "#4ff4",
+									"radius": 0.021,
+									"ticks": 10,
+									"ownerColor": true,
+									"loopTicks": -130,
+									"numParticles": 4,
+									"particleRadius": 0.0051,
+									"light": null,
+									"fade": "#1440",
+									"vanish": 1
+								},
+								{
+									"type": "projectile",
+									"ticks": 5,
+									"glow": 0.1,
+									"smoke": 0.5,
+									"shadow": 0.1,
+									"ownerColor": true
+								},
+								{
+									"type": "strike",
+									"ticks": 20,
+									"glow": true,
+									"numParticles": 19,
+									"ownerColor": true
+								}
+							]
+						}
+					},
+					{
+						"type": "strafe"
+					},
+					{
+						"type": "expireOnOwnerDeath"
+					},
+					{
+						"type": "expireOnChannellingEnd"
+					},
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.002,
+						"maxTicks": 35
+					},
+					{
+						"trigger": {
+							"afterTicks": 35
+						},
+						"type": "homing",
+						"targetType": "self",
+						"newSpeed": 1.2,
+						"speedDecayPerTick": 0.05
+					}
+				]
+			}
+		},
+		"saber": {
+			"name": "Baseball Bat",
+			"description": "eek!",
+			"effects": [],
+			"maxSpeed": 0.55,
+			"cooldown": 70,
+			"channelling": false,
+			"collidesWith": 65535
+		},
+		"teleport": {
+			"cooldown": 0,
+			"buffs": [
+				{}
+			]
+		},
+		"light curveball": {
+			"id": "light curveball",
+			"name": "Light baseball",
+			"description": "Accelerates. Low damage.",
+			"action": "spray",
+			"color": "#00bcbc",
+			"icon": "boltSaw",
+			"cooldown": 60,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 1,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 0.0001,
+				"radius": 0.001,
+				"speed": 0.16,
+				"maxTicks": 24000,
+				"damage": 1,
+				"expireOn": 1,
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"maxSpeed": 0.24,
+						"accelerationPerSecond": 0.14
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 0.1
+					}
+				],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#00bcbc",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"shadow": 1,
+						"ownerColor": true
+					},
+					{
+						"type": "ray",
+						"ticks": 30,
+						"shadow": 1,
+						"ownerColor": true
+					}
+				]
+			}
+		},
+		"spello": {
+			"id": "spello",
+			"name": "Psychic Baseball",
+			"description": "High knockback and mediocre damage. Fragile.",
+			"action": "projectile",
+			"color": "#ff8855",
+			"icon": "mightyForce",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 360,
+			"throttle": true,
+			"projectile": {
+				"damage": 1,
+				"density": 0.1,
+				"conveyable": true,
+				"radius": 0.005,
+				"speed": 0.2,
+				"maxTicks": 12000,
+				"collideWith": 65535,
+				"expireOn": 65533,
+				"shieldTakesOwnership": true,
+				"partialDamage": {
+					"initialMultiplier": 1,
+					"ticks": 60
+				},
+				"detonate": {
+					"damage": 0,
+					"partialRadius": true,
+					"radius": 0.025,
+					"minImpulse": 0.0008,
+					"maxImpulse": 0.001,
+					"renderTicks": 10
+				},
+				"behaviours": [
+					{
+						"type": "homing"
+					}
+				],
+				"sound": "rocket",
+				"color": "#ff9a00",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.011,
+						"ticks": 10,
+						"ownerColor": true,
+						"loopTicks": 130,
+						"numParticles": 3,
+						"particleRadius": 0.0051,
+						"light": null,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.021,
+						"ticks": 10,
+						"ownerColor": true,
+						"loopTicks": -130,
+						"numParticles": 3,
+						"particleRadius": 0.0051,
+						"light": null,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "projectile",
+						"ticks": 5,
+						"glow": 0.1,
+						"smoke": 0.5,
+						"shadow": 0.1,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"glow": true,
+						"numParticles": 19,
+						"ownerColor": true
+					}
+				]
+			}
+		},
+		"deflect": {
+			"id": "deflect",
+			"name": "Ghostly Baseball",
+			"description": "Multiple balls that poorly home.",
+			"action": "spray",
+			"color": "#00bcbc",
+			"icon": "shield",
+			"cooldown": 300,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 1,
+			"projectile": {
+				"density": 0.0001,
+				"radius": 0.03,
+				"speed": 0.25,
+				"maxTicks": 15000,
+				"expireOn": 1,
+				"damage": 1.8,
+				"lifeSteal": 0,
+				"categories": 128,
+				"minTicks": 2,
+				"sense": 1,
+				"sound": null,
+				"soundHit": "standard",
+				"color": "#44f",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"ownerColor": true,
+						"smoke": 0.05,
+						"light": 0.13,
+						"vanish": 1
+					}
+				],
+				"expireAgainstObjects": 0,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.05
+					},
+					{
+						"type": "attract",
+						"collideLike": 64,
+						"categories": 64,
+						"against": 1,
+						"radius": 0.34,
+						"accelerationPerTick": 0.05,
+						"clampSpeed": 1
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"numProjectiles": 3,
+						"spread": 2.1,
+						"projectile": {
+							"density": 7,
+							"radius": 0.0025,
+							"speed": 0.45,
+							"maxTicks": 150000000000000,
+							"expireOn": 1,
+							"sensor": true,
+							"minTicks": 20,
+							"selfPassthrough": true,
+							"damage": 1,
+							"lifeSteal": 0.3,
+							"categories": 64,
+							"sound": "triplet",
+							"soundHit": "standard",
+							"behaviours": [],
+							"color": "#08f",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 15,
+									"ownerColor": true,
+									"smoke": 0.05,
+									"vanish": 1
+								},
+								{
+									"type": "ray",
+									"ticks": 8,
+									"ownerColor": true,
+									"vanish": 0.5
+								},
+								{
+									"type": "strike",
+									"ticks": 8,
+									"flash": true,
+									"ownerColor": true,
+									"numParticles": 2
+								}
+							]
+						}
+					}
+				],
+				"buffs": [],
+				"selfPassthrough": true,
+				"sensor": true,
+				"ccd": false,
+				"collideWith": 1,
+				"swappable": false,
+				"noKnockback": true,
+				"hitInterval": 15
+			},
+			"effects": [
+				{
+					"icon": "fas fa-meh",
+					"title": "Presence",
+					"text": "Has three 1 damage orbs orbiting it which are hard to deflect."
+				}
+			]
+		},
+		"fere": {
+			"id": "fere",
+			"name": "Brittle Baseball",
+			"description": "Gives opponents frostbite on contact. Shatters into smaller pieces.",
+			"effects": [
+				{
+					"icon": "fas fa-angry",
+					"title": "Frostbite",
+					"text": "Greatly reduced knockback but increased damage."
+				}
+			],
+			"action": "projectile",
+			"color": "#44ffff",
+			"icon": "snowflake1",
+			"sound": "whirlwind",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 650,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 0.0001,
+				"radius": 0.004,
+				"speed": 0.25,
+				"maxTicks": 12000,
+				"damage": 0.5,
+				"collideWith": 65535,
+				"expireOn": 1,
+				"swappable": false,
+				"sensor": false,
+				"noKnockback": true,
+				"hitInterval": 15,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.15
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"expire": true
+						},
+						"numProjectiles": 4,
+						"spread": 1.2,
+						"projectile": {
+							"categories": 4,
+							"ccd": false,
+							"density": 0.0001,
+							"radius": 0.002,
+							"speed": 0.15,
+							"maxTicks": 12000,
+							"damage": 0.15,
+							"collideWith": 65535,
+							"expireOn": 1,
+							"swappable": false,
+							"sensor": false,
+							"noKnockback": true,
+							"hitInterval": 15,
+							"behaviours": [
+								{
+									"type": "homing",
+									"revolutionsPerSecond": 1,
+									"maxTurnProportion": 0.05
+								}
+							],
+							"buffs": [
+								{
+									"type": "movement",
+									"stack": "whirlwind1",
+									"maxStacks": 1,
+									"movementProportion": 0.48,
+									"maxTicks": 20,
+									"against": 14,
+									"render": {}
+								}
+							],
+							"sound": "whirlwind",
+							"color": "#4ff",
+							"renderers": [
+								{
+									"type": "bloom",
+									"ownerColor": true,
+									"light": 0.5
+								},
+								{
+									"type": "swirl",
+									"color": "#4ff4",
+									"radius": 0.01,
+									"ticks": 20,
+									"ownerColor": true,
+									"loopTicks": 13,
+									"numParticles": 3,
+									"particleRadius": 0.05,
+									"light": 0.005,
+									"glow": 0.7,
+									"shine": 0.2,
+									"smoke": 1.3,
+									"fade": "#1440",
+									"vanish": 1
+								},
+								{
+									"type": "polygon",
+									"color": "rgba(234, 123, 136, 0.5)",
+									"numPoints": 3,
+									"radiusMultiplier": 2.45,
+									"light": 1,
+									"ownerColor": true,
+									"revolutionInterval": 60,
+									"ticks": 10
+								},
+								{
+									"type": "ray",
+									"ticks": 50,
+									"smoke": 0.05,
+									"ownerColor": true,
+									"vanish": 1
+								},
+								{
+									"type": "strike",
+									"ticks": 20,
+									"flash": true,
+									"ownerColor": true,
+									"growth": 0.1
+								}
+							],
+							"conveyable": true
+						}
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind1",
+						"maxStacks": 1,
+						"movementProportion": 0.48,
+						"maxTicks": 181,
+						"against": 14,
+						"render": {}
+					},
+					{
+						"type": "mass",
+						"stack": "frostbite1",
+						"maxTicks": 180,
+						"radius": 0.0125,
+						"density": 1000000,
+						"render": {
+							"color": "rgba(234, 0, 0, 0.2)",
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"bloom": 0,
+							"vanish": 1
+						}
+					},
+					{
+						"type": "armor",
+						"stack": "frostbite",
+						"maxTicks": 180,
+						"proportion": 1.15
+					}
+				],
+				"sound": "whirlwind",
+				"color": "#4ff",
+				"renderers": [
+					{
+						"type": "bloom",
+						"ownerColor": true,
+						"light": 0.5
+					},
+					{
+						"type": "swirl",
+						"color": "#4ff4",
+						"radius": 0.01,
+						"ticks": 20,
+						"ownerColor": true,
+						"loopTicks": 13,
+						"numParticles": 3,
+						"particleRadius": 0.05,
+						"light": 0.005,
+						"glow": 0.7,
+						"shine": 0.2,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "polygon",
+						"color": "rgba(234, 123, 136, 0.5)",
+						"numPoints": 3,
+						"radiusMultiplier": 2.45,
+						"light": 1,
+						"ownerColor": true,
+						"revolutionInterval": 60,
+						"ticks": 10
+					},
+					{
+						"type": "ray",
+						"ticks": 50,
+						"smoke": 0.05,
+						"ownerColor": true,
+						"vanish": 1
+					},
+					{
+						"type": "strike",
+						"ticks": 20,
+						"flash": true,
+						"ownerColor": true,
+						"growth": 0.1
+					}
+				],
+				"conveyable": true
+			}
+		},
+		"e": {
+			"id": "e",
+			"name": "Dark baseball",
+			"description": "Very poor homing. Higher damage.",
+			"action": "spray",
+			"color": "#00bcbc",
+			"icon": "boltSaw",
+			"cooldown": 90,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 1,
+			"maxAngleDiffInRevs": 0.01,
+			"projectile": {
+				"density": 0.0001,
+				"radius": 0.001,
+				"speed": 0.26,
+				"maxTicks": 24000,
+				"damage": 2,
+				"expireOn": 1,
+				"behaviours": [
+					{
+						"type": "accelerate",
+						"maxSpeed": 0.44,
+						"accelerationPerSecond": 0.14
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 0.001
+					}
+				],
+				"sound": "homing",
+				"soundHit": "standard",
+				"color": "#00bcbc",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"shadow": 1,
+						"ownerColor": true
+					}
+				]
+			}
+		},
+		"swx": {
+			"id": "swx",
+			"name": "Unstable Baseball",
+			"description": "More orbs, but slower.",
+			"action": "spray",
+			"color": "#00bcbc",
+			"icon": "shield",
+			"cooldown": 300,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 1,
+			"projectile": {
+				"density": 0.0001,
+				"radius": 0.03,
+				"speed": 0.15,
+				"maxTicks": 15000,
+				"expireOn": 1,
+				"damage": 0,
+				"lifeSteal": 0,
+				"categories": 128,
+				"minTicks": 2,
+				"sense": 1,
+				"sound": null,
+				"soundHit": "standard",
+				"color": "#44f",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 15,
+						"ownerColor": true,
+						"smoke": 0.05,
+						"light": 0.13,
+						"vanish": 1
+					}
+				],
+				"expireAgainstObjects": 0,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.05
+					},
+					{
+						"type": "attract",
+						"collideLike": 64,
+						"categories": 64,
+						"against": 1,
+						"radius": 0.34,
+						"accelerationPerTick": 0.05,
+						"clampSpeed": 1
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 1
+						},
+						"numProjectiles": 6,
+						"spread": 2.1,
+						"projectile": {
+							"density": 7,
+							"radius": 0.0025,
+							"speed": 0.4,
+							"maxTicks": 150000000000000,
+							"expireOn": 1,
+							"sensor": true,
+							"minTicks": 20,
+							"selfPassthrough": true,
+							"damage": 0.5,
+							"lifeSteal": 0.3,
+							"categories": 64,
+							"sound": "triplet",
+							"soundHit": "standard",
+							"behaviours": [],
+							"color": "#08f",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 15,
+									"ownerColor": true,
+									"smoke": 0.05,
+									"vanish": 1
+								},
+								{
+									"type": "ray",
+									"ticks": 8,
+									"ownerColor": true,
+									"vanish": 0.5
+								},
+								{
+									"type": "strike",
+									"ticks": 8,
+									"flash": true,
+									"ownerColor": true,
+									"numParticles": 2
+								}
+							]
+						}
+					}
+				],
+				"buffs": [],
+				"selfPassthrough": true,
+				"sensor": true,
+				"ccd": false,
+				"collideWith": 1,
+				"swappable": false,
+				"noKnockback": true,
+				"hitInterval": 15
+			},
+			"effects": [
+				{
+					"icon": "fas fa-meh",
+					"title": "Presence",
+					"text": "Has six 0.5 damage orbs orbiting it which are hard to deflect."
+				}
+			]
+		},
+		"varie": {
+			"id": "varie",
+			"name": "Foresight Baseball",
+			"description": "Higher knockback and no damage. Only triggers if an opponent walks in.",
+			"action": "projectile",
+			"color": "#ff8855",
+			"icon": "mightyForce",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 360,
+			"throttle": true,
+			"projectile": {
+				"density": 0.0001,
+				"radius": 0.093,
+				"speed": 0,
+				"maxTicks": 15000,
+				"expireOn": 1,
+				"damage": 1,
+				"lifeSteal": 0,
+				"categories": 128,
+				"minTicks": 20,
+				"sense": 1,
+				"sound": null,
+				"soundHit": "standard",
+				"color": "#44f",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 60,
+						"ownerColor": true,
+						"smoke": 0.05,
+						"light": 0.01,
+						"vanish": 1
+					}
+				],
+				"expireAgainstObjects": 0,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.05
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"expire": true
+						},
+						"numProjectiles": 1,
+						"spread": 2.1,
+						"expire": true,
+						"projectile": {
+							"damage": 0,
+							"density": 0.1,
+							"conveyable": true,
+							"minTicks": 30,
+							"radius": 0.005,
+							"selfPassthrough": true,
+							"speed": 0.152,
+							"maxTicks": 12000,
+							"collideWith": 65535,
+							"expireOn": 1,
+							"shieldTakesOwnership": true,
+							"partialDamage": {
+								"initialMultiplier": 1,
+								"ticks": 60
+							},
+							"detonate": {
+								"damage": 0,
+								"partialRadius": true,
+								"radius": 0.025,
+								"minImpulse": 0.0036,
+								"maxImpulse": 0.004,
+								"renderTicks": 10
+							},
+							"behaviours": [
+								{
+									"type": "homing"
+								}
+							],
+							"sound": "rocket",
+							"color": "#ff9a00",
+							"renderers": [
+								{
+									"type": "swirl",
+									"color": "#4ff4",
+									"radius": 0.011,
+									"ticks": 10,
+									"ownerColor": true,
+									"loopTicks": 130,
+									"numParticles": 4,
+									"particleRadius": 0.0051,
+									"light": null,
+									"fade": "#1440",
+									"vanish": 1
+								},
+								{
+									"type": "swirl",
+									"color": "#4ff4",
+									"radius": 0.021,
+									"ticks": 10,
+									"ownerColor": true,
+									"loopTicks": -130,
+									"numParticles": 4,
+									"particleRadius": 0.0051,
+									"light": null,
+									"fade": "#1440",
+									"vanish": 1
+								},
+								{
+									"type": "projectile",
+									"ticks": 5,
+									"glow": 0.1,
+									"smoke": 0.5,
+									"shadow": 0.1,
+									"ownerColor": true
+								},
+								{
+									"type": "strike",
+									"ticks": 20,
+									"glow": true,
+									"numParticles": 19,
+									"ownerColor": true
+								}
+							]
+						}
+					}
+				],
+				"buffs": [],
+				"selfPassthrough": true,
+				"sensor": true,
+				"ccd": false,
+				"collideWith": 1,
+				"swappable": false,
+				"noKnockback": true,
+				"hitInterval": 15
+			}
+		},
+		"shatter": {
+			"id": "shatter",
+			"name": "Shattering Baseball",
+			"description": "A baseball that shatters into less pieces that deal 1 bleeding damage.",
+			"action": "spray",
+			"sound": "triplet",
+			"color": "#ff0088",
+			"icon": "tripleScratches",
+			"maxAngleDiffInRevs": 0,
+			"cooldown": 240,
+			"throttle": true,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"lengthTicks": 1,
+			"jitterRatio": 1,
+			"projectile": {
+				"density": 10,
+				"radius": 0.008,
+				"speed": 0.15,
+				"maxTicks": 9000,
+				"damage": 0,
+				"lifeSteal": 0,
+				"categories": 2,
+				"expireAgainstObjects": 0,
+				"sound": "triplet",
+				"soundHit": "standard",
+				"color": "#ff0088",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.02,
+						"ownerColor": true
+					},
+					{
+						"type": "projectile",
+						"ticks": 40,
+						"shadow": 1,
+						"smoke": 0.25,
+						"vanish": 1,
+						"ownerColor": true
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 2,
+						"ownerColor": true
+					}
+				],
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 1,
+							"expire": true
+						},
+						"numProjectiles": 8,
+						"spread": 0.2,
+						"expire": true,
+						"projectile": {
+							"density": 10,
+							"radius": 0.002,
+							"speed": 0.45,
+							"maxTicks": 10,
+							"minTicks": 10,
+							"damage": 0,
+							"lifeSteal": 0,
+							"categories": 2,
+							"sensor": true,
+							"expireOn": 0,
+							"sound": "triplet",
+							"soundHit": "standard",
+							"color": "#0f8",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.02,
+									"ownerColor": true
+								},
+								{
+									"type": "projectile",
+									"ticks": 15,
+									"shadow": 1,
+									"smoke": 0.05,
+									"vanish": 1,
+									"ownerColor": true
+								},
+								{
+									"type": "ray",
+									"ticks": 8,
+									"shadow": 1,
+									"vanish": 0.5,
+									"ownerColor": true
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 2,
+									"ownerColor": true
+								}
+							],
+							"behaviours": [],
+							"buffs": [
+								{
+									"type": "burn",
+									"collideWith": 65535,
+									"against": 14,
+									"stack": "fire1",
+									"maxStacks": 10,
+									"hitInterval": 20,
+									"packet": {
+										"damage": 0.1666666666,
+										"lifeSteal": 0,
+										"noHit": true
+									},
+									"maxTicks": 120,
+									"resetOnGameStart": true,
+									"render": {
+										"color": "#0f8",
+										"alpha": 0.075,
+										"light": 1,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.00625,
+										"shine": 0.2,
+										"glow": 1,
+										"bloom": 0.03,
+										"vanish": 1
+									}
+								}
+							],
+							"attractable": false
+						}
+					},
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.0325
+					}
+				],
+				"buffs": [],
+				"collideWith": 17,
+				"conveyable": true
+			}
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"$delete": true
+		},
+		"cold": {
+			"$delete": true
+		},
+		"octogon": {
+			"$delete": true
+		},
+		"return": {
+			"$delete": true
+		},
+		"double": {
+			"$delete": true
+		},
+		"ring": {
+			"$delete": true
+		},
+		"exit": {
+			"$delete": true
+		},
+		"heal": {
+			"$delete": true
+		},
+		"snowflake": {
+			"$delete": true
+		},
+		"inside5": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		},
+		"pepper": {
+			"$delete": true
+		},
+		"mirrors": {
+			"$delete": true
+		},
+		"innerStar": {
+			"$delete": true
+		},
+		"mirrorhenge": {
+			"color": "#113834",
+			"background": "#11221e",
+			"obstacles": [
+				{
+					"type": "explosive",
+					"numObstacles": 7,
+					"layoutRadius": 0.3,
+					"numPoints": 3,
+					"extent": 0.01,
+					"layoutAngleOffsetInRevs": 0,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"type": "healing",
+					"numObstacles": 10,
+					"layoutRadius": 0.13,
+					"numPoints": 3,
+					"angularWidthInRevs": 0.09,
+					"extent": 0.002,
+					"layoutAngleOffsetInRevs": 0,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"spiral": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		},
+		"purep": {
+			"color": "#381134",
+			"background": "#22111e",
+			"obstacles": [
+				{
+					"type": "explosive1",
+					"numObstacles": 9,
+					"layoutRadius": 0.3,
+					"numPoints": 3,
+					"extent": 0.01,
+					"layoutAngleOffsetInRevs": 0,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"type": "purple",
+					"numObstacles": 9,
+					"layoutRadius": 0.173,
+					"numPoints": 4,
+					"extent": 0.011,
+					"layoutAngleOffsetInRevs": 0,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"type": "purple",
+					"numObstacles": 9,
+					"layoutRadius": 0.1373,
+					"numPoints": 4,
+					"extent": 0.011,
+					"layoutAngleOffsetInRevs": 0.5,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"map-kjjbxgir": {
+			"color": "#383411",
+			"background": "#221e11",
+			"obstacles": [
+				{
+					"type": "explosive2",
+					"numObstacles": 10,
+					"layoutRadius": 0.3,
+					"numPoints": 3,
+					"extent": 0.01,
+					"layoutAngleOffsetInRevs": 0,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"type": "explosive2",
+					"numObstacles": 10,
+					"layoutRadius": 0.13,
+					"numPoints": 3,
+					"extent": 0.01,
+					"layoutAngleOffsetInRevs": 0,
+					"orientationAngleOffsetInRevs": 0.5
+				}
+			]
+		}
+	},
+	"Code": "var center = { x: 0.5, y: 0.5 };\n\nvar CloseEnoughDistance = 0.05;\nvar CloseEnoughRadians = 0.1 * Math.PI;\nvar MissRadius = 0.05;\nvar DodgeRadius = 0.15;\nvar SpellCastIntervalMilliseconds = 501;\nvar SpellCastJitterMilliseconds = 501;;\n\nvar TicksPerSecond = 60;\n\nvar HardReactionMilliseconds = 1;\nvar EasyReactionMilliseconds = 1;\nvar ReactionMillisecondsLookup = { // Change the reaction time on certain spells\n    retarget: 1,\n};\n\nvar alreadyChosenSpells = false;\nvar nextSpell = 0;\n\n// See ai.contracts.ts:\n// input is InputContract - contains information about the current state of the world\n// output is OutputContract - an action you want to take in response to the world \nfunction act(input) {\n    // Want the bot to do nothing? Uncomment the line below (remove the //):\n    // return null;\n\n    var state = input.state;\n    var heroId = input.heroId;\n    var hero = state.heroes[heroId];\n    var cooldowns = input.cooldowns;\n    var settings = input.settings;\n    var difficulty = input.difficulty;\n\n    var opponent = findOpponent(state.heroes, heroId);\n    if (!(hero && opponent)) {\n        // Either we're dead, or everyone else is, nothing to do\n        return null;\n    }\n    \n    var action = null;\n    if (state.started) {\n        action =\n            recovery(state, hero, cooldowns)\n            || dodge(state, hero, cooldowns)\n            || castSpell(state, hero, opponent, cooldowns, settings)\n            || focus(hero, opponent)\n            || chase(state, hero, cooldowns, opponent)\n            || move(state, hero)\n            || face(state, hero, opponent)\n    } else {\n        action =\n            chooseSpells(settings)\n            || dodge(state, hero, cooldowns)\n            || move(state, hero)\n            || face(state, hero, opponent)\n    }\n\n    if (action) {\n        // Give the bot a reaction time otherwise it is OP\n        var reactionMilliseconds = ReactionMillisecondsLookup[action.spellId] || defaultReactionMilliseconds(difficulty);\n        action.delayMilliseconds = reactionMilliseconds;\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction defaultReactionMilliseconds(difficulty) {\n    var alpha = Math.sqrt(difficulty);\n    return alpha * HardReactionMilliseconds + (1 - alpha) * EasyReactionMilliseconds;\n}\n\nfunction chooseSpells(settings) {\n    if (alreadyChosenSpells) {\n        return null;\n    }\n    alreadyChosenSpells = true;\n\n    var spells = randomSpells(settings);\n\n    // Want to test a particular spell? Uncomment and edit the lines below\n    // spells[\"e\"] = \"saber\";\n\n    return { spells };\n}\n\nfunction randomSpells(settings) {\n\tvar keyBindings = {};\n\tvar allOptions = settings.Choices.Options;\n\tfor (var btn in allOptions) { // One of the buttons, e.g. Q or R\n        var options = allOptions[btn];\n\n        var spellIds = [];\n        for (var i = 0; i < options.length; ++i) {\n            var row = options[i];\n            for (var j = 0; j < row.length; ++j) {\n                var spellId = row[j];\n                spellIds.push(spellId);\n            }\n        }\n\n\t\tif (spellIds.length > 1) {\n\t\t\tkeyBindings[btn] = spellIds[Math.floor(Math.random() * spellIds.length)];\n\t\t}\n\t}\n\treturn keyBindings;\n}\n\nfunction findOpponent(heroes, myHeroId) {\n    var myHero = heroes[myHeroId];\n    if (!myHero) {\n        return null;\n    }\n\n    var choice = null;\n    var mostHealth = 0;\n    for (var heroId in heroes) {\n        var hero = heroes[heroId];\n\n        if (!hero.isEnemy) { continue; }\n\n        // Uncomment the line below to only target humans\n        // if (hero.isBot) { continue; }\n\n        if (hero.health > mostHealth) {\n            // Target the enemy with the most health\n            mostHealth = hero.health;\n            choice = hero;\n        }\n    }\n    return choice;\n}\n\nfunction recovery(state, hero, cooldowns) {\n    if (hero.inside || state.radius <= 0) {\n        // No need to recover\n        return null;\n    }\n\n    var spellId = null;\n    if (cooldowns[\"teleport\"] === 0) {\n        spellId = \"teleport\";\n    } else if (cooldowns[\"thrust\"] === 0) {\n        spellId = \"thrust\";\n    } else if (cooldowns[\"swap\"] === 0) {\n        spellId = \"swap\";\n    } else if (cooldowns[\"voidRush\"] === 0) {\n        spellId = \"voidRush\";\n    } else if (cooldowns[\"vanish\"] === 0) {\n        spellId = \"vanish\";\n    } else {\n        spellId = \"move\";\n    }\n\n    if (spellId) {\n        return { spellId, target: center };\n    }\n    return null;\n}\n\nfunction deflect(state, hero, cooldowns, projectile) {\n    var target = vectorMidpoint(hero.pos, projectile.pos);\n    var spellId = null;\n    if (cooldowns[\"shield\"] === 0) {\n        spellId = \"shield\";\n    } else if (cooldowns[\"icewall\"] === 0) {\n        spellId = \"icewall\";\n    } else if (cooldowns[\"saber\"] === 0) {\n        spellId = \"saber\";\n    } else if (cooldowns[\"dualSaber\"] === 0) {\n        spellId = \"dualSaber\";\n    } else if (cooldowns[\"meteor\"] === 0) {\n        spellId = \"meteor\";\n    } else if (cooldowns[\"meteorite\"] === 0) {\n        spellId = \"meteorite\";\n    } else if (cooldowns[\"whirlwind\"] === 0) {\n        spellId = \"whirlwind\";\n    } else if (cooldowns[\"phaseOut\"] === 0) {\n        spellId = \"phaseOut\";\n    } else {\n        spellId = null;\n    }\n\n    if (spellId) {\n        return { spellId, target };\n    } else {\n        return null;\n    }\n}\n\nfunction castSpell(state, hero, opponent, cooldowns, settings) {\n    if (!readyForNextSpell(hero)) {\n        return null;\n    }\n\n    var candidates = [];\n    for (var spellId in cooldowns) {\n        var readyToCast = !cooldowns[spellId];\n        var spell = settings.Spells[spellId];\n\n        if (spell\n            && readyToCast\n            && validAttack(state, hero, opponent, spell)) {\n\n            candidates.push(spellId);\n        }\n    }\n\n    if (candidates.length > 0) {\n        var spellId = candidates[Math.floor(Math.random() * candidates.length)];\n        var action = { spellId, target: jitter(opponent.pos, MissRadius) };\n        if (action.spellId === spellId) {\n            updateNextSpellTime();\n        }\n        return action;\n    } else {\n        return null;\n    }\n}\n\nfunction validAttack(state, hero, opponent, spell) {\n    var opponentShielded = !!opponent.shieldTicksRemaining;\n\n    var distance = vectorDistance(hero.pos, opponent.pos);\n    if (spell.action === \"projectile\" || spell.action === \"spray\" || spell.action === \"retractor\" || spell.action === \"focus\" || spell.action === \"charge\") {\n        if (spell.id === \"swap\") { // Swap doesn't work as an attack\n            return false;\n        }\n        if (opponentShielded && !spell.projectile.detonate) { // Detonate spells can penetrate shields, nothing else can\n            return false;\n        }\n        if (spell.id === \"whip\") {\n            // Just keep casting Electroshock even if out of range\n            return true;\n        }\n\n        var range = spell.projectile.speed * spell.projectile.maxTicks / TicksPerSecond + opponent.radius;\n        return distance <= range;\n    } else if (spell.action === \"scourge\") {\n        var range = spell.radius + opponent.radius;\n        return distance <= range;\n    } else if (spell.id === \"blaze\") {\n        return true;\n    } else {\n        return false;\n    }\n}\n\nfunction readyForNextSpell(hero) {\n    return (\n        Date.now() >= nextSpell // Don't cast too fast\n        || !!hero.link // If linked to something, cast as many spells as possible\n    );\n}\n\nfunction updateNextSpellTime() {\n    nextSpell = Date.now() + SpellCastIntervalMilliseconds + Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * SpellCastJitterMilliseconds);\n}\n\nfunction jitter(target, missRadius) {\n    var radius = Math.random() * missRadius;\n    var angle = Math.random() * 2 * Math.PI;\n    return {\n        x: target.x + radius * Math.cos(angle),\n        y: target.y + radius * Math.sin(angle),\n    };\n}\n\nfunction focus(hero, opponent) { // When using a spell (e.g. Acolyte Beam, Spirit Missile) - ensure we are focusing the enemy, otherwise we will miss\n    if (hero.casting) {\n        if (hero.casting.spellId === \"blast\" || hero.casting.spellId === \"retractor\" || hero.casting.spellId === \"rocket\") {\n            // Have to release or it won't fire\n            return { spellId: hero.casting.spellId, release: true, target: opponent.pos };\n        } else if (hero.casting.spellId === \"saber\" || hero.casting.spellId === \"dualSaber\") {\n            // Don't focus the lightsaber, just swish it around\n            return { spellId: \"retarget\", target: vectorPlus(hero.pos, vectorFromAngle(hero.heading + Math.PI / 2)) };\n        } else if (hero.casting.spellId === \"grapple\") {\n            // Throw away to the right (TODO: be smarter about this)\n            return { spellId: hero.casting.spellId, release: true, target: vectorPlus(hero.pos, vectorFromAngle(hero.heading + Math.PI / 2)) };\n        } else if (hero.casting.spellId === \"halo\") {\n            return { spellId: \"move\", target: opponent.pos };\n        } else {\n            return { spellId: \"retarget\", target: opponent.pos };\n        }\n    } else {\n        return null;\n    }\n}\n\nfunction chase(state, hero, cooldowns, opponent) {\n    if (\"whip\" in cooldowns) {\n        // Got to get within range when using Electroshock\n        var target = vectorMidpoint(hero.pos, opponent.pos);\n        return { spellId: \"move\", target };\n    } else {\n        return null;\n    }\n}\n\nfunction move(state, hero) {\n    var centroid = { x: 0, y: 0 };\n    var numOpponents = 0;\n    for (var heroId in state.heroes) {\n        if (heroId === hero.id) {\n            continue; // Ignore self\n        }\n\n        var opponent = state.heroes[heroId];\n        centroid.x += opponent.pos.x;\n        centroid.y += opponent.pos.y;\n\n        ++numOpponents;\n    }\n    centroid.x /= numOpponents;\n    centroid.y /= numOpponents;\n\n    if (!numOpponents) {\n        return;\n    }\n\n    var offset = vectorNegate(vectorDiff(centroid, center)); // Move to the opposite side of the arena\n    var targetDistance = state.radius * 0.33; // Closer to center than edge (for polygonal maps)\n    var target = vectorPlus(center, vectorRelengthen(offset, targetDistance));\n\n    var distanceToTarget = vectorDistance(hero.pos, target);\n    if (distanceToTarget <= CloseEnoughDistance) {\n        // Close enough - don't send any action so the game can sleep while waiting for players\n        return null;\n    }\n\n    return { spellId: \"move\", target };\n}\n\nfunction face(state, hero, opponent) {\n    var target = opponent.pos;\n    var targetAngle = vectorAngle(vectorDiff(opponent.pos, hero.pos));\n    var angleDelta = vectorAngleDelta(hero.heading, targetAngle);\n    if (Math.abs(angleDelta) <= CloseEnoughRadians) {\n        return null;\n    }\n\n    return { spellId: \"retarget\", target };\n}\n\nfunction dodge(state, hero, cooldowns) {\n    for (var projectileId in state.projectiles) {\n        var projectile = state.projectiles[projectileId];\n        if (projectile.ownerId === hero.id) {\n            // This is my own projectile\n            continue;\n        }\n\n        if (projectile.spellId === \"halo\") {\n            // Halo is never coming for us, it orbits around its owner\n            continue;\n        }\n\n        var diff = vectorDiff(hero.pos, projectile.pos);\n        var distancePerTimeStep = vectorDot(projectile.velocity, vectorUnit(diff));\n        if (distancePerTimeStep <= 0) {\n            // Not coming towards us\n            continue;\n        }\n\n        var timeToCollision = vectorLength(diff) / distancePerTimeStep;\n        if (timeToCollision <= 0 || timeToCollision >= 30) {\n            // Not coming towards us or too far away\n            continue;\n        }\n\n        var collisionPoint = vectorPlus(projectile.pos, vectorMultiply(projectile.velocity, timeToCollision));\n        var distanceToCollision = vectorDistance(collisionPoint, hero.pos);\n        var dodgeRadius = Math.max(DodgeRadius, projectile.radius) + hero.radius;\n        if (distanceToCollision > dodgeRadius) {\n            // Won't hit us\n            continue;\n        }\n\n        var deflectAction = deflect(state, hero, cooldowns, projectile);\n        if (deflectAction) {\n            return deflectAction;\n        }\n\n        // Run away from collision point\n        var direction = vectorUnit(vectorNegate(vectorDiff(collisionPoint, hero.pos)));\n        var step = vectorMultiply(direction, dodgeRadius);\n        var target = vectorPlus(hero.pos, step);\n        return { spellId: \"move\", target };\n    }\n    return null;\n}\n\nfunction vectorDiff(to, from) {\n    return { x: to.x - from.x, y: to.y - from.y };\n}\n\nfunction vectorLength(vector) {\n    return Math.sqrt(vector.x * vector.x + vector.y * vector.y);\n}\n\nfunction vectorDistance(from, to) {\n    return vectorLength(vectorDiff(from, to));\n}\n\nfunction vectorUnit(vec) {\n    var length = vectorLength(vec);\n    return length === 0 ? vec : vectorMultiply(vec, 1 / length);\n}\n\nfunction vectorPlus(from, offset) {\n    return { x: from.x + offset.x, y: from.y + offset.y };\n}\n\nfunction vectorMultiply(vec, multiplier) {\n    return { x: vec.x * multiplier, y: vec.y * multiplier };\n}\n\nfunction vectorRelengthen(vec, length) {\n    return vectorMultiply(vectorUnit(vec), length);\n}\n\nfunction vectorNegate(vec) {\n    return vectorMultiply(vec, -1);\n}\n\nfunction vectorDot(a, b) {\n    return (a.x * b.x) + (a.y * b.y);\n}\n\nfunction vectorMidpoint(a, b) {\n    var diff = vectorDiff(b, a);\n    return vectorPlus(a, vectorMultiply(diff, 0.5));\n}\n\nfunction vectorFromAngle(angle) {\n\treturn { x: Math.cos(angle), y: Math.sin(angle) };\n}\n\nfunction vectorAngle(vec) {\n    return Math.atan2(vec.y, vec.x);\n}\n\nfunction vectorAngleDelta(currentAngle, targetAngle) {\n\tvar delta = targetAngle - currentAngle;\n\twhile (delta > Math.PI) {\n\t\tdelta -= 2 * Math.PI;\n\t}\n\twhile (delta < -Math.PI) {\n\t\tdelta += 2 * Math.PI;\n\t}\n\treturn delta;\n}\n\n// See ai.contracts.ts: Must return a BotContract\nreturn { act };"
+}
