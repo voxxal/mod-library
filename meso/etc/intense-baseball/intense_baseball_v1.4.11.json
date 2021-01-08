@@ -523,7 +523,7 @@
 						"against": 15,
 						"radius": 0.154,
 						"accelerationPerTick": 0,
-						"clampSpeed": 0.1
+						"clampSpeed": 0.0001
 					},
 					{
 						"type": "aura",
