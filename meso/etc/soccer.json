@@ -1,0 +1,433 @@
+{
+	"Mod": {
+		"name": "soccer",
+		"author": "emso",
+		"description": "Wed, 03 Feb 2021 00:24:50 GMT",
+		"titleLeft": "emso's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"World": {
+		"LavaDamage": {
+			"damage": 4000000000000
+		}
+	},
+	"ObstacleTemplates": {
+		"explosive": {
+			"health": 1000000,
+			"density": 100,
+			"linearDamping": 2.25,
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#fa0",
+					"deadColor": "#fa0"
+				},
+				{
+					"type": "solid",
+					"color": "#fa0",
+					"deadColor": "#fa0",
+					"expand": -0.002
+				}
+			],
+			"expireOn": 0,
+			"detonate": {
+				"damage": 50,
+				"radius": 2,
+				"renderTicks": 0,
+				"source": "red"
+			}
+		},
+		"blue": {
+			"health": 1000000,
+			"density": 100,
+			"linearDamping": 2.25,
+			"circularHitbox": true,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#0af",
+					"deadColor": "#0af"
+				},
+				{
+					"type": "solid",
+					"color": "#0af",
+					"deadColor": "#0af",
+					"expand": -0.002
+				}
+			],
+			"expireOn": 0,
+			"detonate": {
+				"damage": 50,
+				"minImpulse": 0.0002,
+				"maxImpulse": 0.0005,
+				"radius": 2,
+				"renderTicks": 0,
+				"sound": "explosive",
+				"source": "blue"
+			}
+		}
+	},
+	"Choices": {
+		"Keys": [
+			null,
+			{
+				"btn": "q",
+				"barSize": 1,
+				"wheelSize": 1
+			},
+			{
+				"btn": "w",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "e",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			{
+				"btn": "r",
+				"barSize": 1,
+				"wheelSize": 0.75
+			},
+			null,
+			{
+				"btn": "f",
+				"barSize": 0.75,
+				"wheelSize": 0.5
+			}
+		],
+		"Options": {
+			"a": {
+				"$delete": true
+			},
+			"q": [
+				[
+					"fireball"
+				]
+			],
+			"w": [
+				[
+					"lightning"
+				]
+			],
+			"e": [
+				[
+					"saber"
+				]
+			],
+			"r": [
+				[
+					"icewall"
+				]
+			],
+			"f": [
+				[
+					"team2",
+					"team1"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"fireball": {
+			"description": "A quick attack that grabs the ball.",
+			"color": "#aaa",
+			"projectile": {
+				"density": 0.0025,
+				"radius": 0.0051,
+				"speed": 1.8,
+				"maxTicks": 10,
+				"damage": 0,
+				"color": "#aaa",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "projectile",
+						"ticks": 1
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				],
+				"link": {
+					"linkWith": 65535,
+					"selfFactor": 0.5,
+					"targetFactor": 0,
+					"impulsePerTick": 0.00112,
+					"sidewaysImpulsePerTick": 0,
+					"massInvariant": true,
+					"minDistance": 0.00005,
+					"maxDistance": 1.475,
+					"linkTicks": 5,
+					"render": {
+						"type": "link",
+						"color": "#222",
+						"colorize": 0.3,
+						"width": 0.0015,
+						"toWidth": 0.003,
+						"glow": 0.3,
+						"bloom": 0.01,
+						"shine": 0.25,
+						"shadow": 0.5,
+						"light": true
+					}
+				}
+			},
+			"name": "Grab"
+		},
+		"lightning": {
+			"name": "Launch",
+			"description": "Launches the ball from afar.",
+			"color": "#bbb",
+			"cooldown": 240,
+			"recoil": 0,
+			"projectile": {
+				"density": 800,
+				"speed": 1,
+				"collideWith": 65534,
+				"color": "#222",
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.006
+					}
+				]
+			}
+		},
+		"icewall": {
+			"name": "Sabotage",
+			"description": "Creates a wall that blocks the ball.",
+			"maxRange": 0.01,
+			"maxTicks": 220,
+			"color": "#eee"
+		},
+		"saber": {
+			"name": "Kick",
+			"description": "Kick the ball.",
+			"effects": {
+				"$delete": true
+			},
+			"shiftMultiplier": 0.05,
+			"speedMultiplier": 1,
+			"maxSpeed": 1.75,
+			"length": 0.085,
+			"chargeTicks": 1,
+			"cooldown": 250,
+			"maxTicks": 80,
+			"channelling": false,
+			"collidesWith": 11,
+			"color": "#111"
+		},
+		"armor": {
+			"$delete": true
+		},
+		"team1": {
+			"id": "team1",
+			"name": "Orange Team",
+			"description": "Orange team, throw the orange ball.",
+			"effects": [],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"proportion": -1,
+					"source": "red",
+					"passive": "true",
+					"render": {
+						"color": "#fa0",
+						"ticks": 60,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"alpha": 0.3,
+						"light": 0.38,
+						"glow": 0.7,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"proportion": -1,
+					"source": "lava",
+					"passive": "true",
+					"render": {}
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"team2": {
+			"id": "team2",
+			"name": "Blue Team",
+			"description": "Blue team, throw the blue ball.",
+			"effects": [],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"proportion": -1,
+					"source": "blue",
+					"passive": "true",
+					"render": {
+						"color": "#33f",
+						"ticks": 60,
+						"emissionRadiusFactor": 0,
+						"particleRadius": 0.0125,
+						"decay": true,
+						"alpha": 0.3,
+						"light": 0.38,
+						"glow": 0.7,
+						"shine": 0.5,
+						"bloom": 0.03,
+						"vanish": 1
+					}
+				},
+				{
+					"type": "armor",
+					"proportion": -1,
+					"source": "lava",
+					"passive": "true",
+					"render": {}
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"$delete": true
+		},
+		"cold": {
+			"$delete": true
+		},
+		"octogon": {
+			"$delete": true
+		},
+		"return": {
+			"$delete": true
+		},
+		"double": {
+			"$delete": true
+		},
+		"ring": {
+			"$delete": true
+		},
+		"exit": {
+			"$delete": true
+		},
+		"heal": {
+			"$delete": true
+		},
+		"snowflake": {
+			"$delete": true
+		},
+		"inside5": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		},
+		"pepper": {
+			"$delete": true
+		},
+		"mirrors": {
+			"$delete": true
+		},
+		"innerStar": {
+			"$delete": true
+		},
+		"mirrorhenge": {
+			"$delete": true
+		},
+		"spiral": {
+			"$delete": true
+		},
+		"triplet": {
+			"obstacles": [
+				{
+					"type": "explosive",
+					"numObstacles": 2,
+					"layoutRadius": 0.08,
+					"layoutAngleOffsetInRevs": 0.5,
+					"numPoints": 3,
+					"extent": 0.0225,
+					"orientationAngleOffsetInRevs": 0.5
+				},
+				{
+					"type": "blue",
+					"numObstacles": 2,
+					"layoutRadius": 0.08,
+					"layoutAngleOffsetInRevs": 0.25,
+					"numPoints": 3,
+					"extent": 0.0225,
+					"orientationAngleOffsetInRevs": 0.5
+				}
+			],
+			"numPoints": 4,
+			"angleOffsetInRevs": 0
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		}
+	}
+}
