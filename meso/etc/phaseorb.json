@@ -1,0 +1,169 @@
+{
+	"Mod": {
+		"name": "emso's mod",
+		"author": "emso",
+		"description": "Sat, 06 Feb 2021 21:58:59 GMT",
+		"titleLeft": "emso's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"r": [
+				[
+					"empower"
+				],
+				[
+					"supernova",
+					"rocket",
+					"lure2"
+				],
+				[
+					"bouncer",
+					"repeater"
+				],
+				[
+					"kamehameha",
+					"blast"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"lure2": {
+			"id": "lure2",
+			"description": "Fire a homing ball that will slow down and shatter into pieces.",
+			"action": "focus",
+			"color": "#80f",
+			"icon": "ballGlow",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 300,
+			"throttle": true,
+			"projectile": {
+				"density": 0.01,
+				"radius": 0.003,
+				"speed": 0.26,
+				"maxTicks": 270,
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "fireball",
+				"soundHit": "standard",
+				"color": "#80f",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.045
+					},
+					{
+						"type": "reticule",
+						"color": "#aaa",
+						"radius": 0.003,
+						"minRadius": 0.001,
+						"smoke": 0.05,
+						"startingTicks": 30
+					},
+					{
+						"type": "reticule",
+						"radius": 0.003,
+						"minRadius": 0.001,
+						"color": "#fff",
+						"smoke": 0.05,
+						"remainingTicks": 240
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(255, 255, 255, 0.1)",
+						"radius": 0.04,
+						"minRadius": 0.039,
+						"usePartialDamageMultiplier": true
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				],
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.3,
+					"radius": 0.035,
+					"minImpulse": 0.00024,
+					"maxImpulse": 0.00024,
+					"renderTicks": 10
+				},
+				"behaviours": [
+					{
+						"type": "spawn",
+						"numProjectiles": 16,
+						"spread": 1,
+						"projectile": {
+							"density": 25,
+							"radius": 0.0025,
+							"speed": -1.5,
+							"maxTicks": 40,
+							"expireOn": 59,
+							"swappable": false,
+							"damage": 0,
+							"sound": "lightning",
+							"color": "#20a",
+							"renderers": [
+								{
+									"type": "ray",
+									"intermediatePoints": true,
+									"ticks": 30,
+									"vanish": 1
+								},
+								{
+									"type": "strike",
+									"ticks": 15,
+									"flash": true,
+									"detonate": 0.01,
+									"numParticles": 5,
+									"speedMultiplier": 0.2
+								}
+							]
+						},
+						"trigger": {
+							"expire": true
+						},
+						"expire": true
+					},
+					{
+						"type": "accelerate",
+						"maxSpeed": 0.36,
+						"accelerationPerSecond": -0.2
+					},
+					{
+						"type": "expireOnChannellingEnd"
+					},
+					{
+						"type": "homing",
+						"maxTicks": 30,
+						"targetType": "follow",
+						"revolutionsPerSecond": 0.006
+					},
+					{
+						"type": "homing",
+						"trigger": {
+							"afterTicks": 30
+						},
+						"targetType": "follow"
+					},
+					{
+						"type": "partial",
+						"partialDetonateRadius": {
+							"initialMultiplier": 0.05,
+							"ticks": 30
+						}
+					}
+				]
+			},
+			"release": {},
+			"releaseAfterTicks": 0,
+			"name": "Phase Orb based on the Icon"
+		}
+	}
+}
