@@ -1,0 +1,163 @@
+{
+	"Mod": {
+		"name": "moonboomer",
+		"author": "emso",
+		"description": "Sun, 07 Feb 2021 21:19:42 GMT",
+		"titleLeft": "emso's",
+		"titleRight": "Mod!",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Choices": {
+		"Options": {
+			"q": [
+				[
+					"fireball",
+					"flamestrike",
+					"phaseOrb"
+				],
+				[
+					"triplet",
+					"difire"
+				],
+				[
+					"retractor",
+					"backlash"
+				],
+				[
+					"whip",
+					"moon"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"moon": {
+			"id": "moon",
+			"name": "Moon Boomerang",
+			"description": "Lower damage, but it has a higher range. Recoil if you miss.",
+			"action": "projectile",
+			"color": "#171012",
+			"recoil": 0.15,
+			"icon": "moon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 120,
+			"throttle": true,
+			"projectile": {
+				"damage": 25,
+				"lifeSteal": 0.5,
+				"density": 30,
+				"sound": "moon",
+				"restitution": 0,
+				"soundHit": "moon-detonating",
+				"radius": 0.002,
+				"speed": 0.5,
+				"fixedSpeed": true,
+				"detonate": {
+					"damage": 0,
+					"lifeSteal": 0.5,
+					"radius": 0.02,
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 10
+				},
+				"maxTicks": 50,
+				"categories": 2,
+				"sense": 0,
+				"collideWith": 65535,
+				"expireOn": 7,
+				"shieldTakesOwnership": false,
+				"noKnockback": false,
+				"bumpable": true,
+				"behaviours": [
+					{
+						"trigger": {
+							"afterTicks": 10
+						},
+						"type": "homing",
+						"revolutionsPerSecond": 0.04,
+						"targetType": "self",
+						"newSpeed": 0.5
+					},
+					{
+						"type": "strafe"
+					}
+				],
+				"buffs": [],
+				"color": "#f7e092",
+				"renderers": [
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "projectile",
+						"ticks": 25,
+						"smoke": 0.5
+					},
+					{
+						"type": "polygon",
+						"numPoints": 3,
+						"radiusMultiplier": 3,
+						"revolutionInterval": 11,
+						"ticks": 1
+					},
+					{
+						"type": "strike",
+						"color": "#fff",
+						"ticks": 25,
+						"growth": 1.5,
+						"flash": true,
+						"speedMultiplier": -0.5
+					}
+				]
+			}
+		}
+	},
+	"Sounds": {
+		"moon": {
+			"sustain": [
+				{
+					"noReverb": true,
+					"volume": 0.15,
+					"stopTime": 0.1,
+					"attack": 0.05,
+					"decay": 0.05,
+					"startFreq": 300,
+					"stopFreq": 500,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.33,
+						4
+					]
+				}
+			]
+		},
+		"moon-detonating": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"noReverb": true,
+					"volume": 0.15,
+					"stopTime": 0.05,
+					"attack": 0.05,
+					"decay": 0.01,
+					"startFreq": 600,
+					"stopFreq": 100,
+					"wave": "sine",
+					"ratios": [
+						1,
+						1.33,
+						4
+					]
+				}
+			]
+		}
+	},
+	"Icons": {
+		"moon": {
+			"path": "M253.125 18.563c-131.53 0-238.375 106.813-238.375 238.343 0 131.53 106.846 238.344 238.375 238.344 131.53 0 238.344-106.815 238.344-238.344 0-131.528-106.816-238.344-238.345-238.344zm-23.938 52.093c40.517 0 77.988 12.904 108.532 34.813-5.597-.624-11.302-.97-17.064-.97-84.157 0-152.375 68.25-152.375 152.406 0 84.157 68.22 152.375 152.376 152.375 5.762 0 11.467-.313 17.063-.936-30.545 21.91-68.016 34.812-108.533 34.812-102.98 0-186.28-83.272-186.28-186.25 0-102.977 83.3-186.25 186.28-186.25z",
+			"bababooie": "https://game-icons.net/1x1/lorc/moon.html"
+		}
+	}
+}
