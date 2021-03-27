@@ -5893,7 +5893,7 @@
 			"cutoffEarly": false,
 			"start": [
 				{
-					"volume": 0.4,
+					"volume": 0.1,
 					"stopTime": 0.4,
 					"attack": 0.001,
 					"decay": 0.19,
