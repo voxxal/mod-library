@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.1.1",
+		"name": "plants vz zombies v2.1.2",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -16,7 +16,7 @@
 	"World": {
 		"InitialRadius": 0.5,
 		"HeroLayoutProportion": 0.85,
-		"SecondsToShrink": 900000
+		"SecondsToShrink": 300
 	},
 	"ObstacleTemplates": {
 		"grave": {
@@ -64,7 +64,7 @@
 			"static": true
 		},
 		"water": {
-			"health": 50000000,
+			"health": 500,
 			"collideWith": 9,
 			"sensor": true,
 			"static": true,
@@ -76,7 +76,7 @@
 				{
 					"type": "solid",
 					"color": "rgba(0, 128, 225, 0.45)",
-					"deadColor": "rgba(0, 128, 225, 0.25)",
+					"deadColor": "rgba(0, 128, 225, 0.025)",
 					"glow": 0.2
 				},
 				{
@@ -130,7 +130,7 @@
 			]
 		},
 		"watern": {
-			"health": 50000000,
+			"health": 500,
 			"collideWith": 9,
 			"sensor": true,
 			"static": true,
@@ -3589,7 +3589,7 @@
 							"detonate": {
 								"damage": 0,
 								"lifeSteal": 0.3,
-								"radius": 0.05,
+								"radius": 0.09,
 								"minImpulse": 0.00015,
 								"maxImpulse": 0.00015,
 								"renderTicks": 30
