@@ -2057,7 +2057,7 @@
 			"throttle": true,
 			"intervalTicks": 1,
 			"lengthTicks": 1,
-			"numProjectilesPerTick": 4,
+			"numProjectilesPerTick": 1,
 			"jitterRatio": 2,
 			"projectile": {
 				"density": 1000,
