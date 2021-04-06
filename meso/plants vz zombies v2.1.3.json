@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.1.2",
+		"name": "plants vz zombies v2.1.3",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -569,7 +569,7 @@
 			"chargeTicks": 10,
 			"icon": "lightningHelix",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 3600,
+			"cooldown": 1800,
 			"throttle": true,
 			"projectile": {
 				"density": 15,
@@ -1279,9 +1279,9 @@
 			"color": "#f3b",
 			"icon": "4",
 			"jitterRatio": 0.5,
-			"numProjectilesPerTick": 1,
-			"lengthTicks": 11,
-			"intervalTicks": 10,
+			"numProjectilesPerTick": 2,
+			"lengthTicks": 1,
+			"intervalTicks": 1,
 			"maxAngleDiffInRevs": 0.01,
 			"cooldown": 900,
 			"throttle": true,
@@ -1291,11 +1291,11 @@
 				"radius": 0.002,
 				"speed": 0.35,
 				"detonate": {
-					"damage": 15,
+					"damage": 20,
 					"lifeSteal": 0.3,
-					"radius": 0.02,
-					"minImpulse": 0.0004,
-					"maxImpulse": 0.0004,
+					"radius": 0.04,
+					"minImpulse": -0.0002,
+					"maxImpulse": -0.0002,
 					"renderTicks": 30
 				},
 				"maxTicks": 120,
@@ -1304,7 +1304,7 @@
 					{
 						"type": "homing",
 						"targetType": "follow",
-						"revolutionsPerSecond": 0.0045
+						"revolutionsPerSecond": 0.004
 					}
 				],
 				"color": "#f3b",
@@ -1356,7 +1356,7 @@
 			"description": "Creates a blocking wall.",
 			"maxRange": 0.05,
 			"movementProportionWhileCharging": 1,
-			"maxTicks": 200,
+			"maxTicks": 600,
 			"growthTicks": 5,
 			"cooldown": 1200,
 			"throttle": false,
@@ -1364,12 +1364,9 @@
 			"blocksTeleporters": true,
 			"damageMultiplier": 1,
 			"length": 0.015,
-			"width": 0.09,
+			"width": 0.095,
 			"categories": 17,
-			"density": 80,
 			"collideWith": 139,
-			"angularDamping": 2,
-			"linearDamping": 2,
 			"conveyable": false,
 			"bumpable": false,
 			"swappable": true,
@@ -1774,7 +1771,7 @@
 		},
 		"potato": {
 			"id": "potato",
-			"description": "Three seconds after placement, the mine can explode. Once armed, it slowly moves to targets.",
+			"description": "Three seconds after placement, the mine can explode.",
 			"action": "projectile",
 			"name": "Potato Mine",
 			"color": "#e1c699",
@@ -1814,12 +1811,7 @@
 								"maxImpulse": 0.0001,
 								"renderTicks": 10
 							},
-							"behaviours": [
-								{
-									"type": "homing",
-									"targetType": "follow"
-								}
-							],
+							"behaviours": [],
 							"color": "#f3b",
 							"renderers": [
 								{
@@ -1879,14 +1871,14 @@
 		},
 		"starfruit": {
 			"id": "starfruit",
-			"description": "Shoot 2 bursts of starfruit that can pierce through players.",
+			"description": "Shoot 2 bursts of starfruit that pierce through players.",
 			"action": "spray",
 			"color": "#fe0",
 			"icon": "10",
 			"numProjectilesPerTick": 1,
 			"jitterRatio": 2,
-			"intervalTicks": 20,
-			"lengthTicks": 40,
+			"intervalTicks": 10,
+			"lengthTicks": 20,
 			"maxAngleDiffInRevs": 0.01,
 			"cooldown": 1800,
 			"throttle": true,
@@ -1939,7 +1931,7 @@
 						}
 					}
 				],
-				"damage": 0,
+				"damage": 40,
 				"lifeSteal": 0.3,
 				"sensor": true,
 				"expireOn": 129,
@@ -2163,16 +2155,16 @@
 						"type": "attract",
 						"collideLike": 1,
 						"categories": 1,
-						"against": 15,
+						"against": 14,
 						"radius": 0.4,
-						"accelerationPerTick": -0.005,
+						"accelerationPerTick": -0.01,
 						"clampSpeed": 2
 					},
 					{
 						"type": "attract",
 						"collideLike": 1,
 						"categories": 1,
-						"against": 15,
+						"against": 14,
 						"radius": 0.3,
 						"accelerationPerTick": -0.005,
 						"clampSpeed": 2
@@ -2181,18 +2173,18 @@
 						"type": "attract",
 						"collideLike": 1,
 						"categories": 1,
-						"against": 15,
+						"against": 14,
 						"radius": 0.2,
-						"accelerationPerTick": -0.005,
+						"accelerationPerTick": -0.008,
 						"clampSpeed": 2
 					},
 					{
 						"type": "attract",
 						"collideLike": 1,
 						"categories": 1,
-						"against": 15,
+						"against": 14,
 						"radius": 0.1,
-						"accelerationPerTick": -0.005,
+						"accelerationPerTick": -0.008,
 						"clampSpeed": 2
 					}
 				],
@@ -2727,7 +2719,7 @@
 					{
 						"type": "partial",
 						"partialDamage": {
-							"initialMultiplier": 0.55,
+							"initialMultiplier": 0.15,
 							"finalMultiplier": 1,
 							"ticks": 60
 						}
@@ -2948,8 +2940,8 @@
 					"damage": 15,
 					"lifeSteal": 0.3,
 					"radius": 0.06,
-					"minImpulse": 0.0006,
-					"maxImpulse": 0.0006,
+					"minImpulse": 0.0004,
+					"maxImpulse": 0.0004,
 					"renderTicks": 40
 				},
 				"soundHit": "standard",
@@ -3787,11 +3779,11 @@
 			"projectile": {
 				"density": 20,
 				"radius": 0.008,
-				"speed": 0.46,
-				"maxTicks": 150,
+				"speed": 0.36,
+				"maxTicks": 80,
 				"collideWith": 65527,
 				"expireOn": 65527,
-				"damage": 8,
+				"damage": 0,
 				"sense": 8,
 				"selfPassthrough": true,
 				"lifeSteal": 0.3,
@@ -4068,7 +4060,7 @@
 		},
 		"plantern": {
 			"id": "plantern",
-			"description": "Shoots a piercing bolt of light that gets weaker as it passes through objects. Stuns players temporarily.",
+			"description": "Shoots a bolt of light that gets weaker as it passes through objects. Stuns players temporarily.",
 			"action": "projectile",
 			"color": "#a80",
 			"icon": "lantern",
@@ -4090,14 +4082,14 @@
 						"against": 15,
 						"cleansable": false,
 						"maxTicks": 1,
-						"minCooldown": 180
+						"minCooldown": 120
 					},
 					{
 						"type": "movement",
 						"stack": "light",
 						"cleansable": false,
 						"movementProportion": 0,
-						"maxTicks": 180,
+						"maxTicks": 120,
 						"against": 15,
 						"render": {
 							"color": "rgba(255, 128,0, 1)",
@@ -4112,7 +4104,7 @@
 						}
 					}
 				],
-				"expireOn": 0,
+				"expireOn": 129,
 				"sound": "puffl",
 				"soundHit": "standard",
 				"color": "#a80",
@@ -4156,7 +4148,7 @@
 						"trigger": {
 							"collideWith": 65535
 						},
-						"numProjectiles": 4,
+						"numProjectiles": 2,
 						"spread": 0.05,
 						"projectile": {
 							"density": 15,
@@ -4167,14 +4159,14 @@
 									"against": 15,
 									"maxTicks": 1,
 									"cleansable": false,
-									"minCooldown": 90
+									"minCooldown": 50
 								},
 								{
 									"type": "movement",
 									"stack": "light",
 									"cleansable": false,
 									"movementProportion": 0,
-									"maxTicks": 90,
+									"maxTicks": 50,
 									"against": 15,
 									"render": {
 										"color": "rgba(255, 128,0, 1)",
@@ -4195,7 +4187,7 @@
 							"damage": 1,
 							"lifeSteal": 0.3,
 							"categories": 2,
-							"expireOn": 0,
+							"expireOn": 128,
 							"sound": "puffl2",
 							"soundHit": "standard",
 							"color": "#860",
@@ -4302,36 +4294,56 @@
 		},
 		"thistle": {
 			"id": "thistle",
-			"description": "Shoots multiple needles that home. Cannot be stopped unless shoveled.",
+			"description": "Shoots multiple needles that home weakly. Makes the target permanently take 5% more damage.",
 			"action": "spray",
 			"color": "#822",
 			"icon": "cat",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 1200,
+			"cooldown": 2400,
 			"intervalTicks": 1,
-			"lengthTicks": 4,
-			"numProjectilesPerTick": 2,
+			"lengthTicks": 1,
+			"numProjectilesPerTick": 3,
 			"jitterRatio": 0.13,
 			"throttle": true,
 			"projectile": {
 				"density": 0.001,
 				"radius": 0.007,
-				"speed": 0.16,
+				"speed": 0.26,
 				"expireOn": 129,
 				"maxTicks": 240,
+				"buffs": [
+					{
+						"type": "armor",
+						"cleansable": false,
+						"against": 15,
+						"render": {
+							"color": "#aaa",
+							"alpha": 0.07,
+							"light": 1,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 1,
+							"bloom": 0.01,
+							"vanish": 1
+						},
+						"maxTicks": 20000000000000,
+						"proportion": 0.05
+					}
+				],
 				"damage": 3,
 				"lifeSteal": 0.3,
 				"sense": 1,
 				"behaviours": [
 					{
 						"type": "homing",
-						"revolutionsPerSecond": 0.0008
+						"revolutionsPerSecond": 0.0002
 					}
 				],
 				"collideWith": 129,
 				"categories": 2,
 				"sound": "shock",
-				"buffs": [],
 				"soundHit": "standard",
 				"color": "#822",
 				"renderers": [
@@ -4355,17 +4367,17 @@
 		},
 		"akee": {
 			"id": "akee",
-			"description": "Shoots a seed that redirects after hitting a target.",
+			"description": "Shoots 3 seeds that redirect after hitting a target.",
 			"action": "spray",
 			"redirect": true,
 			"color": "#a82",
 			"icon": "sw",
 			"maxAngleDiffInRevs": 0.01,
 			"cooldown": 1500,
-			"intervalTicks": 10,
+			"intervalTicks": 4,
 			"lengthTicks": 11,
 			"numProjectilesPerTick": 1,
-			"jitterRatio": 0.13,
+			"jitterRatio": 0.03,
 			"throttle": true,
 			"projectile": {
 				"density": 0.004,
@@ -4374,13 +4386,18 @@
 				"sensor": true,
 				"collideWith": 65535,
 				"expireOn": 129,
-				"maxTicks": 350,
+				"maxTicks": 150,
 				"damage": 5,
 				"selfPassthrough": true,
 				"lifeSteal": 0.3,
 				"categories": 2,
 				"sound": "arts",
 				"behaviours": [
+					{
+						"type": "homing",
+						"maxTurnProportion": 0.005,
+						"targetType": "follow"
+					},
 					{
 						"trigger": {
 							"collideWith": 9,
@@ -4395,14 +4412,19 @@
 							"speed": 0.5,
 							"sensor": true,
 							"sound": "arts",
-							"collideWith": 65534,
+							"collideWith": 0,
 							"expireOn": 65535,
-							"maxTicks": 350,
-							"damage": 10,
+							"maxTicks": 120,
+							"damage": 7.5,
 							"selfPassthrough": true,
 							"lifeSteal": 0.3,
 							"categories": 2,
 							"behaviours": [
+								{
+									"type": "homing",
+									"maxTurnProportion": 0.005,
+									"targetType": "follow"
+								},
 								{
 									"type": "homing",
 									"maxTicks": 10,
@@ -4434,7 +4456,7 @@
 									"projectile": {
 										"density": 0.004,
 										"detonate": {
-											"damage": 15,
+											"damage": 10,
 											"lifeSteal": 0.3,
 											"radius": 0.036,
 											"minImpulse": 0,
@@ -4444,15 +4466,20 @@
 										"radius": 0.0025,
 										"speed": 0.6,
 										"sensor": true,
-										"collideWith": 65534,
+										"collideWith": 0,
 										"expireOn": 137,
-										"maxTicks": 350,
+										"maxTicks": 120,
 										"damage": 2.5,
 										"selfPassthrough": true,
 										"sound": "arts",
 										"lifeSteal": 0.3,
 										"categories": 2,
 										"behaviours": [
+											{
+												"type": "homing",
+												"maxTurnProportion": 0.005,
+												"targetType": "follow"
+											},
 											{
 												"type": "homing",
 												"targetType": "follow",
@@ -4488,9 +4515,9 @@
 											},
 											{
 												"type": "projectile",
-												"ticks": 1,
+												"ticks": 30,
+												"color": "#000",
 												"smoke": 0.05,
-												"glow": 0.1,
 												"light": null
 											},
 											{
@@ -4515,9 +4542,9 @@
 								},
 								{
 									"type": "projectile",
-									"ticks": 1,
+									"ticks": 30,
+									"color": "#000",
 									"smoke": 0.05,
-									"glow": 0.1,
 									"light": null
 								},
 								{
@@ -4543,9 +4570,9 @@
 					},
 					{
 						"type": "projectile",
-						"ticks": 1,
+						"ticks": 30,
+						"color": "#000",
 						"smoke": 0.05,
-						"glow": 0.1,
 						"light": null
 					},
 					{
@@ -4970,7 +4997,7 @@
 				"radius": 0.01,
 				"sensor": true,
 				"expireOn": 384,
-				"speed": 0,
+				"speed": 0.02,
 				"maxTicks": 1000000000,
 				"damage": 0,
 				"behaviours": [
@@ -5298,7 +5325,7 @@
 		},
 		"bonk": {
 			"id": "bonk",
-			"description": "Fires a bonk choy that creates 2 flurries of punches.",
+			"description": "Fires a bonk choy that creates 2 separate flurries of punches.",
 			"action": "spray",
 			"sound": "bonk",
 			"color": "#282",
@@ -5314,7 +5341,7 @@
 			"projectile": {
 				"density": 15,
 				"radius": 0.008,
-				"speed": 0.24,
+				"speed": 0.4,
 				"selfPassthrough": true,
 				"maxTicks": 60,
 				"damage": 0,
@@ -5332,7 +5359,7 @@
 					{
 						"type": "homing",
 						"targetType": "follow",
-						"maxTurnProportion": 0.12
+						"maxTurnProportion": 0.32
 					},
 					{
 						"type": "spawn",
@@ -5404,7 +5431,7 @@
 					{
 						"type": "spawn",
 						"trigger": {
-							"afterTicks": 20
+							"afterTicks": 30
 						},
 						"numProjectiles": 10,
 						"spread": 0.038,
