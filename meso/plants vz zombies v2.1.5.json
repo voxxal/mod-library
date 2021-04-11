@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.1.4",
+		"name": "plants vz zombies v2.1.5",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -21,7 +21,7 @@
 	"ObstacleTemplates": {
 		"grave": {
 			"health": 500000,
-			"linearDamping": 15000000,
+			"linearDamping": 980,
 			"strike": {
 				"ticks": 10,
 				"growth": 0.005
@@ -60,8 +60,7 @@
 					"flash": false,
 					"expand": -0.003
 				}
-			],
-			"static": true
+			]
 		},
 		"water": {
 			"health": 500,
@@ -208,7 +207,8 @@
 					"lily"
 				],
 				[
-					"sunflower"
+					"sunflower",
+					"moonflower"
 				],
 				[
 					"sunshroom"
@@ -232,7 +232,8 @@
 				],
 				[
 					"snowpea",
-					"cactus"
+					"cactus",
+					"spea"
 				]
 			],
 			"w": [
@@ -272,7 +273,8 @@
 			"r": [
 				[
 					"squash",
-					"potato"
+					"potato",
+					"shroom"
 				],
 				[
 					"starfruit",
@@ -473,7 +475,7 @@
 							"speed": 0.46,
 							"maxTicks": 70,
 							"behaviours": [],
-							"damage": 20,
+							"damage": 18,
 							"lifeSteal": 0.3,
 							"categories": 2,
 							"sound": "pea1",
@@ -832,7 +834,8 @@
 											"notSpellIds": [
 												"sunflower",
 												"sunshroom",
-												"lily"
+												"lily",
+												"moonflower"
 											],
 											"maxStacks": 10,
 											"stack": "sun",
@@ -908,7 +911,8 @@
 								"notSpellIds": [
 									"sunflower",
 									"sunshroom",
-									"lily"
+									"lily",
+									"moonflower"
 								],
 								"cleansable": false,
 								"cooldownRateModifier": 1.2,
@@ -1150,7 +1154,8 @@
 								"notSpellIds": [
 									"sunflower",
 									"sunshroom",
-									"lily"
+									"lily",
+									"moonflower"
 								],
 								"stack": "sun",
 								"cooldownRateModifier": 1.2,
@@ -1206,7 +1211,8 @@
 								"notSpellIds": [
 									"sunflower",
 									"sunshroom",
-									"lily"
+									"lily",
+									"moonflower"
 								],
 								"cooldownRateModifier": 1.2,
 								"render": {
@@ -2686,7 +2692,7 @@
 		},
 		"puff2": {
 			"id": "puff2",
-			"description": "Shoots a puff with high knockback, but poor damage.",
+			"description": "Shoots a spore with high knockback and splash damage.",
 			"action": "projectile",
 			"color": "#828",
 			"icon": "mush2",
@@ -2694,11 +2700,19 @@
 			"cooldown": 300,
 			"throttle": true,
 			"projectile": {
-				"density": 4000000,
+				"density": 40,
 				"radius": 0.002,
 				"speed": 0.6,
 				"maxTicks": 270,
 				"damage": 5,
+				"detonate": {
+					"damage": 3,
+					"lifeSteal": 0.3,
+					"radius": 0.016,
+					"minImpulse": 0.00015,
+					"maxImpulse": 0.00015,
+					"renderTicks": 20
+				},
 				"lifeSteal": 0.3,
 				"categories": 2,
 				"sound": "puff",
@@ -2854,7 +2868,6 @@
 							"minTicks": 10,
 							"sensor": true,
 							"categories": 2,
-							"sound": "bite",
 							"color": "#888",
 							"renderers": [
 								{
@@ -2869,6 +2882,53 @@
 									"numParticles": 1
 								}
 							],
+							"behaviours": [
+								{
+									"type": "updateCollideWith",
+									"trigger": {
+										"afterTicks": 30
+									},
+									"collideWith": 65535
+								},
+								{
+									"type": "accelerate",
+									"maxSpeed": 0.6,
+									"accelerationPerSecond": 4
+								},
+								{
+									"type": "homing",
+									"redirect": true,
+									"newSpeed": -0.5,
+									"maxTurnProportion": 0.000001,
+									"trigger": {
+										"afterTicks": 30
+									}
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 1
+						},
+						"spread": 1,
+						"numProjectiles": 1,
+						"projectile": {
+							"density": 15,
+							"radius": 0.003,
+							"speed": 0.6,
+							"expireOn": 128,
+							"maxTicks": 70,
+							"collideWith": 0,
+							"damage": 0,
+							"lifeSteal": 0.3,
+							"minTicks": 10,
+							"sensor": true,
+							"categories": 2,
+							"sound": "bite",
+							"color": "#888",
+							"renderers": [],
 							"behaviours": [
 								{
 									"type": "updateCollideWith",
@@ -3360,7 +3420,8 @@
 									"puff",
 									"puff2",
 									"puff3",
-									"seapuff"
+									"seapuff",
+									"shroom"
 								]
 							},
 							{
@@ -3373,7 +3434,8 @@
 									"bean",
 									"sunflower",
 									"lily",
-									"sunshroom"
+									"sunshroom",
+									"moonflower"
 								]
 							},
 							{
@@ -3385,7 +3447,8 @@
 								"spellIds": [
 									"sunflower",
 									"lily",
-									"sunshroom"
+									"sunshroom",
+									"moonflower"
 								]
 							}
 						]
@@ -3479,28 +3542,28 @@
 		},
 		"grass": {
 			"id": "grass",
-			"description": "Shoots a high damage beam of light in exchange of life. Cannot be blocked.",
+			"description": "Shoots a high damage beam of light in exchange of life. When moonlit, the speed is increased and applies a DoT effect.",
 			"action": "spray",
 			"color": "#888",
 			"icon": "grass",
 			"sound": "grass",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 900,
+			"cooldown": 1800,
 			"throttle": true,
 			"intervalTicks": 1,
 			"lengthTicks": 10,
-			"jitterRatio": 0.03,
+			"jitterRatio": 0.001,
 			"projectile": {
 				"density": 0.4,
 				"radius": 0.004,
 				"speed": 0.36,
 				"maxTicks": 120,
+				"selfPassthrough": false,
 				"expireOn": 128,
 				"damage": 3,
-				"sense": 65511,
-				"collideWith": 24,
+				"sensor": true,
 				"lifeSteal": 0,
-				"categories": 2,
+				"categories": 512,
 				"soundHit": null,
 				"buffs": [
 					{
@@ -3550,7 +3613,113 @@
 						"numParticles": 1
 					}
 				],
-				"behaviours": []
+				"behaviours": [
+					{
+						"type": "spawn",
+						"expire": true,
+						"trigger": {
+							"collideWith": 256
+						},
+						"projectile": {
+							"density": 0.4,
+							"radius": 0.004,
+							"speed": 0.56,
+							"maxTicks": 120,
+							"expireOn": 128,
+							"damage": 0,
+							"sense": 65511,
+							"collideWith": 24,
+							"lifeSteal": 0,
+							"categories": 2,
+							"soundHit": null,
+							"buffs": [
+								{
+									"type": "burn",
+									"collideWith": 1,
+									"against": 15,
+									"owner": true,
+									"stack": "fire",
+									"cleansable": false,
+									"hitInterval": 1,
+									"packet": {
+										"damage": 0.2,
+										"lifeSteal": 0,
+										"noHit": true
+									},
+									"maxTicks": 10,
+									"resetOnGameStart": true,
+									"render": {
+										"color": "#fff",
+										"alpha": 0.075,
+										"light": 1,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.00625,
+										"shine": 0.2,
+										"glow": 1,
+										"bloom": 0.03,
+										"vanish": 1
+									}
+								},
+								{
+									"type": "burn",
+									"collideWith": 9,
+									"against": 15,
+									"stack": "fire",
+									"cleansable": false,
+									"hitInterval": 10,
+									"packet": {
+										"damage": 0.5,
+										"lifeSteal": 0,
+										"noHit": true
+									},
+									"maxTicks": 60,
+									"resetOnGameStart": true,
+									"render": {
+										"color": "#0ff",
+										"alpha": 0.075,
+										"light": 1,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.00625,
+										"shine": 0.2,
+										"glow": 1,
+										"bloom": 0.03,
+										"vanish": 1
+									}
+								}
+							],
+							"color": "#80f",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 20,
+									"intermediateInterpolations": 2,
+									"smoke": 0.05,
+									"glow": 0.1,
+									"shine": 0.1,
+									"light": 0.4
+								},
+								{
+									"type": "projectile",
+									"ticks": 60,
+									"color": "#08f3",
+									"intermediateInterpolations": 2,
+									"smoke": 0.05,
+									"glow": 0.1,
+									"shine": 0.1,
+									"light": 0.4
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"numParticles": 1
+								}
+							],
+							"behaviours": []
+						}
+					}
+				]
 			},
 			"name": "Magnifying Grass"
 		},
@@ -3719,7 +3888,8 @@
 								"notSpellIds": [
 									"sunflower",
 									"sunshroom",
-									"lily"
+									"lily",
+									"moonflower"
 								],
 								"maxTicks": 19,
 								"against": 3,
@@ -4394,7 +4564,7 @@
 				"collideWith": 65535,
 				"expireOn": 129,
 				"maxTicks": 150,
-				"damage": 7.5,
+				"damage": 3.5,
 				"selfPassthrough": true,
 				"lifeSteal": 0.3,
 				"categories": 2,
@@ -4422,7 +4592,7 @@
 							"collideWith": 0,
 							"expireOn": 65535,
 							"maxTicks": 120,
-							"damage": 11.25,
+							"damage": 6.25,
 							"selfPassthrough": true,
 							"lifeSteal": 0.3,
 							"categories": 2,
@@ -4463,7 +4633,7 @@
 									"projectile": {
 										"density": 0.004,
 										"detonate": {
-											"damage": 15,
+											"damage": 10,
 											"lifeSteal": 0.3,
 											"radius": 0.036,
 											"minImpulse": 0,
@@ -5556,7 +5726,7 @@
 							"density": 1,
 							"radius": 0.005,
 							"buffs": [],
-							"speed": 0.2,
+							"speed": 0.5,
 							"maxTicks": 20,
 							"sensor": true,
 							"damage": 3,
@@ -5618,6 +5788,439 @@
 				]
 			},
 			"name": "Wheat Slinger"
+		},
+		"moonflower": {
+			"id": "moonflower",
+			"description": "A large moonlit aura that reduces cooldowns and can be pushed. Powers moon spells.",
+			"action": "projectile",
+			"color": "#0bc",
+			"recoil": -0.5,
+			"icon": "1moon",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 1000,
+			"throttle": true,
+			"projectile": {
+				"density": 60,
+				"sound": "placea",
+				"radius": 0.013,
+				"collideWith": 65023,
+				"sense": 512,
+				"speed": 0,
+				"categories": 258,
+				"expireOn": 128,
+				"maxTicks": 900000,
+				"damage": 0,
+				"color": "#07c",
+				"behaviours": [
+					{
+						"type": "aura",
+						"radius": 0.1,
+						"against": 3,
+						"tickInterval": 20,
+						"buffs": [
+							{
+								"type": "cooldown",
+								"maxTicks": 19,
+								"maxStacks": 10,
+								"stack": "sun",
+								"notSpellIds": [
+									"sunflower",
+									"sunshroom",
+									"lily",
+									"moonflower"
+								],
+								"cleansable": false,
+								"cooldownRateModifier": 1.1,
+								"render": {
+									"color": "#01f",
+									"alpha": 0.3,
+									"glow": 0.1,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"light": 1
+								}
+							}
+						]
+					}
+				],
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#0204",
+						"radius": 0.01,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 3,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.7,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "rgba(0, 55, 255, 0.1)",
+						"radius": 0.1,
+						"minRadius": 0.001
+					},
+					{
+						"type": "bloom",
+						"radius": 0.015
+					},
+					{
+						"type": "projectile",
+						"ticks": 1,
+						"light": 0.2,
+						"smoke": 0.05
+					}
+				]
+			}
+		},
+		"spea": {
+			"id": "spea",
+			"description": "Shoots a pea that deals higher knockback. When moonlit, it shoots a piercing beam of slowness.",
+			"action": "projectile",
+			"color": "#028",
+			"chargeTicks": 10,
+			"icon": "1pea",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 600,
+			"throttle": true,
+			"projectile": {
+				"density": 85,
+				"radius": 0.008,
+				"speed": 0.36,
+				"maxTicks": 140,
+				"sensor": true,
+				"damage": 15,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "spea",
+				"soundHit": "standard",
+				"color": "#028",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 6,
+						"smoke": 0.05
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				],
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 256
+						},
+						"expire": true,
+						"projectile": {
+							"density": 25,
+							"radius": 0.008,
+							"speed": 1.8,
+							"ccd": true,
+							"sensor": true,
+							"minTicks": 4,
+							"maxTicks": 140,
+							"expireOn": 128,
+							"damage": 5,
+							"lifeSteal": 0.3,
+							"buffs": [
+								{
+									"type": "movement",
+									"movementProportion": 0.5,
+									"maxTicks": 120,
+									"against": 15,
+									"cleansable": false,
+									"render": {
+										"color": "rgba(134,0, 255, 1)",
+										"alpha": 0.3,
+										"light": 0.3,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.01,
+										"shine": 0.2,
+										"glow": 0.7,
+										"vanish": 1
+									}
+								}
+							],
+							"behaviours": [],
+							"categories": 2,
+							"sound": "slightning",
+							"soundHit": "standard",
+							"color": "#0ff3",
+							"renderers": [
+								{
+									"type": "ray",
+									"ticks": 120,
+									"light": null
+								},
+								{
+									"type": "ray",
+									"ticks": 60,
+									"color": "#f0fa"
+								}
+							]
+						}
+					}
+				]
+			},
+			"name": "Shadow Peashooter"
+		},
+		"shroom": {
+			"id": "shroom",
+			"description": "Shoots a spore which leaves a poisonous residue. When moonlit, the poison is more toxic.",
+			"action": "projectile",
+			"color": "#208",
+			"icon": "shroom",
+			"chargeTicks": 20,
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 1800,
+			"throttle": true,
+			"projectile": {
+				"density": 0.001,
+				"radius": 0.008,
+				"speed": 0.36,
+				"maxTicks": 140,
+				"expireOn": 65277,
+				"damage": 0,
+				"sensor": true,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "spea2",
+				"soundHit": "standard",
+				"color": "#208",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 12,
+						"shine": 0
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				],
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 256
+						},
+						"expire": true,
+						"projectile": {
+							"density": 0.001,
+							"radius": 0.008,
+							"speed": 0.46,
+							"maxTicks": 140,
+							"expireOn": 65277,
+							"damage": 0,
+							"sensor": true,
+							"lifeSteal": 0.3,
+							"categories": 2,
+							"sound": "spea2",
+							"soundHit": "standard",
+							"color": "#048",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 12,
+									"shine": 0
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 5
+								}
+							],
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 9
+									},
+									"expire": true,
+									"projectile": {
+										"density": 100,
+										"selfPassthrough": true,
+										"ccd": false,
+										"square": true,
+										"attractable": false,
+										"linkable": true,
+										"sound": "places",
+										"sensor": true,
+										"swappable": true,
+										"radius": 0.05,
+										"collideWith": 129,
+										"speed": 0,
+										"maxTicks": 600,
+										"hitInterval": 15,
+										"buffs": [
+											{
+												"type": "burn",
+												"collideWith": 9,
+												"cleansable": false,
+												"against": 12,
+												"stack": "poison",
+												"maxStacks": 10,
+												"hitInterval": 100,
+												"packet": {
+													"damage": 1.5,
+													"lifeSteal": 0.3,
+													"noHit": true
+												},
+												"maxTicks": 500,
+												"render": {
+													"color": "#048",
+													"alpha": 0.2,
+													"light": 1,
+													"ticks": 15,
+													"emissionRadiusFactor": 1,
+													"particleRadius": 0.00625,
+													"shine": 0.2,
+													"glow": 1,
+													"bloom": 0.03,
+													"vanish": 1
+												}
+											}
+										],
+										"damage": 0.5,
+										"categories": 2,
+										"expireOn": 128,
+										"color": "#048",
+										"renderers": [
+											{
+												"type": "polygon",
+												"numPoints": 15,
+												"radiusMultiplier": 1.15,
+												"revolutionInterval": 800,
+												"ticks": 1,
+												"shine": 0,
+												"color": "#0483"
+											},
+											{
+												"type": "polygon",
+												"numPoints": 15,
+												"radiusMultiplier": 1,
+												"revolutionInterval": 800,
+												"ticks": 1,
+												"shine": 0,
+												"color": "#0243"
+											},
+											{
+												"type": "bloom",
+												"radius": 0.06
+											},
+											{
+												"type": "strike",
+												"ticks": 18,
+												"growth": 0.1
+											}
+										]
+									}
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 9
+						},
+						"expire": true,
+						"projectile": {
+							"density": 100,
+							"selfPassthrough": true,
+							"ccd": false,
+							"square": true,
+							"attractable": false,
+							"linkable": true,
+							"sound": "places",
+							"sensor": true,
+							"swappable": true,
+							"radius": 0.05,
+							"collideWith": 129,
+							"speed": 0,
+							"maxTicks": 600,
+							"hitInterval": 15,
+							"buffs": [
+								{
+									"type": "burn",
+									"collideWith": 9,
+									"cleansable": false,
+									"against": 12,
+									"stack": "poison",
+									"maxStacks": 10,
+									"hitInterval": 100,
+									"packet": {
+										"damage": 1,
+										"lifeSteal": 0.3,
+										"noHit": true
+									},
+									"maxTicks": 500,
+									"render": {
+										"color": "#208",
+										"alpha": 0.2,
+										"light": 1,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.00625,
+										"shine": 0.2,
+										"glow": 1,
+										"bloom": 0.03,
+										"vanish": 1
+									}
+								}
+							],
+							"damage": 0.5,
+							"categories": 2,
+							"expireOn": 128,
+							"color": "#208",
+							"renderers": [
+								{
+									"type": "polygon",
+									"numPoints": 15,
+									"radiusMultiplier": 1.15,
+									"revolutionInterval": 800,
+									"ticks": 1,
+									"shine": 0,
+									"light": null,
+									"color": "#2083"
+								},
+								{
+									"type": "polygon",
+									"numPoints": 15,
+									"radiusMultiplier": 1,
+									"revolutionInterval": 800,
+									"ticks": 1,
+									"shine": 0,
+									"light": null,
+									"color": "#1043"
+								},
+								{
+									"type": "bloom",
+									"radius": 0.06
+								},
+								{
+									"type": "strike",
+									"ticks": 18,
+									"growth": 0.1
+								}
+							]
+						}
+					}
+				]
+			},
+			"name": "Shadow-shroom"
 		}
 	},
 	"Layouts": {
@@ -6888,6 +7491,85 @@
 					]
 				}
 			]
+		},
+		"spea": {
+			"cutOffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.51,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 240,
+					"volume": 0.01,
+					"tremoloFreq": 20,
+					"tremoloStrength": 10,
+					"stopFreq": 140,
+					"wave": "triangle",
+					"ratios": [
+						1,
+						1.15
+					]
+				}
+			]
+		},
+		"slightning": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.7,
+					"attack": 0.001,
+					"volume": 0.5,
+					"decay": 0.29,
+					"highPass": 195,
+					"lowPass": 125,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.33,
+						1.78,
+						2.67,
+						2.56
+					]
+				}
+			]
+		},
+		"spea2": {
+			"cutOffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.51,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 240,
+					"volume": 0.01,
+					"tremoloFreq": 20,
+					"tremoloStrength": 3,
+					"stopFreq": 140,
+					"wave": "sine",
+					"ratios": [
+						1,
+						2
+					]
+				}
+			]
+		},
+		"places": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"volume": 0.08,
+					"stopTime": 0.4,
+					"attack": 0.001,
+					"decay": 0.19,
+					"startFreq": 180,
+					"stopFreq": 180,
+					"wave": "sine",
+					"ratios": [
+						1.1,
+						2.2
+					]
+				}
+			]
 		}
 	},
 	"Icons": {
@@ -7038,6 +7720,18 @@
 		"ceb": {
 			"c": "https://game-icons.net/1x1/lorc/wheat.html",
 			"path": "M98.344 16.688C79.692 43.785 68.498 69.01 65.5 89.56l23.938 39.157 28.624-33.47c.868-21.213-5.49-48.677-19.718-78.563zM472.5 19.625C444.04 36.055 423.112 54 411.562 71.25l4.75 45.688L456.563 99c9.89-18.777 15.938-46.29 15.938-79.375zm-91.75 27.28c-10.153 21.036-16.8 40.84-20.156 58.314l18.375 57.686 19.78-34.25-6.5-62.22h.03c-3.422-6.392-7.252-12.906-11.53-19.53zM27.25 80.782c-.125 23.364 2.393 44.102 6.875 61.314L75.5 186.25l3.125-39.406L46 93.47l.03-.032c-5.83-4.287-12.08-8.52-18.78-12.657zm132.844 10.532c-8.415 3.504-16.29 7.213-23.594 11.094l-39.25 45.97-3.094 39.374 50.438-39.094c6.712-15.904 12.09-35.263 15.5-57.344zm177.22 21.626c-24.024 58.09-16.16 97.86 7.873 108.5l21.157-36.625-19.594-61.438c-2.973-3.46-6.108-6.943-9.438-10.438zm146.03.218c-4.55-.028-8.97.084-13.28.28L414.935 138l-19.78 34.28 62.343-13.655c12.897-11.47 26.09-26.626 38.656-45.094-4.358-.216-8.64-.348-12.812-.374zm-226.094 8.72c-23.24 23.238-38.832 46.003-45.53 65.655l16.436 42.907 34.22-27.75c4.695-20.704 3.436-48.856-5.126-80.812zM16.406 159.06c3.28 62.77 27.482 95.31 53.75 94.594l3.344-42.22-44.063-47c-4.175-1.844-8.515-3.647-13.03-5.374zm143.22 11.375c-6.457 1.354-12.63 2.896-18.5 4.563l-48.97 37.938-3.312 41.75c26.492 7.51 57.16-20.567 70.78-84.25zm16.06 1.563c-4.36 22.935-5.65 43.762-4.374 61.5l32.688 51 10.22-38.188-22.407-58.437h.03c-4.952-5.28-10.318-10.592-16.155-15.875zm267.408 8.938l-60.563 13.218-20.936 36.25c20.682 18.195 60.438 6.035 100.125-45.625-6.413-1.552-12.62-2.823-18.626-3.843zm-138.688 25.53c-8.912 1.92-17.304 4.16-25.187 6.657l-46.97 38.03-10.22 38.19 56.69-29.283c9.493-14.424 18.323-32.49 25.686-53.593zm155.125 25.063c-25.85 20.324-44.046 41.06-53.03 59.782l11.22 44.532 37.28-23.47c7.126-19.99 9.236-48.088 4.53-80.843zm-123.342 8.595c-34.435 77.573-59.394 159.06-62.97 253.03h18.72c3.558-90.792 27.573-169.428 61.312-245.436l-17.063-7.595zm-185.375 6.906c-8.173 62.347 9.714 98.713 35.687 102.75l10.97-40.874-34.814-54.25c-3.77-2.57-7.713-5.105-11.844-7.625zm221.75 24.532c-7.053 22.243-10.817 42.77-11.657 60.532l26.406 54.594L402 349.967l-15.28-60.687h.06c-4.3-5.848-9.033-11.76-14.217-17.717zm-302.47 1.532c-8.664 74.584-8.13 147.835 12.188 220.062h19.44c-20.877-70.772-21.764-143.02-13.064-217.906l-18.562-2.156zm219.47 11.094c-6.613.16-12.953.54-19.032 1.125L215.5 313.78l-10.844 40.408c24.69 12.23 59.938-9.82 84.906-70zm206.718 36.937c-9.072.844-17.664 2.052-25.78 3.594l-51.156 32.217-14.688 36.657 59.75-22.313c11.14-13.193 22.055-30.075 31.875-50.155zm-157.31 22c-15.528 60.938-2.096 99.19 23.217 106.28l15.72-39.28-28.094-58.03c-3.43-3-7.053-5.985-10.844-8.97zM183.25 368.72c-12.674 41.233-22.26 82.547-26.844 124.436h18.813c4.507-39.722 13.69-79.23 25.905-118.97l-17.875-5.467zm270 26.655l-58 21.688-15.563 38.875c23.056 15.098 60.673-2.606 92.625-59.407-6.594-.627-12.95-1.003-19.062-1.155zM356.5 469.03c-1.874 7.713-3.185 15.757-3.656 24.126h18.687c.45-6.686 1.55-13.206 3.126-19.687l-18.156-4.44z"
+		},
+		"1moon": {
+			"path": "M253.125 18.563c-131.53 0-238.375 106.813-238.375 238.343 0 131.53 106.846 238.344 238.375 238.344 131.53 0 238.344-106.815 238.344-238.344 0-131.528-106.816-238.344-238.345-238.344zm-23.938 52.093c40.517 0 77.988 12.904 108.532 34.813-5.597-.624-11.302-.97-17.064-.97-84.157 0-152.375 68.25-152.375 152.406 0 84.157 68.22 152.375 152.376 152.375 5.762 0 11.467-.313 17.063-.936-30.545 21.91-68.016 34.812-108.533 34.812-102.98 0-186.28-83.272-186.28-186.25 0-102.977 83.3-186.25 186.28-186.25z",
+			"credit": "https://game-icons.net/1x1/lorc/moon.html"
+		},
+		"1pea": {
+			"path": "M304.04 95.943c-79.228 0-143.253 64.03-143.253 143.252 0 9.654.96 19.078 2.772 28.192-22.445 23.575-46.822 37.388-73.132 42.35-1.933-10.607-2.27-19.24-1.414-25.98 1.144-8.995 4.098-14.5 8.43-18.54 8.072-7.523 23.912-10.467 45.583-8.592-.615-5.728-.94-11.54-.94-17.43 0-.47.014-.938.018-1.408-3.816-.298-7.567-.49-11.216-.52-18.457-.16-34.558 3.44-46.187 14.28-7.753 7.226-12.66 17.52-14.228 29.853-1.132 8.898-.682 18.93 1.322 30.373-16.354.544-33.408-2.04-51.16-7.54v19.412c18.878 5.15 37.466 7.192 55.474 5.986 8.494 26.69-.19 41.56-14.157 51.196-11.892 8.205-28.824 10.96-41.316 8.95v19.1c17.094 2.303 36.343-1.914 51.93-12.667 18.842-13 30.736-37.682 22.26-69.046 26.722-5.317 51.87-18.246 74.444-39.228 2.447 6.778 5.384 13.32 8.78 19.576-30.85 25.655-43.58 56.202-43.204 85.517-9.9 3.555-20.404 6.9-31.147 10.747-29.692 10.635-61.255 26.32-83.063 62.43v27.207h7.082C46.43 447.77 76.77 433.274 110 421.374c8.885-3.183 17.95-6.072 26.947-9.208.882 4.257 2.017 8.46 3.42 12.58 4.645 13.653 11.786 26.503 20.722 38.1-22.457 6.016-45.297 14.744-64.725 30.568h35.256c13.68-6.47 28.634-10.904 43.734-14.576 5.403 5.27 11.19 10.146 17.268 14.576h37.518c-11.303-4.82-22.265-11.566-32.198-19.693 8.438-1.83 16.776-3.636 24.73-5.638 7.32-1.842 14.407-3.86 21.05-6.37 5.908 5.28 12.54 9.822 19.646 13.546 36.47 19.108 86.82 17.54 120.886-15.737 2.85.773 5.727 1.45 8.633 2.027 12.053 2.387 24.517 3.173 37.235 2.586 4.218 9.506 7.59 19.355 10.018 29.28h19.175c-2.296-10.575-5.534-21.05-9.658-31.212 15.25-2.28 30.752-6.333 46.254-11.81V430.48c-18.596 7.04-36.965 11.834-54.527 13.926-4.735-8.945-10.17-17.518-16.248-25.55 7.778-6.334 15.64-11.77 23.362-15.774 17.26-8.95 32.38-11.436 47.412-3.11v-20.126c-18.558-6.217-38.35-2.512-56.014 6.646-9.272 4.808-18.247 10.998-26.863 18.018-14.04-14.935-30.767-27.17-49.465-34.955 30.785-14.052 55.687-38.678 70.1-69.258 20.06 10.944 41.627 11.273 62.242 4.268v-19.943c-19.617 8.81-37.257 9.607-55.383-1.78 4.386-13.758 6.76-28.42 6.76-43.65 0-79.227-64.024-143.252-143.25-143.252zm191.874 225.63c-18.32 16.822-37.05 23.787-54.63 23.413-4.47-.095-8.896-.67-13.25-1.713-4.47 5.317-9.273 10.345-14.38 15.047 8.737 3.314 17.885 5.153 27.235 5.352 18.42.39 37.312-5.617 55.024-18.11v-23.988zm-307.805 1.86c10.72 14.74 24.183 27.35 39.65 37.08-12.352 24.623-13.65 48.263-6.67 68.03 2.277 6.45 5.386 12.45 9.174 17.96-3.806 1.23-7.86 2.375-12.15 3.454-11.104 2.795-23.568 5.155-36.573 7.99-10.448-11.807-18.713-25.218-23.477-39.22-1.487-4.37-2.662-8.788-3.502-13.24 3.416-1.437 6.795-2.965 10.124-4.62 15.186-7.55 29.37-18.018 39.957-33.887-4.973-3.876-9.714-8.037-14.2-12.457-8.587 13.99-20.055 22.64-34.075 29.61-1.027.51-2.07 1.01-3.123 1.5 1.272-21 11.417-42.236 34.867-62.2zm56.1 45.985c18.2 8.358 38.46 13.023 59.83 13.023 9.266 0 18.322-.885 27.095-2.56 25.992 3.503 49.128 17.207 67.89 37.016-7.132 6.784-13.942 13.978-20.42 21.24-18.798-7.092-35.432-19.51-49.26-38.974-6.888 1.085-13.918 1.74-21.064 1.926 15.024 24.198 34.243 40.98 55.94 51.115-27.487 21.187-64.714 20.888-92.175 6.5-3.558-1.864-6.92-3.964-10.074-6.262 3.602-2.48 6.925-5.302 9.903-8.563 9.614-10.527 14.227-25.235 12.77-43.898-6.5-.78-12.88-1.945-19.12-3.472 2.726 17.596-.733 27.412-7.45 34.765-2.627 2.88-6.04 5.44-10.106 7.756-3.976-5.084-7.128-10.68-9.256-16.708-5.19-14.705-4.758-32.27 5.5-52.904zm166.876 61.89c3.382 4.568 6.534 9.348 9.463 14.28-7.44-.07-14.675-.7-21.657-1.936 3.98-4.235 8.048-8.383 12.193-12.343z",
+			"credit": "https://game-icons.net/1x1/lorc/noodle-ball.html"
+		},
+		"shroom": {
+			"path": "M270.2 18.8c-68.96 0-117.89 37.757-150.52 83.475-32.63 45.72-47.784 100.002-47.784 126.096 0 7.612 3.726 15.27 12.31 23.292 8.586 8.023 21.87 15.846 38.74 22.432 18.64 7.276 41.623 13.058 67.406 16.79l-.33 3.72 18.62 1.646 9.516-107.686-18.615-1.646-2.754 31.148c-31.007-14.07-53.424-41.094-54.054-83.242-.85-56.927 64.165-87.918 127.287-87.795 59.298.115 116.925 27.69 116.713 87.01-.098 27.788-14.5 50.374-36.256 66.63l-6.384-24.307-18.076 4.748 29.334 111.667 18.076-4.748-1.9-7.23c7.77-2.243 15.084-4.69 21.824-7.33 17.102-6.698 30.64-14.594 39.404-22.587 8.764-7.994 12.486-15.507 12.486-22.512v-.034c-.01-26.633-12.86-80.858-41.45-126.53-28.605-45.69-71.63-83.007-133.595-83.007zm67.036 64.294c-5.587-.138-13.008 2.493-23.076 8.93-58.69 37.536-5.446 55.464 43.567 29.122-3.91-19.254-6.212-37.7-20.49-38.052zM192.313 94.902c-20.66-.172-18.595 21.602-18.366 44.854 57.036 16.586 108.632-13.985 39.002-40.106-8.627-3.235-15.37-4.704-20.637-4.748zm75.87 39.088c-14.55 13.363-24.763 37.98 1.538 38.473 31.216.58 13.18-24.787-1.538-38.473zm34.672 52.354l-18.45 2.974 17.702 109.8 18.452-2.973-17.705-109.8zm-41.558 6.03l-18.688.272 1.507 103.58 18.686-.27-1.506-103.58zM298.11 312.68c-13.058 1.063-26.557 1.62-40.37 1.62-11.565 0-22.874-.394-33.894-1.114-1.046 2.546-2.07 5.125-3.06 7.744-9.086 24.038-15.855 50.798-18.893 74.26-3.04 23.465-1.766 43.903 2.466 53.273 9.582 21.216 24.987 33.124 42.806 39.103 17.82 5.978 38.156 5.56 55.707.673 17.55-4.887 32.02-14.397 38.58-24.24 6.56-9.843 7.395-18.81-3.062-31.353-37.982-45.556-40.875-87.474-40.3-119.045.006-.32.015-.603.02-.92z",
+			"credit": "https://game-icons.net/1x1/lorc/deathcab.html"
 		}
 	},
 	"Tips": [
