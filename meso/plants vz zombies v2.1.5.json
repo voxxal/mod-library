@@ -3429,9 +3429,7 @@
 									"puff2",
 									"puff3",
 									"seapuff",
-									"shroom",
-									"freeze",
-									"doom"
+									"shroom"
 								]
 							},
 							{
@@ -3457,6 +3455,8 @@
 								"spellIds": [
 									"sunflower",
 									"lily",
+									"freeze",
+									"doom",
 									"sunshroom",
 									"moonflower"
 								]
