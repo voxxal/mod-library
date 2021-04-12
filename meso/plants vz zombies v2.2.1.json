@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.2.2",
+		"name": "plants vz zombies v2.2.3",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -398,7 +398,6 @@
 					"repeater"
 				],
 				[
-					"puff",
 					"puff2",
 					"seapuff"
 				],
@@ -420,8 +419,8 @@
 					"spikew"
 				],
 				[
+					"puff3",
 					"pumpkin",
-					"wheat",
 					"parsnip"
 				],
 				[
@@ -431,7 +430,8 @@
 				],
 				[
 					"bean",
-					"sub"
+					"sub",
+					"wheat"
 				]
 			],
 			"e": [
@@ -472,7 +472,7 @@
 					"lightning1"
 				],
 				[
-					"puff3",
+					"puff",
 					"grass",
 					"bowl"
 				]
@@ -2834,27 +2834,29 @@
 		},
 		"puff": {
 			"id": "puff",
-			"description": "Shoots a puff of spores with low range.",
+			"description": "Shoots a puff of spores with low range and high recoil.",
 			"action": "spray",
 			"color": "#828",
 			"icon": "mush1",
+			"recoil": 2,
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 300,
-			"intervalTicks": 1,
-			"lengthTicks": 1,
-			"numProjectilesPerTick": 5,
-			"jitterRatio": 0.17,
+			"cooldown": 1800,
+			"intervalTicks": 2,
+			"sound": "puff2",
+			"lengthTicks": 60,
+			"redirect": true,
+			"numProjectilesPerTick": 1,
+			"jitterRatio": 0,
 			"throttle": true,
 			"projectile": {
 				"density": 0.004,
 				"radius": 0.008,
 				"speed": 0.36,
-				"maxTicks": 35,
-				"damage": 6,
+				"maxTicks": 15,
+				"damage": 3,
 				"selfPassthrough": true,
 				"lifeSteal": 0.3,
 				"categories": 2,
-				"sound": "puff2",
 				"soundHit": "standard",
 				"color": "#828",
 				"renderers": [
@@ -2870,8 +2872,7 @@
 						"ticks": 30,
 						"numParticles": 1
 					}
-				],
-				"behaviours": []
+				]
 			},
 			"name": "Puff-shroom"
 		},
@@ -6434,8 +6435,8 @@
 				"density": 100,
 				"radius": 0.04,
 				"speed": 0,
-				"sound": "placee",
 				"sensor": true,
+				"sound": "placee",
 				"minTicks": 120000,
 				"maxTicks": 120000,
 				"behaviours": [
@@ -6486,12 +6487,11 @@
 						]
 					}
 				],
-				"hitInterval": 60,
 				"damage": 0,
 				"shieldTakesOwnership": false,
 				"categories": 6,
-				"collideWith": 129,
-				"expireOn": 128,
+				"collideWith": 1,
+				"expireOn": 0,
 				"color": "#ba22",
 				"renderers": [
 					{
@@ -6532,9 +6532,9 @@
 			"projectile": {
 				"density": 100,
 				"radius": 0.04,
+				"sensor": true,
 				"speed": 0,
 				"sound": "places",
-				"sensor": true,
 				"minTicks": 120000,
 				"maxTicks": 120000,
 				"behaviours": [
@@ -6589,12 +6589,11 @@
 						]
 					}
 				],
-				"hitInterval": 60,
 				"damage": 0,
 				"shieldTakesOwnership": false,
 				"categories": 6,
-				"collideWith": 129,
-				"expireOn": 128,
+				"collideWith": 1,
+				"expireOn": 0,
 				"color": "#a2b2",
 				"renderers": [
 					{
@@ -6755,7 +6754,7 @@
 		},
 		"parsnip": {
 			"id": "parsnip",
-			"description": "Charge forward to deal 3 damage per slash and cripple the target.",
+			"description": "Charge forward to deal 1 damage per slash and cripple the target.",
 			"effects": [],
 			"untargeted": true,
 			"takesOwnership": false,
@@ -6763,7 +6762,7 @@
 			"shiftMultiplier": 0,
 			"speedMultiplier": 0,
 			"maxSpeed": 0.75,
-			"maxTurnRatePerTickInRevs": 1,
+			"maxTurnRatePerTickInRevs": 0.2,
 			"damageMultiplier": 1,
 			"angleOffsetsInRevs": [
 				0.05,
@@ -6771,20 +6770,20 @@
 			],
 			"width": 0.001,
 			"length": 0.075,
-			"chargeTicks": 60,
+			"chargeTicks": 30,
 			"movementProportionWhileCharging": 0.05,
-			"movementProportionWhileChannelling": 2,
-			"expireAfterHitHeroTicks": 120,
+			"movementProportionWhileChannelling": 3,
+			"expireAfterHitHeroTicks": 1200,
 			"cooldown": 2700,
 			"throttle": false,
 			"icon": "waveStrike",
-			"maxTicks": 61,
+			"maxTicks": 80,
 			"channelling": true,
-			"hitInterval": 60,
+			"hitInterval": 10,
 			"categories": 16,
 			"collidesWith": 65527,
 			"damageTemplate": {
-				"damage": 3
+				"damage": 1
 			},
 			"trailTicks": 5,
 			"color": "#a7a",
@@ -8881,6 +8880,26 @@
 					"ratios": [
 						1,
 						1.2
+					]
+				}
+			]
+		},
+		"puff2-channelling": {
+			"repeatIntervalSeconds": 0.1,
+			"sustain": [
+				{
+					"stopTime": 0.3,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 240,
+					"tremoloFreq": 10,
+					"tremoloStrength": 0.5,
+					"volume": 0.02,
+					"stopFreq": 500,
+					"wave": "sine",
+					"ratios": [
+						1,
+						2.15
 					]
 				}
 			]
