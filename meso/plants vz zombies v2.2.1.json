@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.2.1",
+		"name": "plants vz zombies v2.2.2",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -4062,8 +4062,8 @@
 									"seapuff",
 									"lightning1"
 								],
-								"cooldownRateModifier": 1.2,
-								"adjustCooldown": -10
+								"cooldownRateModifier": 1.1,
+								"adjustCooldown": -6
 							},
 							{
 								"type": "debuff",
@@ -4083,7 +4083,7 @@
 								"cleansable": false,
 								"stack": "sun",
 								"cooldownRateModifier": 1.1,
-								"adjustCooldown": -5
+								"adjustCooldown": -15
 							}
 						]
 					}
