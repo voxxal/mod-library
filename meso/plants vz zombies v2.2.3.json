@@ -6836,7 +6836,7 @@
 			"color": "#f28",
 			"icon": "shrom2",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 1800,
+			"cooldown": 3600,
 			"throttle": true,
 			"projectile": {
 				"density": 0.001,
