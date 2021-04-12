@@ -223,6 +223,7 @@
 			"buffs": [
 				{
 					"type": "burn",
+					"cleansable": false,
 					"maxTicks": 15,
 					"collideWith": 1,
 					"packet": {
@@ -240,6 +241,7 @@
 				{
 					"type": "movement",
 					"stack": "slow",
+					"cleansable": false,
 					"maxStacks": 1,
 					"maxTicks": 15,
 					"movementProportion": 1.2
@@ -247,6 +249,7 @@
 				{
 					"type": "cooldown",
 					"against": 15,
+					"cleansable": false,
 					"cooldownRateModifier": 1.1,
 					"maxTicks": 1,
 					"render": {
@@ -345,6 +348,7 @@
 					"type": "burn",
 					"maxTicks": 15,
 					"collideWith": 1,
+					"cleansable": false,
 					"packet": {
 						"damage": 5,
 						"lifeSteal": 0,
@@ -360,6 +364,7 @@
 				{
 					"type": "movement",
 					"stack": "slow",
+					"cleansable": false,
 					"maxStacks": 1,
 					"render": {
 						"color": "#0ab",
@@ -1235,7 +1240,7 @@
 							"damage": 2,
 							"lifeSteal": 0.3,
 							"categories": 2,
-							"sound": "pea1",
+							"sound": "fire1",
 							"buffs": [
 								{
 									"type": "burn",
@@ -1746,7 +1751,7 @@
 		},
 		"torchwood": {
 			"id": "torchwood",
-			"description": "Ignites peas. Deals 2.25 base damage and applies a DoT effect that deals 2.5 damage.",
+			"description": "Ignites peas. Deals 2.25 base damage and applies a DoT effect that deals 2.5 damage..",
 			"action": "projectile",
 			"name": "Torchwood",
 			"color": "#f30",
@@ -1758,12 +1763,12 @@
 			"projectile": {
 				"sound": "fire",
 				"density": 2,
-				"radius": 0.032,
+				"radius": 0.03,
 				"categories": 64,
 				"hitInterval": 15,
-				"speed": 0.025,
-				"collideWith": 65535,
+				"speed": 0,
 				"sensor": true,
+				"collideWith": 65535,
 				"expireOn": 128,
 				"maxTicks": 700,
 				"buffs": [],
@@ -2834,11 +2839,11 @@
 		},
 		"puff": {
 			"id": "puff",
-			"description": "Shoots a puff of spores with low range and high recoil.",
+			"description": "Dash forward and fire spores rapidly.",
 			"action": "spray",
 			"color": "#828",
 			"icon": "mush1",
-			"recoil": 2,
+			"recoil": -2,
 			"maxAngleDiffInRevs": 0.01,
 			"cooldown": 1800,
 			"intervalTicks": 2,
@@ -2851,9 +2856,9 @@
 			"projectile": {
 				"density": 0.004,
 				"radius": 0.008,
-				"speed": 0.36,
+				"speed": 0.6,
 				"maxTicks": 15,
-				"damage": 3,
+				"damage": 1,
 				"selfPassthrough": true,
 				"lifeSteal": 0.3,
 				"categories": 2,
@@ -4064,7 +4069,7 @@
 									"lightning1"
 								],
 								"cooldownRateModifier": 1.1,
-								"adjustCooldown": -6
+								"adjustCooldown": -3
 							},
 							{
 								"type": "debuff",
@@ -4077,7 +4082,8 @@
 									"sunflower",
 									"sunshroom",
 									"lily",
-									"moonflower"
+									"moonflower",
+									"seapuff"
 								],
 								"maxTicks": 19,
 								"against": 3,
@@ -4431,7 +4437,7 @@
 		},
 		"plantern": {
 			"id": "plantern",
-			"description": "Shoots a bolt of light that gets weaker as it passes through objects. Stuns players temporarily.",
+			"description": "Shoots a bolt of light that gets weaker as it passes through objects and stuns players temporarily.",
 			"action": "projectile",
 			"color": "#a80",
 			"icon": "lantern",
@@ -7559,7 +7565,7 @@
 		"fireball": {
 			"sustain": [
 				{
-					"volume": 0.75,
+					"volume": 0.175,
 					"stopTime": 5,
 					"attack": 0.25,
 					"decay": 4,
@@ -7569,6 +7575,7 @@
 				},
 				{
 					"stopTime": 1.5,
+					"volume": 0.175,
 					"attack": 0.25,
 					"decay": 0.25,
 					"highPass": 432,
@@ -7776,7 +7783,7 @@
 					"stopTime": 1.5,
 					"attack": 0.25,
 					"decay": 0.25,
-					"volume": 0.11,
+					"volume": 0.05,
 					"highPass": 232,
 					"lowPass": 238,
 					"wave": "brown-noise"
