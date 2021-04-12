@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.1.5",
+		"name": "plants vz zombies v2.2",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -109,7 +109,10 @@
 						"shovel",
 						"bean",
 						"lightning1",
-						"blover"
+						"blover",
+						"sunflower",
+						"sunshroom",
+						"moonflower"
 					],
 					"against": 15,
 					"cooldownRateModifier": -1,
@@ -198,6 +201,180 @@
 			"conveyor": {
 				"radialSpeed": 0.1
 			}
+		},
+		"sun": {
+			"health": 50000000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(225, 128, 0, 0.15)",
+					"deadColor": "rgba(225, 128,0, 0.015)",
+					"glow": 0.2
+				}
+			],
+			"hitInterval": 1,
+			"buffs": [
+				{
+					"type": "burn",
+					"maxTicks": 15,
+					"collideWith": 1,
+					"packet": {
+						"damage": 5,
+						"lifeSteal": 0,
+						"noKnockback": true,
+						"noHit": true,
+						"isLava": true,
+						"source": "lava"
+					},
+					"hitInterval": 60,
+					"stack": "volcano",
+					"maxStacks": 1
+				},
+				{
+					"type": "movement",
+					"stack": "slow",
+					"maxStacks": 1,
+					"maxTicks": 15,
+					"movementProportion": 1.2
+				},
+				{
+					"type": "cooldown",
+					"against": 15,
+					"cooldownRateModifier": 1.1,
+					"maxTicks": 1,
+					"render": {
+						"color": "#ba0",
+						"light": 1,
+						"alpha": 0.3,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.01,
+						"bloom": 0,
+						"vanish": 1
+					}
+				}
+			]
+		},
+		"blue": {
+			"health": 50000000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0,0,125, 0.15)",
+					"deadColor": "rgba(0, 0,125, 0.015)",
+					"glow": 0.2
+				}
+			],
+			"hitInterval": 1,
+			"buffs": []
+		},
+		"dblue": {
+			"health": 50000000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0, 0, 15, 0.35)",
+					"deadColor": "rgba(0, 0,15, 0.035)",
+					"glow": 0.2
+				}
+			],
+			"hitInterval": 1,
+			"buffs": []
+		},
+		"day": {
+			"health": 50000000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(125, 85, 42, 0.15)",
+					"deadColor": "rgba(125,85,42, 0.015)",
+					"glow": 0.2
+				}
+			],
+			"hitInterval": 1,
+			"buffs": []
+		},
+		"ddblue": {
+			"health": 50000000,
+			"collideWith": 1,
+			"sensor": true,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "rgba(0, 0, 15, 0.35)",
+					"deadColor": "rgba(0, 0,15, 0.035)",
+					"glow": 0.2
+				}
+			],
+			"hitInterval": 1,
+			"buffs": [
+				{
+					"type": "burn",
+					"maxTicks": 15,
+					"collideWith": 1,
+					"packet": {
+						"damage": 5,
+						"lifeSteal": 0,
+						"noKnockback": true,
+						"noHit": true,
+						"isLava": true,
+						"source": "lava"
+					},
+					"hitInterval": 60,
+					"stack": "volcano",
+					"maxStacks": 1
+				},
+				{
+					"type": "movement",
+					"stack": "slow",
+					"maxStacks": 1,
+					"render": {
+						"color": "#0ab",
+						"light": 1,
+						"alpha": 0.3,
+						"ticks": 30,
+						"emissionRadiusFactor": 1,
+						"particleRadius": 0.01,
+						"bloom": 0,
+						"vanish": 1
+					},
+					"maxTicks": 15,
+					"movementProportion": 0.9
+				}
+			]
 		}
 	},
 	"Choices": {
@@ -3437,7 +3614,7 @@
 								"against": 15,
 								"maxTicks": 1,
 								"cleansable": false,
-								"adjustCooldown": -600,
+								"adjustCooldown": -400,
 								"notSpellIds": [
 									"bean",
 									"sunflower",
@@ -4031,6 +4208,12 @@
 							"minTicks": 20,
 							"maxTicks": 20,
 							"buffs": [
+								{
+									"type": "cooldown",
+									"against": 15,
+									"maxTicks": 1,
+									"minCooldown": 600
+								},
 								{
 									"type": "movement",
 									"stack": "whirlwind",
@@ -6684,6 +6867,24 @@
 			"$delete": true
 		},
 		"mirrorhenge": {
+			"$delete": true
+		},
+		"spiral": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		},
+		"sruins": {
 			"color": "#444",
 			"background": "#222",
 			"obstacles": [
@@ -6724,6 +6925,306 @@
 					"angularWidthInRevs": 0.5
 				},
 				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "grave",
+					"numObstacles": 12,
+					"layoutRadius": 0.3725,
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.02
+				},
+				{
+					"type": "grave",
+					"numObstacles": 12,
+					"layoutRadius": 0.125,
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.02
+				},
+				{
+					"type": "grave",
+					"numObstacles": 12,
+					"layoutRadius": 0.3725,
+					"orientationAngleOffsetInRevs": 0.25,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.02
+				},
+				{
+					"type": "blue",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			],
+			"startMessage": "Game started. Map: Submerged Ruins"
+		},
+		"lake": {
+			"startMessage": "Game started. Map: Lakeside",
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "grave",
+					"numObstacles": 12,
+					"layoutRadius": 0.25,
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.02
+				},
+				{
+					"type": "grave",
+					"numObstacles": 12,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.02
+				},
+				{
+					"type": "day",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			]
+		},
+		"bsun": {
+			"startMessage": "Game started. Map: Burning Sun",
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "grave",
+					"numObstacles": 8,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.06
+				},
+				{
+					"type": "sun",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			]
+		},
+		"nocean": {
+			"startMessage": "Game started. Map: Night Ocean",
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "dblue",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			]
+		},
+		"nplains": {
+			"startMessage": "Game started. Map: Night Plains",
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
 					"type": "watern",
 					"numObstacles": 2,
 					"layoutRadius": 0.395,
@@ -6734,29 +7235,325 @@
 				},
 				{
 					"type": "grave",
-					"numObstacles": 6,
-					"layoutRadius": 0.1725,
-					"layoutAngleOffsetInRevs": 0.15,
-					"extent": 0.008,
+					"numObstacles": 5,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.01,
 					"numPoints": 4,
-					"angularWidthInRevs": 0.05
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.07
+				},
+				{
+					"type": "grave",
+					"numObstacles": 5,
+					"layoutRadius": 0.15,
+					"layoutAngleOffsetInRevs": 0.5,
+					"extent": 0.01,
+					"numPoints": 4,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.07
+				},
+				{
+					"type": "dblue",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
 				}
 			]
 		},
-		"spiral": {
-			"$delete": true
+		"dplains": {
+			"startMessage": "Game started. Map: Plains",
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "grave",
+					"numObstacles": 5,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.01,
+					"numPoints": 4,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.07
+				},
+				{
+					"type": "grave",
+					"numObstacles": 5,
+					"layoutRadius": 0.15,
+					"layoutAngleOffsetInRevs": 0.5,
+					"extent": 0.01,
+					"numPoints": 4,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.07
+				},
+				{
+					"type": "day",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			]
 		},
-		"triplet": {
-			"$delete": true
+		"docean": {
+			"startMessage": "Game started. Map: Ocean",
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "day",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			]
 		},
-		"square": {
-			"$delete": true
+		"nlake": {
+			"startMessage": "Game started. Map: Night Lakeside",
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "grave",
+					"numObstacles": 12,
+					"layoutRadius": 0.25,
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.02
+				},
+				{
+					"type": "grave",
+					"numObstacles": 12,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.02
+				},
+				{
+					"type": "dblue",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			]
 		},
-		"surrounded": {
-			"$delete": true
-		},
-		"tripletSwirl": {
-			"$delete": true
+		"fmoon": {
+			"startMessage": "Game started. Map: Freezing Moon",
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "grave",
+					"numObstacles": 8,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.06
+				},
+				{
+					"type": "ddblue",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			]
 		}
 	},
 	"Sounds": {
