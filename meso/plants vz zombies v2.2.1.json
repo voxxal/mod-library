@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.2",
+		"name": "plants vz zombies v2.2.1",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -2843,14 +2843,14 @@
 			"intervalTicks": 1,
 			"lengthTicks": 1,
 			"numProjectilesPerTick": 5,
-			"jitterRatio": 0.13,
+			"jitterRatio": 0.17,
 			"throttle": true,
 			"projectile": {
 				"density": 0.004,
 				"radius": 0.008,
 				"speed": 0.36,
 				"maxTicks": 35,
-				"damage": 3,
+				"damage": 6,
 				"selfPassthrough": true,
 				"lifeSteal": 0.3,
 				"categories": 2,
@@ -2885,7 +2885,7 @@
 			"cooldown": 300,
 			"throttle": true,
 			"projectile": {
-				"density": 40,
+				"density": 20,
 				"radius": 0.002,
 				"speed": 0.6,
 				"maxTicks": 270,
@@ -2894,8 +2894,8 @@
 					"damage": 3,
 					"lifeSteal": 0.3,
 					"radius": 0.016,
-					"minImpulse": 0.00015,
-					"maxImpulse": 0.00015,
+					"minImpulse": 0.0001,
+					"maxImpulse": 0.0001,
 					"renderTicks": 20
 				},
 				"lifeSteal": 0.3,
@@ -4134,7 +4134,7 @@
 			"color": "#288",
 			"icon": "mush1",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 300,
+			"cooldown": 600,
 			"intervalTicks": 1,
 			"lengthTicks": 1,
 			"numProjectilesPerTick": 1,
@@ -6771,14 +6771,14 @@
 			],
 			"width": 0.001,
 			"length": 0.075,
-			"chargeTicks": 120,
+			"chargeTicks": 60,
 			"movementProportionWhileCharging": 0.05,
 			"movementProportionWhileChannelling": 2,
 			"expireAfterHitHeroTicks": 120,
 			"cooldown": 2700,
 			"throttle": false,
 			"icon": "waveStrike",
-			"maxTicks": 120,
+			"maxTicks": 61,
 			"channelling": true,
 			"hitInterval": 60,
 			"categories": 16,
@@ -7141,16 +7141,16 @@
 					"numObstacles": 2,
 					"layoutRadius": 0,
 					"layoutAngleOffsetInRevs": 0.125,
-					"extent": 0.15,
+					"extent": 0.22,
 					"orientationAngleOffsetInRevs": 0,
 					"angularWidthInRevs": 0.5
 				},
 				{
 					"type": "water",
 					"numObstacles": 2,
-					"layoutRadius": 0.2,
+					"layoutRadius": 0.235,
 					"layoutAngleOffsetInRevs": 0.125,
-					"extent": 0.05,
+					"extent": 0.015,
 					"orientationAngleOffsetInRevs": 0,
 					"angularWidthInRevs": 0.5
 				},
@@ -7364,16 +7364,16 @@
 					"numObstacles": 2,
 					"layoutRadius": 0,
 					"layoutAngleOffsetInRevs": 0.125,
-					"extent": 0.15,
+					"extent": 0.22,
 					"orientationAngleOffsetInRevs": 0,
 					"angularWidthInRevs": 0.5
 				},
 				{
 					"type": "water",
 					"numObstacles": 2,
-					"layoutRadius": 0.2,
+					"layoutRadius": 0.235,
 					"layoutAngleOffsetInRevs": 0.125,
-					"extent": 0.05,
+					"extent": 0.015,
 					"orientationAngleOffsetInRevs": 0,
 					"angularWidthInRevs": 0.5
 				},
@@ -7485,7 +7485,7 @@
 				}
 			]
 		},
-		"fmoon": {
+		"map-knduq8yc": {
 			"startMessage": "Game started. Map: Freezing Moon",
 			"color": "#444",
 			"background": "#222",
