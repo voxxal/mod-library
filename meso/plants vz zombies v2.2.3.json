@@ -1751,7 +1751,7 @@
 		},
 		"torchwood": {
 			"id": "torchwood",
-			"description": "Ignites peas. Deals 2.25 base damage and applies a DoT effect that deals 2.5 damage..",
+			"description": "Ignites peas. Deals 2.25 base damage and applies a DoT effect that deals 2.5 damage.",
 			"action": "projectile",
 			"name": "Torchwood",
 			"color": "#f30",
