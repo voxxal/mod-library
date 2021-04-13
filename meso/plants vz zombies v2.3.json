@@ -295,7 +295,7 @@
 					"maxTicks": 15,
 					"collideWith": 65535,
 					"packet": {
-						"damage": 1,
+				"damage": 0.1,
 						"lifeSteal": 0,
 						"noKnockback": true,
 						"noHit": true,
