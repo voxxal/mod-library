@@ -428,7 +428,7 @@
 		"grave1": {
 			"health": 500000,
 			"undamageable": true,
-			"linearDamping": 980,
+			"static": true,
 			"strike": {
 				"ticks": 10,
 				"growth": 0.005
