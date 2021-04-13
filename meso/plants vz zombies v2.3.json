@@ -303,7 +303,7 @@
 						"source": "lava"
 					},
 					"hitInterval": 5,
-					"stack": "volcano",
+					"stack": "volcano1",
 					"maxStacks": 1,
 					"render": {
 						"color": "#448",
