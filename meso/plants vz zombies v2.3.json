@@ -661,6 +661,7 @@
 				"color": "#280",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 6,
 						"smoke": 0.05
@@ -722,6 +723,7 @@
 							"color": "#820",
 							"renderers": [
 								{
+									"shadow": 0.5,
 									"type": "projectile",
 									"ticks": 12,
 									"smoke": 0.05
@@ -952,6 +954,7 @@
 						"shine": 0
 					},
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 6,
 						"smoke": 0.05
@@ -1429,6 +1432,7 @@
 							"color": "#820",
 							"renderers": [
 								{
+									"shadow": 0.5,
 									"type": "projectile",
 									"ticks": 6,
 									"smoke": 0.05
@@ -1451,6 +1455,7 @@
 				"color": "#280",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 6,
 						"smoke": 0.05
@@ -1678,6 +1683,7 @@
 						"type": "projectile",
 						"ticks": 5,
 						"vanish": 1,
+						"shadow": 0.5,
 						"light": 0.8,
 						"minGraphics": 2
 					},
@@ -1692,6 +1698,7 @@
 						"intermediatePoints": true,
 						"radiusMultiplier": 0.25,
 						"ticks": 45,
+						"shadow": 0.5,
 						"vanish": 1,
 						"light": 0.8
 					},
@@ -1880,6 +1887,7 @@
 									"radius": 0.05
 								},
 								{
+									"shadow": 0.5,
 									"type": "projectile",
 									"ticks": 30,
 									"vanish": 1
@@ -2107,6 +2115,7 @@
 								{
 									"type": "projectile",
 									"ticks": 60,
+									"shadow": 0.5,
 									"smoke": 0.005,
 									"vanish": 1
 								},
@@ -2278,6 +2287,7 @@
 								{
 									"type": "polygon",
 									"numPoints": 3,
+									"shadow": 0.5,
 									"radiusMultiplier": 1.5,
 									"revolutionInterval": 60,
 									"ticks": 20
@@ -2456,10 +2466,10 @@
 								{
 									"type": "projectile",
 									"ticks": 1,
+									"shadow": 0.3,
 									"light": 1,
 									"colorize": 0.1,
 									"shine": 0,
-									"shadow": 0.3,
 									"noPartialRadius": true
 								},
 								{
@@ -2719,12 +2729,14 @@
 						"type": "projectile",
 						"ticks": 6,
 						"glow": 0,
+						"shadow": 0.5,
 						"smoke": 0.25,
 						"light": null
 					},
 					{
 						"type": "projectile",
 						"ticks": 20,
+						"shadow": 0.5,
 						"intermediateInterpolations": 4,
 						"color": "#0ff1",
 						"glow": 0,
@@ -2735,6 +2747,7 @@
 					},
 					{
 						"type": "ray",
+						"shadow": 0.5,
 						"ticks": 10
 					},
 					{
@@ -2840,6 +2853,7 @@
 						"intermediateInterpolations": 4,
 						"ticks": 6,
 						"glow": 0,
+						"shadow": 0.5,
 						"smoke": 0.25,
 						"light": null
 					},
@@ -2847,6 +2861,7 @@
 						"type": "projectile",
 						"intermediateInterpolations": 4,
 						"ticks": 50,
+						"shadow": 0.5,
 						"glow": 0,
 						"color": "#4301",
 						"smoke": 0.25,
@@ -3067,6 +3082,7 @@
 				"color": "#828",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 6,
 						"intermediateInterpolations": 5,
@@ -3120,6 +3136,7 @@
 				"color": "#828",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 6,
 						"smoke": 0.05,
@@ -3155,7 +3172,7 @@
 				"density": 0.0001,
 				"ccd": false,
 				"radius": 0.0125,
-				"speed": 0.25,
+				"speed": 0.35,
 				"sound": "fire2",
 				"maxTicks": 80,
 				"damage": 0,
@@ -3302,26 +3319,40 @@
 						}
 					}
 				],
-				"color": "#0ace00",
+				"color": "#a6a",
 				"renderers": [
 					{
 						"type": "swirl",
-						"color": "#404",
-						"colorize": 0.1,
+						"color": "#faf",
 						"radius": 0.02,
-						"ticks": 1,
+						"glow": null,
+						"shine": null,
+						"ticks": 7,
 						"loopTicks": 120,
-						"numParticles": 6,
-						"particleRadius": 0.006666666666666667,
+						"shadow": 0.51,
+						"numParticles": 3,
+						"particleRadius": 0.007,
+						"light": null
+					},
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"glow": null,
+						"shine": null,
+						"shadow": 0.51,
+						"smoke": 0.05,
+						"light": null
+					},
+					{
+						"type": "link",
+						"color": "#ab5",
+						"width": 0.0045,
+						"toWidth": 0.0063,
 						"glow": 0.4,
-						"shine": 0.4,
-						"vanish": 0.5,
-						"bloom": 0.04,
-						"light": 0.9,
-						"smoke": {
-							"axisMultiplier": 0.13,
-							"isotropicSpeed": 0.15
-						}
+						"bloom": 0.005,
+						"shadow": 0.5,
+						"shine": 0.25,
+						"light": false
 					}
 				]
 			}
@@ -3374,6 +3405,7 @@
 						"intermediateInterpolations": 4,
 						"ticks": 6,
 						"glow": 0,
+						"shadow": 0.5,
 						"smoke": 0.25,
 						"light": null
 					},
@@ -3737,6 +3769,7 @@
 					{
 						"type": "projectile",
 						"ticks": 6,
+						"shadow": 0.5,
 						"smoke": 0.05,
 						"light": null
 					},
@@ -3866,6 +3899,7 @@
 				"color": "#248",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 60,
 						"smoke": 0.105,
@@ -4321,6 +4355,7 @@
 				"color": "#288",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 6,
 						"smoke": 0.05,
@@ -4578,6 +4613,7 @@
 				"color": "#143",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 1,
 						"color": "#1431"
@@ -5091,6 +5127,7 @@
 											{
 												"type": "projectile",
 												"ticks": 10,
+												"shadow": 0.5,
 												"smoke": 0.05,
 												"intermediateInterpolations": 3,
 												"shine": 0.5,
@@ -5101,6 +5138,7 @@
 												"type": "projectile",
 												"ticks": 30,
 												"color": "#000",
+												"shadow": 0.5,
 												"smoke": 0.05,
 												"light": null
 											},
@@ -5118,6 +5156,7 @@
 								{
 									"type": "projectile",
 									"ticks": 10,
+									"shadow": 0.5,
 									"smoke": 0.05,
 									"intermediateInterpolations": 3,
 									"shine": 0.5,
@@ -5127,6 +5166,7 @@
 								{
 									"type": "projectile",
 									"ticks": 30,
+									"shadow": 0.5,
 									"color": "#000",
 									"smoke": 0.05,
 									"light": null
@@ -5146,6 +5186,7 @@
 					{
 						"type": "projectile",
 						"ticks": 10,
+						"shadow": 0.5,
 						"smoke": 0.05,
 						"intermediateInterpolations": 3,
 						"shine": 0.5,
@@ -5155,6 +5196,7 @@
 					{
 						"type": "projectile",
 						"ticks": 30,
+						"shadow": 0.5,
 						"color": "#000",
 						"smoke": 0.05,
 						"light": null
@@ -5935,6 +5977,7 @@
 				"color": "#280",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "ray",
 						"ticks": 10
 					}
@@ -6007,6 +6050,7 @@
 							"color": "#0f0",
 							"renderers": [
 								{
+									"shadow": 0.5,
 									"type": "ray",
 									"ticks": 10
 								}
@@ -6037,6 +6081,7 @@
 							"color": "#0f0",
 							"renderers": [
 								{
+									"shadow": 0.5,
 									"type": "ray",
 									"ticks": 10
 								}
@@ -6146,6 +6191,7 @@
 								{
 									"type": "projectile",
 									"ticks": 60,
+									"light": 0.21,
 									"smoke": 0.005,
 									"vanish": 1
 								},
@@ -6159,8 +6205,8 @@
 							"behaviours": [
 								{
 									"type": "homing",
-									"maxTurnProportion": 0.1,
-									"maxTicks": 10
+									"maxTurnProportion": 0.05,
+									"maxTicks": 20
 								}
 							]
 						}
@@ -6316,6 +6362,7 @@
 					{
 						"type": "projectile",
 						"ticks": 6,
+						"shadow": 0.5,
 						"smoke": 0.05
 					},
 					{
@@ -6416,6 +6463,7 @@
 				"color": "#208",
 				"renderers": [
 					{
+						"shadow": 0.5,
 						"type": "projectile",
 						"ticks": 12,
 						"shine": 0
@@ -6901,6 +6949,7 @@
 					{
 						"type": "projectile",
 						"ticks": 6,
+						"shadow": 0.5,
 						"smoke": 0.05
 					},
 					{
@@ -6938,6 +6987,7 @@
 								{
 									"type": "projectile",
 									"ticks": 6,
+									"shadow": 0.5,
 									"smoke": 0.05
 								},
 								{
