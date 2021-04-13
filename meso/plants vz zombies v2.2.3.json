@@ -8185,7 +8185,7 @@
 			"cutoffEarly": false,
 			"start": [
 				{
-					"volume": 0.1,
+					"volume": 0.3,
 					"stopTime": 0.4,
 					"attack": 0.001,
 					"decay": 0.19,
