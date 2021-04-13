@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.2.4",
+		"name": "plants vz zombies v2.2.5",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -7301,7 +7301,7 @@
 			"background": "#222",
 			"obstacles": [
 				{
-					"type": "water",
+					"type": "watern",
 					"numObstacles": 2,
 					"layoutRadius": 0.3,
 					"layoutAngleOffsetInRevs": 0.125,
@@ -7310,7 +7310,7 @@
 					"angularWidthInRevs": 0.5
 				},
 				{
-					"type": "watern",
+					"type": "water",
 					"numObstacles": 2,
 					"layoutRadius": 0,
 					"layoutAngleOffsetInRevs": 0.125,
@@ -7408,7 +7408,7 @@
 				},
 				{
 					"type": "grave",
-					"numObstacles": 5,
+					"numObstacles": 8,
 					"layoutRadius": 0.3,
 					"layoutAngleOffsetInRevs": 0,
 					"extent": 0.01,
@@ -7418,9 +7418,9 @@
 				},
 				{
 					"type": "grave",
-					"numObstacles": 5,
+					"numObstacles": 8,
 					"layoutRadius": 0.15,
-					"layoutAngleOffsetInRevs": 0.5,
+					"layoutAngleOffsetInRevs": 0.0512,
 					"extent": 0.01,
 					"numPoints": 4,
 					"orientationAngleOffsetInRevs": 0,
@@ -7658,7 +7658,7 @@
 				}
 			]
 		},
-		"map-knduq8yc": {
+		"bmoon": {
 			"startMessage": "Game started. The cold is slowing you. Map: Freezing Moon",
 			"color": "#444",
 			"background": "#222",
@@ -7727,6 +7727,188 @@
 					"angularWidthInRevs": 0.5
 				}
 			]
+		},
+		"ruins": {
+			"color": "#444",
+			"background": "#222",
+			"obstacles": [
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"pattern": [
+						0,
+						1
+					],
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"pattern": [
+						0,
+						1
+					],
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"pattern": [
+						0,
+						1
+					],
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"pattern": [
+						0,
+						1
+					],
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"pattern": [
+						0,
+						1
+					],
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"pattern": [
+						1,
+						0
+					],
+					"layoutRadius": 0.3,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.049,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"pattern": [
+						1,
+						0
+					],
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.15,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "watern",
+					"numObstacles": 2,
+					"pattern": [
+						1,
+						0
+					],
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.05,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"pattern": [
+						1,
+						0
+					],
+					"layoutRadius": 0.47,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.03,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "water",
+					"numObstacles": 2,
+					"pattern": [
+						1,
+						0
+					],
+					"layoutRadius": 0.395,
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.045,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "grave",
+					"numObstacles": 10,
+					"layoutRadius": 0.2,
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.05
+				},
+				{
+					"type": "grave",
+					"numObstacles": 10,
+					"orientationAngleOffsetInRevs": 0.25,
+					"layoutRadius": 0.28,
+					"layoutAngleOffsetInRevs": 0.25,
+					"extent": 0.008,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.05
+				},
+				{
+					"type": "day",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"pattern": [
+						1,
+						0
+					],
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				},
+				{
+					"type": "dblue",
+					"numObstacles": 2,
+					"layoutRadius": 0,
+					"pattern": [
+						0,
+						1
+					],
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.5,
+					"orientationAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.5
+				}
+			],
+			"startMessage": "Game started. Map: Eclipsed Cottage"
 		}
 	},
 	"Sounds": {
