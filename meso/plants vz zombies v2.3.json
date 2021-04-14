@@ -3158,7 +3158,7 @@
 			"description": "Holds an enemy in place and chomps on them.",
 			"effects": [],
 			"action": "spray",
-			"chargeTicks": 6,
+			"chargeTicks": 25,
 			"color": "#babab01e",
 			"icon": "as",
 			"maxAngleDiffInRevs": 0.01,
