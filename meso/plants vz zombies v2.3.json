@@ -436,7 +436,7 @@
 			"render": [
 				{
 					"type": "solid",
-					"color": "#777",
+					"color": "#333",
 					"shadow": true,
 					"flash": false,
 					"expand": 0.003
@@ -5571,7 +5571,7 @@
 				"hitInterval": 15,
 				"damage": 2.5,
 				"categories": 2,
-				"expireOn": 128,
+				"expireOn": 0,
 				"sound": "placee",
 				"color": "#964B00",
 				"renderers": [
@@ -5968,7 +5968,9 @@
 				"density": 15,
 				"radius": 0.008,
 				"speed": 0.4,
+				"sensor": true,
 				"selfPassthrough": true,
+				"expireOn": 128,
 				"maxTicks": 60,
 				"damage": 0,
 				"lifeSteal": 0.3,
@@ -7317,7 +7319,7 @@
 					"angularWidthInRevs": 0.5
 				},
 				{
-					"type": "watern",
+					"type": "water",
 					"numObstacles": 2,
 					"layoutRadius": 0,
 					"layoutAngleOffsetInRevs": 0.125,
@@ -7420,7 +7422,7 @@
 					"angularWidthInRevs": 0.5
 				},
 				{
-					"type": "watern",
+					"type": "water",
 					"numObstacles": 2,
 					"layoutRadius": 0,
 					"layoutAngleOffsetInRevs": 0.125,
