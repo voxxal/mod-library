@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.3",
+		"name": "plants vz zombies v2.3.1",
 		"author": "meso",
 		"description": "non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -576,7 +576,8 @@
 				[
 					"torchwood",
 					"jale",
-					"spikew"
+					"spikew",
+					"stallia"
 				],
 				[
 					"pumpkin",
@@ -7241,6 +7242,91 @@
 				]
 			},
 			"name": "Hypno-shroom"
+		},
+		"stallia": {
+			"id": "stallia",
+			"description": "Fires a spray of unpredictable slowing spores.",
+			"action": "spray",
+			"icon": "8",
+			"numProjectilesPerTick": 8,
+			"jitterRatio": 2,
+			"intervalTicks": 1,
+			"color": "#20f",
+			"sound": "pufff",
+			"lengthTicks": 2,
+			"chargeTicks": 30,
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 1800,
+			"throttle": true,
+			"projectile": {
+				"density": 15,
+				"sensor": true,
+				"hitInterval": 10,
+				"radius": 0.007,
+				"minTicks": 20,
+				"buffs": [
+					{
+						"type": "movement",
+						"movementProportion": 0.5,
+						"maxTicks": 120,
+						"against": 15,
+						"cleansable": false,
+						"render": {
+							"color": "rgba(134,0, 255, 1)",
+							"alpha": 0.3,
+							"light": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01,
+							"shine": 0.2,
+							"glow": 0.7,
+							"vanish": 1
+						}
+					}
+				],
+				"speed": 0.5,
+				"expireOn": 128,
+				"maxTicks": 140,
+				"behaviours": [
+					{
+						"type": "attract",
+						"against": 14,
+						"collideLike": 1,
+						"categories": 1,
+						"radius": 0.04,
+						"accelerationPerTick": -0.002,
+						"clampSpeed": 0.08
+					},
+					{
+						"type": "homing",
+						"maxTurnProportion": -3,
+						"trigger": {
+							"afterTicks": 10
+						}
+					}
+				],
+				"damage": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"soundHit": "standard",
+				"color": "#20a",
+				"renderers": [
+					{
+						"glow": 0,
+						"shadow": 0.5,
+						"type": "projectile",
+						"ticks": 20,
+						"smoke": 0.05
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				]
+			},
+			"name": "Stallia"
 		}
 	},
 	"Layouts": {
@@ -8909,6 +8995,53 @@
 						1.4,
 						2.4,
 						3.6
+					]
+				}
+			]
+		},
+		"pufff-charging": {
+			"start": [
+				{
+					"stopTime": 0.6,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 240,
+					"tremoloFreq": 10,
+					"tremoloStrength": 1.5,
+					"volume": 0.05,
+					"stopFreq": 500,
+					"wave": "sine",
+					"modStartFreq": 440,
+					"modStopFreq": 100,
+					"modStartStrength": 80,
+					"modStopStrength": 80,
+					"ratios": [
+						1,
+						1.15
+					]
+				}
+			]
+		},
+		"pufff-channelling": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"stopTime": 0.6,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 440,
+					"tremoloFreq": 10,
+					"tremoloStrength": 1.5,
+					"volume": 0.05,
+					"stopFreq": 500,
+					"wave": "square",
+					"modStartFreq": 440,
+					"modStopFreq": 800,
+					"modStartStrength": 80,
+					"modStopStrength": 80,
+					"ratios": [
+						1,
+						1.15
 					]
 				}
 			]
