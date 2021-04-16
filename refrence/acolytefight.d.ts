@@ -2,7 +2,7 @@
 
 Units - general conventions:
 * Distance: If you're on a horizontal monitor, the distance from the top of the screen to the bottom is 1.0.
-* Time: Either ticks or seconds. There are 60 ticks per second.
+* Time: Either ticks or seconds. There are 60 ticks per second. It can be changed in the ai section of Constants.
 * Speed: Distance per second.
 * Angles: Revolutions. e.g. maxAngleDiff: 0.25 means the spell can be cast when the acolyte is one quarter-turn away from facing the target directly.
 * Angular speeds: Revolutions per second.
