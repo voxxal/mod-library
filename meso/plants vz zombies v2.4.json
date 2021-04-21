@@ -2775,7 +2775,7 @@
 						"categories": 1,
 						"against": 15,
 						"radius": 0.4,
-						"accelerationPerTick": -0.00125,
+						"accelerationPerTick": -0.0005125,
 						"clampSpeed": 2
 					},
 					{
@@ -2784,7 +2784,7 @@
 						"categories": 1,
 						"against": 15,
 						"radius": 0.3,
-						"accelerationPerTick": -0.000125,
+						"accelerationPerTick": -0.00005125,
 						"clampSpeed": 2
 					},
 					{
@@ -2793,7 +2793,7 @@
 						"categories": 1,
 						"against": 15,
 						"radius": 0.2,
-						"accelerationPerTick": -0.0025,
+						"accelerationPerTick": -0.00125,
 						"clampSpeed": 2
 					},
 					{
@@ -2802,7 +2802,7 @@
 						"categories": 1,
 						"against": 15,
 						"radius": 0.1,
-						"accelerationPerTick": -0.00025,
+						"accelerationPerTick": -0.000125,
 						"clampSpeed": 2
 					}
 				],
