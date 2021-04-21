@@ -6015,11 +6015,6 @@
 					{
 						"type": "bloom",
 						"radius": 0.06
-					},
-					{
-						"type": "strike",
-						"ticks": 18,
-						"growth": 0.1
 					}
 				]
 			}
@@ -8317,11 +8312,6 @@
 								{
 									"type": "bloom",
 									"radius": 0.06
-								},
-								{
-									"type": "strike",
-									"ticks": 18,
-									"growth": 0.1
 								}
 							]
 						}
@@ -8367,11 +8357,6 @@
 					{
 						"type": "bloom",
 						"radius": 0.06
-					},
-					{
-						"type": "strike",
-						"ticks": 18,
-						"growth": 0.1
 					}
 				]
 			}
