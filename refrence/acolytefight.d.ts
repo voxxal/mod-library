@@ -28,6 +28,14 @@ Alliance flags (against, expireAgainstHeroes, expireAgainstObjects):
 * Enemy = 0x04
 * Neutral = 0x08
 
+Graphics level:
+* Maximum = 5; // Retina displays
+* Ultra = 4; // Blooms
+* High = 3; // Particles
+* Medium = 2; // Lights and shadows
+* Low = 1;
+* Minimum = 0.5; // Low-res
+
 */
 
 declare interface AcolyteFightSettings {
@@ -42,7 +50,9 @@ declare interface AcolyteFightSettings {
 	Choices: ChoiceSettings;
 	Sounds: Sounds;
 	Visuals: VisualSettings;
+	Audio: AudioSettings;
 	Icons: IconLookup;
+	Tips: Tip[];
 	Code: string;
 }
 
@@ -60,7 +70,15 @@ declare interface ModSettings {
 
 	subtitleLeft: string;
 	subtitleRight: string;
+
+	private: boolean; // If true, other players in a party will be unable to see the contents of the mod
 }
+
+declare interface TipDetail {
+	isMobile?: boolean;
+	tip: string;
+}
+declare type Tip = string | TipDetail;
 
 declare interface HeroSettings {
 	MoveSpeedPerSecond: number;
@@ -72,6 +90,9 @@ declare interface HeroSettings {
 	Damping: number; // How quickly knockback decayed. Higher number, faster decay.
 	
 	DamageMitigationTicks: number; // Within these many ticks, damage does not stack between multiple players
+	LifeStealMitigationPerOpponent: number; // If 2+ people have hit me recently, increase my lifesteal by this amount per opponent
+	CooldownMitigationPerOpponent: number; // If 2+ people have hit me recently, speed up my cooldown by this amount per opponent
+	MaxMitigationBonuses: number; // Maximum number of mitigation bonuses to apply
 
 	MaxCooldownWaitTicks: number; // If cast a spell and it is almost finished cooling down within this time, just wait to cast it
 	ThrottleTicks: number; // Within these many ticks, disallow multiple spells to be cast by the same hero
@@ -87,14 +108,19 @@ declare interface WorldSettings {
 	HeroLayoutProportion: number; // The radius at which to place heroes - 1 means edge of map, 0 means at center
 	HeroResetProportion: number; // When starting the game, of a hero is outside the map, reset it to this proportion
 
-	LavaLifestealProportion: number; // 0 for no lifesteal, 1 for 100% lifesteal
-	LavaDamagePerSecond: number;
+	LavaLifestealProportion?: number; // Deprecated, use LavaDamage instead
+	LavaDamagePerSecond?: number; // Deprecated, use LavaDamage instead
+
 	LavaDamageInterval: number; // Ticks between applying lava damage
-	LavaBuffs: BuffTemplate[];
+	LavaDamage: DamagePacketTemplate; // Apply this damage every interval the acolyte is in the void
+	LavaBuffs: BuffTemplate[]; // Apply these buffs whenever an acolyte touches the void
 
 	SecondsToShrink: number;
 	ShrinkPowerMinPlayers: number; // Make the shrinking non-linear. Higher values mean faster shrinking at the start of the game.
 	ShrinkPowerMaxPlayers: number;
+	ShrinkCatchupProportionPerTick: number; // As players leave, shrink faster to catch up to what the map size would've been if we had started with fewer players
+
+	MaxLifeSteal: number; // A single hit can never do more than this much lifesteal, no matter how many lifesteal buffs it has
 	
 	ProjectileSpeedDecayFactorPerTick: number; // If a projectile is going faster or slower than its intended speed, correct it by this proportion per tick
 
@@ -184,6 +210,7 @@ declare interface SwatchColor {
 	color: string;
 	deadColor?: string;
 	flash?: boolean; // Whether to flash when obstacle hit. Defaults to true.
+	tint?: number; // Add this proportion of the map color to the obstacle color
 }
 
 declare interface SwatchFill extends SwatchColor {
@@ -194,6 +221,7 @@ declare interface SwatchFill extends SwatchColor {
 	bloom?: number;
 	gradient?: number; // Between 0 and 1, how much shading to apply
 	shadow?: boolean; // Apply shadow offset and shadow feather to fill
+	light?: number;
 }
 
 declare interface SwatchBloom extends SwatchColor {
@@ -202,6 +230,7 @@ declare interface SwatchBloom extends SwatchColor {
 	glow?: number;
 	bloom?: number
 	strikeOnly?: boolean;
+	light?: number;
 }
 
 declare interface SwatchSmoke {
@@ -211,6 +240,7 @@ declare interface SwatchSmoke {
 	particleRadius: number;
 
 	light?: number;
+	colorize?: number;
 	shine?: number;
 	fade?: string;
 	glow?: number;
@@ -332,7 +362,7 @@ declare interface SpellBase {
 	voidCooldownMultiplier?: number; // Cooldown ticks at this rate while in the void
 	interruptibleAfterTicks?: number; // Cannot interrupt a spell until it has been channeling for at least this length
 	interruptCancel?: SpellCancelParams; // If the spell is cancelled by the caster, apply this cooldown
-	strikeCancel?: SpellCancelParams; // If this spell is being channelled, whether being hit by something cancels it.
+	strikeCancel?: StrikeCancelParams; // If this spell is being channelled, whether being hit by something cancels it.
 	
 	chargeBuffs?: BuffTemplate[]; // Apply these buffs at the start of charging the spell
 	buffs?: BuffTemplate[]; // Apply these buffs at the start of channelling the spell
@@ -358,6 +388,9 @@ declare interface ReleaseParams {
 declare interface SpellCancelParams {
 	cooldownTicks?: number; // If cancelled by knockback, set cooldown to this value. This can be used to allow the spell to be re-cast quickly if interrupted.
 	maxChannelingTicks?: number; // Only apply the cooldown reset if have been channelling for less than this time.
+}
+
+declare interface StrikeCancelParams extends SpellCancelParams, ColliderTemplate {
 }
 
 declare interface MoveSpell extends SpellBase {
@@ -423,8 +456,6 @@ declare interface FocusSpell extends SpellBase {
 
 declare interface ProjectileTemplate extends DamagePacketTemplate {
 	damage: number;
-	damageScaling?: boolean; // Whether to apply damage scaling to this projectile
-	knockbackScaling?: boolean; // Increase knockback as acolyte gets more powerful
 
 	partialDamage?: PartialDamageParameters; // Scale damage over time
 	partialDetonateRadius?: PartialDamageParameters; // Scale detonate radius over time, only useful if detonate set
@@ -435,9 +466,12 @@ declare interface ProjectileTemplate extends DamagePacketTemplate {
 	density: number;
 	radius: number;
 	square?: boolean; // A square projectile will push things directly backwards, not to the side
+
 	speed: number;
 	fixedSpeed?: boolean; // if true or undefined, the projectile's speed will be corrected according to ProjectileSpeedDecayFactorPerTick if it becomes faster or slower due to collisions
 	speedDecayPerTick?: number; // if set, the projectile's speed will be corrected according to this proportion per tick if it becomes faster or slower due to collisions
+	speedDamping?: number; // Controls how quickly the projectile loses speed (does not work if the projectile speeds itself back up again using fixedSpeed or speedDecayPerTick)
+
 	restitution?: number; // 1 means very bouncy, 0 means not bouncy
 
 	attractable?: AttractableTemplate; // Whether the "attract" behaviour (e.g. a whirlwind) can affect this projectile
@@ -456,7 +490,8 @@ declare interface ProjectileTemplate extends DamagePacketTemplate {
 	swapWith?: number; // Category flags of what types of objects to swap with
 	lifeSteal?: number; // 1.0 means all damage is returned as health to the owner of the projectile
 
-	buffs?: BuffTemplate[];
+	projectileBuffs?: BuffTemplate[]; // Apply these buffs to the owner as long as the projectile is alive
+	buffs?: BuffTemplate[]; // Apply these buffs to whatever the projectile hits
 	behaviours?: BehaviourTemplate[],
 
 	minTicks?: number; // The minimum number of ticks that a projectile will live for. The main purpose of this is to work around a quirk in the physics engine where if projectiles doesn't live for more than 1 tick, it doesn't affect the physics.
@@ -540,15 +575,25 @@ declare interface BehaviourTemplateBase {
 	trigger?: BehaviourTrigger;
 }
 
-declare interface BehaviourTrigger {
+declare interface BehaviourTrigger extends ColliderTemplate {
 	afterTicks?: number; // After this many ticks
 	atCursor?: boolean; // When projectile reaches cursor
 	minTicks?: number; // Don't trigger at cursor until this many ticks have passed
 
+	expire?: boolean; // Trigger on projectile expiry
+}
+
+declare interface ColliderTemplate {
+	afterTicks?: number; // Trigger collider after this many ticks
 	collideWith?: number; // Collision flags. Trigger behaviour when projectile collides with these objects.
 	against?: number; // Only consider collisions against these alliance flags.
 
-	expire?: boolean; // Trigger on projectile expiry
+	collideTypes?: string[]; // Limit to collisions with these projectile spell ids, obstacle types or shield types
+	notCollideTypes?: string[]; // Don't trigger when colliding with these types
+
+	detonate?: boolean; // Trigger if caught in a detonation, defaults to true
+	notMirror?: boolean; // Don't trigger on mirrors
+	notLinked?: boolean; // Don't trigger if I own a link connected to the object I just hit
 }
 
 declare interface SpawnTemplate extends BehaviourTemplateBase {
@@ -559,6 +604,7 @@ declare interface SpawnTemplate extends BehaviourTemplateBase {
 	numProjectiles?: number; // defaults to 1
 	spread?: number; // the angular width to spread the spawned projectiles across, in revs, defaults to 0
 
+	requireParent?: boolean; // Whether the parent projectile must still exist for the spawning to occur, defaults to false
 	expire?: boolean; // Whether to expire the parent projectile as well
 }
 
@@ -575,6 +621,7 @@ declare interface HomingTemplate extends BehaviourTemplateBase {
 	maxDistanceToTarget?: number; // Homing is only applied if the projectile is closer than this.
 
 	newSpeed?: number; // Update the speed of the projectile while we're redirecting it.
+	speedDecayPerTick?: number; // If set, overwrite the speedDecayPerTick setting on the projectile, which causes it to gradually revert to its original speed if sped up/slowed down by something (e.g. a collision).
 	maxTicks?: number; // Only perform homing for this many ticks
 	redirect?: boolean; // If true, this homing will only redirect the projectile one time
 }
@@ -656,7 +703,6 @@ declare interface DetonateParametersTemplate extends DamagePacketTemplate {
 	
 	minImpulse: number; // The outer rim of the explosion will cause this much knockback
 	maxImpulse: number; // The epicenter of the explosion will cause this much knockback
-	knockbackScaling?: boolean; // Increase knockback as acolyte gets more powerful
 
 	renderTicks: number; // Length of explosion
 	sound?: string;
@@ -677,6 +723,10 @@ declare type RenderParams =
 
 declare interface RenderParamsBase {
 	type: string;
+	minTicks?: number; // Only use this renderer if the projectile has existed for this many ticks
+	maxTicks?: number; // Only use this renderer until the projectile has existed for this many ticks
+	minGraphics?: number; // Only use this renderer if the grahpics level is greater than or equal to this level
+	maxGraphics?: number; // Only use this renderer if the grahpics level is less than or equal to this level
 }
 
 declare interface ProjectileColorParams {
@@ -693,6 +743,7 @@ declare interface RenderRay extends RenderParamsBase, ProjectileColorParams {
 	light?: number; // Render additively
 	glow?: number; // How much alpha to apply to the bloom
 	bloom?: number; // How much radius to give the bloom
+	colorize?: number; // Add a bit of random color (between 0 and 1)
 	shine?: number; // Lighten the trail initially
 	fade?: string; // Fade towards this color
 	vanish?: number; // Fade away the trail until it is transparent - 1 means fade it all away, 0 means do nothing
@@ -711,6 +762,7 @@ declare interface RenderProjectile extends RenderParamsBase, ProjectileColorPara
 	smoke?: RenderSmoke;
 	glow?: number;
 	bloom?: number;
+	colorize?: number;
 	shine?: number;
 	shadow?: number;
 	noPartialRadius?: boolean;
@@ -731,6 +783,7 @@ declare interface RenderPolygon extends RenderParamsBase, ProjectileColorParams 
 	smoke?: RenderSmoke;
 	glow?: number;
 	bloom?: number;
+	colorize?: number;
 	shine?: number;
 	shadow?: number;
 	noPartialRadius?: boolean;
@@ -750,6 +803,7 @@ declare interface RenderSwirl extends RenderParamsBase {
 	particleRadius: number;
 
 	light?: number; // Render additively
+	colorize?: number;
 	shine?: number;
 	smoke?: RenderSmoke;
 	fade?: string;
@@ -759,12 +813,13 @@ declare interface RenderSwirl extends RenderParamsBase {
 	shadow?: number;
 }
 
-declare interface RenderLink extends RenderParamsBase {
+declare interface RenderLink extends RenderParamsBase, ProjectileColorParams {
 	type: "link";
 	color: string;
 	width: number;
 	light?: boolean; // Render additively
 	toWidth?: number;
+	colorize?: number;
 	shine?: number;
 	glow?: number;
 	bloom?: number;
@@ -779,6 +834,7 @@ declare interface RenderReticule extends RenderParamsBase {
 	shrinkTicks?: number;
 	light?: boolean;
 	grow?: boolean;
+	colorize?: number;
 	shine?: number;
 	fade?: boolean;
 	startingTicks?: number; // Only display for this many ticks since creation of the projectile
@@ -799,6 +855,7 @@ declare interface RenderStrike extends RenderParamsBase, ProjectileColorParams, 
 	light?: number; // Render additively
 	numParticles?: number;
 	particleShine?: number;
+	particleColorize?: number;
 	particleGlow?: number;
 	particleBloom?: number;
 	particleVanish?: number;
@@ -816,6 +873,7 @@ declare interface RenderStrikeParams {
 declare interface RenderBloom extends RenderParamsBase, ProjectileColorParams {
 	type: "bloom";
 	light?: number;
+	colorize?: number;
 	shine?: number;
 	glow?: number;
 	radius?: number;
@@ -832,7 +890,6 @@ declare type BuffTemplate =
 	DebuffTemplate
 	| MovementBuffTemplate
 	| GlideTemplate
-	| LavaImmunityBuffTemplate
 	| VanishTemplate
 	| LifestealTemplate
 	| SetCooldownTemplate
@@ -856,6 +913,7 @@ declare interface BuffTemplateBase {
 	maxTicks?: number; // Maximum duration of this buff
 
 	channelling?: boolean; // Cancel this buff if the hero stops casting the spell
+	channellingProjectile?: boolean; // Cancel this buff if the projectile it is attached to stops existing
 	linkOwner?: boolean; // Cancel this buff if no longer the owner of a link
 	linkVictim?: boolean; // Cancel this buff if no longer the victim of a link
 	cancelOnHit?: boolean; // Cancel this buff if the hero gets hit
@@ -863,9 +921,9 @@ declare interface BuffTemplateBase {
 	passive?: boolean; // Cancel this buff if the hero stops choosing this spell
 	resetOnGameStart?: boolean; // Cancel this buff when the game starts
 
-	renderStart?: RenderBuff;
-	render?: RenderBuff;
-	renderFinish?: RenderBuff;
+	renderStart?: RenderBuff; // Render some particles when the buff starts
+	render?: RenderBuff; // Render particles for the duration of the buff
+	renderFinish?: RenderBuff; // Render some particles when the buff ends
 	sound?: string;
 }
 
@@ -873,9 +931,10 @@ declare interface RenderBuff {
 	numParticles?: number;
 	invisible?: boolean; // Only show this to players who can see the hero
 	color: string;
-	selfColor?: boolean; // View own buffs in the self color
+	selfColor?: boolean; // If the buff belongs to me, view it in my own color
 	alpha?: number; // Semi-transparent
 	light?: number; // Render additively
+	colorize?: number;
 	shine?: number; // Brighter initially
 	glow?: number; // How much alpha to apply to the bloom
 	bloom?: number; // Bloom radius
@@ -892,7 +951,7 @@ declare interface RenderBuff {
 }
 
 declare interface DebuffTemplate extends BuffTemplateBase {
-	type: "debuff";
+	type: "debuff"; // Cleanse the receiver of this buff
 }
 
 declare interface MovementBuffTemplate extends BuffTemplateBase {
@@ -904,11 +963,6 @@ declare interface MovementBuffTemplate extends BuffTemplateBase {
 declare interface GlideTemplate extends BuffTemplateBase {
 	type: "glide";
 	linearDampingMultiplier: number; // 0 will make the hero glide
-}
-
-declare interface LavaImmunityBuffTemplate extends BuffTemplateBase {
-	type: "lavaImmunity";
-	damageProportion: number; // 0 will make the hero immune to void damage
 }
 
 declare interface VanishTemplate extends BuffTemplateBase {
@@ -948,6 +1002,7 @@ declare interface BurnTemplate extends BuffTemplateBase {
 declare interface ArmorTemplate extends BuffTemplateBase {
 	type: "armor";
 	proportion: number; // Positive increases damage received, negative negates damage received
+	minHealth?: number; // Don't allow damage received to take us below this amount of health
 
 	source?: string; // Only affect damage packets with the same source
 }
@@ -988,7 +1043,6 @@ declare interface ScourgeSpell extends SpellBase {
 	minSelfHealth: number;
 
 	detonate: DetonateParametersTemplate;
-	knockbackScaling?: boolean; // Increase knockback as acolyte gets more powerful
 
     trailTicks: number;
 }
@@ -1002,6 +1056,7 @@ declare interface ShieldSpell extends SpellBase {
 	glow?: number;
 	bloom?: number;
 	shine?: number;
+	colorize?: number;
 	shadow?: number;
 }
 
@@ -1017,6 +1072,10 @@ declare interface ReflectSpell extends ShieldSpell {
 	angularWidthInRevs?: number;
 	numPoints?: number;
 	maxTurnRatePerTickInRevs?: number;
+
+	angularDamping?: number;
+	density?: number;
+	ropeLength?: number; // If set, knockback that is applied to the shield will apply to the acolyte, but only if it knocks back the acolyte by at least this much
 
 	strike?: RenderStrikeParams;
 }
@@ -1065,11 +1124,14 @@ declare interface SaberSpell extends ShieldSpell {
 
 	categories: number;
 	collidesWith: number;
+	expireAfterHitHeroTicks?: number; // If set, saber will expire this many ticks after it hits an acolyte
 
 	damageTemplate?: DamagePacketTemplate; // Damage to apply to anyone we hit
 	hitInterval?: number; // If saber hits multiple times, only apply damage/buffs at this interval
 	hitBuffs?: BuffTemplate[]; // Buffs to apply to whoever we hit
+	delink?: boolean; // Cut through any links that other acolytes have attached to me
 
+	colorize?: number;
 	shine?: number;
 	bloom?: number;
 	glow?: number;
@@ -1118,7 +1180,8 @@ declare interface LinkParameters {
 	sidewaysImpulsePerTick?: number; // How much should the link pull the target sideways
 	massInvariant?: boolean; // Same force regardless of the mass that is being pulled
 
-	linkTicks: number;
+	linkTicks: number; // duration of the link
+	linkTicksHero?: number; // duration of the link when attached to an acolyte
 	minDistance: number;
 	maxDistance: number;
 
@@ -1136,7 +1199,6 @@ declare interface RedirectDamageParameters {
 
 declare interface DamagePacketTemplate {
 	damage: number;
-	damageScaling?: boolean;
 	lifeSteal?: number;
 	isLava?: boolean;
 	noHit?: boolean; // Don't count this as a hit - no hero flashing and no halo stripping
@@ -1204,6 +1266,8 @@ interface SoundBite {
 
 	wave: WaveType;
 	ratios?: number[];
+
+	noReverb?: boolean;
 }
 
 interface VisualSettings {
@@ -1225,6 +1289,7 @@ interface VisualSettings {
 	WorldAnimateWinTicks: number;
 	WorldWinGrowth: number;
 	WorldWinDarken: number; // Darken/lighten from the hero color by this proportion
+	WorldWinBackgroundDarken: number; // Darken/lighten the background from the hero color by this proportion
 
 	// How much to shake the map when projectiles hit
 	ShakeDistance: number;
@@ -1258,8 +1323,8 @@ interface VisualSettings {
 	Damage: RenderStrikeParams;
 
 	// Hero
-	HeroOutlineProportion: number;
-	HeroOutlineColor: string;
+	HeroOutlineProportion: number; // Width of the outline around the acolyte
+	HeroOutlineColor: string; // Color of the outline around the acolyte
 	HeroGradientDarken: number; // How much to shade the acolyte, between 0 and 1
 	HeroGlyphLighten: number;
 	HeroGlyphOpacity: number;
@@ -1313,4 +1378,16 @@ interface VisualSettings {
 	Colors: string[]; // List of all acolyte colors
 	TeamColors: string[]; // List of all acolyte team colors
 
+}
+
+interface AudioSettings {
+	MasterVolume: number;
+	Reverbs: ReverbSettings[];
+}
+
+interface ReverbSettings {
+	Volume: number;
+	FilterType: string; // "lowpass" or "highpass" - whether to let through low or high frequencies
+	CutoffFrequency: number;
+	TimeSeconds: number; // How long the reverb should last
 }
