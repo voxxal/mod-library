@@ -4143,7 +4143,7 @@
 				{
 					"icon": "fad fa-snowflakes",
 					"title": "Slow",
-					"text": "Freezes and reduces knockback fpr 3 seconds."
+					"text": "Freezes and reduces knockback for 3 seconds."
 				}
 			],
 			"maxAngleDiffInRevs": 0.01,
