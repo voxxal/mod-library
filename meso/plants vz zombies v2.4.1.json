@@ -291,33 +291,6 @@
 			"hitInterval": 1,
 			"buffs": [
 				{
-					"type": "burn",
-					"maxTicks": 15,
-					"collideWith": 65535,
-					"packet": {
-						"damage": 0.1,
-						"lifeSteal": 0,
-						"noKnockback": true,
-						"noHit": true,
-						"isLava": true,
-						"source": "lava"
-					},
-					"hitInterval": 5,
-					"stack": "volcano1",
-					"maxStacks": 1,
-					"render": {
-						"color": "#448",
-						"alpha": 0.3,
-						"light": 1,
-						"ticks": 30,
-						"emissionRadiusFactor": 1,
-						"particleRadius": 0.005,
-						"shine": 0.2,
-						"glow": 1,
-						"vanish": 1
-					}
-				},
-				{
 					"type": "movement",
 					"stack": "slow",
 					"cleansable": false,
@@ -678,7 +651,8 @@
 				[
 					"puff",
 					"grass",
-					"bowl"
+					"bowl",
+					"spore"
 				]
 			],
 			"f": [
@@ -2134,6 +2108,7 @@
 			"description": "Ignites peas. Deals 2.25 base damage and applies a DoT effect that deals 2.5 damage.",
 			"action": "projectile",
 			"name": "Torchwood",
+			"sound": "fire",
 			"color": "#f74",
 			"effects": [
 				{
@@ -2475,12 +2450,20 @@
 		},
 		"starfruit": {
 			"id": "starfruit",
-			"description": "Shoot 2 bursts of starfruit that pierce through players.",
+			"description": "Backstep and shoot 2 bursts of starfruit.",
 			"action": "spray",
 			"color": "#fe0",
 			"icon": "10",
+			"recoil": 1.05,
 			"numProjectilesPerTick": 1,
 			"jitterRatio": 2,
+			"effects": [
+				{
+					"icon": "fas fa-carrot",
+					"title": "Pierce",
+					"text": "Pierces acolytes."
+				}
+			],
 			"intervalTicks": 10,
 			"lengthTicks": 20,
 			"maxAngleDiffInRevs": 0.01,
@@ -2519,7 +2502,7 @@
 							"lifeSteal": 0.3,
 							"collideWith": 65518,
 							"categories": 2,
-							"expireOn": 129,
+							"expireOn": 128,
 							"sound": "pea11",
 							"soundHit": "standard",
 							"color": "#fe0",
@@ -4027,7 +4010,7 @@
 				{
 					"icon": "fas fa-lightbulb",
 					"title": "Cooldown Reduction",
-					"text": "Resets mushroom-type spell cooldowns and reduces cooldowns by 10 seconds. Reduced effectiveness for Doom-Shroom, Ice-Shroom, and A-slot plants"
+					"text": "Resets mushroom-type spell cooldowns and reduces cooldowns by 10 seconds. Reduced effectiveness for D-slot and A-slot plants."
 				},
 				{
 					"icon": "fas fa-thunderstorm",
@@ -4091,7 +4074,8 @@
 									"puff3",
 									"seapuff",
 									"shroom",
-									"hypno"
+									"hypno",
+									"spore"
 								]
 							},
 							{
@@ -5600,6 +5584,7 @@
 			"name": "jalapeño",
 			"color": "#f30",
 			"icon": "jale",
+			"sound": "fire",
 			"maxAngleDiffInRevs": 0.01,
 			"cooldown": 2400,
 			"chargeTicks": 30,
@@ -9002,6 +8987,392 @@
 			},
 			"action": "wall",
 			"sound": "placei"
+		},
+		"spore": {
+			"id": "spore",
+			"description": "Lobs a spore that plants a mushroom sentry.",
+			"action": "projectile",
+			"color": "#f0f",
+			"icon": "spore",
+			"effects": [
+				{
+					"icon": "fas fa-archway",
+					"title": "Lobbing",
+					"text": "Does not hit anything on the ascent."
+				}
+			],
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 4500,
+			"throttle": true,
+			"projectile": {
+				"density": 0.5,
+				"radius": 0.008,
+				"speed": 1.2,
+				"maxTicks": 50,
+				"damage": 15,
+				"collideWith": 0,
+				"lifeSteal": 0.3,
+				"categories": 2,
+				"sound": "caps",
+				"soundHit": "standard",
+				"color": "#f0f",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#0f21",
+						"radius": 0.01,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 3,
+						"particleRadius": 0.003,
+						"light": null,
+						"glow": 0.7,
+						"vanish": 1
+					},
+					{
+						"type": "projectile",
+						"ticks": 6,
+						"glow": 0,
+						"shadow": 0.5,
+						"smoke": 0.25,
+						"light": null
+					},
+					{
+						"type": "projectile",
+						"ticks": 20,
+						"shadow": 0.5,
+						"intermediateInterpolations": 4,
+						"color": "#0ff1",
+						"glow": 0,
+						"light": null
+					},
+					{
+						"type": "bloom"
+					},
+					{
+						"type": "ray",
+						"shadow": 0.5,
+						"ticks": 10
+					},
+					{
+						"type": "strike",
+						"ticks": 30,
+						"flash": true,
+						"numParticles": 5
+					}
+				],
+				"behaviours": [
+					{
+						"type": "updateCollideWith",
+						"trigger": {
+							"afterTicks": 25
+						},
+						"collideWith": 65535
+					},
+					{
+						"type": "accelerate",
+						"maxSpeed": 1.3,
+						"maxTicks": 25,
+						"accelerationPerSecond": -2.25
+					},
+					{
+						"type": "partial",
+						"partialDamage": {
+							"initialMultiplier": 0.15,
+							"finalMultiplier": 1,
+							"ticks": 25
+						}
+					},
+					{
+						"type": "partial",
+						"trigger": {
+							"afterTicks": 25
+						},
+						"partialDamage": {
+							"initialMultiplier": 1,
+							"finalMultiplier": 0.15,
+							"ticks": 25
+						}
+					},
+					{
+						"type": "accelerate",
+						"maxSpeed": 1.2,
+						"trigger": {
+							"afterTicks": 23
+						},
+						"accelerationPerSecond": 2
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"expire": true
+						},
+						"projectile": {
+							"density": 1e-9,
+							"ccd": false,
+							"radius": 0.01,
+							"speed": 0,
+							"sound": "placep",
+							"restitution": 0,
+							"minTicks": 1,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"afterTicks": 60
+									},
+									"projectile": {
+										"density": 1e-9,
+										"ccd": false,
+										"radius": 0.008,
+										"speed": 0.15,
+										"restitution": 0,
+										"minTicks": 1,
+										"behaviours": [
+											{
+												"type": "homing",
+												"targetType": "follow",
+												"maxTicks": 10
+											}
+										],
+										"maxTicks": 120,
+										"damage": 10,
+										"sound": "puff",
+										"categories": 2,
+										"expireOn": 128,
+										"color": "#e0f",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.06
+											},
+											{
+												"type": "projectile",
+												"ticks": 18,
+												"smoke": 0.5,
+												"fade": "#333",
+												"shadow": 0.5
+											},
+											{
+												"type": "strike",
+												"ticks": 18,
+												"flash": true,
+												"growth": 0.1
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"trigger": {
+										"afterTicks": 30
+									},
+									"projectile": {
+										"density": 1e-9,
+										"ccd": false,
+										"radius": 0.008,
+										"speed": 0.15,
+										"restitution": 0,
+										"minTicks": 1,
+										"behaviours": [
+											{
+												"type": "homing",
+												"targetType": "follow",
+												"maxTicks": 10
+											}
+										],
+										"maxTicks": 240,
+										"damage": 10,
+										"sound": "puff",
+										"categories": 2,
+										"expireOn": 128,
+										"color": "#e0f",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.06
+											},
+											{
+												"type": "projectile",
+												"ticks": 18,
+												"smoke": 0.5,
+												"fade": "#333",
+												"shadow": 0.5
+											},
+											{
+												"type": "strike",
+												"ticks": 18,
+												"flash": true,
+												"growth": 0.1
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"trigger": {
+										"afterTicks": 90
+									},
+									"projectile": {
+										"density": 1e-9,
+										"ccd": false,
+										"radius": 0.008,
+										"speed": 0.15,
+										"restitution": 0,
+										"minTicks": 1,
+										"behaviours": [
+											{
+												"type": "homing",
+												"targetType": "follow",
+												"maxTicks": 10
+											}
+										],
+										"maxTicks": 240,
+										"damage": 10,
+										"sound": "puff",
+										"categories": 2,
+										"expireOn": 128,
+										"color": "#e0f",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.06
+											},
+											{
+												"type": "projectile",
+												"ticks": 18,
+												"smoke": 0.5,
+												"fade": "#333",
+												"shadow": 0.5
+											},
+											{
+												"type": "strike",
+												"ticks": 18,
+												"flash": true,
+												"growth": 0.1
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"trigger": {
+										"afterTicks": 120
+									},
+									"projectile": {
+										"density": 1e-9,
+										"ccd": false,
+										"radius": 0.008,
+										"speed": 0.15,
+										"restitution": 0,
+										"minTicks": 1,
+										"behaviours": [
+											{
+												"type": "homing",
+												"targetType": "follow",
+												"maxTicks": 10
+											}
+										],
+										"maxTicks": 240,
+										"damage": 10,
+										"sound": "puff",
+										"categories": 2,
+										"expireOn": 128,
+										"color": "#e0f",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.06
+											},
+											{
+												"type": "projectile",
+												"ticks": 18,
+												"smoke": 0.5,
+												"fade": "#333",
+												"shadow": 0.5
+											},
+											{
+												"type": "strike",
+												"ticks": 18,
+												"flash": true,
+												"growth": 0.1
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"projectile": {
+										"density": 1e-9,
+										"ccd": false,
+										"radius": 0.008,
+										"speed": 0.15,
+										"restitution": 0,
+										"minTicks": 1,
+										"behaviours": [
+											{
+												"type": "homing",
+												"targetType": "follow",
+												"maxTicks": 10
+											}
+										],
+										"maxTicks": 240,
+										"damage": 10,
+										"sound": "puff",
+										"categories": 2,
+										"expireOn": 128,
+										"color": "#e0f",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.06
+											},
+											{
+												"type": "projectile",
+												"ticks": 18,
+												"smoke": 0.5,
+												"fade": "#333",
+												"shadow": 0.5
+											},
+											{
+												"type": "strike",
+												"ticks": 18,
+												"flash": true,
+												"growth": 0.1
+											}
+										]
+									}
+								}
+							],
+							"maxTicks": 240,
+							"damage": 0,
+							"categories": 6,
+							"expireOn": 0,
+							"color": "#e0f",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.06
+								},
+								{
+									"type": "projectile",
+									"ticks": 18,
+									"smoke": 0.5,
+									"fade": "#333",
+									"shadow": 0.5
+								},
+								{
+									"type": "strike",
+									"ticks": 18,
+									"flash": true,
+									"growth": 0.1
+								}
+							]
+						}
+					}
+				]
+			},
+			"name": "Spore-Shroom"
 		}
 	},
 	"Layouts": {
@@ -10994,6 +11365,50 @@
 					]
 				}
 			]
+		},
+		"fire-charging": {
+			"start": [
+				{
+					"stopTime": 0.6,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 240,
+					"tremoloFreq": 10,
+					"tremoloStrength": 1.5,
+					"volume": 0.05,
+					"stopFreq": 500,
+					"wave": "square",
+					"modStartFreq": 440,
+					"modStopFreq": 100,
+					"modStartStrength": 80,
+					"modStopStrength": 80,
+					"ratios": [
+						1,
+						1.15
+					]
+				}
+			]
+		},
+		"caps": {
+			"start": [
+				{
+					"stopTime": 0.84,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 240,
+					"volume": 0.05,
+					"modStartFreq": 840,
+					"modStopFreq": 540,
+					"modStartStrength": 1110,
+					"modStopStrength": 1110,
+					"stopFreq": 440,
+					"wave": "sine",
+					"ratios": [
+						1,
+						2.15
+					]
+				}
+			]
 		}
 	},
 	"Icons": {
@@ -11192,6 +11607,10 @@
 		"sqa": {
 			"c": "https://game-icons.net/1x1/lorc/alligator-clip.html",
 			"path": "M493.533 193.153l-342.76-178.4-16.106 16.107c15.92 23.5 10.473 59.73-15.28 85.483-25.753 25.753-62.812 32.066-86.31 16.106l-15.28 15.28L195.785 490.9l152.383-89.612-108.608-8.672 54.51-54.51-91.266-7.022 47.49-47.49-82.178-6.196 39.644-39.645-70.617-5.37 35.514-35.513-61.532-4.543c42.474-7.71 79.37-44.36 87.136-87.135l4.957 61.12 35.103-35.102 5.782 70.203 39.23-39.23 6.607 81.766 47.078-47.08 7.02 91.264 54.51-54.51 8.258 106.545 86.723-147.017z"
+		},
+		"spore": {
+			"path": "M402.6 64.8c-33.6 24-36.4 49.3-54.3 89 11.9 5 22.9 10.5 33 16.4 33.7-32.6 4-64 21.3-105.4zm-310.02 13c-6.35 41.3 18.52 66.5 43.02 89.3 19 17.8 37.6 34.5 45.6 54.5 2.6-7.3 5.8-14.4 9.5-21.1-5.5-39.6-26.5-57.6-47.9-73.6-19.2-14.3-38.4-27.2-50.22-49.1zM193.7 147c-1.9 0-3.9.1-5.8.1 10.2 14.2 17.7 32.3 20.1 57.5.1 1.6-.2 3.2-.9 4.6-4.5 10.7-53.3 137.3 138.3 140.2 1-.1 1.9-.2 2.9-.3 171-20.9 90-203.5-154.6-202.1zm151.7 202.4h.1-.1zm142-199.4c-29.8 26.5-58.8 2.1-86.2 33.2 11.2 8.3 20.8 17.1 28.8 26.1 22.4-18.7 45.3-23.4 57.4-59.3zM101 155.7c-21.56 3.8-44.05 8.9-67.39 15.4 10.74 6.2 21.82 6.5 34.15 6.9 21.15.6 45.64.8 77.14 20.9-11.3-11.4-24.6-22.5-36.4-34.9-2.6-2.7-5.1-5.5-7.5-8.3zm-69.61 33c4.56 11 10.1 19.5 16.45 26.3 15.39 16.3 35.28 22 55.66 26.7 23.9 5.5 48.5 9.7 69.3 23.5.1-6.4.8-12.9 1.9-19.2-47.9-50.3-80.58-50.6-107.44-51.4-12.9-.4-24.58-1-35.87-5.9zM488 211.1c-11.6 13.8-27.6 12.7-44.7 15.7 1.9 3 3.7 6 5.3 9 4.2 8.2 7.3 16.4 9.2 24.5 32.2-15.9 30.2-49.2 30.2-49.2zm-460.07 5.8-.44 77c22.25 2.7 40.6-7.6 59.83-16.3 13.08-5.9 26.58-11.4 41.38-13.1-9.5-2.5-19.3-4.4-28.9-6.6-23.6-5.4-46.3-12.6-64.1-31.5-2.7-2.9-5.3-6-7.77-9.5zm378.97 32.9c6-.1 11.3 2.6 13.5 7.3 3.1 6.9-1.5 15.7-10.3 19.6-8.9 3.8-18.6 1.4-21.8-5.5-3.2-6.9 1.4-15.7 10.3-19.6 2.7-1.2 5.6-1.8 8.3-1.8zm-134.6 8c3.2 0 6.5.7 9.8 2.1 10.4 4.6 15.8 14.8 12 22.9-3.7 8.1-15.1 11-25.5 6.5-10.4-4.6-15.8-14.8-12-22.9 2.5-5.6 8.7-8.7 15.7-8.6zm-134.2 23.1c-16.2 0-30.3 5.7-43.92 11.9-21.63 9.7-42.41 20.3-67.16 17.8 15.04 10.8 35.55 13.7 56.34 13.2 39.94-1 81.44-15.3 94.84-20.3-1.4-4.4-2.5-8.8-3.4-13.3-13.6-6.8-25.6-9.4-36.7-9.3zm-9.9 54.2c-14.1 2.9-29.38 5-44.43 5.4-7.71.2-15.36-.1-22.77-1C31.33 380.2 57.19 411 24.25 453l33.73-2 8.1 37L109 458h42.2l-20.7-26c14.6-45 43-63.9 78.3-72.1-8.3-9.4-29.3-23.3-80.6-24.8zm292.1 19-90.1 32.4 42.4 23-20.6 25.6 43.3-1 57.8 29.2-4.3-23.7s22.2 7.7 31.6-6c-44.2-15.9-34.6-44.5-60.1-79.5z",
+			"credit": "https://game-icons.net/1x1/caro-asercion/axolotl.html"
 		}
 	},
 	"Tips": [
