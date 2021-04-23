@@ -8963,10 +8963,10 @@
 			"description": "Creates a permanent static wall.",
 			"maxRange": 0.65,
 			"movementProportionWhileCharging": 1,
-			"maxTicks": 600,
+			"cooldown": 6000000,
 			"chargeTicks": 180,
+			"maxTicks": 6000000,
 			"growthTicks": 5,
-			"cooldown": 1200,
 			"effects": [
 				{
 					"icon": "fas fa-shield-check",
