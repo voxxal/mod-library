@@ -9510,7 +9510,7 @@
 							"sensor": true,
 							"collideWith": 0,
 							"expireOn": 128,
-							"maxTicks": 7e+22,
+							"maxTicks": 13052984345965363000,
 							"buffs": [],
 							"damage": 0,
 							"behaviours": [
@@ -9531,6 +9531,7 @@
 										{
 											"type": "vanish",
 											"maxTicks": 40,
+											"cleansable": false,
 											"render": {
 												"invisible": true,
 												"color": "#181818",
