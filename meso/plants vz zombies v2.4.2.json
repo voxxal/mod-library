@@ -2638,6 +2638,11 @@
 			"color": "#3f3",
 			"effects": [
 				{
+					"icon": "fas fa-shield-check",
+					"title": "Tile",
+					"text": "Cannot be removed from the board."
+				},
+				{
 					"icon": "fas fa-fan fa-pulse",
 					"title": "Tempest",
 					"text": "Repels acolytes. Less effective from afar."
@@ -8226,6 +8231,11 @@
 			"chargeTicks": 300,
 			"icon": "l",
 			"effects": [
+				{
+					"icon": "fas fa-shield-check",
+					"title": "Tile",
+					"text": "Cannot be removed from the board."
+				},
 				{
 					"icon": "fas fa-fire",
 					"title": "Ignition",
