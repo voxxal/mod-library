@@ -5507,6 +5507,11 @@
 			"chargeTicks": 30,
 			"effects": [
 				{
+					"icon": "fad fa-moon-stars",
+					"title": "Moonlit",
+					"text": "Once moonlit, fires slowing moonflame shards."
+				},
+				{
 					"icon": "fas fa-fire",
 					"title": "Ignition",
 					"text": "Lights pea projectiles on fire."
@@ -5522,10 +5527,9 @@
 				"sound": "fire",
 				"density": 2,
 				"radius": 0.022,
-				"categories": 64,
+				"categories": 2,
 				"speed": 0.41,
 				"collideWith": 65535,
-				"sensor": true,
 				"expireOn": 128,
 				"maxTicks": 40,
 				"buffs": [],
@@ -5533,9 +5537,88 @@
 				"behaviours": [
 					{
 						"type": "spawn",
+						"trigger": {
+							"collideWith": 256
+						},
+						"numProjectiles": 4,
+						"spread": 0.05,
+						"projectile": {
+							"density": 2,
+							"radius": 0.012,
+							"categories": 64,
+							"speed": 0.2,
+							"sensor": true,
+							"collideWith": 65535,
+							"expireOn": 128,
+							"maxTicks": 240,
+							"buffs": [
+								{
+									"type": "movement",
+									"cleansable": false,
+									"stack": "whirlwind",
+									"movementProportion": 0.5,
+									"maxTicks": 125,
+									"against": 12,
+									"render": {
+										"color": "rgba(64, 128, 255, 1)",
+										"alpha": 0.3,
+										"ticks": 15,
+										"invisible": true,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.01,
+										"shine": 0.2,
+										"glow": 0.7,
+										"bloom": 0,
+										"vanish": 1
+									}
+								},
+								{
+									"type": "burn",
+									"cleansable": false,
+									"collideWith": 9,
+									"against": 12,
+									"stack": "fire",
+									"hitInterval": 25,
+									"packet": {
+										"damage": 1,
+										"lifeSteal": 0.3,
+										"noHit": true
+									},
+									"maxTicks": 125,
+									"render": {
+										"color": "#0af",
+										"alpha": 0.075,
+										"light": 1,
+										"invisible": true,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.00625,
+										"shine": 0.2,
+										"glow": 1,
+										"bloom": 0.03,
+										"vanish": 1
+									}
+								}
+							],
+							"damage": 5,
+							"behaviours": [],
+							"color": "#03f",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 20,
+									"light": 1.2,
+									"smoke": 0.45
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
 						"projectile": {
 							"density": 2,
 							"radius": 0.022,
+							"attractable": false,
 							"categories": 64,
 							"speed": 0,
 							"sensor": true,
@@ -5593,6 +5676,7 @@
 							"density": 2,
 							"radius": 0.022,
 							"categories": 64,
+							"attractable": false,
 							"speed": 0,
 							"sensor": true,
 							"collideWith": 65535,
@@ -5649,6 +5733,7 @@
 							"density": 2,
 							"radius": 0.022,
 							"categories": 64,
+							"attractable": false,
 							"speed": 0,
 							"collideWith": 65535,
 							"sensor": true,
@@ -5704,6 +5789,7 @@
 							"density": 2,
 							"radius": 0.022,
 							"categories": 64,
+							"attractable": false,
 							"speed": 0,
 							"sensor": true,
 							"collideWith": 65535,
@@ -5759,6 +5845,7 @@
 							"density": 2,
 							"radius": 0.022,
 							"categories": 64,
+							"attractable": false,
 							"speed": 0,
 							"collideWith": 65535,
 							"sensor": true,
@@ -5814,6 +5901,7 @@
 							"density": 2,
 							"radius": 0.022,
 							"categories": 64,
+							"attractable": false,
 							"speed": 0,
 							"sensor": true,
 							"collideWith": 65535,
@@ -8193,6 +8281,11 @@
 				],
 				"behaviours": [
 					{
+						"type": "homing",
+						"redirect": true,
+						"targetType": "follow"
+					},
+					{
 						"type": "spawn",
 						"projectile": {
 							"density": 15,
@@ -8201,7 +8294,7 @@
 							"radius": 0.02,
 							"speed": 0,
 							"attractable": false,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"hitInterval": 30,
 							"sensor": true,
 							"lifeSteal": 0.3,
@@ -8270,7 +8363,7 @@
 							"minTicks": 30,
 							"radius": 0.02,
 							"attractable": false,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"speed": 0,
 							"sensor": true,
 							"lifeSteal": 0.3,
@@ -8345,7 +8438,7 @@
 							"lifeSteal": 0.3,
 							"categories": 320,
 							"maxTicks": 30000000,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"square": true,
 							"damage": 0,
 							"hitInterval": 10,
@@ -8406,7 +8499,7 @@
 							"speed": 0,
 							"attractable": false,
 							"sensor": true,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"lifeSteal": 0.3,
 							"categories": 320,
 							"maxTicks": 30000000,
@@ -8471,7 +8564,7 @@
 							"attractable": false,
 							"sensor": true,
 							"lifeSteal": 0.3,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"categories": 320,
 							"maxTicks": 30000000,
 							"square": true,
@@ -8535,7 +8628,7 @@
 							"speed": 0,
 							"sensor": true,
 							"lifeSteal": 0.3,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"categories": 320,
 							"maxTicks": 30000000,
 							"square": true,
@@ -8598,7 +8691,7 @@
 							"speed": 0,
 							"sensor": true,
 							"attractable": false,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"lifeSteal": 0.3,
 							"categories": 320,
 							"maxTicks": 30000000,
@@ -8669,7 +8762,7 @@
 							"damage": 0.5,
 							"hitInterval": 10,
 							"expireOn": 0,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"soundHit": null,
 							"color": "#faa",
 							"renderers": [],
@@ -8732,7 +8825,7 @@
 							"square": true,
 							"damage": 0.5,
 							"hitInterval": 10,
-							"collideWith": 65534,
+							"collideWith": 65526,
 							"expireOn": 0,
 							"soundHit": null,
 							"color": "#faa",
@@ -11944,14 +12037,14 @@
 			"start": [
 				{
 					"volume": 0.15,
-					"stopTime": 4.5,
+					"stopTime": 4.95,
 					"attack": 4,
 					"decay": 0.25,
 					"startFreq": 200,
 					"stopFreq": 700,
 					"tremoloFreq": 10,
-					"tremoloStrength": 0.5,
-					"wave": "square",
+					"tremoloStrength": 0.2,
+					"wave": "sine",
 					"ratios": [
 						1,
 						1.2
