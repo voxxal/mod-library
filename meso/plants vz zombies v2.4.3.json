@@ -5520,11 +5520,6 @@
 					"icon": "fas fa-fire",
 					"title": "Ignition",
 					"text": "Lights pea projectiles on fire."
-				},
-				{
-					"icon": "fas fa-carrot",
-					"title": "Pierce",
-					"text": "Pierces acolytes and obstacles."
 				}
 			],
 			"throttle": true,
@@ -5537,8 +5532,36 @@
 				"collideWith": 65535,
 				"expireOn": 128,
 				"maxTicks": 40,
-				"buffs": [],
-				"damage": 0,
+				"buffs": [
+					{
+						"type": "burn",
+						"cleansable": false,
+						"collideWith": 9,
+						"against": 12,
+						"stack": "fire",
+						"hitInterval": 25,
+						"packet": {
+							"damage": 1,
+							"lifeSteal": 0.3,
+							"noHit": true
+						},
+						"maxTicks": 125,
+						"render": {
+							"color": "#0af",
+							"alpha": 0.075,
+							"light": 1,
+							"invisible": true,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 1,
+							"bloom": 0.03,
+							"vanish": 1
+						}
+					}
+				],
+				"damage": 5,
 				"behaviours": [
 					{
 						"type": "spawn",
