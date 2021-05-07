@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.4.2",
+		"name": "plants vz zombies v2.4.3",
 		"author": "meso",
 		"description": "Non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -2255,7 +2255,7 @@
 		},
 		"potato": {
 			"id": "potato",
-			"description": "Plants a mine that is armed three seconds after placement.",
+			"description": "Plants a mine that is armed after placement.",
 			"action": "projectile",
 			"name": "Potato Mine",
 			"color": "#e1c699",
@@ -2268,9 +2268,9 @@
 				"density": 2,
 				"radius": 0.042,
 				"selfPassthrough": true,
-				"collideWith": 128,
+				"collideWith": 0,
 				"speed": 0,
-				"maxTicks": 180,
+				"maxTicks": 600,
 				"damage": 0,
 				"behaviours": [
 					{
@@ -2290,7 +2290,7 @@
 							"detonate": {
 								"damage": 20,
 								"lifeSteal": 0.3,
-								"radius": 0.052,
+								"radius": 0.1,
 								"minImpulse": 0.0001,
 								"maxImpulse": 0.0001,
 								"renderTicks": 10
@@ -9222,7 +9222,7 @@
 		},
 		"guacodile": {
 			"id": "guacodile",
-			"description": "Places a Guacodile that launches toward forward.",
+			"description": "Places a Guacodile that launches forward and fires olives.",
 			"action": "projectile",
 			"color": "#3fa",
 			"icon": "sqa",
@@ -9237,49 +9237,187 @@
 				{
 					"icon": "fas fa-carrot",
 					"title": "Pierce",
-					"text": "Pierces acolytes."
+					"text": "Pierces acolytes. Slows down once colliding."
 				}
 			],
 			"throttle": true,
 			"projectile": {
 				"sound": "placer",
 				"density": 2,
-				"radius": 0.072,
-				"sensor": true,
-				"collideWith": 129,
-				"speed": 0.1,
-				"maxTicks": 1000000000,
-				"damage": 0,
+				"radius": 0.0085,
+				"sense": 1,
+				"expireOn": 128,
+				"collideWith": 136,
+				"speed": 0.2,
+				"maxTicks": 120,
+				"damage": 15,
 				"behaviours": [
+					{
+						"type": "homing",
+						"redirect": true,
+						"maxTurnProportion": 0.00001,
+						"newSpeed": 0.05,
+						"trigger": {
+							"collideWith": 1
+						}
+					},
 					{
 						"type": "spawn",
 						"trigger": {
-							"collideWith": 1
+							"afterTicks": 30
 						},
-						"numProjectiles": 5,
-						"spread": 0.15,
-						"expire": true,
+						"numProjectiles": 4,
+						"spread": 0.75,
 						"projectile": {
 							"density": 40,
 							"radius": 0.0085,
-							"speed": 0.13,
+							"speed": 0.43,
 							"sensor": true,
 							"hitInterval": 20,
 							"minTicks": 10,
 							"expireOn": 128,
-							"maxTicks": 120,
+							"maxTicks": 50,
 							"behaviours": [],
 							"collideWith": 129,
 							"swappable": false,
-							"damage": 5,
+							"damage": 2.5,
 							"sound": "bulb2",
-							"color": "#3fa",
+							"color": "#A0522D",
 							"renderers": [
 								{
 									"shadow": 0.5,
 									"type": "projectile",
 									"ticks": 60,
-									"color": "#3fa1",
+									"color": "#a531",
+									"intermediateInterpolations": 2,
+									"shine": 0,
+									"glow": 0,
+									"vanish": 1
+								},
+								{
+									"shadow": 0.5,
+									"type": "projectile",
+									"ticks": 30,
+									"shine": 0,
+									"glow": 0
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 60
+						},
+						"numProjectiles": 4,
+						"spread": 0.85,
+						"projectile": {
+							"density": 40,
+							"radius": 0.0085,
+							"speed": 0.43,
+							"sensor": true,
+							"hitInterval": 20,
+							"minTicks": 10,
+							"expireOn": 128,
+							"maxTicks": 50,
+							"behaviours": [],
+							"collideWith": 129,
+							"swappable": false,
+							"damage": 2.5,
+							"sound": "bulb2",
+							"color": "#A0522D",
+							"renderers": [
+								{
+									"shadow": 0.5,
+									"type": "projectile",
+									"ticks": 60,
+									"color": "#a531",
+									"intermediateInterpolations": 2,
+									"shine": 0,
+									"glow": 0,
+									"vanish": 1
+								},
+								{
+									"shadow": 0.5,
+									"type": "projectile",
+									"ticks": 30,
+									"shine": 0,
+									"glow": 0
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 90
+						},
+						"numProjectiles": 4,
+						"spread": 0.95,
+						"projectile": {
+							"density": 40,
+							"radius": 0.0085,
+							"speed": 0.43,
+							"sensor": true,
+							"hitInterval": 20,
+							"minTicks": 10,
+							"expireOn": 128,
+							"maxTicks": 50,
+							"behaviours": [],
+							"collideWith": 129,
+							"swappable": false,
+							"damage": 2.5,
+							"sound": "bulb2",
+							"color": "#A0522D",
+							"renderers": [
+								{
+									"shadow": 0.5,
+									"type": "projectile",
+									"ticks": 60,
+									"color": "#a531",
+									"intermediateInterpolations": 2,
+									"shine": 0,
+									"glow": 0,
+									"vanish": 1
+								},
+								{
+									"shadow": 0.5,
+									"type": "projectile",
+									"ticks": 30,
+									"shine": 0,
+									"glow": 0
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 120
+						},
+						"numProjectiles": 4,
+						"spread": 0.99,
+						"projectile": {
+							"density": 40,
+							"radius": 0.0085,
+							"speed": 0.43,
+							"sensor": true,
+							"hitInterval": 20,
+							"minTicks": 10,
+							"expireOn": 128,
+							"maxTicks": 50,
+							"behaviours": [],
+							"collideWith": 129,
+							"swappable": false,
+							"damage": 2.5,
+							"sound": "bulb2",
+							"color": "#A0522D",
+							"renderers": [
+								{
+									"shadow": 0.5,
+									"type": "projectile",
+									"ticks": 60,
+									"color": "#a531",
 									"intermediateInterpolations": 2,
 									"shine": 0,
 									"glow": 0,
