@@ -1,6 +1,6 @@
 {
 	"Mod": {
-		"name": "plants vz zombies v2.4.3",
+		"name": "plants vz zombies v2.4.4",
 		"author": "meso",
 		"description": "Non-class based mod that implements sun as a resource.",
 		"titleLeft": "Plants",
@@ -644,9 +644,9 @@
 					"shroom"
 				],
 				[
-					"peasentry",
 					"starfruit",
-					"bonk"
+					"bonk",
+					"pokra"
 				],
 				[
 					"thistle",
@@ -656,7 +656,10 @@
 				[
 					"puff",
 					"grass",
-					"bowl",
+					"bowl"
+				],
+				[
+					"peasentry",
 					"spore"
 				]
 			],
@@ -981,6 +984,18 @@
 				]
 			}
 		},
+		"blaze": {
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"maxTicks": 64,
+					"radius": 0.004,
+					"restrictCollideWith": 0,
+					"sense": 65535
+				}
+			]
+		},
 		"lightning1": {
 			"id": "lightning1",
 			"name": "Lightning Reed",
@@ -1296,7 +1311,7 @@
 									"color": "#0b04",
 									"radius": 0.01,
 									"ticks": 20,
-									"selfColor": true,
+									"ownerColor": true,
 									"loopTicks": 13,
 									"numParticles": 3,
 									"particleRadius": 0.01,
@@ -1307,30 +1322,25 @@
 								},
 								{
 									"type": "reticule",
-									"selfColor": true,
+									"ownerColor": true,
 									"color": "rgba(0, 255, 155, 0.1)",
 									"radius": 0.12,
 									"minRadius": 0.001
 								},
 								{
 									"type": "bloom",
-									"selfColor": true,
+									"ownerColor": true,
 									"radius": 0.015
 								},
 								{
 									"type": "projectile",
 									"ticks": 30,
-									"selfColor": true,
+									"ownerColor": true,
 									"smoke": 0.05
 								},
 								{
-									"type": "ray",
-									"selfColor": true,
-									"ticks": 30
-								},
-								{
 									"type": "strike",
-									"selfColor": true,
+									"ownerColor": true,
 									"ticks": 30,
 									"flash": true,
 									"numParticles": 5
@@ -1377,7 +1387,7 @@
 						"color": "#0b04",
 						"radius": 0.01,
 						"ticks": 20,
-						"selfColor": true,
+						"ownerColor": true,
 						"loopTicks": 13,
 						"numParticles": 3,
 						"particleRadius": 0.01,
@@ -1390,28 +1400,23 @@
 						"type": "reticule",
 						"color": "rgba(255, 155, 0, 0.1)",
 						"radius": 0.128,
-						"selfColor": true,
+						"ownerColor": true,
 						"minRadius": 0.001
 					},
 					{
 						"type": "bloom",
-						"selfColor": true,
+						"heroColor": true,
 						"radius": 0.015
 					},
 					{
 						"type": "projectile",
-						"selfColor": true,
+						"ownerColor": true,
 						"ticks": 30,
 						"smoke": 0.05
 					},
 					{
-						"type": "ray",
-						"selfColor": true,
-						"ticks": 30
-					},
-					{
 						"type": "strike",
-						"selfColor": true,
+						"ownerColor": true,
 						"ticks": 30,
 						"flash": true,
 						"numParticles": 5
@@ -1672,9 +1677,10 @@
 					{
 						"type": "swirl",
 						"color": "#b04",
+						"ownerColor": true,
 						"radius": 0.01,
 						"ticks": 20,
-						"selfColor": true,
+						"heroColor": true,
 						"loopTicks": 13,
 						"numParticles": 3,
 						"particleRadius": 0.01,
@@ -1687,6 +1693,7 @@
 						"type": "reticule",
 						"color": "rgba(255, 0, 155, 0.05)",
 						"radius": 0.088,
+						"ownerColor": true,
 						"startingTicks": 600,
 						"minRadius": 0.001
 					},
@@ -1694,24 +1701,20 @@
 						"type": "reticule",
 						"color": "rgba(255, 0, 155, 0.05)",
 						"radius": 0.176,
+						"ownerColor": true,
 						"minRadius": 0.001,
 						"remainingTicks": 899400
 					},
 					{
 						"type": "bloom",
-						"selfColor": true,
+						"ownerColor": true,
 						"radius": 0.015
 					},
 					{
 						"type": "projectile",
-						"selfColor": true,
+						"ownerColor": true,
 						"ticks": 30,
 						"smoke": 0.05
-					},
-					{
-						"type": "ray",
-						"selfColor": true,
-						"ticks": 30
 					},
 					{
 						"type": "strike",
@@ -4522,7 +4525,7 @@
 					{
 						"type": "swirl",
 						"radius": 0.02,
-						"selfColor": true,
+						"ownerColor": true,
 						"ticks": 20,
 						"loopTicks": 130,
 						"color": "#af0",
@@ -4541,19 +4544,14 @@
 					{
 						"type": "projectile",
 						"ticks": 30,
-						"selfColor": true,
+						"ownerColor": true,
 						"smoke": 0.05,
 						"light": null
 					},
 					{
-						"type": "ray",
-						"selfColor": true,
-						"ticks": 30
-					},
-					{
 						"type": "strike",
 						"ticks": 30,
-						"selfColor": true,
+						"heroColor": true,
 						"flash": true,
 						"numParticles": 5
 					}
@@ -5520,6 +5518,11 @@
 					"icon": "fas fa-fire",
 					"title": "Ignition",
 					"text": "Lights pea projectiles on fire."
+				},
+				{
+					"icon": "fas fa-carrot",
+					"title": "Pierce",
+					"text": "Pierces acolytes and obstacles."
 				}
 			],
 			"throttle": true,
@@ -5532,36 +5535,8 @@
 				"collideWith": 65535,
 				"expireOn": 128,
 				"maxTicks": 40,
-				"buffs": [
-					{
-						"type": "burn",
-						"cleansable": false,
-						"collideWith": 9,
-						"against": 12,
-						"stack": "fire",
-						"hitInterval": 25,
-						"packet": {
-							"damage": 1,
-							"lifeSteal": 0.3,
-							"noHit": true
-						},
-						"maxTicks": 125,
-						"render": {
-							"color": "#0af",
-							"alpha": 0.075,
-							"light": 1,
-							"invisible": true,
-							"ticks": 15,
-							"emissionRadiusFactor": 1,
-							"particleRadius": 0.00625,
-							"shine": 0.2,
-							"glow": 1,
-							"bloom": 0.03,
-							"vanish": 1
-						}
-					}
-				],
-				"damage": 5,
+				"buffs": [],
+				"damage": 0,
 				"behaviours": [
 					{
 						"type": "spawn",
@@ -6769,7 +6744,7 @@
 						"type": "swirl",
 						"color": "#0204",
 						"radius": 0.01,
-						"selfColor": true,
+						"ownerColor": true,
 						"ticks": 20,
 						"loopTicks": 13,
 						"numParticles": 3,
@@ -6783,6 +6758,7 @@
 						"type": "reticule",
 						"color": "rgba(0, 55, 255, 0.1)",
 						"radius": 0.1,
+						"ownerColor": true,
 						"minRadius": 0.001
 					},
 					{
@@ -6793,8 +6769,8 @@
 					{
 						"type": "projectile",
 						"ticks": 1,
-						"selfColor": true,
 						"light": 0.2,
+						"ownerColor": true,
 						"smoke": 0.05
 					}
 				]
@@ -7412,10 +7388,15 @@
 		},
 		"sub": {
 			"id": "sub",
-			"description": "Shoots a slowing bean that explodes into sun.",
+			"description": "Shoots a bean that explodes into sun.",
 			"action": "projectile",
 			"color": "#980",
 			"effects": [
+				{
+					"icon": "fad fa-moon-stars",
+					"title": "Moonlit",
+					"text": "After colliding with a moonflower, orbit the player and deal 30 damage."
+				},
 				{
 					"icon": "fad fa-snowflakes",
 					"title": "Slow",
@@ -7424,7 +7405,7 @@
 				{
 					"icon": "far fa-sun fa-pulse",
 					"title": "Sunlight",
-					"text": "Lowers cooldowns for you and your allies once picked up."
+					"text": "Lowers cooldowns once picked up."
 				}
 			],
 			"icon": "sunbean",
@@ -7433,10 +7414,12 @@
 			"throttle": true,
 			"projectile": {
 				"density": 1e-9,
+				"collideWith": 393,
+				"expireOn": 138,
 				"radius": 0.008,
 				"speed": 0.46,
 				"maxTicks": 140,
-				"damage": 15,
+				"damage": 0,
 				"buffs": [
 					{
 						"type": "movement",
@@ -7476,6 +7459,68 @@
 					}
 				],
 				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 256
+						},
+						"projectile": {
+							"density": 1e-9,
+							"sensor": true,
+							"expireOn": 129,
+							"behaviours": [
+								{
+									"type": "homing",
+									"targetType": "self",
+									"maxTurnProportion": 0.06
+								}
+							],
+							"radius": 0.008,
+							"selfPassthrough": true,
+							"speed": 0.46,
+							"minTicks": 10,
+							"maxTicks": 240,
+							"damage": 30,
+							"buffs": [
+								{
+									"type": "movement",
+									"stack": "whirlwind",
+									"movementProportion": 0.25,
+									"maxTicks": 120,
+									"against": 12,
+									"render": {
+										"color": "rgba(255,65,255,1)",
+										"alpha": 0.3,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.01,
+										"shine": 0.2,
+										"glow": 0.7,
+										"bloom": 0,
+										"vanish": 1
+									}
+								}
+							],
+							"lifeSteal": 0.3,
+							"categories": 2,
+							"sound": "sun1",
+							"color": "#80a",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 6,
+									"shadow": 0.5,
+									"smoke": 0.05
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"flash": true,
+									"numParticles": 5
+								}
+							]
+						}
+					},
 					{
 						"type": "spawn",
 						"trigger": {
@@ -7544,7 +7589,8 @@
 												"sunflower",
 												"lily",
 												"sunshroom",
-												"moonflower"
+												"moonflower",
+												"sub"
 											]
 										}
 									]
@@ -7781,12 +7827,12 @@
 				{
 					"icon": "fad fa-snowflakes",
 					"title": "Slow",
-					"text": "Slows acolytes for 2 seconds and repels weakly."
+					"text": "Slows acolytes for 2 seconds."
 				},
 				{
-					"icon": "fas fa-cog fa-pulse",
-					"title": "Redirection",
-					"text": "Redirects randomly."
+					"icon": "fas fa-fan fa-pulse",
+					"title": "Tempest",
+					"text": "Repels acolytes weakly."
 				},
 				{
 					"icon": "fas fa-carrot",
@@ -7885,7 +7931,7 @@
 				"expireOn": 128,
 				"sensor": true,
 				"maxTicks": 240,
-				"damage": 0,
+				"damage": 60,
 				"lifeSteal": 0.3,
 				"behaviours": [
 					{
@@ -10083,6 +10129,138 @@
 				]
 			},
 			"name": "Missile Toe"
+		},
+		"pokra": {
+			"id": "pokra",
+			"description": "Lunge with slowing blades.",
+			"action": "spray",
+			"sound": "poke",
+			"color": "#62a",
+			"icon": "pokra",
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"maxTicks": 64,
+					"radius": 0.004,
+					"restrictCollideWith": 0,
+					"sense": 65535
+				}
+			],
+			"numProjectilesPerTick": 1,
+			"jitterRatio": 0.9,
+			"effects": [
+				{
+					"icon": "fad fa-snowflakes",
+					"title": "Slow",
+					"text": "Slows acolytes for 2 seconds."
+				},
+				{
+					"icon": "fas fa-carrot",
+					"title": "Pierce",
+					"text": "Pierces everything."
+				},
+				{
+					"icon": "fas fa-ghost",
+					"title": "Phantom",
+					"text": "Permeate through obstacles and acolytes."
+				}
+			],
+			"movementProportionWhileChannelling": 2,
+			"intervalTicks": 8,
+			"lengthTicks": 64,
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 1800,
+			"projectile": {
+				"selfPassthrough": true,
+				"density": 45,
+				"radius": 0.007,
+				"speed": 0.03,
+				"maxTicks": 10,
+				"minTicks": 10,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"numProjectiles": 2,
+						"spread": 0.5,
+						"projectile": {
+							"density": 45,
+							"radius": 0.007,
+							"sense": 1,
+							"minTicks": 20,
+							"speed": 0.63,
+							"maxTicks": 30,
+							"behaviours": [
+								{
+									"type": "strafe"
+								},
+								{
+									"type": "clearHits",
+									"trigger": {
+										"afterTicks": 15
+									}
+								},
+								{
+									"type": "homing",
+									"targetType": "self",
+									"trigger": {
+										"afterTicks": 15
+									}
+								}
+							],
+							"damage": 1,
+							"lifeSteal": 0.3,
+							"collideWith": 128,
+							"buffs": [
+								{
+									"type": "movement",
+									"movementProportion": 0.5,
+									"maxTicks": 60,
+									"against": 15,
+									"cleansable": false,
+									"render": {
+										"color": "rgba(134,0, 255, 1)",
+										"alpha": 0.3,
+										"light": 0.3,
+										"ticks": 15,
+										"invisible": true,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.01,
+										"shine": 0.2,
+										"glow": 0.7,
+										"vanish": 1
+									}
+								}
+							],
+							"categories": 2,
+							"expireOn": 128,
+							"soundHit": "standard",
+							"color": "#62a",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 1,
+									"light": 0.2
+								},
+								{
+									"width": 0.0015,
+									"toWidth": 0.003,
+									"color": "#62aa",
+									"type": "link"
+								}
+							]
+						}
+					}
+				],
+				"damage": 2,
+				"lifeSteal": 0.3,
+				"sensor": true,
+				"expireOn": 129,
+				"categories": 2,
+				"soundHit": "standard",
+				"color": "#fe0",
+				"renderers": []
+			}
 		}
 	},
 	"Layouts": {
@@ -11894,11 +12072,11 @@
 			"start": [
 				{
 					"stopTime": 0.23,
-					"attack": 0.001,
+					"attack": 0.21,
 					"decay": 0.29,
 					"startFreq": 300,
 					"stopFreq": 100,
-					"wave": "sawtooth",
+					"wave": "sine",
 					"ratios": [
 						1,
 						1.167,
@@ -11906,29 +12084,6 @@
 						1.78,
 						2,
 						2.25
-					]
-				},
-				{
-					"volume": 0.25,
-					"stopTime": 0.21,
-					"attack": 0.01,
-					"decay": 0.7,
-					"startFreq": 150,
-					"stopFreq": 0.001,
-					"lowPass": 300,
-					"wave": "triangle",
-					"ratios": [
-						1,
-						1.1,
-						1.2,
-						1.3,
-						1.4,
-						1.5,
-						1.6,
-						1.7,
-						1.8,
-						1.9,
-						2
 					]
 				}
 			]
@@ -12222,6 +12377,91 @@
 					]
 				}
 			]
+		},
+		"poke-channelling": {
+			"start": [
+				{
+					"stopTime": 1.26,
+					"attack": 0.01,
+					"decay": 0.29,
+					"startFreq": 220,
+					"tremoloFreq": 10,
+					"tremoloStrength": 1.5,
+					"volume": 0.05,
+					"stopFreq": 220,
+					"wave": "sine",
+					"modStartFreq": 220,
+					"modStopFreq": 230,
+					"modStartStrength": 80,
+					"modStopStrength": 80,
+					"ratios": [
+						1,
+						1.15
+					]
+				},
+				{
+					"stopTime": 1.26,
+					"attack": 1.2,
+					"decay": 1,
+					"startFreq": 220,
+					"tremoloFreq": 10,
+					"tremoloStrength": 1.5,
+					"volume": 0.05,
+					"stopFreq": 220,
+					"wave": "square",
+					"modStartFreq": 220,
+					"modStopFreq": 230,
+					"modStartStrength": 80,
+					"modStopStrength": 80,
+					"ratios": [
+						1,
+						1.15
+					]
+				}
+			]
+		},
+		"sun1": {
+			"start": [
+				{
+					"stopTime": 0.8,
+					"volume": 0.2,
+					"attack": 0.23,
+					"decay": 0.49,
+					"lowPass": 200,
+					"highPass": 20,
+					"startFreq": 380,
+					"stopFreq": 380,
+					"wave": "square",
+					"ratios": [
+						1.1,
+						2.2
+					]
+				}
+			]
+		},
+		"sun1-hit": {
+			"cutoffEarly": false,
+			"start": [
+				{
+					"volume": 0.5,
+					"stopTime": 0.4,
+					"attack": 0.001,
+					"decay": 0.19,
+					"startFreq": 380,
+					"stopFreq": 380,
+					"lowPass": 120,
+					"highPass": 40,
+					"modStartFreq": 540,
+					"modStopFreq": 540,
+					"modStartStrength": 80,
+					"modStopStrength": 80,
+					"wave": "square",
+					"ratios": [
+						1,
+						1.2
+					]
+				}
+			]
 		}
 	},
 	"Icons": {
@@ -12440,6 +12680,10 @@
 		"l": {
 			"c": "https://game-icons.net/1x1/lorc/circuitry.html",
 			"path": "M413.72 19.395v98.64l-46.116 46.117-34.198-34.2-6.607 6.61-141.52 141.516 113.513 113.51-52.775 52.773.002 50.31h18.687v-42.568l47.3-47.3 21.4 21.4 148.122-148.124-60.165-60.164 67.447-67.45V19.395h-18.687v123.33l-61.975 61.975-27.332-27.333 51.59-51.59V19.395H413.72zM19.36 30.303V48.99h186.607l44.254 44.254c-2.56 4.393-4.032 9.496-4.032 14.947 0 16.422 13.312 29.736 29.732 29.736s29.732-13.314 29.732-29.735c0-16.42-13.312-29.73-29.732-29.73-4.143 0-8.088.85-11.672 2.382l-50.54-50.54H19.36zm0 55.478v18.69l131.126.003 44.254 44.254c-2.56 4.392-4.035 9.496-4.035 14.947 0 16.42 13.312 29.732 29.732 29.732s29.733-13.312 29.733-29.732-13.312-29.733-29.732-29.733c-4.144 0-8.088.85-11.672 2.382l-50.54-50.54H19.362zm83.386 55.482l-83.385.002v18.69l75.646-.003 44.254 44.26c-2.56 4.39-4.033 9.496-4.033 14.946 0 16.42 13.312 29.733 29.732 29.733s29.73-13.313 29.73-29.734c0-16.42-13.31-29.734-29.73-29.734-4.145 0-8.09.85-11.675 2.383l-50.54-50.543zm230.66 15.12L455.1 278.08 333.406 399.77 211.71 278.08l121.696-121.695zm-1.254 27.388l-94.574 94.574 95.012 95.015 13.215-13.214-81.797-81.8 81.36-81.362-13.216-13.214zm-312.79 21.558v51.207l160.13 160.13v78.005h18.69V384.146L19.362 205.328zm346.51 8.397L352.66 226.94l51.48 51.482-51.77 51.77 13.218 13.214 64.982-64.984-64.695-64.697zm-29.93 33.16c-17.45 0-31.592 14.147-31.592 31.594 0 17.445 14.143 31.59 31.59 31.59 17.45 0 31.593-14.145 31.593-31.59 0-17.45-14.143-31.595-31.592-31.595zM19.36 295.35v51.207l94.886 94.88v53.233h18.688v-85.75L19.362 295.35zm427.378 73.154c-16.42 0-29.732 13.312-29.732 29.732s13.312 29.735 29.732 29.735c3.994 0 7.802-.794 11.28-2.222l36.62 36.615v-26.427l-22.402-22.4c2.688-4.47 4.237-9.704 4.237-15.3 0-16.42-13.314-29.732-29.735-29.732zM19.36 386.19V437.4l31.294 31.29-.002 25.982H69.34l.006-58.496L19.36 386.19zm371.902 37.796c-16.42 0-29.733 13.312-29.733 29.733 0 16.42 13.31 29.73 29.732 29.73 3.513 0 6.882-.612 10.01-1.73l12.955 12.95h26.43l-24.58-24.578c3.104-4.697 4.917-10.322 4.917-16.373 0-16.422-13.312-29.734-29.732-29.734z"
+		},
+		"pokra": {
+			"path": "M379.625 19.844c-16.74.187-34.18 4.942-50.22 13.625-12.754 6.905-24.542 16.552-34.28 28.5-1.217-1.252-2.578-2.38-3.72-3.69-47.612-54.672-125.46-43.178-160.75 1.345-5.91 4.88-9.686 12.268-9.686 20.53 0 14.692 11.9 26.595 26.593 26.595 14.69 0 26.625-11.903 26.625-26.594 0-10.035-5.578-18.75-13.782-23.28 31.8-23.023 82.904-25.36 116.906 13.687 2.22 2.546 4.53 4.972 6.938 7.312-11.28 19.99-17.145 44.58-13.906 72.78-12.262-16.69-31.758-28.007-55.094-27.5-12.29.27-25.64 3.807-39.563 11.564-60.394 33.638-37.274 103.51-153.375 103.686 47.213 28.976 95.146 41.69 136.938 41.844-14.583 71.33 33.297 162.234 146.813 212-55.354-96.272 18.237-128.528 44.906-186.063 60.407 9.56 105.242-59.912 134.374 53.5 27.68-154.03-86.917-220.388-158.53-211.937-14.422 1.703-26.155 7.967-34.94 17.094-7.646-30.47-3.774-55.575 6.563-75.25 27.31 19.926 61.414 29.575 90.313 29.47 18.49-.07 35.196-3.904 46.875-13.75 11.68-9.85 16.05-26.89 9.375-44.595-8.432-22.363-27.576-35.638-48.97-39.532-5.347-.974-10.825-1.407-16.405-1.344zm.22 18.718c4.457-.065 8.76.29 12.842 1.032 16.328 2.972 28.704 11.517 34.813 27.718 4.736 12.56 2.46 18.326-3.938 23.72-6.396 5.392-19.18 9.285-34.906 9.343-24.812.092-55.875-9.065-79.78-26.47 8.326-10.05 18.477-18.082 29.405-24 13.51-7.312 28.19-11.147 41.564-11.343zm-140.69 128.313c6.397.06 13.328.942 20.907 2.78-72.17 14.765-84.3 99.482-165.156 81.782 70.31-9.934 82.423-85.154 144.25-84.562zm34 19.5c52.567 110.048-67.184 156.03-9.967 257.563-84.856-93.86 23.175-138.69 9.968-257.563zm24.908 3.906c42.292 46.343 133.717-11.018 164.093 90-43.937-71.563-131.402-22.378-164.094-90z",
+			"c": "https://game-icons.net/1x1/lorc/vine-leaf.html"
 		}
 	},
 	"Tips": [
