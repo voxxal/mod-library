@@ -1501,7 +1501,7 @@
 		},
 		"fireballtriple": {
 			"id": "fireballtriple",
-			"description": "Shoot 3 peas. Weaker, but more knockback.",
+			"description": "Shoot 3 peas. Weaker.",
 			"action": "spray",
 			"color": "#280",
 			"effects": [
@@ -1513,17 +1513,17 @@
 			],
 			"icon": "8",
 			"numProjectilesPerTick": 3,
-			"jitterRatio": 0.07,
+			"jitterRatio": 0.1,
 			"intervalTicks": 1,
 			"lengthTicks": 1,
 			"maxAngleDiffInRevs": 0.01,
 			"cooldown": 360,
 			"throttle": true,
 			"projectile": {
-				"density": 15,
+				"density": 1,
 				"radius": 0.007,
 				"minTicks": 20,
-				"speed": 0.3,
+				"speed": 0.5,
 				"maxTicks": 140,
 				"behaviours": [
 					{
@@ -1534,10 +1534,10 @@
 						"expire": true,
 						"projectile": {
 							"selfPassthrough": true,
-							"density": 15,
+							"density": 1,
 							"radius": 0.007,
 							"minTicks": 4,
-							"speed": 0.46,
+							"speed": 0.66,
 							"maxTicks": 140,
 							"behaviours": [],
 							"damage": 6,
@@ -2186,8 +2186,8 @@
 			"cooldown": 300,
 			"throttle": true,
 			"projectile": {
-				"density": 5,
-				"radius": 0.01,
+				"density": 0.1,
+				"radius": 0.013,
 				"buffs": [
 					{
 						"type": "movement",
@@ -2210,7 +2210,7 @@
 						}
 					}
 				],
-				"speed": 0.3,
+				"speed": 0.6,
 				"maxTicks": 140,
 				"damage": 8,
 				"lifeSteal": 0.3,
@@ -2244,7 +2244,7 @@
 						"projectile": {
 							"density": 1,
 							"radius": 0.005,
-							"speed": 0.3,
+							"speed": 0.1,
 							"maxTicks": 140,
 							"damage": 5,
 							"lifeSteal": 0.3,
