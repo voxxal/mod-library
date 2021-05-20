@@ -2023,12 +2023,12 @@
 							"radius": 0.005,
 							"speed": 0.13,
 							"minTicks": 10,
-							"maxTicks": 60,
+							"maxTicks": 80,
 							"behaviours": [
 								{
 									"type": "homing",
 									"trigger": {
-										"afterTicks": 35
+										"afterTicks": 55
 									},
 									"newSpeed": 0.8
 								}
@@ -6066,8 +6066,8 @@
 								"type": "cooldown",
 								"against": 15,
 								"cleansable": false,
-								"maxTicks": 1,
-								"minCooldown": 61
+								"maxTicks": 61,
+								"minCooldown": 121
 							}
 						]
 					},
@@ -6811,7 +6811,7 @@
 				{
 					"icon": "fad fa-moon-stars",
 					"title": "Moonlit",
-					"text": "After colliding with a moonflower, transforms into a slowing laser."
+					"text": "After colliding with a moonflower, transforms into a slowing laser that homes towards you."
 				},
 				{
 					"icon": "fas fa-cog fa-pulse",
@@ -6824,7 +6824,7 @@
 			"projectile": {
 				"density": 85,
 				"radius": 0.008,
-				"speed": 0.36,
+				"speed": 0.46,
 				"maxTicks": 140,
 				"sensor": true,
 				"damage": 15,
@@ -6868,13 +6868,13 @@
 							"minTicks": 4,
 							"maxTicks": 140,
 							"expireOn": 128,
-							"damage": 5,
+							"damage": 20,
 							"lifeSteal": 0.3,
 							"buffs": [
 								{
 									"type": "movement",
-									"movementProportion": 0.5,
-									"maxTicks": 120,
+									"movementProportion": 0.15,
+									"maxTicks": 180,
 									"against": 15,
 									"cleansable": false,
 									"render": {
@@ -6891,7 +6891,13 @@
 									}
 								}
 							],
-							"behaviours": [],
+							"behaviours": [
+								{
+									"type": "homing",
+									"targetType": "self",
+									"maxTicks": 10
+								}
+							],
 							"categories": 2,
 							"sound": "slightning",
 							"soundHit": "standard",
