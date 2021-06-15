@@ -169,7 +169,7 @@
 					"type": "armor",
 					"stack": "melt",
 					"maxTicks": 15,
-					"source": "pryo",
+					"source": "pyro",
 					"proportion": 1
 				}
 			]
@@ -585,7 +585,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -936,7 +936,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -1039,7 +1039,7 @@
 						"type": "armor",
 						"stack": "melt",
 						"maxTicks": 180,
-						"source": "pryo",
+						"source": "pyro",
 						"proportion": 1
 					}
 				]
@@ -3878,7 +3878,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 60,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											},
 											{
@@ -3974,7 +3974,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -4012,7 +4012,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -4112,7 +4112,7 @@
 						"type": "armor",
 						"stack": "melt",
 						"maxTicks": 180,
-						"source": "pryo",
+						"source": "pyro",
 						"proportion": 1
 					}
 				]
@@ -4225,7 +4225,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 60,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											},
 											{
@@ -4334,7 +4334,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -4372,7 +4372,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -4436,7 +4436,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 60,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											},
 											{
@@ -4538,7 +4538,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -4576,7 +4576,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -4691,7 +4691,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -4787,7 +4787,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -4832,7 +4832,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -4877,7 +4877,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -4955,7 +4955,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -5051,7 +5051,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -5096,7 +5096,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -5141,7 +5141,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -5219,7 +5219,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -5315,7 +5315,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -5360,7 +5360,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -5405,7 +5405,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -5483,7 +5483,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -5579,7 +5579,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -5624,7 +5624,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -5669,7 +5669,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -5747,7 +5747,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -5843,7 +5843,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -5888,7 +5888,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -5933,7 +5933,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -6011,7 +6011,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -6107,7 +6107,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -6152,7 +6152,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -6197,7 +6197,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -6275,7 +6275,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -6371,7 +6371,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -6416,7 +6416,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -6461,7 +6461,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -6539,7 +6539,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -6635,7 +6635,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -6680,7 +6680,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -6725,7 +6725,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -6803,7 +6803,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -6899,7 +6899,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -6944,7 +6944,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
@@ -6989,7 +6989,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 60,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								},
 								{
@@ -7067,7 +7067,7 @@
 															"type": "armor",
 															"stack": "melt",
 															"maxTicks": 60,
-															"source": "pryo",
+															"source": "pyro",
 															"proportion": 1
 														},
 														{
@@ -7163,7 +7163,7 @@
 												"type": "armor",
 												"stack": "melt",
 												"maxTicks": 180,
-												"source": "pryo",
+												"source": "pyro",
 												"proportion": 1
 											}
 										]
@@ -7208,7 +7208,7 @@
 									"type": "armor",
 									"stack": "melt",
 									"maxTicks": 180,
-									"source": "pryo",
+									"source": "pyro",
 									"proportion": 1
 								}
 							]
