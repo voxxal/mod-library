@@ -261,7 +261,7 @@
 				{
 					"type": "mass",
 					"maxTicks": 15,
-					"stack": "cryo",
+					"stack": "electro",
 					"render": {
 						"numParticles": 3,
 						"color": "#f0f",
