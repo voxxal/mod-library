@@ -107,7 +107,7 @@
 				},
 				{
 					"type": "armor",
-					"maxTicks": 180,
+					"maxTicks": 15,
 					"stack": "vapo",
 					"source": "hydro",
 					"proportion": 1
@@ -115,7 +115,7 @@
 				{
 					"type": "armor",
 					"stack": "melt",
-					"maxTicks": 180,
+					"maxTicks": 15,
 					"source": "cryo",
 					"proportion": 0.5
 				}
@@ -168,7 +168,7 @@
 				{
 					"type": "armor",
 					"stack": "melt",
-					"maxTicks": 180,
+					"maxTicks": 15,
 					"source": "pryo",
 					"proportion": 1
 				}
@@ -221,7 +221,7 @@
 				{
 					"type": "armor",
 					"stack": "vapo",
-					"maxTicks": 180,
+					"maxTicks": 15,
 					"source": "pyro",
 					"proportion": 0.5
 				}
