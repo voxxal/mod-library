@@ -1673,6 +1673,13 @@
 				"categories": 2,
 				"buffs": [
 					{
+						"type": "cooldown",
+						"owner": true,
+						"adjustCooldown": -5000,
+						"spellId": "keqingr",
+						"collideWith": 1
+					},
+					{
 						"type": "mass",
 						"maxTicks": 180,
 						"stack": "electro",
