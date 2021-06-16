@@ -10341,6 +10341,15 @@
 					"spread": 0.14,
 					"projectile": {
 						"selfPassthrough": true,
+						"buffs": [
+							{
+								"type": "cooldown",
+								"owner": true,
+								"adjustCooldown": -600,
+								"spellId": "sayur",
+								"collideWith": 1
+							}
+						],
 						"behaviours": [
 							{
 								"type": "spawn",
@@ -10497,15 +10506,7 @@
 									"categories": 64,
 									"expireOn": 65533,
 									"source": "anemo",
-									"buffs": [
-										{
-											"type": "cooldown",
-											"owner": true,
-											"adjustCooldown": -600,
-											"spellId": "sayur",
-											"collideWith": 1
-										}
-									]
+									"buffs": []
 								}
 							},
 							{
@@ -11188,22 +11189,6 @@
 								"ticks": 30,
 								"flash": true,
 								"numParticles": 5
-							}
-						],
-						"buffs": [
-							{
-								"type": "mass",
-								"maxTicks": 10,
-								"stack": "anemo",
-								"render": {
-									"numParticles": 3,
-									"light": 0.1,
-									"color": "#bfc",
-									"ticks": 30,
-									"particleRadius": 0.01
-								},
-								"radius": 0.0125,
-								"sense": 2048
 							}
 						]
 					}
