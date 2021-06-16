@@ -98,7 +98,8 @@
 					"maxTicks": 15,
 					"stack": "pyro",
 					"render": {
-						"numParticles": 3, "light":0.1,
+						"numParticles": 3,
+						"light": 0.1,
 						"color": "#f00",
 						"ticks": 30,
 						"particleRadius": 0.01
@@ -158,7 +159,8 @@
 					"maxTicks": 15,
 					"stack": "cryo",
 					"render": {
-						"numParticles": 3, "light":0.1,
+						"numParticles": 3,
+						"light": 0.1,
 						"color": "#0ff",
 						"ticks": 30,
 						"particleRadius": 0.01
@@ -211,7 +213,8 @@
 					"maxTicks": 15,
 					"stack": "cryo",
 					"render": {
-						"numParticles": 3, "light":0.1,
+						"numParticles": 3,
+						"light": 0.1,
 						"color": "#00f",
 						"ticks": 30,
 						"particleRadius": 0.01
@@ -264,7 +267,8 @@
 					"maxTicks": 15,
 					"stack": "electro",
 					"render": {
-						"numParticles": 3, "light":0.1,
+						"numParticles": 3,
+						"light": 0.1,
 						"color": "#f0f",
 						"ticks": 30,
 						"particleRadius": 0.01
@@ -467,7 +471,8 @@
 													"maxTicks": 180,
 													"stack": "pyro",
 													"render": {
-														"numParticles": 3, "light":0.1,
+														"numParticles": 3,
+														"light": 0.1,
 														"color": "#f00",
 														"ticks": 30,
 														"particleRadius": 0.01
@@ -514,7 +519,8 @@
 						"maxTicks": 180,
 						"stack": "pyro",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#f00",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -572,7 +578,8 @@
 									"stack": "electro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -585,7 +592,8 @@
 									"stack": "hydro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -633,7 +641,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -654,7 +663,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -702,7 +712,8 @@
 						"maxTicks": 180,
 						"stack": "hydro",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#00f",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -759,7 +770,8 @@
 									"stack": "electro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -772,7 +784,8 @@
 									"stack": "hydro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -837,7 +850,8 @@
 													"maxTicks": 180,
 													"stack": "pyro",
 													"render": {
-														"numParticles": 3, "light":0.1,
+														"numParticles": 3,
+														"light": 0.1,
 														"color": "#f00",
 														"ticks": 30,
 														"particleRadius": 0.01
@@ -898,7 +912,8 @@
 									"stack": "superconduct",
 									"source": "phys",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#ffa",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -940,7 +955,8 @@
 						"maxTicks": 180,
 						"stack": "electro",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#f0f",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -984,7 +1000,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -1005,7 +1022,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -1039,7 +1057,8 @@
 									"stack": "superconduct",
 									"source": "phys",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#ffa",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -1087,7 +1106,8 @@
 						"maxTicks": 180,
 						"stack": "cryo",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#0ff",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -1166,7 +1186,8 @@
 													"against": 15,
 													"maxTicks": 60,
 													"render": {
-														"numParticles": 3, "light":0.1,
+														"numParticles": 3,
+														"light": 0.1,
 														"color": "#aaa",
 														"ticks": 30,
 														"particleRadius": 0.01
@@ -1234,7 +1255,8 @@
 						"maxTicks": 10,
 						"stack": "geo",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#fa0",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -1355,7 +1377,8 @@
 						"maxTicks": 10,
 						"stack": "anemo",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#bff",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -1480,7 +1503,8 @@
 									"stack": "electro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -1493,7 +1517,8 @@
 									"stack": "hydro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -1566,7 +1591,8 @@
 													"maxTicks": 180,
 													"stack": "pyro",
 													"render": {
-														"numParticles": 3, "light":0.1,
+														"numParticles": 3,
+														"light": 0.1,
 														"color": "#f00",
 														"ticks": 30,
 														"particleRadius": 0.01
@@ -1637,7 +1663,8 @@
 									"stack": "superconduct",
 									"source": "phys",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#ffa",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -1684,7 +1711,8 @@
 						"maxTicks": 180,
 						"stack": "electro",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#f0f",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -1741,7 +1769,8 @@
 							],
 							"stack": "electro",
 							"render": {
-								"numParticles": 3, "light":0.1,
+								"numParticles": 3,
+								"light": 0.1,
 								"color": "#f0f",
 								"ticks": 30,
 								"particleRadius": 0.01
@@ -1790,7 +1819,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -1803,7 +1833,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -1868,7 +1899,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -1929,7 +1961,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -1971,7 +2004,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -2008,7 +2042,8 @@
 									"stack": "electro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -2021,7 +2056,8 @@
 									"stack": "hydro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -2087,7 +2123,8 @@
 													"maxTicks": 180,
 													"stack": "pyro",
 													"render": {
-														"numParticles": 3, "light":0.1,
+														"numParticles": 3,
+														"light": 0.1,
 														"color": "#f00",
 														"ticks": 30,
 														"particleRadius": 0.01
@@ -2152,7 +2189,8 @@
 									"stack": "superconduct",
 									"source": "phys",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#ffa",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -2200,7 +2238,8 @@
 										"cooldownRateModifier": 99,
 										"maxTicks": 400,
 										"render": {
-											"numParticles": 3, "light":0.1,
+											"numParticles": 3,
+											"light": 0.1,
 											"color": "#faf2",
 											"ticks": 30,
 											"particleRadius": 0.01
@@ -2246,7 +2285,8 @@
 						"maxTicks": 180,
 						"stack": "electro",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#f0f",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -2359,7 +2399,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2372,7 +2413,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2437,7 +2479,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -2498,7 +2541,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2520,7 +2564,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -2567,7 +2612,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2580,7 +2626,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2645,7 +2692,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -2706,7 +2754,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2728,7 +2777,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -2775,7 +2825,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2788,7 +2839,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2853,7 +2905,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -2914,7 +2967,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2936,7 +2990,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -2983,7 +3038,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -2996,7 +3052,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3061,7 +3118,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -3122,7 +3180,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3144,7 +3203,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -3191,7 +3251,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3204,7 +3265,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3269,7 +3331,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -3330,7 +3393,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3352,7 +3416,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -3399,7 +3464,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3412,7 +3478,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3477,7 +3544,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -3538,7 +3606,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3560,7 +3629,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -3607,7 +3677,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3620,7 +3691,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3685,7 +3757,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -3746,7 +3819,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3768,7 +3842,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -3815,7 +3890,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3828,7 +3904,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3893,7 +3970,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -3954,7 +4032,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -3976,7 +4055,8 @@
 									"maxTicks": 180,
 									"stack": "electro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f0f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4124,7 +4204,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4145,7 +4226,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4180,7 +4262,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4220,7 +4303,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4258,7 +4342,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4279,7 +4364,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4313,7 +4399,8 @@
 									"stack": "superconduct",
 									"source": "phys",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#ffa",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4358,7 +4445,8 @@
 						"maxTicks": 180,
 						"stack": "cryo",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#0ff",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -4383,7 +4471,7 @@
 			"color": "#aaa",
 			"name": "Liutian Archery",
 			"icon": "thunderball",
-			"cooldown": 90,
+			"cooldown": 30,
 			"chargeTicks": 30,
 			"throttle": true,
 			"release": {
@@ -4392,7 +4480,7 @@
 			"retarget": true,
 			"movementProportionWhileCharging": 0.5,
 			"chargeDamage": {
-				"initialMultiplier": 0.2,
+				"initialMultiplier": 0.01,
 				"ticks": 30
 			},
 			"chargeRadius": {
@@ -4438,10 +4526,10 @@
 					"maxTicks": 20,
 					"radius": 0.0125,
 					"render": {
-						"numParticles": 3, "light":0.1,
+						"numParticles": 3,
+						"light": 0.1,
 						"color": "#aff",
 						"ticks": 30,
-						"light": 0.1,
 						"particleRadius": 0.01
 					},
 					"restrictCollideWith": 0
@@ -4486,7 +4574,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4507,7 +4596,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4542,7 +4632,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4595,7 +4686,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4633,7 +4725,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4654,7 +4747,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4697,7 +4791,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4718,7 +4813,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4753,7 +4849,8 @@
 												"stack": "superconduct",
 												"source": "phys",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#ffa",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -4799,7 +4896,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4837,7 +4935,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4858,7 +4957,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -4952,7 +5052,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -4973,7 +5074,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5008,7 +5110,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5048,7 +5151,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -5093,7 +5197,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5138,7 +5243,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5159,7 +5265,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5216,7 +5323,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5237,7 +5345,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5272,7 +5381,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5312,7 +5422,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -5357,7 +5468,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5402,7 +5514,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5423,7 +5536,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5480,7 +5594,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5501,7 +5616,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5536,7 +5652,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5576,7 +5693,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -5621,7 +5739,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5666,7 +5785,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5687,7 +5807,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5744,7 +5865,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5765,7 +5887,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5800,7 +5923,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -5840,7 +5964,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -5885,7 +6010,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5930,7 +6056,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -5951,7 +6078,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6008,7 +6136,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6029,7 +6158,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6064,7 +6194,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6104,7 +6235,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -6149,7 +6281,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6194,7 +6327,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6215,7 +6349,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6272,7 +6407,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6293,7 +6429,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6328,7 +6465,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6368,7 +6506,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -6413,7 +6552,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6458,7 +6598,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6479,7 +6620,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6536,7 +6678,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6557,7 +6700,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6592,7 +6736,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6632,7 +6777,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -6677,7 +6823,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6722,7 +6869,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6743,7 +6891,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6800,7 +6949,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6821,7 +6971,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6856,7 +7007,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -6896,7 +7048,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -6941,7 +7094,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -6986,7 +7140,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7007,7 +7162,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7064,7 +7220,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -7085,7 +7242,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -7120,7 +7278,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -7160,7 +7319,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -7205,7 +7365,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7250,7 +7411,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7271,7 +7433,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7328,7 +7491,8 @@
 															"maxTicks": 60,
 															"stack": "cryo",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#0ff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -7349,7 +7513,8 @@
 															"maxTicks": 60,
 															"decay": true,
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#aff",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -7384,7 +7549,8 @@
 															"stack": "superconduct",
 															"source": "phys",
 															"render": {
-																"numParticles": 3, "light":0.1,
+																"numParticles": 3,
+																"light": 0.1,
 																"color": "#ffa",
 																"ticks": 30,
 																"particleRadius": 0.01
@@ -7424,7 +7590,8 @@
 												"maxTicks": 180,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -7469,7 +7636,8 @@
 									"maxTicks": 180,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7515,7 +7683,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7526,7 +7695,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7637,7 +7807,8 @@
 													"maxTicks": 180,
 													"stack": "pyro",
 													"render": {
-														"numParticles": 3, "light":0.1,
+														"numParticles": 3,
+														"light": 0.1,
 														"color": "#f00",
 														"ticks": 30,
 														"particleRadius": 0.01
@@ -7682,7 +7853,7 @@
 					{
 						"type": "cooldown",
 						"owner": true,
-						"adjustCooldown": -1000,
+						"adjustCooldown": -1500,
 						"spellId": "yanfeir",
 						"collideWith": 1
 					},
@@ -7691,7 +7862,8 @@
 						"maxTicks": 180,
 						"stack": "pyro",
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#f00",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -7712,7 +7884,8 @@
 						"stack": "scarlet",
 						"maxStacks": 10,
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#faaa",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -7724,7 +7897,8 @@
 						"type": "movement",
 						"owner": true,
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#daaa",
 							"ticks": 30,
 							"particleRadius": 0.01
@@ -7793,6 +7967,12 @@
 								"damage": 16,
 								"buffs": [
 									{
+										"type": "cooldown",
+										"owner": true,
+										"adjustCooldown": -5000,
+										"spellId": "yanfeir"
+									},
+									{
 										"type": "debuff"
 									}
 								],
@@ -7843,13 +8023,6 @@
 													"detonate": {
 														"buffs": [
 															{
-																"type": "cooldown",
-																"owner": true,
-																"adjustCooldown": -5000,
-																"spellId": "yanfeir",
-																"collideWith": 1
-															},
-															{
 																"type": "armor",
 																"maxTicks": 180,
 																"stack": "vapo",
@@ -7861,7 +8034,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -7907,7 +8081,8 @@
 									"maxTicks": 180,
 									"stack": "pyro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f00",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -7962,7 +8137,8 @@
 					"type": "movement",
 					"owner": true,
 					"render": {
-						"numParticles": 3, "light":0.1,
+						"numParticles": 3,
+						"light": 0.1,
 						"color": "#daaa",
 						"ticks": 30,
 						"particleRadius": 0.01
@@ -7976,7 +8152,8 @@
 					"type": "movement",
 					"owner": true,
 					"render": {
-						"numParticles": 3, "light":0.1,
+						"numParticles": 3,
+						"light": 0.1,
 						"color": "#daaa",
 						"ticks": 30,
 						"particleRadius": 0.01
@@ -7990,7 +8167,8 @@
 					"type": "movement",
 					"owner": true,
 					"render": {
-						"numParticles": 3, "light":0.1,
+						"numParticles": 3,
+						"light": 0.1,
 						"color": "#daaa",
 						"ticks": 30,
 						"particleRadius": 0.01
@@ -8090,8 +8268,7 @@
 																"type": "cooldown",
 																"owner": true,
 																"adjustCooldown": -5000,
-																"spellId": "yanfeir",
-																"collideWith": 1
+																"spellId": "yanfeir"
 															},
 															{
 																"type": "armor",
@@ -8105,7 +8282,8 @@
 																"maxTicks": 180,
 																"stack": "pyro",
 																"render": {
-																	"numParticles": 3, "light":0.1,
+																	"numParticles": 3,
+																	"light": 0.1,
 																	"color": "#f00",
 																	"ticks": 30,
 																	"particleRadius": 0.01
@@ -8152,7 +8330,8 @@
 									"maxTicks": 180,
 									"stack": "pyro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#f00",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -8173,7 +8352,8 @@
 									"stack": "scarlet1",
 									"maxStacks": 1,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#faaa",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -8270,7 +8450,8 @@
 								"against": 12,
 								"maxStacks": 10,
 								"render": {
-									"numParticles": 3, "light":0.1,
+									"numParticles": 3,
+									"light": 0.1,
 									"color": "#faaa",
 									"ticks": 30,
 									"particleRadius": 0.01
@@ -8282,7 +8463,8 @@
 								"type": "movement",
 								"against": 1,
 								"render": {
-									"numParticles": 3, "light":0.1,
+									"numParticles": 3,
+									"light": 0.1,
 									"color": "#daaa",
 									"ticks": 30,
 									"particleRadius": 0.01
@@ -8612,7 +8794,8 @@
 									"type": "armor",
 									"owner": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aada",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -8662,7 +8845,8 @@
 									"stack": "electro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -8675,7 +8859,8 @@
 									"stack": "hydro",
 									"maxTicks": 180,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#fff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -8734,7 +8919,8 @@
 									"maxTicks": 60,
 									"stack": "cryo",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#0ff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -8755,7 +8941,8 @@
 									"maxTicks": 60,
 									"decay": true,
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#aff",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -8872,7 +9059,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -8885,7 +9073,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -8933,7 +9122,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -8954,7 +9144,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -8998,7 +9189,8 @@
 									"maxTicks": 180,
 									"stack": "hydro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#00f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -9049,7 +9241,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9062,7 +9255,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9110,7 +9304,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9131,7 +9326,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9175,7 +9371,8 @@
 									"maxTicks": 180,
 									"stack": "hydro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#00f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -9226,7 +9423,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9239,7 +9437,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9287,7 +9486,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9308,7 +9508,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9352,7 +9553,8 @@
 									"maxTicks": 180,
 									"stack": "hydro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#00f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -9403,7 +9605,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9416,7 +9619,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9464,7 +9668,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9485,7 +9690,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9529,7 +9735,8 @@
 									"maxTicks": 180,
 									"stack": "hydro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#00f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -9580,7 +9787,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9593,7 +9801,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9641,7 +9850,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9662,7 +9872,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9706,7 +9917,8 @@
 									"maxTicks": 180,
 									"stack": "hydro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#00f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -9757,7 +9969,8 @@
 												"stack": "electro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9770,7 +9983,8 @@
 												"stack": "hydro",
 												"maxTicks": 180,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#fff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9818,7 +10032,8 @@
 												"maxTicks": 60,
 												"stack": "cryo",
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#0ff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9839,7 +10054,8 @@
 												"maxTicks": 60,
 												"decay": true,
 												"render": {
-													"numParticles": 3, "light":0.1,
+													"numParticles": 3,
+													"light": 0.1,
 													"color": "#aff",
 													"ticks": 30,
 													"particleRadius": 0.01
@@ -9883,7 +10099,8 @@
 									"maxTicks": 180,
 									"stack": "hydro",
 									"render": {
-										"numParticles": 3, "light":0.1,
+										"numParticles": 3,
+										"light": 0.1,
 										"color": "#00f",
 										"ticks": 30,
 										"particleRadius": 0.01
@@ -9930,7 +10147,8 @@
 						"type": "armor",
 						"owner": true,
 						"render": {
-							"numParticles": 3, "light":0.1,
+							"numParticles": 3,
+							"light": 0.1,
 							"color": "#aada",
 							"ticks": 30,
 							"particleRadius": 0.01
