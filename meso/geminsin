@@ -2,9 +2,9 @@
 	"Mod": {
 		"name": "genshin reactions",
 		"author": "meso",
-		"description": "Fri, 11 Jun 2021 21:38:22 GMT",
-		"titleLeft": "meso's",
-		"titleRight": "Mod!",
+		"description": "genshin impact",
+		"titleLeft": "shingen",
+		"titleRight": "pactim",
 		"subtitleLeft": "",
 		"subtitleRight": ""
 	},
@@ -40,7 +40,6 @@
 					"collideWith": 65535,
 					"spellIds": [
 						"keqingr",
-						"yanfeir",
 						"xingqiur"
 					],
 					"minCooldown": 42000
@@ -50,16 +49,23 @@
 					"maxTicks": 1,
 					"collideWith": 65535,
 					"spellIds": [
-						"ganyur"
+						"ganyur",
+						"sayur"
 					],
-					"minCooldown": 30000
+					"minCooldown": 24000
 				},
 				{
 					"type": "cooldown",
 					"maxTicks": 1,
+					"collideWith": 65535,
 					"spellIds": [
-						"ganyur"
+						"yanfeir"
 					],
+					"minCooldown": 39000
+				},
+				{
+					"type": "cooldown",
+					"maxTicks": 1,
 					"collideWith": 65535,
 					"minCooldown": 90
 				}
@@ -387,6 +393,9 @@
 				[
 					"xingqiur",
 					"keqingr"
+				],
+				[
+					"sayur"
 				]
 			],
 			"f": [
@@ -404,6 +413,38 @@
 	"Spells": {
 		"fireball": {
 			"$delete": true
+		},
+		"difire": {
+			"projectile": {
+				"buffs": [
+					{
+						"type": "burn",
+						"collideWith": 9,
+						"against": 3,
+						"stack": "heal",
+						"hitInterval": 60,
+						"packet": {
+							"damage": -4,
+							"lifeSteal": 0.3,
+							"noHit": true
+						},
+						"maxTicks": 60,
+						"resetOnGameStart": true,
+						"render": {
+							"color": "#acb",
+							"alpha": 0.075,
+							"light": 1,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.00625,
+							"shine": 0.2,
+							"glow": 1,
+							"bloom": 0.03,
+							"vanish": 1
+						}
+					}
+				]
+			}
 		},
 		"armor": {
 			"buffs": [
@@ -4923,7 +4964,7 @@
 			"color": "#0ff",
 			"name": "Celestial Shower",
 			"icon": "thunderball",
-			"cooldown": 30000,
+			"cooldown": 24000,
 			"retarget": true,
 			"projectile": {
 				"selfPassthrough": true,
@@ -7653,7 +7694,7 @@
 				"radius": 0.003,
 				"speed": 0.6,
 				"maxTicks": 90,
-				"damage": 5,
+				"damage": 3.5,
 				"categories": 2,
 				"color": "#f00",
 				"renderers": [
@@ -8299,7 +8340,7 @@
 			"color": "#f00",
 			"icon": "thunderball",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 42000,
+			"cooldown": 39000,
 			"movementProportionWhileChannelling": 1,
 			"jitterRatio": 2,
 			"chargeTicks": 30,
@@ -10117,11 +10158,12 @@
 					"passive": true,
 					"cooldownRateModifier": -2,
 					"collideWith": 65535,
-					"spellIds": [
-						"xingqiuq",
-						"xingqiuw",
-						"xingqiue",
-						"xingqiur"
+					"notSpellIds": [
+						"sayuq",
+						"sayuw",
+						"sayue",
+						"sayur",
+						"sprint"
 					]
 				},
 				{
@@ -10149,7 +10191,7 @@
 			"intervalTicks": 1,
 			"jitterRatio": 2,
 			"lengthTicks": 1,
-			"cooldown": 350,
+			"cooldown": 360,
 			"throttle": true,
 			"retarget": true,
 			"movementProportionWhileCharging": 1.15,
@@ -10255,7 +10297,7 @@
 				"radius": 0.003,
 				"speed": 0.5,
 				"sensor": true,
-				"hitInterval": 20,
+				"hitInterval": 10,
 				"expireOn": 65534,
 				"maxTicks": 50,
 				"damage": 5,
@@ -10450,13 +10492,25 @@
 									"noKnockBack": true,
 									"speed": 0.6,
 									"renderers": [],
-									"maxTicks": 30,
+									"maxTicks": 10,
 									"selfPassthrough": true,
 									"categories": 64,
 									"expireOn": 65533,
 									"source": "anemo",
-									"buffs": []
+									"buffs": [
+										{
+											"type": "cooldown",
+											"owner": true,
+											"adjustCooldown": -600,
+											"spellId": "sayur",
+											"collideWith": 1
+										}
+									]
 								}
+							},
+							{
+								"ABOVE": "pyro",
+								"BELOW": "cryo"
 							},
 							{
 								"type": "spawn",
@@ -10472,13 +10526,20 @@
 											"spread": 0.9,
 											"projectile": {
 												"damage": 0.6,
-												"source": "electro",
+												"source": "cryo",
 												"radius": 0.006,
 												"density": 0.01,
 												"minTicks": 10,
 												"expireOn": 1,
 												"sensor": true,
 												"speed": 0.44,
+												"renderers": [
+													{
+														"type": "projectile",
+														"color": "#aff2",
+														"ticks": 10
+													}
+												],
 												"behaviours": [
 													{
 														"type": "spawn",
@@ -10491,7 +10552,183 @@
 															"renderers": [],
 															"maxTicks": 10,
 															"selfPassthrough": true,
+															"categories": 128,
+															"expireOn": 1,
+															"source": "hydro",
+															"minTicks": 10,
+															"sensor": true,
+															"buffs": [
+																{
+																	"type": "mass",
+																	"maxTicks": 60,
+																	"stack": "cryo",
+																	"render": {
+																		"numParticles": 3,
+																		"light": 0.1,
+																		"color": "#0ff",
+																		"ticks": 30,
+																		"particleRadius": 0.01
+																	},
+																	"radius": 0.0125,
+																	"sense": 256
+																},
+																{
+																	"type": "armor",
+																	"stack": "melt",
+																	"maxStacks": 2,
+																	"maxTicks": 60,
+																	"source": "pyro",
+																	"proportion": 1
+																},
+																{
+																	"type": "movement",
+																	"movementProportion": 0,
+																	"maxTicks": 60,
+																	"decay": true,
+																	"render": {
+																		"numParticles": 3,
+																		"light": 0.1,
+																		"color": "#aff",
+																		"ticks": 30,
+																		"particleRadius": 0.01
+																	}
+																}
+															]
+														}
+													},
+													{
+														"type": "spawn",
+														"projectile": {
+															"damage": 0,
+															"radius": 0.006,
+															"density": 0.01,
+															"noKnockBack": true,
+															"maxTicks": 10,
+															"speed": 0.44,
+															"minTicks": 10,
+															"sensor": true,
+															"expireOn": 1,
+															"renderers": [],
+															"selfPassthrough": true,
 															"categories": 1024,
+															"source": "electro",
+															"buffs": [
+																{
+																	"type": "armor",
+																	"proportion": 0.4,
+																	"maxTicks": 180,
+																	"stack": "superconduct",
+																	"source": "phys",
+																	"render": {
+																		"numParticles": 3,
+																		"light": 0.1,
+																		"color": "#ffa",
+																		"ticks": 30,
+																		"particleRadius": 0.01
+																	}
+																},
+																{
+																	"type": "debuff"
+																}
+															]
+														}
+													}
+												],
+												"maxTicks": 10,
+												"categories": 2,
+												"buffs": [
+													{
+														"type": "mass",
+														"IMP": "HCRYOSWIRL",
+														"maxTicks": 180,
+														"stack": "cryo",
+														"render": {
+															"numParticles": 3,
+															"light": 0.1,
+															"color": "#0ff",
+															"ticks": 30,
+															"particleRadius": 0.01
+														},
+														"radius": 0.0125,
+														"sense": 256
+													},
+													{
+														"type": "armor",
+														"stack": "melt",
+														"maxStacks": 2,
+														"maxTicks": 180,
+														"source": "pyro",
+														"proportion": 1
+													}
+												]
+											}
+										}
+									],
+									"radius": 0.007,
+									"density": 0.01,
+									"noKnockBack": true,
+									"speed": 0.6,
+									"renderers": [],
+									"maxTicks": 10,
+									"selfPassthrough": true,
+									"categories": 256,
+									"expireOn": 65533,
+									"source": "anemo",
+									"buffs": []
+								}
+							},
+							{
+								"ABOVE": "cryo",
+								"BELOW": "electro"
+							},
+							{
+								"type": "spawn",
+								"projectile": {
+									"damage": 0,
+									"radius": 0.007,
+									"density": 0.01,
+									"minTicks": 10,
+									"maxTicks": 10,
+									"noKnockBack": true,
+									"speed": 0.6,
+									"renderers": [],
+									"selfPassthrough": true,
+									"categories": 1024,
+									"expireOn": 65533,
+									"source": "anemo",
+									"buffs": [],
+									"behaviours": [
+										{
+											"type": "spawn",
+											"trigger": {
+												"collideWith": 1
+											},
+											"numProjectiles": 10,
+											"spread": 0.9,
+											"projectile": {
+												"damage": 0.6,
+												"source": "electro",
+												"radius": 0.006,
+												"density": 0.01,
+												"minTicks": 10,
+												"expireOn": 1,
+												"maxTicks": 10,
+												"sensor": true,
+												"speed": 0.44,
+												"noKnockBack": true,
+												"behaviours": [
+													{
+														"type": "spawn",
+														"projectile": {
+															"damage": 0,
+															"radius": 0.006,
+															"density": 0.01,
+															"noKnockBack": true,
+															"speed": 0.44,
+															"renderers": [],
+															"maxTicks": 10,
+															"selfPassthrough": true,
+															"categories": 128,
 															"expireOn": 1,
 															"minTicks": 10,
 															"sensor": true,
@@ -10596,65 +10833,145 @@
 																		"ticks": 30,
 																		"particleRadius": 0.01
 																	}
+																},
+																{
+																	"type": "debuff"
 																}
 															]
 														}
+													},
+													{
+														"type": "spawn",
+														"projectile": {
+															"density": 0.01,
+															"radius": 0.006,
+															"speed": 0.44,
+															"sensor": true,
+															"maxTicks": 10,
+															"minTicks": 10,
+															"expireOn": 1,
+															"damage": 0,
+															"noKnockBack": true,
+															"categories": 64,
+															"behaviours": [
+																{
+																	"type": "spawn",
+																	"trigger": {
+																		"collideWith": 1
+																	},
+																	"projectile": {
+																		"density": 0.01,
+																		"radius": 0.006,
+																		"speed": 0.44,
+																		"maxTicks": 10,
+																		"damage": 0,
+																		"noKnockBack": true,
+																		"minTicks": 10,
+																		"sensor": true,
+																		"expireOn": 1,
+																		"detonate": {
+																			"buffs": [
+																				{
+																					"type": "armor",
+																					"maxTicks": 180,
+																					"stack": "vapo",
+																					"maxStacks": 2,
+																					"source": "hydro",
+																					"proportion": 1
+																				},
+																				{
+																					"type": "mass",
+																					"maxTicks": 180,
+																					"stack": "pyro",
+																					"render": {
+																						"numParticles": 3,
+																						"light": 0.1,
+																						"color": "#f00",
+																						"ticks": 30,
+																						"particleRadius": 0.01
+																					},
+																					"radius": 0.0125,
+																					"sense": 64
+																				},
+																				{
+																					"type": "armor",
+																					"stack": "melt",
+																					"maxStacks": 2,
+																					"maxTicks": 180,
+																					"source": "cryo",
+																					"proportion": 0.5
+																				}
+																			],
+																			"radius": 0.07,
+																			"minImpulse": 0,
+																			"source": "pyro",
+																			"maxImpulse": 0,
+																			"renderTicks": 30,
+																			"damage": 0.15
+																		},
+																		"color": "#f0f2",
+																		"renderers": [],
+																		"source": "pyro",
+																		"buffs": []
+																	}
+																}
+															],
+															"color": "#f0f2",
+															"renderers": [],
+															"source": "electro",
+															"buffs": []
+														}
+													}
+												],
+												"buffs": [
+													{
+														"type": "mass",
+														"maxTicks": 180,
+														"stack": "electro",
+														"render": {
+															"numParticles": 3,
+															"light": 0.1,
+															"color": "#f0f",
+															"ticks": 30,
+															"particleRadius": 0.01
+														},
+														"radius": 0.0125,
+														"sense": 1024
 													}
 												],
 												"renderers": [
 													{
 														"type": "projectile",
-														"color": "#aaf2",
+														"color": "#faf2",
 														"ticks": 10
-													}
-												],
-												"maxTicks": 10,
-												"categories": 2,
-												"buffs": [
-													{
-														"type": "mass",
-														"IMP": "HYDROSWIRL",
-														"maxTicks": 180,
-														"stack": "hydro",
-														"render": {
-															"numParticles": 3,
-															"light": 0.1,
-															"color": "#00f",
-															"ticks": 30,
-															"particleRadius": 0.01
-														},
-														"radius": 0.0125,
-														"sense": 128
-													},
-													{
-														"type": "armor",
-														"stack": "vapo",
-														"maxStacks": 2,
-														"maxTicks": 180,
-														"source": "pyro",
-														"proportion": 0.5
 													}
 												]
 											}
 										}
-									],
-									"radius": 0.007,
-									"density": 0.01,
-									"noKnockBack": true,
-									"speed": 0.6,
-									"renderers": [],
-									"maxTicks": 30,
-									"selfPassthrough": true,
-									"categories": 128,
-									"expireOn": 65533,
-									"source": "anemo",
-									"buffs": []
+									]
 								}
+							},
+							{
+								"ABOVE": "electro",
+								"BELOW": "hydro"
 							},
 							{
 								"type": "spawn",
 								"projectile": {
 									"damage": 0,
+									"radius": 0.006,
+									"density": 0.01,
+									"minTicks": 10,
+									"maxTicks": 10,
+									"noKnockBack": true,
+									"speed": 0.44,
+									"renderers": [],
+									"selfPassthrough": true,
+									"categories": 128,
+									"expireOn": 1,
+									"sensor": true,
+									"source": "anemo",
+									"buffs": [],
 									"behaviours": [
 										{
 											"type": "spawn",
@@ -10664,21 +10981,7 @@
 											"numProjectiles": 10,
 											"spread": 0.9,
 											"projectile": {
-												"damage": 0.6,
-												"source": "cryo",
-												"radius": 0.006,
-												"density": 0.01,
-												"minTicks": 10,
-												"expireOn": 1,
-												"sensor": true,
-												"speed": 0.44,
-												"renderers": [
-													{
-														"type": "projectile",
-														"color": "#aff2",
-														"ticks": 10
-													}
-												],
+												"selfPassthrough": true,
 												"behaviours": [
 													{
 														"type": "spawn",
@@ -10691,9 +10994,74 @@
 															"renderers": [],
 															"maxTicks": 10,
 															"selfPassthrough": true,
-															"categories": 128,
+															"categories": 1024,
+															"minTicks": 10,
+															"expireOn": 65533,
+															"sensor": true,
+															"source": "electro",
+															"buffs": [
+																{
+																	"type": "mass",
+																	"stack": "electro",
+																	"maxTicks": 180,
+																	"render": {
+																		"numParticles": 3,
+																		"light": 0.1,
+																		"color": "#fff",
+																		"ticks": 30,
+																		"particleRadius": 0.01
+																	},
+																	"radius": 0.0125,
+																	"sense": 1024
+																},
+																{
+																	"type": "mass",
+																	"stack": "hydro",
+																	"maxTicks": 180,
+																	"render": {
+																		"numParticles": 3,
+																		"light": 0.1,
+																		"color": "#fff",
+																		"ticks": 30,
+																		"particleRadius": 0.01
+																	},
+																	"radius": 0.0125,
+																	"sense": 128
+																},
+																{
+																	"type": "burn",
+																	"stack": "electrocharged",
+																	"hitInterval": 60,
+																	"maxTicks": 180,
+																	"maxStacks": 10,
+																	"cleansable": false,
+																	"packet": {
+																		"damage": 1,
+																		"noKnockback": true,
+																		"noHit": true,
+																		"source": "electrocharged"
+																	}
+																},
+																{
+																	"type": "debuff"
+																}
+															]
+														}
+													},
+													{
+														"type": "spawn",
+														"projectile": {
+															"damage": 0,
+															"radius": 0.006,
+															"density": 0.01,
+															"noKnockBack": true,
+															"speed": 0.44,
+															"renderers": [],
+															"maxTicks": 10,
+															"selfPassthrough": true,
+															"categories": 256,
 															"expireOn": 1,
-															"source": "hydro",
+															"source": "cryo",
 															"minTicks": 10,
 															"sensor": true,
 															"buffs": [
@@ -10731,40 +11099,6 @@
 																		"ticks": 30,
 																		"particleRadius": 0.01
 																	}
-																}
-															]
-														}
-													},
-													{
-														"type": "spawn",
-														"projectile": {
-															"damage": 0,
-															"radius": 0.006,
-															"density": 0.01,
-															"noKnockBack": true,
-															"speed": 0.44,
-															"renderers": [],
-															"maxTicks": 10,
-															"selfPassthrough": true,
-															"categories": 1024,
-															"expireOn": 1,
-															"source": "electro",
-															"minTicks": 10,
-															"sensor": true,
-															"buffs": [
-																{
-																	"type": "armor",
-																	"proportion": 0.4,
-																	"maxTicks": 180,
-																	"stack": "superconduct",
-																	"source": "phys",
-																	"render": {
-																		"numParticles": 3,
-																		"light": 0.1,
-																		"color": "#ffa",
-																		"ticks": 30,
-																		"particleRadius": 0.01
-																	}
 																},
 																{
 																	"type": "debuff"
@@ -10773,349 +11107,61 @@
 														}
 													}
 												],
-												"maxTicks": 10,
-												"categories": 2,
-												"buffs": [
-													{
-														"type": "mass",
-														"IMP": "HCRYOSWIRL",
-														"maxTicks": 180,
-														"stack": "cryo",
-														"render": {
-															"numParticles": 3,
-															"light": 0.1,
-															"color": "#0ff",
-															"ticks": 30,
-															"particleRadius": 0.01
-														},
-														"radius": 0.0125,
-														"sense": 256
-													},
-													{
-														"type": "armor",
-														"stack": "melt",
-														"maxStacks": 2,
-														"maxTicks": 180,
-														"source": "pyro",
-														"proportion": 1
-													}
-												]
-											}
-										},
-										{
-											"type": "spawn",
-											"projectile": {
-												"damage": 0,
-												"behaviours": [
-													{
-														"type": "spawn",
-														"trigger": {
-															"collideWith": 1
-														},
-														"numProjectiles": 10,
-														"spread": 0.9,
-														"projectile": {
-															"damage": 0.6,
-															"source": "hydro",
-															"radius": 0.006,
-															"density": 0.01,
-															"minTicks": 10,
-															"expireOn": 1,
-															"behaviours": [
-																{
-																	"type": "spawn",
-																	"projectile": {
-																		"damage": 0,
-																		"radius": 0.006,
-																		"density": 0.01,
-																		"noKnockBack": true,
-																		"speed": 0.6,
-																		"renderers": [],
-																		"maxTicks": 10,
-																		"selfPassthrough": true,
-																		"categories": 128,
-																		"expireOn": 1,
-																		"source": "electro",
-																		"minTicks": 10,
-																		"buffs": [
-																			{
-																				"type": "mass",
-																				"stack": "electro",
-																				"maxTicks": 180,
-																				"render": {
-																					"numParticles": 3,
-																					"light": 0.1,
-																					"color": "#fff",
-																					"ticks": 30,
-																					"particleRadius": 0.01
-																				},
-																				"radius": 0.0125,
-																				"sense": 1024
-																			},
-																			{
-																				"type": "mass",
-																				"stack": "hydro",
-																				"maxTicks": 180,
-																				"render": {
-																					"numParticles": 3,
-																					"light": 0.1,
-																					"color": "#fff",
-																					"ticks": 30,
-																					"particleRadius": 0.01
-																				},
-																				"radius": 0.0125,
-																				"sense": 128
-																			},
-																			{
-																				"type": "burn",
-																				"stack": "electrocharged",
-																				"hitInterval": 60,
-																				"maxTicks": 180,
-																				"maxStacks": 10,
-																				"cleansable": false,
-																				"packet": {
-																					"damage": 1,
-																					"noKnockback": true,
-																					"noHit": true,
-																					"source": "electrocharged"
-																				}
-																			},
-																			{
-																				"type": "debuff"
-																			}
-																		]
-																	}
-																},
-																{
-																	"type": "spawn",
-																	"projectile": {
-																		"density": 0.01,
-																		"radius": 0.006,
-																		"speed": 0.6,
-																		"sensor": true,
-																		"maxTicks": 10,
-																		"damage": 0,
-																		"selfPassthrough": true,
-																		"categories": 64,
-																		"source": "electro",
-																		"minTicks": 10,
-																		"expireOn": 1,
-																		"behaviours": [
-																			{
-																				"type": "spawn",
-																				"trigger": {
-																					"collideWith": 1
-																				},
-																				"projectile": {
-																					"density": 25,
-																					"radius": 0.003,
-																					"speed": 0,
-																					"maxTicks": 10,
-																					"damage": 0,
-																					"detonate": {
-																						"buffs": [
-																							{
-																								"type": "armor",
-																								"maxTicks": 180,
-																								"stack": "vapo",
-																								"maxStacks": 2,
-																								"source": "hydro",
-																								"proportion": 1
-																							},
-																							{
-																								"type": "mass",
-																								"maxTicks": 180,
-																								"stack": "pyro",
-																								"render": {
-																									"numParticles": 3,
-																									"light": 0.1,
-																									"color": "#f00",
-																									"ticks": 30,
-																									"particleRadius": 0.01
-																								},
-																								"radius": 0.0125,
-																								"sense": 64
-																							},
-																							{
-																								"type": "armor",
-																								"stack": "melt",
-																								"maxStacks": 2,
-																								"maxTicks": 180,
-																								"source": "cryo",
-																								"proportion": 0.5
-																							}
-																						],
-																						"radius": 0.07,
-																						"minImpulse": 0,
-																						"source": "pyro",
-																						"maxImpulse": 0,
-																						"renderTicks": 30,
-																						"damage": 0.15
-																					},
-																					"color": "#f0f2",
-																					"renderers": [],
-																					"source": "pyro",
-																					"buffs": []
-																				}
-																			}
-																		],
-																		"color": "#f0f2",
-																		"renderers": [],
-																		"buffs": []
-																	}
-																},
-																{
-																	"type": "spawn",
-																	"projectile": {
-																		"damage": 0,
-																		"radius": 0.006,
-																		"density": 0.01,
-																		"noKnockBack": true,
-																		"speed": 0.6,
-																		"renderers": [],
-																		"maxTicks": 10,
-																		"selfPassthrough": true,
-																		"source": "cryo",
-																		"minTicks": 10,
-																		"expireOn": 65533,
-																		"categories": 256,
-																		"buffs": [
-																			{
-																				"type": "armor",
-																				"proportion": 0.4,
-																				"maxTicks": 180,
-																				"stack": "superconduct",
-																				"source": "phys",
-																				"render": {
-																					"numParticles": 3,
-																					"light": 0.1,
-																					"color": "#ffa",
-																					"ticks": 30,
-																					"particleRadius": 0.01
-																				}
-																			}
-																		]
-																	}
-																}
-															],
-															"sensor": true,
-															"speed": 0.44,
-															"renderers": [
-																{
-																	"type": "projectile",
-																	"color": "#aaf2",
-																	"ticks": 10
-																}
-															],
-															"maxTicks": 10,
-															"categories": 2,
-															"buffs": [
-																{
-																	"type": "mass",
-																	"IMP": "ELECTROSWIRL",
-																	"maxTicks": 180,
-																	"stack": "hydro",
-																	"render": {
-																		"numParticles": 3,
-																		"light": 0.1,
-																		"color": "#f0f",
-																		"ticks": 30,
-																		"particleRadius": 0.01
-																	},
-																	"radius": 0.0125,
-																	"sense": 1024
-																}
-															]
-														}
-													}
-												],
-												"radius": 0.007,
 												"density": 0.01,
-												"noKnockBack": true,
-												"speed": 0.6,
-												"renderers": [],
-												"maxTicks": 30,
-												"selfPassthrough": true,
-												"categories": 128,
-												"expireOn": 65533,
-												"source": "anemo",
-												"buffs": []
-											}
-										}
-									],
-									"radius": 0.007,
-									"density": 0.01,
-									"noKnockBack": true,
-									"speed": 0.6,
-									"renderers": [],
-									"maxTicks": 30,
-									"selfPassthrough": true,
-									"categories": 256,
-									"expireOn": 65533,
-									"source": "anemo",
-									"buffs": []
-								}
-							},
-							{
-								"type": "spawn",
-								"projectile": {
-									"damage": 0,
-									"behaviours": [
-										{
-											"type": "spawn",
-											"trigger": {
-												"collideWith": 1
-											},
-											"numProjectiles": 10,
-											"spread": 0.9,
-											"projectile": {
-												"damage": 0.6,
-												"source": "electro",
 												"radius": 0.006,
-												"density": 0.01,
+												"speed": 0.44,
+												"maxTicks": 10,
+												"damage": 0.2,
+												"source": "hydro",
+												"categories": 2,
+												"color": "#00f2",
 												"minTicks": 10,
 												"expireOn": 1,
 												"sensor": true,
-												"speed": 0.44,
 												"renderers": [
 													{
 														"type": "projectile",
-														"color": "#faf2",
-														"ticks": 10
+														"ticks": 30,
+														"smoke": 0.05
+													},
+													{
+														"type": "ray",
+														"ticks": 30
+													},
+													{
+														"type": "strike",
+														"ticks": 30,
+														"flash": true,
+														"numParticles": 5
 													}
 												],
-												"maxTicks": 10,
-												"categories": 2,
 												"buffs": [
 													{
 														"type": "mass",
 														"maxTicks": 180,
-														"stack": "electro",
+														"stack": "hydro",
 														"render": {
 															"numParticles": 3,
 															"light": 0.1,
-															"color": "#f0f",
+															"color": "#00f",
 															"ticks": 30,
 															"particleRadius": 0.01
 														},
 														"radius": 0.0125,
-														"sense": 1024
+														"sense": 128
+													},
+													{
+														"type": "armor",
+														"stack": "vapo",
+														"maxStacks": 2,
+														"maxTicks": 180,
+														"source": "pyro",
+														"proportion": 0.5
 													}
 												]
 											}
 										}
-									],
-									"radius": 0.007,
-									"density": 0.01,
-									"noKnockBack": true,
-									"speed": 0.6,
-									"renderers": [],
-									"maxTicks": 30,
-									"selfPassthrough": true,
-									"categories": 1024,
-									"expireOn": 65533,
-									"source": "anemo",
-									"buffs": []
+									]
 								}
 							}
 						],
@@ -11198,6 +11244,13 @@
 				],
 				"buffs": [
 					{
+						"type": "cooldown",
+						"owner": true,
+						"adjustCooldown": -300,
+						"spellId": "sayur",
+						"collideWith": 1
+					},
+					{
 						"type": "mass",
 						"maxTicks": 10,
 						"stack": "anemo",
@@ -11214,6 +11267,136 @@
 				]
 			},
 			"name": "Yoohoo Art: Fuuin Dash"
+		},
+		"sayur": {
+			"id": "sayur",
+			"description": "Summon a friend that heals and deals anemo damage in an aura. A direct hit makes the enemy more vulnerable to anemo damage.",
+			"action": "projectile",
+			"color": "#bfc",
+			"icon": "cometSpark",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 24000,
+			"throttle": true,
+			"projectile": {
+				"sensor": true,
+				"damage": 9,
+				"lifeSteal": 0.3,
+				"color": "#bfca",
+				"density": 30,
+				"radius": 0.0135,
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 10,
+						"light": null
+					}
+				],
+				"speed": 0.3,
+				"source": "anemo",
+				"maxTicks": 600,
+				"expireOn": 0,
+				"hitInterval": 10,
+				"selfPassthrough": true,
+				"behaviours": [
+					{
+						"type": "aura",
+						"radius": 0.08,
+						"tickInterval": 10,
+						"against": 15,
+						"buffs": [
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"maxStacks": 1,
+								"against": 3,
+								"stack": "heal",
+								"hitInterval": 60,
+								"packet": {
+									"damage": -2,
+									"lifeSteal": 0.3,
+									"noHit": true
+								},
+								"maxTicks": 60,
+								"render": {
+									"color": "#0cba",
+									"alpha": 0.175,
+									"light": 1,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 1,
+									"bloom": 0.03,
+									"vanish": 1
+								}
+							},
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"maxStacks": 1,
+								"against": 12,
+								"stack": "sayu",
+								"source": "anemo",
+								"hitInterval": 60,
+								"packet": {
+									"damage": 1,
+									"lifeSteal": 0.3,
+									"noHit": true
+								},
+								"maxTicks": 60,
+								"render": {
+									"color": "#0cb",
+									"alpha": 0.175,
+									"light": 1,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 1,
+									"bloom": 0.03,
+									"vanish": 1
+								}
+							}
+						]
+					},
+					{
+						"above": "HEAL",
+						"below": "ANEMOPROJ"
+					},
+					{
+						"type": "homing",
+						"targetType": "self",
+						"maxTurnProportion": 0.04
+					},
+					{
+						"type": "strafe"
+					}
+				],
+				"buffs": [
+					{
+						"type": "mass",
+						"maxTicks": 180,
+						"stack": "anemo",
+						"render": {
+							"numParticles": 3,
+							"light": 0.1,
+							"color": "#bfc",
+							"ticks": 30,
+							"particleRadius": 0.01
+						},
+						"radius": 0.0125,
+						"sense": 2048
+					},
+					{
+						"type": "armor",
+						"stack": "vv",
+						"source": "anemo",
+						"maxStacks": 1,
+						"maxTicks": 180,
+						"proportion": 0.5
+					}
+				]
+			}
 		}
 	},
 	"Layouts": {
