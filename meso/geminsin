@@ -26,8 +26,7 @@
 			"static": true,
 			"undamageable": true,
 			"strike": {
-				"ticks": 15,
-				"flash": true
+				"ticks": 15
 			},
 			"hitInterval": 1,
 			"selfDamage": 1,
@@ -59,15 +58,18 @@
 					"maxTicks": 1,
 					"collideWith": 65535,
 					"spellIds": [
-						"yanfeir"
+						"zhonglir"
 					],
-					"minCooldown": 39000
+					"minCooldown": 27000
 				},
 				{
 					"type": "cooldown",
 					"maxTicks": 1,
 					"collideWith": 65535,
-					"minCooldown": 90
+					"spellIds": [
+						"yanfeir"
+					],
+					"minCooldown": 39000
 				}
 			]
 		},
@@ -78,8 +80,7 @@
 			"static": true,
 			"undamageable": true,
 			"strike": {
-				"ticks": 15,
-				"flash": true
+				"ticks": 15
 			},
 			"hitInterval": 15,
 			"render": [
@@ -141,8 +142,7 @@
 			"static": true,
 			"undamageable": true,
 			"strike": {
-				"ticks": 15,
-				"flash": true
+				"ticks": 15
 			},
 			"hitInterval": 15,
 			"render": [
@@ -196,8 +196,7 @@
 			"static": true,
 			"undamageable": true,
 			"strike": {
-				"ticks": 15,
-				"flash": true
+				"ticks": 15
 			},
 			"hitInterval": 15,
 			"render": [
@@ -251,8 +250,7 @@
 			"static": true,
 			"undamageable": true,
 			"strike": {
-				"ticks": 15,
-				"flash": true
+				"ticks": 15
 			},
 			"hitInterval": 15,
 			"render": [
@@ -343,7 +341,8 @@
 					"keqing"
 				],
 				[
-					"sayu"
+					"sayu",
+					"zhongli"
 				]
 			],
 			"q": [
@@ -356,7 +355,8 @@
 					"keqingq"
 				],
 				[
-					"sayuq"
+					"sayuq",
+					"zhongliq"
 				]
 			],
 			"w": [
@@ -369,7 +369,8 @@
 					"keqingw"
 				],
 				[
-					"sayuw"
+					"sayuw",
+					"zhongliw"
 				]
 			],
 			"e": [
@@ -382,7 +383,8 @@
 					"keqinge"
 				],
 				[
-					"sayue"
+					"sayue",
+					"zhonglie"
 				]
 			],
 			"r": [
@@ -395,7 +397,8 @@
 					"keqingr"
 				],
 				[
-					"sayur"
+					"sayur",
+					"zhonglir"
 				]
 			],
 			"f": [
@@ -1228,7 +1231,7 @@
 										"renderers": [
 											{
 												"type": "projectile",
-												"color": "#aaa2",
+												"color": "#faa2",
 												"ticks": 10
 											}
 										],
@@ -1241,7 +1244,7 @@
 											}
 										],
 										"detonate": {
-											"damage": 2,
+											"damage": 0,
 											"against": 15,
 											"source": "geo",
 											"radius": 0.03,
@@ -1254,15 +1257,29 @@
 												{
 													"type": "armor",
 													"against": 15,
-													"maxTicks": 60,
+													"source": "pyro",
+													"maxTicks": 180,
 													"render": {
 														"numParticles": 3,
 														"light": 0.1,
-														"color": "#aaa",
+														"color": "#faa",
 														"ticks": 30,
 														"particleRadius": 0.01
 													},
-													"proportion": -0.7
+													"proportion": -1
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faa",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -0.2
 												}
 											],
 											"maxImpulse": 0,
@@ -1279,7 +1296,292 @@
 							"renderers": [],
 							"maxTicks": 90,
 							"selfPassthrough": true,
-							"categories": 1472,
+							"categories": 64,
+							"expireOn": 65533,
+							"source": "geo",
+							"buffs": [
+								{
+									"type": "debuff"
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"projectile": {
+							"damage": 0,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1
+									},
+									"projectile": {
+										"damage": 0,
+										"radius": 0.01,
+										"density": 0.01,
+										"minTicks": 10,
+										"expireOn": 1,
+										"speed": -5,
+										"renderers": [
+											{
+												"type": "projectile",
+												"color": "#aaf2",
+												"ticks": 10
+											}
+										],
+										"maxTicks": 180,
+										"categories": 2,
+										"behaviours": [
+											{
+												"type": "homing",
+												"maxTurnProportion": -3
+											}
+										],
+										"detonate": {
+											"damage": 0,
+											"against": 15,
+											"source": "geo",
+											"radius": 0.03,
+											"minImpulse": 0,
+											"buffs": [
+												{
+													"against": 15,
+													"type": "debuff"
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"source": "hydro",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#aaf",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -1
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#aaf",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -0.2
+												}
+											],
+											"maxImpulse": 0,
+											"renderTicks": 10
+										},
+										"source": "geo"
+									}
+								}
+							],
+							"radius": 0.007,
+							"density": 0.01,
+							"noKnockBack": true,
+							"speed": 0.6,
+							"renderers": [],
+							"maxTicks": 90,
+							"selfPassthrough": true,
+							"categories": 128,
+							"expireOn": 65533,
+							"source": "geo",
+							"buffs": [
+								{
+									"type": "debuff"
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"projectile": {
+							"damage": 0,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1
+									},
+									"projectile": {
+										"damage": 0,
+										"radius": 0.01,
+										"density": 0.01,
+										"minTicks": 10,
+										"expireOn": 1,
+										"speed": -5,
+										"renderers": [
+											{
+												"type": "projectile",
+												"color": "#aff2",
+												"ticks": 10
+											}
+										],
+										"maxTicks": 180,
+										"categories": 2,
+										"behaviours": [
+											{
+												"type": "homing",
+												"maxTurnProportion": -3
+											}
+										],
+										"detonate": {
+											"damage": 0,
+											"against": 15,
+											"source": "geo",
+											"radius": 0.03,
+											"minImpulse": 0,
+											"buffs": [
+												{
+													"against": 15,
+													"type": "debuff"
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"source": "cryo",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#aff",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -1
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faa",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -0.2
+												}
+											],
+											"maxImpulse": 0,
+											"renderTicks": 10
+										},
+										"source": "geo"
+									}
+								}
+							],
+							"radius": 0.007,
+							"density": 0.01,
+							"noKnockBack": true,
+							"speed": 0.6,
+							"renderers": [],
+							"maxTicks": 90,
+							"selfPassthrough": true,
+							"categories": 256,
+							"expireOn": 65533,
+							"source": "geo",
+							"buffs": [
+								{
+									"type": "debuff"
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"projectile": {
+							"damage": 0,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1
+									},
+									"projectile": {
+										"damage": 0,
+										"radius": 0.01,
+										"density": 0.01,
+										"minTicks": 10,
+										"expireOn": 1,
+										"speed": -5,
+										"renderers": [
+											{
+												"type": "projectile",
+												"color": "#faf2",
+												"ticks": 10
+											}
+										],
+										"maxTicks": 180,
+										"categories": 2,
+										"behaviours": [
+											{
+												"type": "homing",
+												"maxTurnProportion": -3
+											}
+										],
+										"detonate": {
+											"damage": 0,
+											"against": 15,
+											"source": "geo",
+											"radius": 0.03,
+											"minImpulse": 0,
+											"buffs": [
+												{
+													"against": 15,
+													"type": "debuff"
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"source": "electro",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faf",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -1
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faf",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -0.2
+												}
+											],
+											"maxImpulse": 0,
+											"renderTicks": 10
+										},
+										"source": "geo"
+									}
+								}
+							],
+							"radius": 0.007,
+							"density": 0.01,
+							"noKnockBack": true,
+							"speed": 0.6,
+							"renderers": [],
+							"maxTicks": 90,
+							"selfPassthrough": true,
+							"categories": 1024,
 							"expireOn": 65533,
 							"source": "geo",
 							"buffs": [
@@ -1294,7 +1596,7 @@
 				"radius": 0.003,
 				"speed": 0.6,
 				"maxTicks": 90,
-				"damage": 16,
+				"damage": 2,
 				"source": "geo",
 				"categories": 2,
 				"color": "#fa0",
@@ -11382,6 +11684,4434 @@
 					}
 				]
 			}
+		},
+		"zhongli": {
+			"id": "zhongli",
+			"description": "A crowd controlling polearm-wielder that changes the terrain with Geo.",
+			"effects": [],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "cooldown",
+					"passive": true,
+					"cooldownRateModifier": -2,
+					"collideWith": 65535,
+					"notSpellIds": [
+						"zhongliq",
+						"zhongliw",
+						"zhonglie",
+						"zhonglir",
+						"sprint"
+					]
+				},
+				{
+					"type": "mass",
+					"passive": true,
+					"radius": 0.0125,
+					"restrictCollideWith": 63
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#aaa",
+			"action": "buff"
+		},
+		"zhongliq": {
+			"id": "zhongliq",
+			"description": "Strike rapidly with a polearm.",
+			"action": "spray",
+			"color": "#aaa",
+			"name": "Rain of Stone",
+			"icon": "thunderball",
+			"chargeTicks": 20,
+			"maxAngleDiffInRevs": 0.01,
+			"recoil": -0.2,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"jitterRatio": 0.2,
+			"lengthTicks": 1,
+			"cooldown": 180,
+			"retarget": true,
+			"movementProportionWhileCharging": 0.5,
+			"projectile": {
+				"selfPassthrough": true,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "self",
+						"trigger": {
+							"afterTicks": 10
+						},
+						"maxTurnProportion": 0.6
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 40
+						},
+						"numProjectiles": 1,
+						"spread": 0.1,
+						"projectile": {
+							"selfPassthrough": true,
+							"behaviours": [
+								{
+									"type": "strafe"
+								},
+								{
+									"type": "homing",
+									"targetType": "cursor",
+									"redirect": true
+								}
+							],
+							"density": 0.01,
+							"radius": 0.003,
+							"speed": 1.2,
+							"sensor": true,
+							"expireOn": 65534,
+							"hitInterval": 10,
+							"maxTicks": 10,
+							"damage": 9,
+							"source": "phys",
+							"categories": 2,
+							"color": "#aaa",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"ticks": 30
+								}
+							],
+							"buffs": []
+						}
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"afterTicks": 20
+						},
+						"projectile": {
+							"selfPassthrough": true,
+							"behaviours": [
+								{
+									"type": "homing",
+									"redirect": true,
+									"targetType": "cursor"
+								},
+								{
+									"type": "homing",
+									"targetType": "self",
+									"trigger": {
+										"afterTicks": 10
+									},
+									"maxTurnProportion": 0.6
+								}
+							],
+							"density": 0.01,
+							"radius": 0.003,
+							"speed": 0.9,
+							"sensor": true,
+							"hitInterval": 10,
+							"expireOn": 65534,
+							"maxTicks": 20,
+							"damage": 1,
+							"source": "phys",
+							"categories": 2,
+							"color": "#aaa",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"ticks": 30
+								}
+							],
+							"buffs": []
+						}
+					}
+				],
+				"density": 0.01,
+				"radius": 0.003,
+				"speed": 0.6,
+				"sensor": true,
+				"expireOn": 65534,
+				"maxTicks": 20,
+				"hitInterval": 10,
+				"damage": 1,
+				"source": "phys",
+				"categories": 2,
+				"color": "#aaa",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					}
+				],
+				"buffs": []
+			}
+		},
+		"zhongliw": {
+			"id": "zhongliw",
+			"name": "Rain of Stone - Charged",
+			"description": "Dash and fire a rain of spears.",
+			"untargeted": true,
+			"cooldown": 300,
+			"throttle": false,
+			"icon": "fireWave",
+			"color": "#aaa",
+			"action": "thrust",
+			"chargeTicks": 20,
+			"range": 0.15,
+			"speed": 1.8,
+			"followCursor": true,
+			"damageTemplate": {
+				"damage": 0,
+				"lifeSteal": 0.3
+			},
+			"buffs": [
+				{
+					"type": "mass",
+					"cleansable": false,
+					"channelling": true,
+					"maxTicks": 60,
+					"radius": 0.005,
+					"restrictCollideWith": 62,
+					"appendCollideWith": 62,
+					"sense": 1,
+					"render": {
+						"color": "#aaa",
+						"selfColor": true,
+						"numParticles": 0,
+						"particleRadius": 0,
+						"ticks": 1,
+						"bloom": 0.03,
+						"glow": 0.5,
+						"decay": true
+					}
+				}
+			],
+			"projectileInterval": 1,
+			"projectile": {
+				"density": 5,
+				"ccd": false,
+				"radius": 0.001,
+				"speed": 0,
+				"maxTicks": 25,
+				"damage": 0,
+				"collideWith": 0,
+				"expireOn": 0,
+				"behaviours": [],
+				"detonate": {
+					"damage": 2,
+					"radius": 0.025,
+					"source": "phys",
+					"minImpulse": 0,
+					"maxImpulse": 0,
+					"renderTicks": 30
+				},
+				"color": "#aaa",
+				"renderers": [
+					{
+						"type": "ray",
+						"ticks": 30,
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "#aaa",
+						"minRadius": 0.02,
+						"remainingTicks": 25,
+						"shrinkTicks": 25,
+						"radius": 0.02
+					}
+				]
+			}
+		},
+		"zhonglie": {
+			"id": "zhonglie",
+			"description": "Create a pillar that creates bursts of geo and makes enemies more vulnerable to damage.",
+			"action": "projectile",
+			"color": "#a60",
+			"chargeTicks": 30,
+			"icon": "crownedExplosion",
+			"name": "Dominus Lapidis",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 1440,
+			"throttle": true,
+			"projectile": {
+				"density": 105,
+				"ccd": false,
+				"sense": 65534,
+				"collideWith": 1,
+				"radius": 0.02,
+				"speed": 0,
+				"maxTicks": 720,
+				"damage": 0,
+				"expireOn": 0,
+				"behaviours": [
+					{
+						"type": "aura",
+						"radius": 0.2,
+						"tickInterval": 120,
+						"buffs": [
+							{
+								"type": "cooldown",
+								"owner": true,
+								"adjustCooldown": -3000,
+								"spellId": "zhonglir",
+								"collideWith": 1
+							},
+							{
+								"type": "armor",
+								"stack": "shred",
+								"render": {
+									"numParticles": 3,
+									"light": 0.1,
+									"color": "#a60a",
+									"ticks": 30,
+									"particleRadius": 0.01
+								},
+								"maxTicks": 180,
+								"proportion": 0.1
+							}
+						]
+					},
+					{
+						"type": "spawn",
+						"spread": 0.66,
+						"projectile": {
+							"selfPassthrough": true,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"projectile": {
+										"damage": 0,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"damage": 0,
+													"radius": 0.01,
+													"density": 0.01,
+													"minTicks": 10,
+													"expireOn": 1,
+													"speed": -5,
+													"renderers": [
+														{
+															"type": "projectile",
+															"color": "#faa2",
+															"ticks": 10
+														}
+													],
+													"maxTicks": 180,
+													"categories": 2,
+													"behaviours": [
+														{
+															"type": "homing",
+															"maxTurnProportion": -3
+														}
+													],
+													"detonate": {
+														"damage": 0,
+														"against": 15,
+														"source": "geo",
+														"radius": 0.03,
+														"minImpulse": 0,
+														"buffs": [
+															{
+																"against": 15,
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield",
+																"source": "pyro",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faa",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -1
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield1",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faa",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -0.2
+															}
+														],
+														"maxImpulse": 0,
+														"renderTicks": 10
+													},
+													"source": "geo"
+												}
+											}
+										],
+										"radius": 0.2,
+										"density": 0.01,
+										"noKnockBack": true,
+										"speed": 0,
+										"renderers": [],
+										"maxTicks": 3,
+										"selfPassthrough": true,
+										"categories": 64,
+										"expireOn": 65533,
+										"source": "geo",
+										"buffs": [
+											{
+												"type": "debuff"
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"projectile": {
+										"damage": 0,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"damage": 0,
+													"radius": 0.01,
+													"density": 0.01,
+													"minTicks": 10,
+													"expireOn": 1,
+													"speed": -5,
+													"renderers": [
+														{
+															"type": "projectile",
+															"color": "#aaf2",
+															"ticks": 10
+														}
+													],
+													"maxTicks": 180,
+													"categories": 2,
+													"behaviours": [
+														{
+															"type": "homing",
+															"maxTurnProportion": -3
+														}
+													],
+													"detonate": {
+														"damage": 0,
+														"against": 15,
+														"source": "geo",
+														"radius": 0.03,
+														"minImpulse": 0,
+														"buffs": [
+															{
+																"against": 15,
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield",
+																"source": "hydro",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#aaf",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -1
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield1",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#aaf",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -0.2
+															}
+														],
+														"maxImpulse": 0,
+														"renderTicks": 10
+													},
+													"source": "geo"
+												}
+											}
+										],
+										"radius": 0.2,
+										"density": 0.01,
+										"noKnockBack": true,
+										"speed": 0,
+										"renderers": [],
+										"maxTicks": 3,
+										"selfPassthrough": true,
+										"categories": 128,
+										"expireOn": 65533,
+										"source": "geo",
+										"buffs": [
+											{
+												"type": "debuff"
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"projectile": {
+										"damage": 0,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"damage": 0,
+													"radius": 0.01,
+													"density": 0.01,
+													"minTicks": 10,
+													"expireOn": 1,
+													"speed": -5,
+													"renderers": [
+														{
+															"type": "projectile",
+															"color": "#aff2",
+															"ticks": 10
+														}
+													],
+													"maxTicks": 180,
+													"categories": 2,
+													"behaviours": [
+														{
+															"type": "homing",
+															"maxTurnProportion": -3
+														}
+													],
+													"detonate": {
+														"damage": 0,
+														"against": 15,
+														"source": "geo",
+														"radius": 0.03,
+														"minImpulse": 0,
+														"buffs": [
+															{
+																"against": 15,
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield",
+																"source": "cryo",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#aff",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -1
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield1",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faa",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -0.2
+															}
+														],
+														"maxImpulse": 0,
+														"renderTicks": 10
+													},
+													"source": "geo"
+												}
+											}
+										],
+										"radius": 0.2,
+										"density": 0.01,
+										"noKnockBack": true,
+										"speed": 0,
+										"renderers": [],
+										"maxTicks": 3,
+										"selfPassthrough": true,
+										"categories": 256,
+										"expireOn": 65533,
+										"source": "geo",
+										"buffs": [
+											{
+												"type": "debuff"
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"projectile": {
+										"damage": 0,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"damage": 0,
+													"radius": 0.01,
+													"density": 0.01,
+													"minTicks": 10,
+													"expireOn": 1,
+													"speed": -5,
+													"renderers": [
+														{
+															"type": "projectile",
+															"color": "#faf2",
+															"ticks": 10
+														}
+													],
+													"maxTicks": 180,
+													"categories": 2,
+													"behaviours": [
+														{
+															"type": "homing",
+															"maxTurnProportion": -3
+														}
+													],
+													"detonate": {
+														"damage": 0,
+														"against": 15,
+														"source": "geo",
+														"radius": 0.03,
+														"minImpulse": 0,
+														"buffs": [
+															{
+																"against": 15,
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield",
+																"source": "electro",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faf",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -1
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield1",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faf",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -0.2
+															}
+														],
+														"maxImpulse": 0,
+														"renderTicks": 10
+													},
+													"source": "geo"
+												}
+											}
+										],
+										"radius": 0.2,
+										"density": 0.01,
+										"noKnockBack": true,
+										"speed": 0,
+										"renderers": [],
+										"maxTicks": 3,
+										"selfPassthrough": true,
+										"categories": 1024,
+										"expireOn": 65533,
+										"source": "geo",
+										"buffs": [
+											{
+												"type": "debuff"
+											}
+										]
+									}
+								},
+								{
+									"type": "aura",
+									"radius": 0.2,
+									"tickInterval": 6,
+									"buffs": [
+										{
+											"type": "armor",
+											"stack": "shred",
+											"render": {
+												"numParticles": 3,
+												"light": 0.1,
+												"color": "#a60a",
+												"ticks": 30,
+												"particleRadius": 0.01
+											},
+											"maxTicks": 180,
+											"proportion": 0.1
+										}
+									]
+								},
+								{
+									"type": "spawn",
+									"spread": 0.66,
+									"trigger": {
+										"afterTicks": 120
+									},
+									"projectile": {
+										"selfPassthrough": true,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faa2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "pyro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 64,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aaf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "hydro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 128,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aff2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "cryo",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aff",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 256,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "electro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 1024,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											}
+										],
+										"density": 0.01,
+										"radius": 0.2,
+										"sensor": true,
+										"speed": 0,
+										"maxTicks": 3,
+										"damage": 5,
+										"source": "geo",
+										"categories": 2,
+										"color": "#fa02",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.045
+											},
+											{
+												"type": "projectile",
+												"ticks": 30,
+												"light": 0.2,
+												"smoke": 0.05
+											},
+											{
+												"type": "ray",
+												"light": 0.2,
+												"ticks": 30
+											},
+											{
+												"type": "strike",
+												"ticks": 30,
+												"light": 0.2,
+												"flash": true,
+												"numParticles": 5
+											}
+										],
+										"buffs": [
+											{
+												"type": "mass",
+												"maxTicks": 10,
+												"stack": "geo",
+												"render": {
+													"numParticles": 3,
+													"light": 0.1,
+													"color": "#fa0",
+													"ticks": 30,
+													"particleRadius": 0.01
+												},
+												"radius": 0.0125,
+												"sense": 512
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"spread": 0.66,
+									"trigger": {
+										"afterTicks": 240
+									},
+									"projectile": {
+										"selfPassthrough": true,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faa2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "pyro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 64,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aaf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "hydro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 128,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aff2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "cryo",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aff",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 256,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "electro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 1024,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											}
+										],
+										"density": 0.01,
+										"radius": 0.2,
+										"sensor": true,
+										"speed": 0,
+										"maxTicks": 3,
+										"damage": 5,
+										"source": "geo",
+										"categories": 2,
+										"color": "#fa02",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.045
+											},
+											{
+												"type": "projectile",
+												"ticks": 30,
+												"light": 0.2,
+												"smoke": 0.05
+											},
+											{
+												"type": "ray",
+												"light": 0.2,
+												"ticks": 30
+											},
+											{
+												"type": "strike",
+												"ticks": 30,
+												"light": 0.2,
+												"flash": true,
+												"numParticles": 5
+											}
+										],
+										"buffs": [
+											{
+												"type": "mass",
+												"maxTicks": 10,
+												"stack": "geo",
+												"render": {
+													"numParticles": 3,
+													"light": 0.1,
+													"color": "#fa0",
+													"ticks": 30,
+													"particleRadius": 0.01
+												},
+												"radius": 0.0125,
+												"sense": 512
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"spread": 0.66,
+									"trigger": {
+										"afterTicks": 360
+									},
+									"projectile": {
+										"selfPassthrough": true,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faa2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "pyro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 64,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aaf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "hydro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 128,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aff2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "cryo",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aff",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 256,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "electro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 1024,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											}
+										],
+										"density": 0.01,
+										"radius": 0.2,
+										"sensor": true,
+										"speed": 0,
+										"maxTicks": 3,
+										"damage": 5,
+										"source": "geo",
+										"categories": 2,
+										"color": "#fa02",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.045
+											},
+											{
+												"type": "projectile",
+												"ticks": 30,
+												"light": 0.2,
+												"smoke": 0.05
+											},
+											{
+												"type": "ray",
+												"light": 0.2,
+												"ticks": 30
+											},
+											{
+												"type": "strike",
+												"ticks": 30,
+												"light": 0.2,
+												"flash": true,
+												"numParticles": 5
+											}
+										],
+										"buffs": [
+											{
+												"type": "mass",
+												"maxTicks": 10,
+												"stack": "geo",
+												"render": {
+													"numParticles": 3,
+													"light": 0.1,
+													"color": "#fa0",
+													"ticks": 30,
+													"particleRadius": 0.01
+												},
+												"radius": 0.0125,
+												"sense": 512
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"spread": 0.66,
+									"trigger": {
+										"afterTicks": 480
+									},
+									"projectile": {
+										"selfPassthrough": true,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faa2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "pyro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 64,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aaf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "hydro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 128,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aff2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "cryo",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aff",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 256,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "electro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 1024,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											}
+										],
+										"density": 0.01,
+										"radius": 0.2,
+										"sensor": true,
+										"speed": 0,
+										"maxTicks": 3,
+										"damage": 5,
+										"source": "geo",
+										"categories": 2,
+										"color": "#fa02",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.045
+											},
+											{
+												"type": "projectile",
+												"ticks": 30,
+												"light": 0.2,
+												"smoke": 0.05
+											},
+											{
+												"type": "ray",
+												"light": 0.2,
+												"ticks": 30
+											},
+											{
+												"type": "strike",
+												"ticks": 30,
+												"light": 0.2,
+												"flash": true,
+												"numParticles": 5
+											}
+										],
+										"buffs": [
+											{
+												"type": "mass",
+												"maxTicks": 10,
+												"stack": "geo",
+												"render": {
+													"numParticles": 3,
+													"light": 0.1,
+													"color": "#fa0",
+													"ticks": 30,
+													"particleRadius": 0.01
+												},
+												"radius": 0.0125,
+												"sense": 512
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"spread": 0.66,
+									"trigger": {
+										"afterTicks": 600
+									},
+									"projectile": {
+										"selfPassthrough": true,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faa2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "pyro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 64,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aaf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "hydro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 128,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aff2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "cryo",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aff",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 256,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "electro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 1024,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											}
+										],
+										"density": 0.01,
+										"radius": 0.2,
+										"sensor": true,
+										"speed": 0,
+										"maxTicks": 3,
+										"damage": 5,
+										"source": "geo",
+										"categories": 2,
+										"color": "#fa02",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.045
+											},
+											{
+												"type": "projectile",
+												"ticks": 30,
+												"light": 0.2,
+												"smoke": 0.05
+											},
+											{
+												"type": "ray",
+												"light": 0.2,
+												"ticks": 30
+											},
+											{
+												"type": "strike",
+												"ticks": 30,
+												"light": 0.2,
+												"flash": true,
+												"numParticles": 5
+											}
+										],
+										"buffs": [
+											{
+												"type": "mass",
+												"maxTicks": 10,
+												"stack": "geo",
+												"render": {
+													"numParticles": 3,
+													"light": 0.1,
+													"color": "#fa0",
+													"ticks": 30,
+													"particleRadius": 0.01
+												},
+												"radius": 0.0125,
+												"sense": 512
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"spread": 0.66,
+									"trigger": {
+										"afterTicks": 720
+									},
+									"projectile": {
+										"selfPassthrough": true,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faa2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "pyro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 64,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aaf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield",
+																			"source": "hydro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"stack": "shield1",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aaf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 128,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#aff2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"source": "cryo",
+																			"stack": "shield",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#aff",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"maxTicks": 180,
+																			"stack": "shield1",
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faa",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 256,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											},
+											{
+												"type": "spawn",
+												"projectile": {
+													"damage": 0,
+													"behaviours": [
+														{
+															"type": "spawn",
+															"trigger": {
+																"collideWith": 1
+															},
+															"projectile": {
+																"damage": 0,
+																"radius": 0.01,
+																"density": 0.01,
+																"minTicks": 10,
+																"expireOn": 1,
+																"speed": -5,
+																"renderers": [
+																	{
+																		"type": "projectile",
+																		"color": "#faf2",
+																		"ticks": 10
+																	}
+																],
+																"maxTicks": 180,
+																"categories": 2,
+																"behaviours": [
+																	{
+																		"type": "homing",
+																		"maxTurnProportion": -3
+																	}
+																],
+																"detonate": {
+																	"damage": 0,
+																	"against": 15,
+																	"source": "geo",
+																	"radius": 0.03,
+																	"minImpulse": 0,
+																	"buffs": [
+																		{
+																			"against": 15,
+																			"type": "debuff"
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"source": "electro",
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -1
+																		},
+																		{
+																			"type": "armor",
+																			"against": 15,
+																			"maxTicks": 180,
+																			"render": {
+																				"numParticles": 3,
+																				"light": 0.1,
+																				"color": "#faf",
+																				"ticks": 30,
+																				"particleRadius": 0.01
+																			},
+																			"proportion": -0.2
+																		}
+																	],
+																	"maxImpulse": 0,
+																	"renderTicks": 10
+																},
+																"source": "geo"
+															}
+														}
+													],
+													"radius": 0.2,
+													"density": 0.01,
+													"noKnockBack": true,
+													"speed": 0,
+													"renderers": [],
+													"maxTicks": 3,
+													"selfPassthrough": true,
+													"categories": 1024,
+													"expireOn": 65533,
+													"source": "geo",
+													"buffs": [
+														{
+															"type": "debuff"
+														}
+													]
+												}
+											}
+										],
+										"density": 0.01,
+										"radius": 0.2,
+										"sensor": true,
+										"speed": 0,
+										"maxTicks": 3,
+										"damage": 5,
+										"source": "geo",
+										"categories": 2,
+										"color": "#fa02",
+										"renderers": [
+											{
+												"type": "bloom",
+												"radius": 0.045
+											},
+											{
+												"type": "projectile",
+												"ticks": 30,
+												"light": 0.2,
+												"smoke": 0.05
+											},
+											{
+												"type": "ray",
+												"light": 0.2,
+												"ticks": 30
+											},
+											{
+												"type": "strike",
+												"ticks": 30,
+												"light": 0.2,
+												"flash": true,
+												"numParticles": 5
+											}
+										],
+										"buffs": [
+											{
+												"type": "mass",
+												"maxTicks": 10,
+												"stack": "geo",
+												"render": {
+													"numParticles": 3,
+													"light": 0.1,
+													"color": "#fa0",
+													"ticks": 30,
+													"particleRadius": 0.01
+												},
+												"radius": 0.0125,
+												"sense": 512
+											}
+										]
+									}
+								}
+							],
+							"density": 0.01,
+							"radius": 0.2,
+							"sensor": true,
+							"speed": 0,
+							"maxTicks": 3,
+							"damage": 5,
+							"source": "geo",
+							"categories": 2,
+							"color": "#fa02",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.045
+								},
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"light": 0.2,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"light": 0.2,
+									"ticks": 30
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"light": 0.2,
+									"flash": true,
+									"numParticles": 5
+								}
+							],
+							"buffs": [
+								{
+									"type": "mass",
+									"maxTicks": 10,
+									"stack": "geo",
+									"render": {
+										"numParticles": 3,
+										"light": 0.1,
+										"color": "#fa0",
+										"ticks": 30,
+										"particleRadius": 0.01
+									},
+									"radius": 0.0125,
+									"sense": 512
+								}
+							]
+						}
+					}
+				],
+				"color": "#a606",
+				"renderers": [
+					{
+						"type": "swirl",
+						"color": "#a60",
+						"radius": 0.2,
+						"ticks": 20,
+						"loopTicks": 120,
+						"numParticles": 2,
+						"particleRadius": 0.01
+					},
+					{
+						"type": "polygon",
+						"light": null,
+						"ticks": 1,
+						"numPoints": 4,
+						"radiusMultiplier": 1.5,
+						"revolutionInterval": 240
+					},
+					{
+						"type": "polygon",
+						"ticks": 1,
+						"numPoints": 4,
+						"color": "#fa0",
+						"radiusMultiplier": 1.15,
+						"revolutionInterval": 240
+					}
+				]
+			}
+		},
+		"zhonglir": {
+			"id": "zhonglir",
+			"name": "Planet Befall",
+			"description": "Fire a meteor that petrifies opponents.",
+			"effects": [],
+			"action": "projectile",
+			"color": "#fa0",
+			"icon": "snowflake1",
+			"sound": "whirlwind",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 27000,
+			"throttle": true,
+			"chargeTicks": 6,
+			"projectile": {
+				"categories": 4,
+				"ccd": false,
+				"density": 0.0001,
+				"radius": 0.1,
+				"speed": 0,
+				"maxTicks": 120,
+				"damage": 0,
+				"collideWith": 1,
+				"expireOn": 0,
+				"swappable": false,
+				"sensor": true,
+				"noKnockback": true,
+				"hitInterval": 121,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"projectile": {
+							"trigger": {
+								"expire": true
+							},
+							"damage": 0,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1
+									},
+									"projectile": {
+										"damage": 0,
+										"radius": 0.01,
+										"density": 0.01,
+										"minTicks": 10,
+										"expireOn": 1,
+										"speed": -5,
+										"renderers": [
+											{
+												"type": "projectile",
+												"color": "#faa2",
+												"ticks": 10
+											}
+										],
+										"maxTicks": 180,
+										"categories": 2,
+										"behaviours": [
+											{
+												"type": "homing",
+												"maxTurnProportion": -3
+											}
+										],
+										"detonate": {
+											"damage": 0,
+											"against": 15,
+											"source": "geo",
+											"radius": 0.03,
+											"minImpulse": 0,
+											"buffs": [
+												{
+													"against": 15,
+													"type": "debuff"
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"source": "pyro",
+													"stack": "shield",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faa",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -1
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"stack": "shield1",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faa",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -0.2
+												}
+											],
+											"maxImpulse": 0,
+											"renderTicks": 10
+										},
+										"source": "geo"
+									}
+								}
+							],
+							"radius": 0.1,
+							"density": 0.01,
+							"noKnockBack": true,
+							"speed": 0,
+							"renderers": [],
+							"maxTicks": 3,
+							"selfPassthrough": true,
+							"categories": 64,
+							"expireOn": 65533,
+							"source": "geo",
+							"buffs": [
+								{
+									"type": "debuff"
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"projectile": {
+							"damage": 0,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1
+									},
+									"projectile": {
+										"damage": 0,
+										"radius": 0.01,
+										"density": 0.01,
+										"minTicks": 10,
+										"expireOn": 1,
+										"speed": -5,
+										"renderers": [
+											{
+												"type": "projectile",
+												"color": "#aaf2",
+												"ticks": 10
+											}
+										],
+										"maxTicks": 180,
+										"categories": 2,
+										"behaviours": [
+											{
+												"type": "homing",
+												"maxTurnProportion": -3
+											}
+										],
+										"detonate": {
+											"damage": 0,
+											"against": 15,
+											"source": "geo",
+											"radius": 0.03,
+											"minImpulse": 0,
+											"buffs": [
+												{
+													"against": 15,
+													"type": "debuff"
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"stack": "shield",
+													"source": "hydro",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#aaf",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -1
+												},
+												{
+													"type": "armor",
+													"stack": "shield1",
+													"against": 15,
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#aaf",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -0.2
+												}
+											],
+											"maxImpulse": 0,
+											"renderTicks": 10
+										},
+										"source": "geo"
+									}
+								}
+							],
+							"radius": 0.1,
+							"density": 0.01,
+							"noKnockBack": true,
+							"speed": 0,
+							"renderers": [],
+							"maxTicks": 3,
+							"selfPassthrough": true,
+							"categories": 128,
+							"expireOn": 65533,
+							"source": "geo",
+							"buffs": [
+								{
+									"type": "debuff"
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"projectile": {
+							"damage": 0,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1
+									},
+									"projectile": {
+										"damage": 0,
+										"radius": 0.01,
+										"density": 0.01,
+										"minTicks": 10,
+										"expireOn": 1,
+										"speed": -5,
+										"renderers": [
+											{
+												"type": "projectile",
+												"color": "#aff2",
+												"ticks": 10
+											}
+										],
+										"maxTicks": 180,
+										"categories": 2,
+										"behaviours": [
+											{
+												"type": "homing",
+												"maxTurnProportion": -3
+											}
+										],
+										"detonate": {
+											"damage": 0,
+											"against": 15,
+											"source": "geo",
+											"radius": 0.03,
+											"minImpulse": 0,
+											"buffs": [
+												{
+													"against": 15,
+													"type": "debuff"
+												},
+												{
+													"type": "armor",
+													"stack": "shield",
+													"against": 15,
+													"source": "cryo",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#aff",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -1
+												},
+												{
+													"type": "armor",
+													"against": 15,
+													"stack": "shield1",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faa",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -0.2
+												}
+											],
+											"maxImpulse": 0,
+											"renderTicks": 10
+										},
+										"source": "geo"
+									}
+								}
+							],
+							"radius": 0.1,
+							"density": 0.01,
+							"noKnockBack": true,
+							"speed": 0,
+							"renderers": [],
+							"maxTicks": 3,
+							"selfPassthrough": true,
+							"categories": 256,
+							"expireOn": 65533,
+							"source": "geo",
+							"buffs": [
+								{
+									"type": "debuff"
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"projectile": {
+							"damage": 0,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1
+									},
+									"projectile": {
+										"damage": 0,
+										"radius": 0.01,
+										"density": 0.01,
+										"minTicks": 10,
+										"expireOn": 1,
+										"speed": -5,
+										"renderers": [
+											{
+												"type": "projectile",
+												"color": "#faf2",
+												"ticks": 10
+											}
+										],
+										"maxTicks": 180,
+										"categories": 2,
+										"behaviours": [
+											{
+												"type": "homing",
+												"maxTurnProportion": -3
+											}
+										],
+										"detonate": {
+											"damage": 0,
+											"against": 15,
+											"source": "geo",
+											"radius": 0.03,
+											"minImpulse": 0,
+											"buffs": [
+												{
+													"against": 15,
+													"type": "debuff"
+												},
+												{
+													"type": "armor",
+													"stack": "shield",
+													"against": 15,
+													"source": "electro",
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faf",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -1
+												},
+												{
+													"type": "armor",
+													"stack": "shield1",
+													"against": 15,
+													"maxTicks": 180,
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#faf",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"proportion": -0.2
+												}
+											],
+											"maxImpulse": 0,
+											"renderTicks": 10
+										},
+										"source": "geo"
+									}
+								}
+							],
+							"radius": 0.1,
+							"density": 0.01,
+							"noKnockBack": true,
+							"speed": 0,
+							"renderers": [],
+							"maxTicks": 3,
+							"selfPassthrough": true,
+							"categories": 1024,
+							"expireOn": 65533,
+							"source": "geo",
+							"buffs": [
+								{
+									"type": "debuff"
+								}
+							]
+						}
+					},
+					{
+						"type": "spawn",
+						"spread": 0.66,
+						"trigger": {
+							"afterTicks": 120
+						},
+						"projectile": {
+							"selfPassthrough": true,
+							"behaviours": [
+								{
+									"type": "spawn",
+									"projectile": {
+										"damage": 0,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"damage": 0,
+													"radius": 0.01,
+													"density": 0.01,
+													"minTicks": 10,
+													"expireOn": 1,
+													"speed": -5,
+													"renderers": [
+														{
+															"type": "projectile",
+															"color": "#faa2",
+															"ticks": 10
+														}
+													],
+													"maxTicks": 180,
+													"categories": 2,
+													"behaviours": [
+														{
+															"type": "homing",
+															"maxTurnProportion": -3
+														}
+													],
+													"detonate": {
+														"damage": 0,
+														"against": 15,
+														"source": "geo",
+														"radius": 0.03,
+														"minImpulse": 0,
+														"buffs": [
+															{
+																"against": 15,
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield",
+																"source": "pyro",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faa",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -1
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"maxTicks": 180,
+																"stack": "shield1",
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faa",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -0.2
+															}
+														],
+														"maxImpulse": 0,
+														"renderTicks": 10
+													},
+													"source": "geo"
+												}
+											}
+										],
+										"radius": 0.1,
+										"density": 0.01,
+										"noKnockBack": true,
+										"speed": 0,
+										"renderers": [],
+										"maxTicks": 3,
+										"selfPassthrough": true,
+										"categories": 64,
+										"expireOn": 65533,
+										"source": "geo",
+										"buffs": [
+											{
+												"type": "debuff"
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"projectile": {
+										"damage": 0,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"damage": 0,
+													"radius": 0.01,
+													"density": 0.01,
+													"minTicks": 10,
+													"expireOn": 1,
+													"speed": -5,
+													"renderers": [
+														{
+															"type": "projectile",
+															"color": "#aaf2",
+															"ticks": 10
+														}
+													],
+													"maxTicks": 180,
+													"categories": 2,
+													"behaviours": [
+														{
+															"type": "homing",
+															"maxTurnProportion": -3
+														}
+													],
+													"detonate": {
+														"damage": 0,
+														"against": 15,
+														"source": "geo",
+														"radius": 0.03,
+														"minImpulse": 0,
+														"buffs": [
+															{
+																"against": 15,
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield",
+																"source": "hydro",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#aaf",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -1
+															},
+															{
+																"type": "armor",
+																"stack": "shield1",
+																"against": 15,
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#aaf",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -0.2
+															}
+														],
+														"maxImpulse": 0,
+														"renderTicks": 10
+													},
+													"source": "geo"
+												}
+											}
+										],
+										"radius": 0.1,
+										"density": 0.01,
+										"noKnockBack": true,
+										"speed": 0,
+										"renderers": [],
+										"maxTicks": 3,
+										"selfPassthrough": true,
+										"categories": 128,
+										"expireOn": 65533,
+										"source": "geo",
+										"buffs": [
+											{
+												"type": "debuff"
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"projectile": {
+										"damage": 0,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"damage": 0,
+													"radius": 0.01,
+													"density": 0.01,
+													"minTicks": 10,
+													"expireOn": 1,
+													"speed": -5,
+													"renderers": [
+														{
+															"type": "projectile",
+															"color": "#aff2",
+															"ticks": 10
+														}
+													],
+													"maxTicks": 180,
+													"categories": 2,
+													"behaviours": [
+														{
+															"type": "homing",
+															"maxTurnProportion": -3
+														}
+													],
+													"detonate": {
+														"damage": 0,
+														"against": 15,
+														"source": "geo",
+														"radius": 0.03,
+														"minImpulse": 0,
+														"buffs": [
+															{
+																"against": 15,
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield",
+																"source": "cryo",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#aff",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -1
+															},
+															{
+																"type": "armor",
+																"stack": "shield1",
+																"against": 15,
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faa",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -0.2
+															}
+														],
+														"maxImpulse": 0,
+														"renderTicks": 10
+													},
+													"source": "geo"
+												}
+											}
+										],
+										"radius": 0.1,
+										"density": 0.01,
+										"noKnockBack": true,
+										"speed": 0,
+										"renderers": [],
+										"maxTicks": 3,
+										"selfPassthrough": true,
+										"categories": 256,
+										"expireOn": 65533,
+										"source": "geo",
+										"buffs": [
+											{
+												"type": "debuff"
+											}
+										]
+									}
+								},
+								{
+									"type": "spawn",
+									"projectile": {
+										"damage": 0,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"damage": 0,
+													"radius": 0.01,
+													"density": 0.01,
+													"minTicks": 10,
+													"expireOn": 1,
+													"speed": -5,
+													"renderers": [
+														{
+															"type": "projectile",
+															"color": "#faf2",
+															"ticks": 10
+														}
+													],
+													"maxTicks": 180,
+													"categories": 2,
+													"behaviours": [
+														{
+															"type": "homing",
+															"maxTurnProportion": -3
+														}
+													],
+													"detonate": {
+														"damage": 0,
+														"against": 15,
+														"source": "geo",
+														"radius": 0.03,
+														"minImpulse": 0,
+														"buffs": [
+															{
+																"against": 15,
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield",
+																"source": "electro",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faf",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -1
+															},
+															{
+																"type": "armor",
+																"against": 15,
+																"stack": "shield1",
+																"maxTicks": 180,
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#faf",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"proportion": -0.2
+															}
+														],
+														"maxImpulse": 0,
+														"renderTicks": 10
+													},
+													"source": "geo"
+												}
+											}
+										],
+										"radius": 0.1,
+										"density": 0.01,
+										"noKnockBack": true,
+										"speed": 0,
+										"renderers": [],
+										"maxTicks": 3,
+										"selfPassthrough": true,
+										"categories": 1024,
+										"expireOn": 65533,
+										"source": "geo",
+										"buffs": [
+											{
+												"type": "debuff"
+											}
+										]
+									}
+								}
+							],
+							"density": 0.01,
+							"radius": 0.1,
+							"sensor": true,
+							"speed": 0,
+							"maxTicks": 3,
+							"damage": 15,
+							"source": "geo",
+							"categories": 2,
+							"color": "#fa02",
+							"renderers": [
+								{
+									"type": "bloom",
+									"radius": 0.045
+								},
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"light": 0.2,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"light": 0.2,
+									"ticks": 30
+								},
+								{
+									"type": "strike",
+									"ticks": 30,
+									"light": 0.2,
+									"flash": true,
+									"numParticles": 5
+								}
+							],
+							"buffs": [
+								{
+									"type": "movement",
+									"stack": "petrify",
+									"movementProportion": 0.15,
+									"maxTicks": 240,
+									"against": 12,
+									"render": {
+										"color": "#555",
+										"light": 0.56,
+										"ticks": 15,
+										"emissionRadiusFactor": 1,
+										"particleRadius": 0.01
+									}
+								},
+								{
+									"type": "mass",
+									"against": 12,
+									"maxTicks": 10,
+									"stack": "geo",
+									"render": {
+										"numParticles": 3,
+										"light": 0.1,
+										"color": "#fa0",
+										"ticks": 30,
+										"particleRadius": 0.01
+									},
+									"radius": 0.0125,
+									"sense": 512
+								}
+							]
+						}
+					}
+				],
+				"buffs": [
+					{
+						"type": "movement",
+						"stack": "whirlwind",
+						"movementProportion": 0.5,
+						"maxTicks": 120,
+						"against": 12,
+						"render": {
+							"color": "#f60",
+							"light": 0.1,
+							"alpha": 0.3,
+							"ticks": 15,
+							"emissionRadiusFactor": 1,
+							"particleRadius": 0.01
+						}
+					}
+				],
+				"color": "#f60",
+				"renderers": [
+					{
+						"type": "bloom",
+						"radius": 0.05,
+						"light": 0.5
+					},
+					{
+						"type": "swirl",
+						"color": "#f604",
+						"radius": 0.1,
+						"ticks": 20,
+						"loopTicks": 13,
+						"numParticles": 2,
+						"particleRadius": 0.01,
+						"light": null,
+						"glow": 0.7,
+						"shine": 0.2,
+						"smoke": 1.3,
+						"fade": "#1440",
+						"vanish": 1
+					},
+					{
+						"type": "reticule",
+						"color": "#aaa",
+						"fade": true,
+						"grow": true,
+						"remainingTicks": 120,
+						"shrinkTicks": 120,
+						"radius": 0.1
+					}
+				]
+			}
 		}
 	},
 	"Layouts": {
@@ -11410,57 +16140,7 @@
 			"$delete": true
 		},
 		"snowflake": {
-			"obstacles": [
-				{
-					"type": "ewew",
-					"numObstacles": 1,
-					"layoutRadius": 0,
-					"layoutAngleOffsetInRevs": 0,
-					"numPoints": 4,
-					"extent": 2,
-					"orientationAngleOffsetInRevs": 0
-				},
-				{
-					"numObstacles": 4,
-					"layoutRadius": 0.12,
-					"type": "pyro",
-					"layoutAngleOffsetInRevs": 0.125,
-					"numPoints": 4,
-					"extent": 0.007,
-					"angularWidthInRevs": 0.1,
-					"orientationAngleOffsetInRevs": 0
-				},
-				{
-					"numObstacles": 4,
-					"layoutRadius": 0.17,
-					"type": "cryo",
-					"layoutAngleOffsetInRevs": 0.225,
-					"numPoints": 4,
-					"extent": 0.007,
-					"angularWidthInRevs": 0.1,
-					"orientationAngleOffsetInRevs": 0
-				},
-				{
-					"numObstacles": 4,
-					"layoutRadius": 0.22,
-					"type": "hydro",
-					"layoutAngleOffsetInRevs": 0.325,
-					"numPoints": 4,
-					"extent": 0.007,
-					"angularWidthInRevs": 0.1,
-					"orientationAngleOffsetInRevs": 0
-				},
-				{
-					"numObstacles": 4,
-					"layoutRadius": 0.27,
-					"angularWidthInRevs": 0.1,
-					"type": "electro",
-					"layoutAngleOffsetInRevs": 0.425,
-					"numPoints": 4,
-					"extent": 0.007,
-					"orientationAngleOffsetInRevs": 0
-				}
-			]
+			"$delete": true
 		},
 		"inside5": {
 			"$delete": true
@@ -11494,6 +16174,261 @@
 		},
 		"tripletSwirl": {
 			"$delete": true
+		},
+		"cryoelectro": {
+			"color": "#224",
+			"background": "#112",
+			"angleOffsetInRevs": 0.08333333333,
+			"obstacles": [
+				{
+					"type": "ewew",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 2,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 4,
+					"layoutRadius": 0.17,
+					"type": "cryo",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.25,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 8,
+					"layoutRadius": 0.3,
+					"type": "electro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.16,
+					"orientationAngleOffsetInRevs": 0.5
+				},
+				{
+					"numObstacles": 8,
+					"layoutRadius": 0.27,
+					"type": "electro",
+					"layoutAngleOffsetInRevs": 0.16,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.107,
+					"numPoints": 4,
+					"orientationAngleOffsetInRevs": 0.25
+				}
+			]
+		},
+		"pyrohydro": {
+			"color": "#212",
+			"background": "#111",
+			"angleOffsetInRevs": 0.08333333333,
+			"obstacles": [
+				{
+					"type": "ewew",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 2,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 3,
+					"layoutRadius": 0.12,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.45,
+					"orientationAngleOffsetInRevs": 0.194
+				},
+				{
+					"numObstacles": 3,
+					"layoutRadius": 0.28,
+					"type": "pyro",
+					"numPoints": 4,
+					"layoutAngleOffsetInRevs": 0.24,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.04,
+					"orientationAngleOffsetInRevs": 0.25
+				},
+				{
+					"numObstacles": 3,
+					"layoutRadius": 0.31,
+					"type": "hydro",
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.35,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 10,
+					"layoutRadius": 0.24,
+					"type": "hydro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.1,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"cryohydro": {
+			"color": "#124",
+			"background": "#112",
+			"angleOffsetInRevs": 0.08333333333,
+			"obstacles": [
+				{
+					"type": "ewew",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 2,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 6,
+					"layoutRadius": 0.17,
+					"type": "cryo",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.166667,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"type": "hydro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.117,
+					"numPoints": 6,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 6,
+					"layoutRadius": 0.27,
+					"type": "hydro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.166667,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"cryopyro": {
+			"color": "#223",
+			"background": "#112",
+			"angleOffsetInRevs": 0.08333333333,
+			"obstacles": [
+				{
+					"type": "ewew",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 2,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 8,
+					"layoutRadius": 0.18,
+					"type": "cryo",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.14,
+					"orientationAngleOffsetInRevs": 0.25
+				},
+				{
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.1,
+					"numPoints": 8,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 8,
+					"layoutRadius": 0.27,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.125,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		},
+		"pyroelectro": {
+			"color": "#412",
+			"background": "#211",
+			"angleOffsetInRevs": 0.08333333333,
+			"obstacles": [
+				{
+					"type": "ewew",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 2,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 3,
+					"layoutRadius": 0.2,
+					"type": "electro",
+					"layoutAngleOffsetInRevs": 0.175,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.32,
+					"orientationAngleOffsetInRevs": 0.6
+				},
+				{
+					"numObstacles": 3,
+					"layoutRadius": 0.2,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0.675,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.32,
+					"orientationAngleOffsetInRevs": 0.6
+				}
+			]
+		},
+		"electrohydro": {
+			"color": "#214",
+			"background": "#112",
+			"angleOffsetInRevs": 0.08333333333,
+			"obstacles": [
+				{
+					"type": "ewew",
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 4,
+					"extent": 2,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 12,
+					"layoutRadius": 0.17,
+					"type": "electro",
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.017,
+					"numPoints": 3,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 12,
+					"layoutRadius": 0.27,
+					"type": "hydro",
+					"layoutAngleOffsetInRevs": 0.125,
+					"extent": 0.017,
+					"numPoints": 3,
+					"orientationAngleOffsetInRevs": 0.5
+				}
+			]
 		}
 	},
 	"Tips": [
