@@ -8151,7 +8151,7 @@
 							"particleRadius": 0.01
 						},
 						"source": "charged",
-						"proportion": 0.5
+						"proportion": 0.15
 					},
 					{
 						"type": "movement",
@@ -8621,7 +8621,22 @@
 										"particleRadius": 0.01
 									},
 									"source": "charged",
-									"proportion": 0.75
+									"proportion": 0.15
+								},
+								{
+									"type": "armor",
+									"maxTicks": 180,
+									"stack": "scarlet",
+									"maxStacks": 10,
+									"render": {
+										"numParticles": 3,
+										"light": 0.1,
+										"color": "#faaa",
+										"ticks": 30,
+										"particleRadius": 0.01
+									},
+									"source": "charged",
+									"proportion": 0.15
 								},
 								{
 									"type": "armor",
@@ -8720,7 +8735,7 @@
 									"particleRadius": 0.01
 								},
 								"source": "charged",
-								"proportion": 0.5
+								"proportion": 0.15
 							},
 							{
 								"type": "movement",
