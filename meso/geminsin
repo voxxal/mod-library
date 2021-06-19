@@ -16061,6 +16061,7 @@
 								{
 									"type": "movement",
 									"stack": "petrify",
+									"cleansable": false,
 									"movementProportion": 0.15,
 									"maxTicks": 240,
 									"against": 12,
