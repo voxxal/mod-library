@@ -4859,13 +4859,6 @@
 										"source": "hydro",
 										"buffs": [
 											{
-												"type": "cooldown",
-												"owner": true,
-												"adjustCooldown": -900,
-												"spellId": "ganyur",
-												"collideWith": 1
-											},
-											{
 												"type": "mass",
 												"maxTicks": 60,
 												"stack": "cryo",
@@ -5182,6 +5175,13 @@
 								}
 							],
 							"buffs": [
+								{
+									"type": "cooldown",
+									"owner": true,
+									"adjustCooldown": -900,
+									"spellId": "ganyur",
+									"collideWith": 1
+								},
 								{
 									"type": "mass",
 									"maxTicks": 180,
