@@ -4767,21 +4767,21 @@
 			"color": "#aaa",
 			"name": "Liutian Archery",
 			"icon": "thunderball",
-			"cooldown": 30,
-			"chargeTicks": 30,
+			"cooldown": 90,
+			"chargeTicks": 90,
 			"throttle": true,
 			"release": {
-				"maxChargeTicks": 30
+				"maxChargeTicks": 90
 			},
 			"retarget": true,
 			"movementProportionWhileCharging": 0.5,
 			"chargeDamage": {
 				"initialMultiplier": 0.01,
-				"ticks": 30
+				"ticks": 90
 			},
 			"chargeRadius": {
 				"initialMultiplier": 0.01,
-				"ticks": 30
+				"ticks": 90
 			},
 			"projectile": {
 				"selfPassthrough": true,
@@ -16443,11 +16443,11 @@
 			"color": "#aaa",
 			"name": "Bolts of Downfall",
 			"icon": "thunderball",
-			"cooldown": 90,
+			"cooldown": 10,
 			"chargeTicks": 10,
 			"throttle": true,
 			"release": {
-				"maxChargeTicks": 30
+				"maxChargeTicks": 10
 			},
 			"retarget": true,
 			"movementProportionWhileCharging": 0.95,
@@ -16458,7 +16458,7 @@
 				"radius": 0.002,
 				"speed": 0.8,
 				"maxTicks": 90,
-				"damage": 14,
+				"damage": 2,
 				"source": "phys",
 				"categories": 2,
 				"color": "#aaa",
@@ -16484,20 +16484,20 @@
 			"icon": "thunderball",
 			"maxAngleDiffInRevs": 0.01,
 			"cooldown": 90,
-			"chargeTicks": 30,
+			"chargeTicks": 20,
 			"throttle": true,
 			"release": {
-				"maxChargeTicks": 50
+				"maxChargeTicks": 20
 			},
 			"retarget": true,
 			"movementProportionWhileCharging": 0.5,
 			"chargeDamage": {
 				"initialMultiplier": 0.2,
-				"ticks": 50
+				"ticks": 20
 			},
 			"chargeRadius": {
 				"initialMultiplier": 0.01,
-				"ticks": 50
+				"ticks": 20
 			},
 			"projectile": {
 				"density": 0.01,
@@ -16515,7 +16515,7 @@
 						},
 						"projectile": {
 							"density": 0.01,
-							"radius": 0.08,
+							"radius": 0.16,
 							"speed": 0,
 							"collideWith": 0,
 							"sense": 1,
@@ -16528,7 +16528,7 @@
 									"type": "spawn",
 									"projectile": {
 										"damage": 0,
-										"radius": 0.08,
+										"radius": 0.16,
 										"sensor": true,
 										"density": 0.01,
 										"noKnockBack": true,
@@ -16594,7 +16594,7 @@
 									"type": "spawn",
 									"projectile": {
 										"density": 0.01,
-										"radius": 0.08,
+										"radius": 0.16,
 										"speed": 0,
 										"sensor": true,
 										"maxTicks": 10,
@@ -16675,7 +16675,7 @@
 									"type": "spawn",
 									"projectile": {
 										"damage": 0,
-										"radius": 0.08,
+										"radius": 0.16,
 										"density": 0.01,
 										"sensor": true,
 										"noKnockBack": true,
