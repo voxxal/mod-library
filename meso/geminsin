@@ -16651,7 +16651,7 @@
 																"proportion": 0.5
 															}
 														],
-														"radius": 0.07,
+														"radius": 0.16,
 														"minImpulse": 0,
 														"source": "pyro",
 														"maxImpulse": 0,
