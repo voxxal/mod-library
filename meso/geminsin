@@ -8011,7 +8011,7 @@
 			"color": "#f00",
 			"icon": "thunderball",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 90,
+			"cooldown": 180,
 			"movementProportionWhileChannelling": 1,
 			"jitterRatio": 0.05,
 			"intervalTicks": 20,
@@ -8152,7 +8152,7 @@
 					},
 					{
 						"type": "armor",
-						"maxTicks": 90,
+						"maxTicks": 180,
 						"stack": "scarlet",
 						"maxStacks": 10,
 						"render": {
@@ -8175,7 +8175,7 @@
 							"ticks": 30,
 							"particleRadius": 0.01
 						},
-						"maxTicks": 90,
+						"maxTicks": 180,
 						"collideWith": 1,
 						"stack": "scal",
 						"movementProportion": 1.1,
@@ -8197,7 +8197,8 @@
 			"id": "yanfeiw",
 			"description": "An explosion of pyro that deals more damage for each Scarlet Seal.",
 			"action": "projectile",
-			"chargeTicks": 20,
+			"chargeTicks": 50,
+			"movementProportionWhileCharging": 0.9,
 			"name": "Seal of Approval - Charged",
 			"color": "#f00",
 			"icon": "crownedExplosion",
@@ -8735,7 +8736,7 @@
 						"buffs": [
 							{
 								"type": "armor",
-								"maxTicks": 90,
+								"maxTicks": 180,
 								"stack": "scarlet",
 								"against": 12,
 								"maxStacks": 10,
@@ -8759,7 +8760,7 @@
 									"ticks": 30,
 									"particleRadius": 0.01
 								},
-								"maxTicks": 90,
+								"maxTicks": 180,
 								"stack": "scal",
 								"movementProportion": 1.1,
 								"maxStacks": 10
