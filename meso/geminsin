@@ -48,6 +48,15 @@
 					"maxTicks": 1,
 					"collideWith": 65535,
 					"spellIds": [
+						"hutaor"
+					],
+					"minCooldown": 48000
+				},
+				{
+					"type": "cooldown",
+					"maxTicks": 1,
+					"collideWith": 65535,
+					"spellIds": [
 						"ganyur"
 					],
 					"minCooldown": 24000
@@ -360,7 +369,8 @@
 					"zhongli"
 				],
 				[
-					"yanfei"
+					"yanfei",
+					"hutao"
 				]
 			],
 			"q": [
@@ -377,7 +387,8 @@
 					"zhongliq"
 				],
 				[
-					"yanfeiq"
+					"yanfeiq",
+					"hutaoq"
 				]
 			],
 			"w": [
@@ -394,7 +405,8 @@
 					"zhongliw"
 				],
 				[
-					"yanfeiw"
+					"yanfeiw",
+					"hutaow"
 				]
 			],
 			"e": [
@@ -411,7 +423,8 @@
 					"zhonglie"
 				],
 				[
-					"yanfeie"
+					"yanfeie",
+					"hutaoe"
 				]
 			],
 			"r": [
@@ -428,7 +441,8 @@
 					"zhonglir"
 				],
 				[
-					"yanfeir"
+					"yanfeir",
+					"hutaor"
 				]
 			],
 			"f": [
@@ -458,7 +472,6 @@
 						"hitInterval": 60,
 						"packet": {
 							"damage": -4,
-							"lifeSteal": 0.3,
 							"noHit": true
 						},
 						"maxTicks": 60,
@@ -507,10 +520,6 @@
 				"categories": 2,
 				"color": "#f00",
 				"renderers": [
-					{
-						"type": "bloom",
-						"radius": 0.045
-					},
 					{
 						"type": "projectile",
 						"ticks": 30,
@@ -1682,9 +1691,9 @@
 			"delink": true,
 			"takesOwnership": true,
 			"blocksTeleporters": false,
-			"shiftMultiplier": 0,
-			"speedMultiplier": 0,
-			"maxSpeed": 0.75,
+			"shiftMultiplier": 0.1,
+			"speedMultiplier": 0.1,
+			"maxSpeed": 0.15,
 			"maxTurnRatePerTickInRevs": 0.1,
 			"damageMultiplier": 1,
 			"angleOffsetsInRevs": [
@@ -1721,7 +1730,7 @@
 				"bloom": 0.03,
 				"growth": 0.3
 			},
-			"sound": "saber",
+			"sound": null,
 			"action": "saber"
 		},
 		"keqingw": {
@@ -2552,7 +2561,6 @@
 						"type": "expireOnChannellingEnd"
 					}
 				],
-				"sound": "swap",
 				"color": "#faf",
 				"buffs": [
 					{
@@ -8011,7 +8019,7 @@
 			"color": "#f00",
 			"icon": "thunderball",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 180,
+			"cooldown": 90,
 			"movementProportionWhileChannelling": 1,
 			"jitterRatio": 0.05,
 			"intervalTicks": 20,
@@ -8022,7 +8030,7 @@
 				"radius": 0.003,
 				"speed": 0.6,
 				"maxTicks": 90,
-				"damage": 3.5,
+				"damage": 1.5,
 				"categories": 2,
 				"color": "#f00",
 				"renderers": [
@@ -8197,7 +8205,7 @@
 			"id": "yanfeiw",
 			"description": "An explosion of pyro that deals more damage for each Scarlet Seal.",
 			"action": "projectile",
-			"chargeTicks": 50,
+			"chargeTicks": 20,
 			"movementProportionWhileCharging": 0.9,
 			"name": "Seal of Approval - Charged",
 			"color": "#f00",
@@ -8235,19 +8243,19 @@
 							"radius": 0.03,
 							"source": "charged",
 							"speed": 0,
-							"maxTicks": 90,
-							"damage": 16,
+							"maxTicks": 10,
+							"damage": 8,
 							"detonate": {
-								"damage": 16,
+								"damage": 8,
 								"buffs": [
 									{
 										"type": "cooldown",
 										"owner": true,
+										"collideWith": 1,
 										"adjustCooldown": -5000,
 										"spellId": "yanfeir"
 									}
 								],
-								"lifeSteal": 0.3,
 								"radius": 0.03,
 								"minImpulse": 0,
 								"source": "pyro",
@@ -8276,7 +8284,7 @@
 										"radius": 0.04,
 										"speed": 0,
 										"sensor": true,
-										"maxTicks": 90,
+										"maxTicks": 10,
 										"damage": 0,
 										"categories": 1024,
 										"behaviours": [
@@ -8465,7 +8473,6 @@
 				"detonate": {
 					"damage": 10,
 					"source": "pyro",
-					"lifeSteal": 0.3,
 					"radius": 0.01,
 					"minImpulse": 0.00015,
 					"maxImpulse": 0.00015,
@@ -9020,8 +9027,8 @@
 			"movementProportionWhileCharging": 0.85,
 			"movementProportionWhileChannelling": 0.85,
 			"numProjectilesPerTick": 1,
-			"intervalTicks": 60,
-			"chargeTicks": 30,
+			"intervalTicks": 40,
+			"chargeTicks": 20,
 			"jitterRatio": 0.24,
 			"lengthTicks": 120,
 			"cooldown": 600,
@@ -10916,7 +10923,7 @@
 			"color": "#bfc",
 			"icon": "thunderball",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 600,
+			"cooldown": 450,
 			"throttle": true,
 			"movementProportionWhileChannelling": 2,
 			"release": {},
@@ -11804,7 +11811,7 @@
 				"radius": 0.023,
 				"speed": 0.21,
 				"maxTicks": 180,
-				"damage": 2,
+				"damage": 1.5,
 				"expireOn": 0,
 				"source": "anemo",
 				"categories": 2,
@@ -11857,7 +11864,6 @@
 			"projectile": {
 				"sensor": true,
 				"damage": 9,
-				"lifeSteal": 0.3,
 				"color": "#bfca",
 				"density": 30,
 				"radius": 0.0135,
@@ -11890,7 +11896,6 @@
 								"hitInterval": 60,
 								"packet": {
 									"damage": -2,
-									"lifeSteal": 0.3,
 									"noHit": true
 								},
 								"maxTicks": 60,
@@ -11917,7 +11922,6 @@
 								"hitInterval": 60,
 								"packet": {
 									"damage": 1,
-									"lifeSteal": 0.3,
 									"noHit": true
 								},
 								"maxTicks": 60,
@@ -20272,6 +20276,800 @@
 				]
 			},
 			"name": "Midnight Phantasmagoria"
+		},
+		"hutao": {
+			"id": "hutao",
+			"name": "hu tao",
+			"description": "A speedy pyro polearm-wielder that stays close.",
+			"effects": [],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "cooldown",
+					"passive": true,
+					"cooldownRateModifier": -2,
+					"collideWith": 65535,
+					"notSpellIds": [
+						"hutaoq",
+						"hutaow",
+						"hutaoe",
+						"hutaor",
+						"sprint"
+					]
+				},
+				{
+					"type": "mass",
+					"passive": true,
+					"radius": 0.0125,
+					"restrictCollideWith": 63
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#aaa",
+			"action": "buff"
+		},
+		"hutaoq": {
+			"id": "hutaoq",
+			"description": "Strike rapidly with a polearm.",
+			"action": "spray",
+			"color": "#aaa",
+			"name": "Secret Spear of Wangsheng",
+			"icon": "thunderball",
+			"chargeTicks": 20,
+			"maxAngleDiffInRevs": 0.01,
+			"recoil": -0.03,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 10,
+			"jitterRatio": 0.05,
+			"lengthTicks": 65,
+			"cooldown": 185,
+			"retarget": true,
+			"movementProportionWhileCharging": 0.5,
+			"projectile": {
+				"selfPassthrough": true,
+				"behaviours": [
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 2048
+						},
+						"expire": true,
+						"projectile": {
+							"density": 0.01,
+							"radius": 0.003,
+							"minTicks": 20,
+							"sensor": true,
+							"expireOn": 63486,
+							"speed": 0.6,
+							"maxTicks": 20,
+							"damage": 0.75,
+							"hitInterval": 10,
+							"categories": 2,
+							"color": "#f00",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"ticks": 30
+								}
+							],
+							"behaviours": [
+								{
+									"type": "spawn",
+									"projectile": {
+										"density": 0.01,
+										"radius": 0.003,
+										"sensor": true,
+										"speed": 0.6,
+										"maxTicks": 20,
+										"minTicks": 20,
+										"expireOn": 63486,
+										"hitInterval": 10,
+										"damage": 0,
+										"categories": 1024,
+										"behaviours": [
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"density": 0.01,
+													"radius": 0.003,
+													"speed": 0.6,
+													"maxTicks": 10,
+													"expireOn": 63486,
+													"damage": 0,
+													"sensor": true,
+													"hitInterval": 10,
+													"detonate": {
+														"buffs": [
+															{
+																"type": "armor",
+																"maxTicks": 180,
+																"stack": "vapo",
+																"maxStacks": 2,
+																"source": "hydro",
+																"proportion": 1
+															},
+															{
+																"type": "mass",
+																"maxTicks": 180,
+																"stack": "pyro",
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#f00",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"radius": 0.0125,
+																"sense": 64
+															},
+															{
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"stack": "melt",
+																"maxStacks": 2,
+																"maxTicks": 180,
+																"source": "cryo",
+																"proportion": 0.5
+															}
+														],
+														"radius": 0.07,
+														"minImpulse": 0,
+														"source": "pyro",
+														"maxImpulse": 0,
+														"renderTicks": 30,
+														"damage": 0.15
+													},
+													"color": "#f0f2",
+													"renderers": [],
+													"source": "pyro",
+													"buffs": []
+												}
+											}
+										],
+										"color": "#f0f2",
+										"renderers": [],
+										"source": "electro",
+										"buffs": []
+									}
+								}
+							],
+							"source": "pyro",
+							"buffs": [
+								{
+									"type": "cooldown",
+									"owner": true,
+									"collideWith": 1,
+									"adjustCooldown": -750,
+									"spellId": "hutaor"
+								},
+								{
+									"type": "burn",
+									"collideWith": 9,
+									"against": 3,
+									"render": {
+										"numParticles": 3,
+										"light": 0.1,
+										"color": "#faa",
+										"ticks": 30,
+										"particleRadius": 0.01
+									},
+									"cleansable": false,
+									"stack": "burn",
+									"hitInterval": 10,
+									"packet": {
+										"damage": 0.25,
+										"noHit": true
+									},
+									"maxTicks": 120
+								},
+								{
+									"type": "mass",
+									"maxTicks": 180,
+									"stack": "pyro",
+									"render": {
+										"numParticles": 3,
+										"light": 0.1,
+										"color": "#f00",
+										"ticks": 30,
+										"particleRadius": 0.01
+									},
+									"radius": 0.0125,
+									"sense": 64
+								},
+								{
+									"type": "armor",
+									"maxTicks": 180,
+									"stack": "vapo",
+									"maxStacks": 2,
+									"source": "hydro",
+									"proportion": 1
+								},
+								{
+									"type": "armor",
+									"stack": "melt",
+									"maxStacks": 2,
+									"maxTicks": 180,
+									"source": "cryo",
+									"proportion": 0.5
+								}
+							]
+						}
+					}
+				],
+				"density": 0.01,
+				"radius": 0.003,
+				"speed": 0.6,
+				"sensor": true,
+				"expireOn": 63486,
+				"maxTicks": 20,
+				"hitInterval": 10,
+				"damage": 0.6,
+				"minTicks": 20,
+				"source": "phys",
+				"categories": 2,
+				"color": "#aaa",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					}
+				],
+				"buffs": []
+			}
+		},
+		"hutaow": {
+			"id": "hutaow",
+			"description": "Dash forward with a powerful strike.",
+			"action": "spray",
+			"color": "#aaa",
+			"name": "Secret Spear of Wangsheng - Charged",
+			"icon": "thunderball",
+			"chargeTicks": 30,
+			"maxAngleDiffInRevs": 0.01,
+			"movementProportionWhileChannelling": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 1,
+			"jitterRatio": 1,
+			"recoil": -2,
+			"buffs": [
+				{
+					"type": "mass",
+					"maxTicks": 20,
+					"radius": 0.0125,
+					"render": {
+						"numParticles": 3,
+						"light": 0.1,
+						"color": "#aff",
+						"ticks": 30,
+						"particleRadius": 0.01
+					},
+					"restrictCollideWith": 0
+				}
+			],
+			"lengthTicks": 1,
+			"cooldown": 80,
+			"throttle": true,
+			"retarget": true,
+			"movementProportionWhileCharging": 0.9,
+			"projectile": {
+				"selfPassthrough": true,
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "self",
+						"maxTurnProportion": 0.2
+					},
+					{
+						"type": "homing",
+						"maxTurnProportion": 0,
+						"trigger": {
+							"afterTicks": 10
+						},
+						"newSpeed": 0.7
+					},
+					{
+						"type": "spawn",
+						"trigger": {
+							"collideWith": 2048
+						},
+						"expire": true,
+						"projectile": {
+							"density": 0.01,
+							"radius": 0.01,
+							"minTicks": 20,
+							"speed": 0.7,
+							"sensor": true,
+							"maxTicks": 25,
+							"damage": 5,
+							"expireOn": 63486,
+							"hitInterval": 10,
+							"categories": 2,
+							"color": "#f00",
+							"renderers": [
+								{
+									"type": "projectile",
+									"ticks": 30,
+									"smoke": 0.05
+								},
+								{
+									"type": "ray",
+									"ticks": 30
+								}
+							],
+							"behaviours": [
+								{
+									"type": "homing",
+									"targetType": "self",
+									"maxTurnProportion": 0.2
+								},
+								{
+									"type": "spawn",
+									"projectile": {
+										"density": 0.01,
+										"radius": 0.01,
+										"speed": 0.7,
+										"sensor": true,
+										"maxTicks": 25,
+										"damage": 0,
+										"minTicks": 20,
+										"categories": 1024,
+										"behaviours": [
+											{
+												"type": "homing",
+												"targetType": "self",
+												"maxTurnProportion": 0.2
+											},
+											{
+												"type": "spawn",
+												"trigger": {
+													"collideWith": 1
+												},
+												"projectile": {
+													"density": 25,
+													"radius": 0.003,
+													"speed": 0,
+													"maxTicks": 10,
+													"damage": 0,
+													"detonate": {
+														"buffs": [
+															{
+																"type": "armor",
+																"maxTicks": 180,
+																"stack": "vapo",
+																"maxStacks": 2,
+																"source": "hydro",
+																"proportion": 1
+															},
+															{
+																"type": "mass",
+																"maxTicks": 180,
+																"stack": "pyro",
+																"render": {
+																	"numParticles": 3,
+																	"light": 0.1,
+																	"color": "#f00",
+																	"ticks": 30,
+																	"particleRadius": 0.01
+																},
+																"radius": 0.0125,
+																"sense": 64
+															},
+															{
+																"type": "debuff"
+															},
+															{
+																"type": "armor",
+																"stack": "melt",
+																"maxStacks": 2,
+																"maxTicks": 180,
+																"source": "cryo",
+																"proportion": 0.5
+															}
+														],
+														"radius": 0.07,
+														"minImpulse": 0,
+														"source": "pyro",
+														"maxImpulse": 0,
+														"renderTicks": 30,
+														"damage": 0.5
+													},
+													"color": "#f0f2",
+													"renderers": [],
+													"source": "pyro",
+													"buffs": []
+												}
+											}
+										],
+										"color": "#f0f2",
+										"renderers": [],
+										"source": "electro",
+										"buffs": []
+									}
+								}
+							],
+							"source": "pyro",
+							"buffs": [
+								{
+									"type": "cooldown",
+									"owner": true,
+									"collideWith": 1,
+									"adjustCooldown": -6000,
+									"spellId": "hutaor"
+								},
+								{
+									"type": "burn",
+									"collideWith": 9,
+									"against": 3,
+									"render": {
+										"numParticles": 3,
+										"light": 0.1,
+										"color": "#faa",
+										"ticks": 30,
+										"particleRadius": 0.01
+									},
+									"cleansable": false,
+									"stack": "burn",
+									"hitInterval": 10,
+									"packet": {
+										"damage": 0.25,
+										"noHit": true
+									},
+									"maxTicks": 120
+								},
+								{
+									"type": "mass",
+									"maxTicks": 180,
+									"stack": "pyro",
+									"render": {
+										"numParticles": 3,
+										"light": 0.1,
+										"color": "#f00",
+										"ticks": 30,
+										"particleRadius": 0.01
+									},
+									"radius": 0.0125,
+									"sense": 64
+								},
+								{
+									"type": "armor",
+									"maxTicks": 180,
+									"stack": "vapo",
+									"maxStacks": 2,
+									"source": "hydro",
+									"proportion": 1
+								},
+								{
+									"type": "armor",
+									"stack": "melt",
+									"maxStacks": 2,
+									"maxTicks": 180,
+									"source": "cryo",
+									"proportion": 0.5
+								}
+							]
+						}
+					}
+				],
+				"density": 0.01,
+				"radius": 0.01,
+				"speed": 0.1,
+				"sensor": true,
+				"maxTicks": 25,
+				"expireOn": 63486,
+				"damage": 4,
+				"source": "phys",
+				"categories": 2,
+				"color": "#aaa",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 30,
+						"smoke": 0.05
+					},
+					{
+						"type": "ray",
+						"ticks": 30
+					}
+				],
+				"buffs": []
+			}
+		},
+		"hutaoe": {
+			"id": "hutaoe",
+			"description": "Reduce health to induce Paramita Papilio. This increases damage, and infuses attacks with pyro and applyies Blood Blossom which burns.",
+			"action": "spray",
+			"name": "Guide to Afterlife",
+			"color": "#ff0066",
+			"icon": "fragmentedMeteor",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 900,
+			"movementProportionWhileChannelling": 0.2,
+			"numProjectilesPerTick": 16,
+			"intervalTicks": 1,
+			"buffs": [
+				{
+					"type": "burn",
+					"owner": true,
+					"render": {
+						"numParticles": 3,
+						"light": 0.1,
+						"color": "#faa",
+						"ticks": 30,
+						"particleRadius": 0.01
+					},
+					"cleansable": false,
+					"stack": "burn2",
+					"hitInterval": 1,
+					"packet": {
+						"damage": 30,
+						"minHealth": 1,
+						"noHit": true
+					},
+					"maxTicks": 1
+				},
+				{
+					"type": "movement",
+					"cleansable": false,
+					"owner": true,
+					"render": {
+						"numParticles": 3,
+						"light": 0.1,
+						"color": "#faa",
+						"ticks": 30,
+						"particleRadius": 0.01
+					},
+					"maxTicks": 900,
+					"movementProportion": 1
+				}
+			],
+			"lengthTicks": 1,
+			"jitterRatio": 2,
+			"throttle": true,
+			"projectile": {
+				"density": 0,
+				"radius": 0.008,
+				"maxTicks": 900,
+				"speed": 0.2,
+				"restitution": 0,
+				"damage": 0,
+				"hitInterval": 1,
+				"sensor": true,
+				"categories": 2048,
+				"collideWith": 2,
+				"expireOn": 0,
+				"color": "#ff0066",
+				"renderers": [],
+				"behaviours": [
+					{
+						"type": "spawn",
+						"numProjectiles": 4,
+						"spread": 0.75,
+						"projectile": {
+							"density": 0,
+							"radius": 0.008,
+							"maxTicks": 900,
+							"speed": 0.2,
+							"restitution": 0,
+							"damage": 0,
+							"hitInterval": 1,
+							"sensor": true,
+							"categories": 2048,
+							"collideWith": 2,
+							"expireOn": 0,
+							"color": "#ff0066",
+							"renderers": [],
+							"behaviours": [
+								{
+									"type": "homing",
+									"targetType": "self",
+									"maxTurnProportion": 0.06
+								},
+								{
+									"type": "strafe"
+								}
+							]
+						}
+					},
+					{
+						"type": "homing",
+						"targetType": "self",
+						"maxTurnProportion": 0.06
+					},
+					{
+						"type": "strafe"
+					}
+				]
+			}
+		},
+		"hutaor": {
+			"id": "hutaor",
+			"name": "Spirit Soother",
+			"description": "Heal and summon a spirit that deals massive AoE pyro damage.",
+			"action": "projectile",
+			"color": "#f00",
+			"icon": "boomerangSun",
+			"maxAngleDiffInRevs": 0.01,
+			"cooldown": 48000,
+			"throttle": true,
+			"chargeTicks": 90,
+			"buffs": [
+				{
+					"type": "burn",
+					"owner": true,
+					"stack": "healhutao",
+					"hitInterval": 1,
+					"packet": {
+						"damage": -100,
+						"noHit": true
+					},
+					"maxTicks": 1,
+					"resetOnGameStart": true
+				}
+			],
+			"projectile": {
+				"density": 1,
+				"restitution": 0,
+				"radius": 0.053,
+				"speed": 1,
+				"maxTicks": 40,
+				"damage": 70,
+				"sensor": true,
+				"collideWith": 1,
+				"expireOn": 0,
+				"shieldTakesOwnership": false,
+				"behaviours": [
+					{
+						"type": "homing",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.12,
+						"targetType": "self"
+					},
+					{
+						"type": "strafe"
+					},
+					{
+						"type": "spawn",
+						"projectile": {
+							"density": 25,
+							"radius": 0.053,
+							"speed": 1,
+							"sensor": true,
+							"maxTicks": 40,
+							"damage": 0,
+							"categories": 1024,
+							"behaviours": [
+								{
+									"type": "homing",
+									"revolutionsPerSecond": 1,
+									"maxTurnProportion": 0.12,
+									"targetType": "self"
+								},
+								{
+									"type": "spawn",
+									"trigger": {
+										"collideWith": 1
+									},
+									"projectile": {
+										"density": 25,
+										"radius": 0.003,
+										"speed": 0,
+										"maxTicks": 10,
+										"damage": 0,
+										"detonate": {
+											"buffs": [
+												{
+													"type": "armor",
+													"maxTicks": 180,
+													"stack": "vapo",
+													"maxStacks": 2,
+													"source": "hydro",
+													"proportion": 1
+												},
+												{
+													"type": "mass",
+													"maxTicks": 180,
+													"stack": "pyro",
+													"render": {
+														"numParticles": 3,
+														"light": 0.1,
+														"color": "#f00",
+														"ticks": 30,
+														"particleRadius": 0.01
+													},
+													"radius": 0.0125,
+													"sense": 64
+												},
+												{
+													"type": "debuff"
+												},
+												{
+													"type": "armor",
+													"stack": "melt",
+													"maxStacks": 2,
+													"maxTicks": 180,
+													"source": "cryo",
+													"proportion": 0.5
+												}
+											],
+											"radius": 0.07,
+											"minImpulse": 0,
+											"source": "pyro",
+											"maxImpulse": 0,
+											"renderTicks": 30,
+											"damage": 5
+										},
+										"color": "#f0f2",
+										"renderers": [],
+										"source": "pyro",
+										"buffs": []
+									}
+								}
+							],
+							"color": "#f0f2",
+							"renderers": [],
+							"source": "electro",
+							"buffs": []
+						}
+					}
+				],
+				"buffs": [
+					{
+						"type": "mass",
+						"maxTicks": 180,
+						"stack": "pyro",
+						"render": {
+							"numParticles": 3,
+							"light": 0.1,
+							"color": "#f00",
+							"ticks": 30,
+							"particleRadius": 0.01
+						},
+						"radius": 0.0125,
+						"sense": 64
+					},
+					{
+						"type": "armor",
+						"maxTicks": 180,
+						"stack": "vapo",
+						"maxStacks": 2,
+						"source": "hydro",
+						"proportion": 1
+					},
+					{
+						"type": "armor",
+						"stack": "melt",
+						"maxStacks": 2,
+						"maxTicks": 180,
+						"source": "cryo",
+						"proportion": 0.5
+					}
+				],
+				"color": "#f00",
+				"renderers": [
+					{
+						"type": "projectile",
+						"ticks": 90
+					}
+				]
+			}
 		}
 	},
 	"Layouts": {
