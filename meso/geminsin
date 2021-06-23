@@ -38,7 +38,6 @@
 					"maxTicks": 1,
 					"collideWith": 65535,
 					"spellIds": [
-						"keqingr",
 						"xingqiur"
 					],
 					"minCooldown": 42000
@@ -85,9 +84,10 @@
 					"collideWith": 65535,
 					"spellIds": [
 						"sayur",
+						"keqingr",
 						"fischlr"
 					],
-					"minCooldown": 21000
+					"minCooldown": 27000
 				},
 				{
 					"type": "cooldown",
@@ -1746,10 +1746,14 @@
 			"cooldown": 12000,
 			"throttle": true,
 			"retarget": true,
+			"recoil": -0.5,
 			"movementProportionWhileCharging": 0.5,
 			"projectile": {
 				"selfPassthrough": true,
 				"behaviours": [
+					{
+						"type": "strafe"
+					},
 					{
 						"type": "homing",
 						"targetType": "self",
@@ -1768,6 +1772,9 @@
 							"speed": 0.6,
 							"renderers": [],
 							"behaviours": [
+								{
+									"type": "strafe"
+								},
 								{
 									"type": "homing",
 									"targetType": "self",
@@ -1843,6 +1850,9 @@
 							"selfPassthrough": true,
 							"categories": 64,
 							"behaviours": [
+								{
+									"type": "strafe"
+								},
 								{
 									"type": "homing",
 									"targetType": "self",
@@ -1929,6 +1939,9 @@
 							"renderers": [],
 							"behaviours": [
 								{
+									"type": "strafe"
+								},
+								{
 									"type": "homing",
 									"targetType": "self",
 									"trigger": {
@@ -1982,7 +1995,7 @@
 				"sensor": true,
 				"expireOn": 65534,
 				"maxTicks": 20,
-				"damage": 12,
+				"damage": 10,
 				"source": "electro",
 				"categories": 2,
 				"buffs": [
@@ -2630,7 +2643,7 @@
 			"movementProportionWhileChannelling": 1,
 			"movementProportionWhileCharging": 1,
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 42000,
+			"cooldown": 27000,
 			"buffs": [],
 			"throttle": false,
 			"strikeCancel": {},
