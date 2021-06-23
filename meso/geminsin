@@ -20622,6 +20622,7 @@
 						"expire": true,
 						"projectile": {
 							"density": 0.01,
+							"source": "pyro",
 							"radius": 0.003,
 							"minTicks": 20,
 							"sensor": true,
@@ -20729,7 +20730,6 @@
 									}
 								}
 							],
-							"source": "pyro",
 							"buffs": [
 								{
 									"type": "cooldown",
@@ -20881,6 +20881,7 @@
 							"speed": 0.7,
 							"sensor": true,
 							"maxTicks": 25,
+							"source": "pyro",
 							"damage": 5,
 							"expireOn": 63486,
 							"hitInterval": 10,
@@ -20988,7 +20989,6 @@
 									}
 								}
 							],
-							"source": "pyro",
 							"buffs": [
 								{
 									"type": "cooldown",
@@ -21214,6 +21214,7 @@
 				"speed": 1,
 				"maxTicks": 40,
 				"damage": 70,
+				"source": "pyro",
 				"sensor": true,
 				"collideWith": 1,
 				"expireOn": 0,
