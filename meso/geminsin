@@ -12209,16 +12209,30 @@
 			"cooldown": 1440,
 			"throttle": true,
 			"projectile": {
-				"density": 105,
+				"density": 2,
 				"ccd": false,
 				"sense": 65534,
-				"collideWith": 1,
+				"collideWith": 0,
 				"radius": 0.02,
-				"speed": 0,
+				"speed": 5,
 				"maxTicks": 720,
 				"damage": 0,
 				"expireOn": 0,
 				"behaviours": [
+					{
+						"type": "updateCollideWith",
+						"trigger": {
+							"atCursor": true
+						},
+						"collideWith": 1
+					},
+					{
+						"type": "homing",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0
+					},
 					{
 						"type": "aura",
 						"radius": 0.2,
@@ -12249,9 +12263,19 @@
 					{
 						"type": "spawn",
 						"spread": 0.66,
+						"trigger": {
+							"atCursor": true
+						},
 						"projectile": {
 							"selfPassthrough": true,
 							"behaviours": [
+								{
+									"type": "homing",
+									"trigger": {
+										"atCursor": true
+									},
+									"newSpeed": 0
+								},
 								{
 									"type": "spawn",
 									"projectile": {
@@ -12335,6 +12359,7 @@
 										"radius": 0.2,
 										"density": 0.01,
 										"noKnockBack": true,
+										"sensor": true,
 										"speed": 0,
 										"renderers": [],
 										"maxTicks": 3,
@@ -12432,6 +12457,7 @@
 										"radius": 0.2,
 										"density": 0.01,
 										"noKnockBack": true,
+										"sensor": true,
 										"speed": 0,
 										"renderers": [],
 										"maxTicks": 3,
@@ -12529,6 +12555,7 @@
 										"radius": 0.2,
 										"density": 0.01,
 										"noKnockBack": true,
+										"sensor": true,
 										"speed": 0,
 										"renderers": [],
 										"maxTicks": 3,
@@ -12626,6 +12653,7 @@
 										"radius": 0.2,
 										"density": 0.01,
 										"noKnockBack": true,
+										"sensor": true,
 										"speed": 0,
 										"renderers": [],
 										"maxTicks": 3,
@@ -12752,6 +12780,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -12849,6 +12878,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -12946,6 +12976,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13043,6 +13074,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13201,6 +13233,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13298,6 +13331,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13395,6 +13429,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13492,6 +13527,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13650,6 +13686,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13747,6 +13784,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13844,6 +13882,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -13941,6 +13980,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14099,6 +14139,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14196,6 +14237,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14293,6 +14335,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14390,6 +14433,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14548,6 +14592,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14645,6 +14690,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14742,6 +14788,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14839,6 +14886,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -14997,6 +15045,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -15094,6 +15143,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -15191,6 +15241,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -15286,6 +15337,7 @@
 													"radius": 0.2,
 													"density": 0.01,
 													"noKnockBack": true,
+													"sensor": true,
 													"speed": 0,
 													"renderers": [],
 													"maxTicks": 3,
@@ -15356,7 +15408,7 @@
 							"density": 0.01,
 							"radius": 0.2,
 							"sensor": true,
-							"speed": 0,
+							"speed": 0.2,
 							"maxTicks": 3,
 							"damage": 5,
 							"source": "geo",
@@ -15453,7 +15505,7 @@
 				"ccd": false,
 				"density": 0.0001,
 				"radius": 0.1,
-				"speed": 0,
+				"speed": 5,
 				"maxTicks": 120,
 				"damage": 0,
 				"collideWith": 1,
@@ -15463,6 +15515,13 @@
 				"noKnockback": true,
 				"hitInterval": 121,
 				"behaviours": [
+					{
+						"type": "homing",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0
+					},
 					{
 						"type": "spawn",
 						"projectile": {
@@ -16340,32 +16399,12 @@
 				"color": "#f60",
 				"renderers": [
 					{
-						"type": "bloom",
-						"radius": 0.05,
-						"light": 0.5
-					},
-					{
-						"type": "swirl",
-						"color": "#f604",
-						"radius": 0.1,
-						"ticks": 20,
-						"loopTicks": 13,
-						"numParticles": 2,
-						"particleRadius": 0.01,
-						"light": null,
-						"glow": 0.7,
-						"shine": 0.2,
-						"smoke": 1.3,
-						"fade": "#1440",
-						"vanish": 1
-					},
-					{
 						"type": "reticule",
 						"color": "#aaa",
 						"fade": true,
 						"grow": true,
-						"remainingTicks": 120,
-						"shrinkTicks": 120,
+						"remainingTicks": 50,
+						"shrinkTicks": 50,
 						"radius": 0.1
 					}
 				]
