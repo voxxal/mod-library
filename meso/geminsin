@@ -1679,13 +1679,6 @@
 			"id": "keqingq",
 			"name": "Yunlai Swordsmanship",
 			"description": "Slice your way through the competiton.",
-			"effects": [
-				{
-					"icon": "fas fa-unlink",
-					"title": "Detach",
-					"text": "Lightsaber cuts through any Links or Grapples."
-				}
-			],
 			"untargeted": true,
 			"unlink": true,
 			"delink": true,
@@ -10885,7 +10878,7 @@
 			"color": "#bfc",
 			"icon": "thunderball",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 450,
+			"cooldown": 900,
 			"throttle": true,
 			"movementProportionWhileChannelling": 2,
 			"release": {},
@@ -11773,7 +11766,7 @@
 				"radius": 0.023,
 				"speed": 0.21,
 				"maxTicks": 180,
-				"damage": 1.5,
+				"damage": 0.5,
 				"expireOn": 0,
 				"source": "anemo",
 				"categories": 2,
@@ -11789,9 +11782,18 @@
 				],
 				"buffs": [
 					{
+						"type": "mass",
+						"maxTicks": 180,
+						"owner": true,
+						"channellingProjectile": true,
+						"radius": 0.0125,
+						"restrictCollideWith": 0,
+						"sense": 63
+					},
+					{
 						"type": "cooldown",
 						"owner": true,
-						"adjustCooldown": -450,
+						"adjustCooldown": -900,
 						"spellId": "sayur",
 						"collideWith": 1
 					},
@@ -11857,7 +11859,7 @@
 								"stack": "heal",
 								"hitInterval": 60,
 								"packet": {
-									"damage": -2,
+									"damage": -5,
 									"noHit": true
 								},
 								"maxTicks": 60,
