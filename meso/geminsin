@@ -9265,7 +9265,7 @@
 			"intervalTicks": 40,
 			"chargeTicks": 20,
 			"jitterRatio": 0.24,
-			"lengthTicks": 120,
+			"lengthTicks": 80,
 			"cooldown": 600,
 			"throttle": true,
 			"retarget": true,
