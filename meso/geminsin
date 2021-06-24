@@ -766,9 +766,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -1125,9 +1125,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -4815,9 +4815,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -4952,9 +4952,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -5176,9 +5176,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -5326,9 +5326,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -5390,9 +5390,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -5540,9 +5540,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -5688,9 +5688,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -5873,9 +5873,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -5947,9 +5947,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -6132,9 +6132,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -6206,9 +6206,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -6391,9 +6391,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -6465,9 +6465,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -6650,9 +6650,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -6724,9 +6724,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -6909,9 +6909,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -6983,9 +6983,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -7168,9 +7168,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -7242,9 +7242,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -7427,9 +7427,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -7501,9 +7501,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -7686,9 +7686,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -7760,9 +7760,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -7945,9 +7945,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -8019,9 +8019,9 @@
 														},
 														{
 															"type": "movement",
-															"movementProportion": 0,
+															"movementProportion": 0, "cleansable": false,
 															"maxTicks": 60,
-															"decay": true,
+															"decay": false,
 															"render": {
 																"numParticles": 3,
 																"light": 0.1,
@@ -8204,9 +8204,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -9479,9 +9479,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -9718,9 +9718,9 @@
 								},
 								{
 									"type": "movement",
-									"movementProportion": 0,
+									"movementProportion": 0, "cleansable": false,
 									"maxTicks": 60,
-									"decay": true,
+									"decay": false,
 									"render": {
 										"numParticles": 3,
 										"light": 0.1,
@@ -9919,9 +9919,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -10100,9 +10100,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -10281,9 +10281,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -10462,9 +10462,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -10643,9 +10643,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -10824,9 +10824,9 @@
 											},
 											{
 												"type": "movement",
-												"movementProportion": 0,
+												"movementProportion": 0, "cleansable": false,
 												"maxTicks": 60,
-												"decay": true,
+												"decay": false,
 												"render": {
 													"numParticles": 3,
 													"light": 0.1,
@@ -10961,7 +10961,7 @@
 						"ticks": 60,
 						"emissionRadiusFactor": 0,
 						"particleRadius": 0.0125,
-						"decay": true,
+						"decay": false,
 						"alpha": 0.3,
 						"light": 0.8,
 						"glow": 0.7,
@@ -11416,9 +11416,9 @@
 																},
 																{
 																	"type": "movement",
-																	"movementProportion": 0,
+																	"movementProportion": 0, "cleansable": false,
 																	"maxTicks": 60,
-																	"decay": true,
+																	"decay": false,
 																	"render": {
 																		"numParticles": 3,
 																		"light": 0.1,
@@ -11657,9 +11657,9 @@
 																},
 																{
 																	"type": "movement",
-																	"movementProportion": 0,
+																	"movementProportion": 0, "cleansable": false,
 																	"maxTicks": 60,
-																	"decay": true,
+																	"decay": false,
 																	"render": {
 																		"numParticles": 3,
 																		"light": 0.1,
@@ -11923,9 +11923,9 @@
 																},
 																{
 																	"type": "movement",
-																	"movementProportion": 0,
+																	"movementProportion": 0, "cleansable": false,
 																	"maxTicks": 60,
-																	"decay": true,
+																	"decay": false,
 																	"render": {
 																		"numParticles": 3,
 																		"light": 0.1,
@@ -12436,7 +12436,7 @@
 						"ticks": 1,
 						"bloom": 0.03,
 						"glow": 0.5,
-						"decay": true
+						"decay": false
 					}
 				}
 			],
