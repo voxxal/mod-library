@@ -22869,7 +22869,7 @@
 			"color": "#fa0",
 			"icon": "thunderball",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 180,
+			"cooldown": 90,
 			"throttle": true,
 			"name": "Sparkling Scatter",
 			"projectile": {
@@ -23790,7 +23790,7 @@
 				"radius": 0.006,
 				"speed": 0.6,
 				"maxTicks": 90,
-				"damage": 2.5,
+				"damage": 1.5,
 				"source": "geo",
 				"categories": 2,
 				"color": "#fa0",
@@ -23819,7 +23819,7 @@
 					{
 						"type": "cooldown",
 						"owner": true,
-						"adjustCooldown": -1500,
+						"adjustCooldown": -750,
 						"spellId": "ningguangr",
 						"collideWith": 1
 					},
