@@ -2093,7 +2093,7 @@
 							"sensor": true,
 							"expireOn": 65534,
 							"maxTicks": 20,
-							"damage": 4,
+							"damage": 2.4,
 							"source": "electro",
 							"categories": 2,
 							"buffs": [
@@ -2354,7 +2354,7 @@
 				"sensor": true,
 				"expireOn": 65534,
 				"maxTicks": 20,
-				"damage": 15,
+				"damage": 8,
 				"source": "electro",
 				"categories": 2,
 				"buffs": [
@@ -25673,7 +25673,7 @@
 			"id": "monaw",
 			"description": "Create an area of hydro.",
 			"action": "projectile",
-			"chargeTicks": 30,
+			"chargeTicks": 10,
 			"movementProportionWhileCharging": 0.9,
 			"name": "Ripple of Fate - Charged",
 			"color": "#10f",
@@ -25893,20 +25893,10 @@
 				"color": "#a0f",
 				"renderers": [
 					{
-						"type": "swirl",
-						"color": "#aaf",
-						"radius": 0.04,
-						"ticks": 20,
-						"light": 0.2,
-						"loopTicks": 20,
-						"numParticles": 4,
-						"particleRadius": 0.002
-					},
-					{
 						"type": "reticule",
-						"color": "#10f2",
-						"remainingTicks": 90,
-						"shrinkTicks": 90,
+						"color": "#10fa",
+						"remainingTicks": 20,
+						"shrinkTicks": 20,
 						"radius": 0.05
 					}
 				]
@@ -26546,7 +26536,7 @@
 						"against": 12,
 						"radius": 0.09,
 						"accelerationPerTick": 0,
-						"clampSpeed": 0.08
+						"clampSpeed": 0.2
 					},
 					{
 						"type": "spawn",
