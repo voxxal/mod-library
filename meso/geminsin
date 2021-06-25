@@ -9861,7 +9861,6 @@
 			"name": "Guhua Sword: Raincutter",
 			"description": "Orbit 3 Rain Swords and initiate Rainbow Bladework, passively firing Hydro projectiles.",
 			"action": "spray",
-			"sound": "triplet",
 			"color": "#88f",
 			"icon": "tripleScratches",
 			"cooldown": 42000,
