@@ -22764,6 +22764,7 @@
 							"radius": 0.012,
 							"expireOn": 0,
 							"speed": 1.5,
+							"collideWith": 1,
 							"maxTicks": 600,
 							"sensor": true,
 							"damage": 3,
