@@ -21635,7 +21635,6 @@
 			"name": "Favonius Bladework - Charged",
 			"description": "Launch and stun with a swift sword slash.",
 			"action": "spray",
-			"sound": "triplet",
 			"color": "#aaa",
 			"icon": "tripleScratches",
 			"maxAngleDiffInRevs": 0,
