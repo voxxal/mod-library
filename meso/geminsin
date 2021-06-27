@@ -19073,13 +19073,13 @@
 				"speed": 0.6,
 				"maxTicks": 90,
 				"damage": 8,
-				"expireOn": 2051,
+				"expireOn": 8195,
 				"categories": 2,
 				"behaviours": [
 					{
 						"type": "spawn",
 						"trigger": {
-							"collideWith": 2048
+							"collideWith": 8192
 						},
 						"projectile": {
 							"density": 0.01,
@@ -19561,7 +19561,7 @@
 				"selfPassthrough": true,
 				"damage": 0,
 				"expireOn": 0,
-				"categories": 2050,
+				"categories": 8194,
 				"behaviours": [
 					{
 						"type": "homing",
@@ -21193,7 +21193,7 @@
 						"selfPassthrough": true,
 						"damage": 0,
 						"expireOn": 0,
-						"categories": 2050,
+						"categories": 8195,
 						"behaviours": [
 							{
 								"type": "spawn",
