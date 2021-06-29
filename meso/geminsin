@@ -308,6 +308,53 @@
 					"sense": 1024
 				}
 			]
+		},
+		"electroround": {
+			"health": 5000000000000,
+			"collideWith": 9,
+			"circularHitbox": true,
+			"sensor": true,
+			"static": true,
+			"undamageable": true,
+			"strike": {
+				"ticks": 15
+			},
+			"hitInterval": 15,
+			"render": [
+				{
+					"type": "solid",
+					"color": "#fafe",
+					"deadColor": "#faf4",
+					"glow": 0.2
+				},
+				{
+					"type": "smoke",
+					"color": "#f9f",
+					"particleRadius": 0.005,
+					"fade": "#0000",
+					"bloom": 0.01,
+					"glow": 0.05,
+					"ticks": 30,
+					"interval": 8,
+					"speed": 0.1
+				}
+			],
+			"buffs": [
+				{
+					"type": "mass",
+					"maxTicks": 15,
+					"stack": "electro",
+					"render": {
+						"numParticles": 3,
+						"light": 0.1,
+						"color": "#f0f",
+						"ticks": 30,
+						"particleRadius": 0.01
+					},
+					"radius": 0.0125,
+					"sense": 1024
+				}
+			]
 		}
 	},
 	"Choices": {
@@ -31585,6 +31632,14 @@
 					"orientationAngleOffsetInRevs": 0
 				},
 				{
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"type": "cryo",
+					"numPoints": 8,
+					"extent": 0.117,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
 					"numObstacles": 8,
 					"layoutRadius": 0.3,
 					"type": "electro",
@@ -31595,9 +31650,18 @@
 				},
 				{
 					"numObstacles": 8,
+					"layoutRadius": 0.2,
+					"type": "electro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.105,
+					"numPoints": 4
+				},
+				{
+					"numObstacles": 8,
 					"layoutRadius": 0.27,
 					"type": "electro",
-					"layoutAngleOffsetInRevs": 0.16,
+					"layoutAngleOffsetInRevs": 0.162,
 					"extent": 0.007,
 					"angularWidthInRevs": 0.107,
 					"numPoints": 4,
@@ -31623,38 +31687,64 @@
 					"numObstacles": 3,
 					"layoutRadius": 0.12,
 					"type": "pyro",
-					"layoutAngleOffsetInRevs": 0,
+					"layoutAngleOffsetInRevs": 0.1,
 					"extent": 0.007,
-					"angularWidthInRevs": 0.45,
-					"orientationAngleOffsetInRevs": 0.194
-				},
-				{
-					"numObstacles": 3,
-					"layoutRadius": 0.28,
-					"type": "pyro",
-					"numPoints": 4,
-					"layoutAngleOffsetInRevs": 0.24,
-					"extent": 0.007,
-					"angularWidthInRevs": 0.04,
+					"angularWidthInRevs": 0.2,
 					"orientationAngleOffsetInRevs": 0.25
 				},
 				{
 					"numObstacles": 3,
-					"layoutRadius": 0.31,
-					"type": "hydro",
+					"layoutRadius": 0.12,
+					"type": "pyro",
 					"layoutAngleOffsetInRevs": 0,
 					"extent": 0.007,
-					"angularWidthInRevs": 0.35,
-					"orientationAngleOffsetInRevs": 0
+					"angularWidthInRevs": 0.2,
+					"orientationAngleOffsetInRevs": 0.75
 				},
 				{
-					"numObstacles": 10,
-					"layoutRadius": 0.24,
-					"type": "hydro",
-					"layoutAngleOffsetInRevs": 0.225,
+					"numObstacles": 3,
+					"layoutRadius": 0.12,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0.266666666,
 					"extent": 0.007,
-					"angularWidthInRevs": 0.1,
-					"orientationAngleOffsetInRevs": 0
+					"angularWidthInRevs": 0.2,
+					"orientationAngleOffsetInRevs": 0.25
+				},
+				{
+					"numObstacles": 3,
+					"layoutRadius": 0.12,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0.166666666,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.2,
+					"orientationAngleOffsetInRevs": 0.75
+				},
+				{
+					"numObstacles": 12,
+					"layoutRadius": 0.2,
+					"type": "hydro",
+					"layoutAngleOffsetInRevs": 0.3,
+					"extent": 0.02,
+					"numPoints": 4,
+					"orientationAngleOffsetInRevs": 0.75
+				},
+				{
+					"numObstacles": 12,
+					"layoutRadius": 0.25,
+					"type": "hydro",
+					"layoutAngleOffsetInRevs": 0.4,
+					"extent": 0.02,
+					"numPoints": 4,
+					"orientationAngleOffsetInRevs": 0.75
+				},
+				{
+					"numObstacles": 12,
+					"layoutRadius": 0.28,
+					"type": "hydro",
+					"layoutAngleOffsetInRevs": 0.6,
+					"extent": 0.02,
+					"numPoints": 4,
+					"orientationAngleOffsetInRevs": 0.75
 				}
 			]
 		},
@@ -31680,6 +31770,15 @@
 					"extent": 0.007,
 					"numPoints": 4,
 					"angularWidthInRevs": 0.166667,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 12,
+					"layoutRadius": 0.23,
+					"type": "cryo",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.012,
+					"numPoints": 4,
 					"orientationAngleOffsetInRevs": 0
 				},
 				{
@@ -31718,33 +31817,40 @@
 					"orientationAngleOffsetInRevs": 0
 				},
 				{
-					"numObstacles": 8,
+					"numObstacles": 10,
+					"layoutRadius": 0.33,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.1
+				},
+				{
+					"numObstacles": 10,
+					"layoutRadius": 0.28,
+					"type": "cryo",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.1
+				},
+				{
+					"numObstacles": 16,
 					"layoutRadius": 0.18,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0.225,
+					"extent": 0.007,
+					"numPoints": 4,
+					"angularWidthInRevs": 0.14,
+					"orientationAngleOffsetInRevs": 0.45
+				},
+				{
+					"numObstacles": 16,
+					"layoutRadius": 0.23,
 					"type": "cryo",
 					"layoutAngleOffsetInRevs": 0.225,
 					"extent": 0.007,
 					"numPoints": 4,
 					"angularWidthInRevs": 0.14,
-					"orientationAngleOffsetInRevs": 0.25
-				},
-				{
-					"numObstacles": 1,
-					"layoutRadius": 0,
-					"type": "pyro",
-					"layoutAngleOffsetInRevs": 0.225,
-					"extent": 0.1,
-					"numPoints": 8,
-					"orientationAngleOffsetInRevs": 0
-				},
-				{
-					"numObstacles": 8,
-					"layoutRadius": 0.27,
-					"type": "pyro",
-					"layoutAngleOffsetInRevs": 0.225,
-					"extent": 0.007,
-					"numPoints": 4,
-					"angularWidthInRevs": 0.125,
-					"orientationAngleOffsetInRevs": 0
+					"orientationAngleOffsetInRevs": 0.55
 				}
 			]
 		},
@@ -31772,6 +31878,38 @@
 					"orientationAngleOffsetInRevs": 0.6
 				},
 				{
+					"numObstacles": 6,
+					"pattern": [
+						0,
+						1
+					],
+					"layoutRadius": 0.15,
+					"type": "electro",
+					"layoutAngleOffsetInRevs": 0.175,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.166666
+				},
+				{
+					"numObstacles": 6,
+					"pattern": [
+						1,
+						0
+					],
+					"layoutRadius": 0.15,
+					"type": "pyro",
+					"layoutAngleOffsetInRevs": 0.175,
+					"extent": 0.007,
+					"angularWidthInRevs": 0.166666
+				},
+				{
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"type": "electro",
+					"numPoints": 6,
+					"layoutAngleOffsetInRevs": 0.3,
+					"extent": 0.1
+				},
+				{
 					"numObstacles": 3,
 					"layoutRadius": 0.2,
 					"type": "pyro",
@@ -31797,7 +31935,7 @@
 					"orientationAngleOffsetInRevs": 0
 				},
 				{
-					"numObstacles": 12,
+					"numObstacles": 24,
 					"layoutRadius": 0.17,
 					"type": "electro",
 					"layoutAngleOffsetInRevs": 0,
@@ -31806,12 +31944,21 @@
 					"orientationAngleOffsetInRevs": 0
 				},
 				{
-					"numObstacles": 12,
+					"numObstacles": 1,
+					"layoutRadius": 0,
+					"type": "electroround",
+					"layoutAngleOffsetInRevs": 0,
+					"extent": 0.14,
+					"numPoints": 24,
+					"orientationAngleOffsetInRevs": 0
+				},
+				{
+					"numObstacles": 20,
 					"layoutRadius": 0.27,
 					"type": "hydro",
 					"layoutAngleOffsetInRevs": 0.125,
-					"extent": 0.017,
-					"numPoints": 3,
+					"extent": 0.05,
+					"numPoints": 4,
 					"orientationAngleOffsetInRevs": 0.5
 				}
 			]
