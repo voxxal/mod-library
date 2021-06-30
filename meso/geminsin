@@ -3362,6 +3362,7 @@
 										"against": 1,
 										"cooldownRateModifier": 99,
 										"maxTicks": 800,
+										"cleansable": false,
 										"render": {
 											"numParticles": 3,
 											"light": 0.1,
