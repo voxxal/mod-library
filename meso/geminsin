@@ -2883,7 +2883,7 @@
 				"speed": 0.8,
 				"maxTicks": 300,
 				"damage": 2,
-				"expireAfterCursorTicks": 60,
+				"expireAfterCursorTicks": 30,
 				"categories": 2,
 				"collideWith": 29,
 				"expireOn": 4096,
