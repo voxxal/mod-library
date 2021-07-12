@@ -1868,7 +1868,7 @@
 			"expireAfterHitHeroTicks": 15,
 			"cooldown": 240,
 			"throttle": false,
-			"maxTicks": 20,
+			"maxTicks": 60,
 			"channelling": true,
 			"categories": 16,
 			"collidesWith": 3,
