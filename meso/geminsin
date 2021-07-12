@@ -33526,12 +33526,12 @@
 					"numProjectiles": 5,
 					"spread": 0.2,
 					"projectile": {
-						"density": 0.3,
+						"density": 0.04,
 						"radius": 0.009,
 						"speed": 0.6,
 						"maxTicks": 10,
 						"selfPassthrough": true,
-						"damage": 1,
+						"damage": 3,
 						"categories": 2,
 						"behaviours": [
 							{
