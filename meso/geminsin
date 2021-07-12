@@ -26095,8 +26095,8 @@
 						"collideLike": 1,
 						"categories": 1,
 						"against": 12,
-						"radius": 0.09,
-						"accelerationPerTick": 0.05,
+						"radius": 0.04,
+						"accelerationPerTick": 0.01,
 						"clampSpeed": 0.4
 					},
 					{
