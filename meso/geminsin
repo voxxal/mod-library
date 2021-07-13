@@ -32406,6 +32406,9 @@
 					{
 						"above": "below",
 						"type": "spawn",
+						"trigger": {
+							"collideWith": 1
+						},
 						"projectile": {
 							"density": 25,
 							"radius": 0.01,
