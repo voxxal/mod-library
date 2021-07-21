@@ -26022,7 +26022,7 @@
 								},
 								"against": 12,
 								"radius": 0.09,
-								"accelerationPerTick": 0.1,
+								"accelerationPerTick": 0.01,
 								"clampSpeed": 0.4
 							}
 						],
@@ -26101,8 +26101,8 @@
 						"collideLike": 1,
 						"categories": 1,
 						"against": 12,
-						"radius": 0.04,
-						"accelerationPerTick": 0.01,
+						"radius": 0.08,
+						"accelerationPerTick": 0.05,
 						"clampSpeed": 0.4
 					},
 					{
