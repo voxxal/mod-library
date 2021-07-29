@@ -12977,6 +12977,7 @@
 					"numProjectiles": 5,
 					"spread": 0.54,
 					"projectile": {
+						"sensor": true,
 						"selfPassthrough": true,
 						"buffs": [
 							{
@@ -33290,19 +33291,19 @@
 		},
 		"beidouw": {
 			"id": "beidouw",
-			"description": "Spin around and attack radially.",
+			"description": "Strike frequently.",
 			"action": "spray",
 			"color": "#aaa",
 			"name": "Oceanborne - Charged",
 			"icon": "beidou",
-			"chargeTicks": 50,
+			"chargeTicks": 10,
 			"maxAngleDiffInRevs": 0.01,
 			"movementProportionWhileChannelling": 0.42,
-			"numProjectilesPerTick": 4,
-			"intervalTicks": 1,
+			"numProjectilesPerTick": 1,
+			"intervalTicks": 31,
 			"jitterRatio": 2,
-			"lengthTicks": 1,
-			"cooldown": 360,
+			"lengthTicks": 180,
+			"cooldown": 900,
 			"throttle": true,
 			"retarget": true,
 			"movementProportionWhileCharging": 1.15,
@@ -33344,7 +33345,7 @@
 											{
 												"type": "spawn",
 												"projectile": {
-													"damage": 2,
+													"damage": 4,
 													"radius": 0.01,
 													"density": 0.01,
 													"noKnockBack": true,
@@ -33409,7 +33410,7 @@
 											{
 												"type": "spawn",
 												"projectile": {
-													"damage": 2,
+													"damage": 4,
 													"radius": 0.01,
 													"density": 0.01,
 													"noKnockBack": true,
@@ -33457,7 +33458,7 @@
 										"sensor": true,
 										"expireOn": 65534,
 										"maxTicks": 70,
-										"damage": 2,
+										"damage": 4,
 										"source": "cryo",
 										"categories": 2,
 										"color": "#2ff",
@@ -33512,7 +33513,7 @@
 							"sensor": true,
 							"expireOn": 65534,
 							"maxTicks": 70,
-							"damage": 2,
+							"damage": 4,
 							"source": "phys",
 							"categories": 2,
 							"color": "#aaa",
@@ -33550,7 +33551,7 @@
 								{
 									"type": "spawn",
 									"projectile": {
-										"damage": 2,
+										"damage": 4,
 										"radius": 0.01,
 										"density": 0.01,
 										"noKnockBack": true,
@@ -33615,7 +33616,7 @@
 								{
 									"type": "spawn",
 									"projectile": {
-										"damage": 2,
+										"damage": 4,
 										"radius": 0.01,
 										"density": 0.01,
 										"noKnockBack": true,
@@ -33663,7 +33664,7 @@
 							"sensor": true,
 							"expireOn": 65534,
 							"maxTicks": 80,
-							"damage": 2,
+							"damage": 4,
 							"source": "cryo",
 							"categories": 2,
 							"color": "#2ff",
@@ -33718,7 +33719,7 @@
 				"sensor": true,
 				"expireOn": 65534,
 				"maxTicks": 80,
-				"damage": 2,
+				"damage": 4,
 				"source": "phys",
 				"categories": 2,
 				"color": "#aaa",
@@ -33764,8 +33765,10 @@
 					"projectile": {
 						"density": 0.04,
 						"radius": 0.009,
+						"sensor": true,
 						"speed": 0.6,
 						"maxTicks": 10,
+						"expireOn": 0,
 						"selfPassthrough": true,
 						"damage": 3,
 						"categories": 2,
@@ -33897,7 +33900,7 @@
 													"source": "pyro",
 													"maxImpulse": 0,
 													"renderTicks": 30,
-													"damage": 1.5
+													"damage": 0.5
 												},
 												"color": "#f0f2",
 												"renderers": [],
@@ -35089,7 +35092,7 @@
 								{
 									"type": "cooldown",
 									"owner": true,
-									"adjustCooldown": -900,
+									"adjustCooldown": -1800,
 									"spellId": "rosariar",
 									"collideWith": 1
 								},
