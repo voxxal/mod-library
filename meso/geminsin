@@ -24393,7 +24393,7 @@
 		},
 		"jeanq": {
 			"id": "jeanq",
-			"description": "Strike rapidly with a sword.",
+			"description": "Strike rapidly with a sword. Each hit heals your team.",
 			"action": "spray",
 			"color": "#aaa",
 			"name": "Favonius Bladework",
@@ -24403,15 +24403,51 @@
 			"recoil": -0.2,
 			"movementProportionWhileChannelling": 1,
 			"numProjectilesPerTick": 1,
-			"intervalTicks": 10,
+			"intervalTicks": 15,
 			"jitterRatio": 0.2,
-			"lengthTicks": 21,
-			"cooldown": 180,
+			"lengthTicks": 16,
+			"cooldown": 360,
 			"retarget": true,
 			"movementProportionWhileCharging": 0.5,
 			"projectile": {
 				"selfPassthrough": true,
 				"behaviours": [
+					{
+						"type": "aura",
+						"trigger": {
+							"collideWith": 1
+						},
+						"radius": 1,
+						"tickInterval": 1,
+						"against": 3,
+						"buffs": [
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"maxStacks": 1,
+								"against": 3,
+								"stack": "heal",
+								"hitInterval": 10,
+								"packet": {
+									"damage": -1,
+									"noHit": true
+								},
+								"maxTicks": 10,
+								"render": {
+									"color": "#0cba",
+									"alpha": 0.01,
+									"light": 1,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 1,
+									"bloom": 0.03,
+									"vanish": 1
+								}
+							}
+						]
+					},
 					{
 						"type": "homing",
 						"targetType": "self",
@@ -24428,6 +24464,42 @@
 						"projectile": {
 							"selfPassthrough": true,
 							"behaviours": [
+								{
+									"type": "aura",
+									"trigger": {
+										"collideWith": 1
+									},
+									"radius": 1,
+									"tickInterval": 1,
+									"against": 3,
+									"buffs": [
+										{
+											"type": "burn",
+											"collideWith": 9,
+											"maxStacks": 1,
+											"against": 3,
+											"stack": "heal",
+											"hitInterval": 10,
+											"packet": {
+												"damage": -1,
+												"noHit": true
+											},
+											"maxTicks": 10,
+											"render": {
+												"color": "#0cba",
+												"alpha": 0.01,
+												"light": 1,
+												"ticks": 15,
+												"emissionRadiusFactor": 1,
+												"particleRadius": 0.00625,
+												"shine": 0.2,
+												"glow": 1,
+												"bloom": 0.03,
+												"vanish": 1
+											}
+										}
+									]
+								},
 								{
 									"type": "homing",
 									"redirect": true,
@@ -24451,6 +24523,42 @@
 										"selfPassthrough": true,
 										"behaviours": [
 											{
+												"type": "aura",
+												"trigger": {
+													"collideWith": 1
+												},
+												"radius": 1,
+												"tickInterval": 1,
+												"against": 3,
+												"buffs": [
+													{
+														"type": "burn",
+														"collideWith": 9,
+														"maxStacks": 1,
+														"against": 3,
+														"stack": "heal",
+														"hitInterval": 10,
+														"packet": {
+															"damage": -1,
+															"noHit": true
+														},
+														"maxTicks": 10,
+														"render": {
+															"color": "#0cba",
+															"alpha": 0.01,
+															"light": 1,
+															"ticks": 15,
+															"emissionRadiusFactor": 1,
+															"particleRadius": 0.00625,
+															"shine": 0.2,
+															"glow": 1,
+															"bloom": 0.03,
+															"vanish": 1
+														}
+													}
+												]
+											},
+											{
 												"type": "homing",
 												"redirect": true,
 												"targetType": "cursor"
@@ -24467,7 +24575,7 @@
 												"type": "spawn",
 												"projectile": {
 													"damage": 0,
-													"radius": 0.003,
+													"radius": 0.009,
 													"density": 0.01,
 													"noKnockBack": true,
 													"speed": 0.5,
@@ -24540,7 +24648,7 @@
 												"type": "spawn",
 												"projectile": {
 													"damage": 0,
-													"radius": 0.003,
+													"radius": 0.009,
 													"density": 0.01,
 													"noKnockBack": true,
 													"speed": 0.5,
@@ -24590,7 +24698,7 @@
 											}
 										],
 										"density": 0.01,
-										"radius": 0.003,
+										"radius": 0.009,
 										"speed": 0.5,
 										"sensor": true,
 										"expireOn": 65534,
@@ -24645,7 +24753,7 @@
 								}
 							],
 							"density": 0.01,
-							"radius": 0.003,
+							"radius": 0.009,
 							"speed": 0.5,
 							"sensor": true,
 							"expireOn": 65534,
@@ -24678,6 +24786,42 @@
 							"selfPassthrough": true,
 							"behaviours": [
 								{
+									"type": "aura",
+									"trigger": {
+										"collideWith": 1
+									},
+									"radius": 1,
+									"tickInterval": 1,
+									"against": 3,
+									"buffs": [
+										{
+											"type": "burn",
+											"collideWith": 9,
+											"maxStacks": 1,
+											"against": 3,
+											"stack": "heal",
+											"hitInterval": 10,
+											"packet": {
+												"damage": -1,
+												"noHit": true
+											},
+											"maxTicks": 10,
+											"render": {
+												"color": "#0cba",
+												"alpha": 0.01,
+												"light": 1,
+												"ticks": 15,
+												"emissionRadiusFactor": 1,
+												"particleRadius": 0.00625,
+												"shine": 0.2,
+												"glow": 1,
+												"bloom": 0.03,
+												"vanish": 1
+											}
+										}
+									]
+								},
+								{
 									"type": "homing",
 									"targetType": "self",
 									"trigger": {
@@ -24689,7 +24833,7 @@
 									"type": "spawn",
 									"projectile": {
 										"damage": 0,
-										"radius": 0.003,
+										"radius": 0.009,
 										"density": 0.01,
 										"noKnockBack": true,
 										"speed": 0.9,
@@ -24802,7 +24946,7 @@
 								}
 							],
 							"density": 0.01,
-							"radius": 0.003,
+							"radius": 0.009,
 							"speed": 0.9,
 							"sensor": true,
 							"expireOn": 65534,
@@ -24857,7 +25001,7 @@
 					}
 				],
 				"density": 0.01,
-				"radius": 0.003,
+				"radius": 0.009,
 				"speed": 0.9,
 				"sensor": true,
 				"expireOn": 65534,
@@ -24883,13 +25027,13 @@
 		"jeanw": {
 			"id": "jeanw",
 			"name": "Favonius Bladework - Charged",
-			"description": "Launch and stun with a swift sword slash.",
+			"description": "Launch and stun with a swift sword thrust, restoring health.",
 			"action": "spray",
 			"color": "#aaa",
 			"icon": "jean",
 			"maxAngleDiffInRevs": 0,
 			"cooldown": 360,
-			"chargeTicks": 30,
+			"chargeTicks": 10,
 			"throttle": true,
 			"movementProportionWhileChannelling": 1,
 			"movementProportionWhileCharging": 1,
@@ -24898,11 +25042,11 @@
 			"lengthTicks": 1,
 			"jitterRatio": 0.02,
 			"projectile": {
-				"density": 0.4,
+				"density": 0.1,
 				"radius": 0.005,
 				"speed": 1.5,
 				"maxTicks": 4,
-				"damage": 3,
+				"damage": 6,
 				"buffs": [
 					{
 						"type": "cooldown",
@@ -24914,6 +25058,7 @@
 						"stack": "jeanslow",
 						"movementProportion": 0.4,
 						"maxTicks": 120,
+						"maxStacks": 1,
 						"cleansable": false,
 						"against": 12,
 						"render": {
@@ -24929,9 +25074,10 @@
 						"stack": "jeanslow",
 						"movementProportion": 0,
 						"maxTicks": 120,
+						"maxStacks": 1,
 						"cleansable": false,
 						"against": 12,
-						"linearDampingMultiplier": 0.5
+						"linearDampingMultiplier": 0.85
 					}
 				],
 				"categories": 2,
@@ -24958,6 +25104,42 @@
 				],
 				"behaviours": [
 					{
+						"type": "aura",
+						"trigger": {
+							"collideWith": 1
+						},
+						"radius": 1,
+						"tickInterval": 1,
+						"against": 3,
+						"buffs": [
+							{
+								"type": "burn",
+								"collideWith": 9,
+								"maxStacks": 1,
+								"against": 3,
+								"stack": "heal",
+								"hitInterval": 10,
+								"packet": {
+									"damage": -5,
+									"noHit": true
+								},
+								"maxTicks": 10,
+								"render": {
+									"color": "#0cba",
+									"alpha": 0.01,
+									"light": 1,
+									"ticks": 15,
+									"emissionRadiusFactor": 1,
+									"particleRadius": 0.00625,
+									"shine": 0.2,
+									"glow": 1,
+									"bloom": 0.03,
+									"vanish": 1
+								}
+							}
+						]
+					},
+					{
 						"type": "spawn",
 						"trigger": {
 							"collideWith": 4096
@@ -24966,6 +25148,42 @@
 						"projectile": {
 							"selfPassthrough": true,
 							"behaviours": [
+								{
+									"type": "aura",
+									"trigger": {
+										"collideWith": 1
+									},
+									"radius": 1,
+									"tickInterval": 1,
+									"against": 3,
+									"buffs": [
+										{
+											"type": "burn",
+											"collideWith": 9,
+											"maxStacks": 1,
+											"against": 3,
+											"stack": "heal",
+											"hitInterval": 10,
+											"packet": {
+												"damage": -1,
+												"noHit": true
+											},
+											"maxTicks": 10,
+											"render": {
+												"color": "#0cba",
+												"alpha": 0.01,
+												"light": 1,
+												"ticks": 15,
+												"emissionRadiusFactor": 1,
+												"particleRadius": 0.00625,
+												"shine": 0.2,
+												"glow": 1,
+												"bloom": 0.03,
+												"vanish": 1
+											}
+										}
+									]
+								},
 								{
 									"type": "spawn",
 									"projectile": {
@@ -25070,12 +25288,12 @@
 									}
 								}
 							],
-							"density": 0.4,
+							"density": 0.1,
 							"radius": 0.005,
 							"speed": 1.5,
 							"expireOn": 65534,
 							"maxTicks": 4,
-							"damage": 3,
+							"damage": 6,
 							"source": "cryo",
 							"categories": 2,
 							"color": "#2ff",
@@ -25116,6 +25334,7 @@
 									"stack": "jeanslow",
 									"movementProportion": 0.4,
 									"maxTicks": 120,
+									"maxStacks": 1,
 									"cleansable": false,
 									"against": 12,
 									"render": {
@@ -25131,9 +25350,10 @@
 									"stack": "jeanslow",
 									"movementProportion": 0,
 									"maxTicks": 120,
+									"maxStacks": 1,
 									"cleansable": false,
 									"against": 12,
-									"linearDampingMultiplier": 0.5
+									"linearDampingMultiplier": 0.85
 								},
 								{
 									"type": "mass",
@@ -25172,7 +25392,7 @@
 			"color": "#bfc",
 			"icon": "jean",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 600,
+			"cooldown": 720,
 			"chargeTicks": 20,
 			"focusDelaysCooldown": false,
 			"throttle": true,
@@ -25190,6 +25410,7 @@
 					"numProjectiles": 3,
 					"spread": 0.05,
 					"projectile": {
+						"sensor": true,
 						"selfPassthrough": true,
 						"buffs": [
 							{
@@ -25214,7 +25435,7 @@
 											"numProjectiles": 10,
 											"spread": 0.9,
 											"projectile": {
-												"damage": 0.6,
+												"damage": 0.2,
 												"source": "pyro",
 												"radius": 0.006,
 												"density": 0.01,
@@ -25376,7 +25597,7 @@
 											"numProjectiles": 10,
 											"spread": 0.9,
 											"projectile": {
-												"damage": 0.6,
+												"damage": 0.2,
 												"source": "cryo",
 												"radius": 0.006,
 												"density": 0.01,
@@ -25559,7 +25780,7 @@
 											"numProjectiles": 10,
 											"spread": 0.9,
 											"projectile": {
-												"damage": 0.6,
+												"damage": 0.2,
 												"source": "electro",
 												"radius": 0.006,
 												"density": 0.01,
@@ -26028,7 +26249,7 @@
 								},
 								"against": 12,
 								"radius": 0.09,
-								"accelerationPerTick": 0.01,
+								"accelerationPerTick": 0.13,
 								"clampSpeed": 0.4
 							}
 						],
@@ -26037,7 +26258,7 @@
 						"speed": 0.44,
 						"maxTicks": 10,
 						"minTicks": 10,
-						"damage": 7,
+						"damage": 4,
 						"source": "anemo",
 						"categories": 2,
 						"color": "#bfc",
@@ -26148,7 +26369,7 @@
 		},
 		"jeanr": {
 			"id": "jeanr",
-			"description": "Launch all nearby opponents and create dandelion field that deals damage when passing through and heals.",
+			"description": "Launch all nearby opponents and create dandelion field that deals damage near the edge and heals.",
 			"action": "projectile",
 			"name": "Dandelion Breeze",
 			"color": "#acb",
@@ -37051,11 +37272,11 @@
 			"color": "#bfc",
 			"icon": "sucrose",
 			"maxAngleDiffInRevs": 0.01,
-			"cooldown": 600,
+			"cooldown": 300,
 			"chargeTicks": 2,
 			"jitterRatio": 0.04,
-			"intervalTicks": 40,
-			"lengthTicks": 160,
+			"intervalTicks": 20,
+			"lengthTicks": 80,
 			"focusDelaysCooldown": false,
 			"throttle": true,
 			"interruptibleAfterTicks": 0,
@@ -38847,7 +39068,7 @@
 									"categories": 1,
 									"against": 12,
 									"radius": 0.11,
-									"accelerationPerTick": 0.02,
+									"accelerationPerTick": 0.2,
 									"clampSpeed": 232
 								},
 								{
