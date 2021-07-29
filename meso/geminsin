@@ -110,20 +110,9 @@
 			"render": [
 				{
 					"type": "solid",
-					"color": "#faae",
+					"color": "#faa4",
 					"deadColor": "#faa4",
 					"glow": 0.2
-				},
-				{
-					"type": "smoke",
-					"color": "#f99",
-					"particleRadius": 0.005,
-					"fade": "#0000",
-					"bloom": 0.01,
-					"glow": 0.05,
-					"ticks": 30,
-					"interval": 8,
-					"speed": 0.1
 				}
 			],
 			"buffs": [
@@ -172,20 +161,9 @@
 			"render": [
 				{
 					"type": "solid",
-					"color": "#affe",
+					"color": "#aff4",
 					"deadColor": "#aff4",
 					"glow": 0.2
-				},
-				{
-					"type": "smoke",
-					"color": "#9ff",
-					"particleRadius": 0.005,
-					"fade": "#0000",
-					"bloom": 0.01,
-					"glow": 0.05,
-					"ticks": 30,
-					"interval": 8,
-					"speed": 0.1
 				}
 			],
 			"buffs": [
@@ -226,20 +204,9 @@
 			"render": [
 				{
 					"type": "solid",
-					"color": "#aafe",
+					"color": "#aaf4",
 					"deadColor": "#aaf4",
 					"glow": 0.2
-				},
-				{
-					"type": "smoke",
-					"color": "#99f",
-					"particleRadius": 0.005,
-					"fade": "#0000",
-					"bloom": 0.01,
-					"glow": 0.05,
-					"ticks": 30,
-					"interval": 8,
-					"speed": 0.1
 				}
 			],
 			"buffs": [
@@ -280,20 +247,9 @@
 			"render": [
 				{
 					"type": "solid",
-					"color": "#fafe",
+					"color": "#faf4",
 					"deadColor": "#faf4",
 					"glow": 0.2
-				},
-				{
-					"type": "smoke",
-					"color": "#f9f",
-					"particleRadius": 0.005,
-					"fade": "#0000",
-					"bloom": 0.01,
-					"glow": 0.05,
-					"ticks": 30,
-					"interval": 8,
-					"speed": 0.1
 				}
 			],
 			"buffs": [
@@ -327,20 +283,9 @@
 			"render": [
 				{
 					"type": "solid",
-					"color": "#fafe",
+					"color": "#faf4",
 					"deadColor": "#faf4",
 					"glow": 0.2
-				},
-				{
-					"type": "smoke",
-					"color": "#f9f",
-					"particleRadius": 0.005,
-					"fade": "#0000",
-					"bloom": 0.01,
-					"glow": 0.05,
-					"ticks": 30,
-					"interval": 8,
-					"speed": 0.1
 				}
 			],
 			"buffs": [
@@ -5940,7 +5885,7 @@
 			"color": "#0ff",
 			"name": "Trail of the Qilin",
 			"recoil": 4,
-			"icon": "thunderball",
+			"icon": "ganyu",
 			"buffs": [
 				{
 					"type": "mass",
